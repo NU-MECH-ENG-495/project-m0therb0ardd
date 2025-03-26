@@ -1,0 +1,4 @@
+/home/catherine-maglione/C++/my-led-evolution-with-library/build/CMakeFiles/PROJECT_SOURCES.dir
+/home/catherine-maglione/C++/my-led-evolution-with-library/build/CMakeFiles/main_exec.dir
+/home/catherine-maglione/C++/my-led-evolution-with-library/build/CMakeFiles/edit_cache.dir
+/home/catherine-maglione/C++/my-led-evolution-with-library/build/CMakeFiles/rebuild_cache.dir

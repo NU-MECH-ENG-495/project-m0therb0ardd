@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/main_exec.dir/src/main.cpp.o -o main_exec  -lGraphicsMagick++ -lGraphicsMagick -lGraphicsMagick /home/catherine-maglione/C++/my-led-evolution-with-library/matrix/lib/librgbmatrix.a libPROJECT_SOURCES.a -lpthread -lrt -lm 

@@ -1,0 +1,3 @@
+file(REMOVE_RECURSE
+  "libPROJECT_SOURCES.a"
+)

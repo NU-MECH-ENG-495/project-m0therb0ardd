@@ -1,0 +1,2 @@
+/usr/bin/ar qc libPROJECT_SOURCES.a CMakeFiles/PROJECT_SOURCES.dir/src/genetic_colors.cpp.o CMakeFiles/PROJECT_SOURCES.dir/src/guided_evolution.cpp.o CMakeFiles/PROJECT_SOURCES.dir/src/shared.cpp.o
+/usr/bin/ranlib libPROJECT_SOURCES.a
