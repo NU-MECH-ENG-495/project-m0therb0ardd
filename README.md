@@ -5,6 +5,10 @@
 
 This project is based on and extends functionality from the [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix) library, which was cloned as a base to drive the hardware display. From there, I developed custom animation demos using both **genetic algorithms** and **guided mutation** strategies.
 
+![Alt text](data/cube_to_cloud.gif)
+
+![Alt text](data/cube_to_grid.gif)
+
 ---
 
 ## Features
