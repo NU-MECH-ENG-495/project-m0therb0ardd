@@ -1,0 +1,232 @@
+\doxysection{rgb\+\_\+matrix Namespace Reference}
+\hypertarget{namespacergb__matrix}{}\label{namespacergb__matrix}\index{rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacergb__matrix_1_1internal}{internal}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}
+\item 
+struct \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO}{File\+Stream\+IO}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1MemMapViewInput}{Mem\+Map\+View\+Input}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1MemStreamIO}{Mem\+Stream\+IO}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1Mutex}{Mutex}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1MutexLock}{Mutex\+Lock}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1PinPulser}{Pin\+Pulser}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{Pixel\+Mapper}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}}
+\item 
+struct \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1StreamIO}{Stream\+IO}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1StreamReader}{Stream\+Reader}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1StreamWriter}{Stream\+Writer}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1Thread}{Thread}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1ThreadedCanvasManipulator}{Threaded\+Canvas\+Manipulator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::bitset$<$ k\+Max\+Font\+Width $>$ \mbox{\hyperlink{namespacergb__matrix_a699090395e0f32276497185bf3aeccb4}{rowbitmap\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772}{Raspberry\+Pi\+Model}} \{ \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a3644613d40dad60d222f1dec51d9e770}{PI\+\_\+\+MODEL\+\_\+1}}
+, \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a807a5b31e82e71ace17cd61ca526b4df}{PI\+\_\+\+MODEL\+\_\+2}}
+, \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772af1afb3ad84638c380382b8c413e393ab}{PI\+\_\+\+MODEL\+\_\+3}}
+, \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a8e21f3587e427f168e5ef755f2ea3b59}{PI\+\_\+\+MODEL\+\_\+4}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacergb__matrix_a84178f20c2857a6659f725e8c9e89d3c}{Set\+Image}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, int canvas\+\_\+offset\+\_\+x, int canvas\+\_\+offset\+\_\+y, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}image\+\_\+buffer, size\+\_\+t buffer\+\_\+size\+\_\+bytes, int image\+\_\+width, int image\+\_\+height, bool is\+\_\+bgr)
+\item 
+int \mbox{\hyperlink{namespacergb__matrix_a7a0b23d8e628d97ce9499a2b51954679}{Draw\+Text}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}}, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}background\+\_\+color, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text, int kerning\+\_\+offset=0)
+\item 
+int \mbox{\hyperlink{namespacergb__matrix_a09b811ae4138c07cab26c7664ff5c97e}{Draw\+Text}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}}, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text)
+\item 
+int \mbox{\hyperlink{namespacergb__matrix_a9312bde9364a573bc5eb8ec2d13809b0}{Vertical\+Draw\+Text}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}}, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}background\+\_\+color, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text, int kerning\+\_\+offset=0)
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_aade514105177fcac88c4757543cfc99f}{Draw\+Circle}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, int x, int y, int radius, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}})
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_a07c6eed910c0cff033bd550b92799e39}{Draw\+Line}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, int x0, int y0, int x1, int y1, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}})
+\item 
+bool \mbox{\hyperlink{namespacergb__matrix_a06ec270dc0cf66ad8e253826deb5d92a}{Parse\+Options\+From\+Flags}} (int \texorpdfstring{$\ast$}{*}argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv, \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \texorpdfstring{$\ast$}{*}default\+\_\+options, \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \texorpdfstring{$\ast$}{*}rt\+\_\+options, bool remove\+\_\+consumed\+\_\+flags=true)
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_a4289cc81716699d2080dae776d4580c0}{Print\+Matrix\+Flags}} (FILE \texorpdfstring{$\ast$}{*}out, const \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \&defaults=\mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}}(), const \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \&rt\+\_\+opt=\mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}}())
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacergb__matrix_a38d3a75975e3aa64cb3a8fad3191c572}{Create\+Matrix\+From\+Options}} (const \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \&options, const \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \&runtime\+\_\+options)
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacergb__matrix_a812ef557db4a55bfb0fbbb6c10ccdc1b}{Create\+Matrix\+From\+Flags}} (int \texorpdfstring{$\ast$}{*}argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv, \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \texorpdfstring{$\ast$}{*}default\+\_\+options=NULL, \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \texorpdfstring{$\ast$}{*}default\+\_\+runtime\+\_\+opts=NULL, bool remove\+\_\+consumed\+\_\+flags=true)
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_a1116b61fad066887482a1e85b104bdd8}{Register\+Pixel\+Mapper}} (\mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{Pixel\+Mapper}} \texorpdfstring{$\ast$}{*}mapper)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespacergb__matrix_a83867b879b75c884231f3d1c24ad85c3}{Get\+Available\+Pixel\+Mappers}} ()
+\item 
+const \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{Pixel\+Mapper}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacergb__matrix_a8b7b4ea110ce1f728a63448de8a433bb}{Find\+Pixel\+Mapper}} (const char \texorpdfstring{$\ast$}{*}name, int chain, int parallel, const char \texorpdfstring{$\ast$}{*}parameter=NULL)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespacergb__matrix_a11bdf9bdffe27cc5b94028744bb758be}{Get\+Microsecond\+Counter}} ()
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_ae2650ad120ab84a01ee62c3367424fa7}{Sleep\+Microseconds}} (long t)
+\item 
+int \mbox{\hyperlink{namespacergb__matrix_ac4f039afe40d0bc9792b35e360bdd62d}{Draw\+Text}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}}, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}background\+\_\+color, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespacergb__matrix_a699090395e0f32276497185bf3aeccb4}\label{namespacergb__matrix_a699090395e0f32276497185bf3aeccb4} 
+\index{rgb\_matrix@{rgb\_matrix}!rowbitmap\_t@{rowbitmap\_t}}
+\index{rowbitmap\_t@{rowbitmap\_t}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{rowbitmap\_t}{rowbitmap\_t}}
+{\footnotesize\ttfamily typedef std\+::bitset$<$k\+Max\+Font\+Width$>$ \mbox{\hyperlink{namespacergb__matrix_a699090395e0f32276497185bf3aeccb4}{rgb\+\_\+matrix\+::rowbitmap\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772}\label{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772} 
+\index{rgb\_matrix@{rgb\_matrix}!RaspberryPiModel@{RaspberryPiModel}}
+\index{RaspberryPiModel@{RaspberryPiModel}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{RaspberryPiModel}{RaspberryPiModel}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772}{rgb\+\_\+matrix\+::\+Raspberry\+Pi\+Model}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PI\_MODEL\_1@{PI\_MODEL\_1}!rgb\_matrix@{rgb\_matrix}}\index{rgb\_matrix@{rgb\_matrix}!PI\_MODEL\_1@{PI\_MODEL\_1}}}\Hypertarget{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a3644613d40dad60d222f1dec51d9e770}\label{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a3644613d40dad60d222f1dec51d9e770} 
+PI\+\_\+\+MODEL\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PI\_MODEL\_2@{PI\_MODEL\_2}!rgb\_matrix@{rgb\_matrix}}\index{rgb\_matrix@{rgb\_matrix}!PI\_MODEL\_2@{PI\_MODEL\_2}}}\Hypertarget{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a807a5b31e82e71ace17cd61ca526b4df}\label{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a807a5b31e82e71ace17cd61ca526b4df} 
+PI\+\_\+\+MODEL\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PI\_MODEL\_3@{PI\_MODEL\_3}!rgb\_matrix@{rgb\_matrix}}\index{rgb\_matrix@{rgb\_matrix}!PI\_MODEL\_3@{PI\_MODEL\_3}}}\Hypertarget{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772af1afb3ad84638c380382b8c413e393ab}\label{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772af1afb3ad84638c380382b8c413e393ab} 
+PI\+\_\+\+MODEL\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PI\_MODEL\_4@{PI\_MODEL\_4}!rgb\_matrix@{rgb\_matrix}}\index{rgb\_matrix@{rgb\_matrix}!PI\_MODEL\_4@{PI\_MODEL\_4}}}\Hypertarget{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a8e21f3587e427f168e5ef755f2ea3b59}\label{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a8e21f3587e427f168e5ef755f2ea3b59} 
+PI\+\_\+\+MODEL\+\_\+4&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacergb__matrix_a812ef557db4a55bfb0fbbb6c10ccdc1b}\label{namespacergb__matrix_a812ef557db4a55bfb0fbbb6c10ccdc1b} 
+\index{rgb\_matrix@{rgb\_matrix}!CreateMatrixFromFlags@{CreateMatrixFromFlags}}
+\index{CreateMatrixFromFlags@{CreateMatrixFromFlags}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{CreateMatrixFromFlags()}{CreateMatrixFromFlags()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}} \texorpdfstring{$\ast$}{*} rgb\+\_\+matrix\+::\+Create\+Matrix\+From\+Flags (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv,  }\item[{\mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \texorpdfstring{$\ast$}{*}}]{default\+\_\+options = {\ttfamily NULL},  }\item[{\mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \texorpdfstring{$\ast$}{*}}]{default\+\_\+runtime\+\_\+opts = {\ttfamily NULL},  }\item[{bool}]{remove\+\_\+consumed\+\_\+flags = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespacergb__matrix_a38d3a75975e3aa64cb3a8fad3191c572}\label{namespacergb__matrix_a38d3a75975e3aa64cb3a8fad3191c572} 
+\index{rgb\_matrix@{rgb\_matrix}!CreateMatrixFromOptions@{CreateMatrixFromOptions}}
+\index{CreateMatrixFromOptions@{CreateMatrixFromOptions}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{CreateMatrixFromOptions()}{CreateMatrixFromOptions()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}} \texorpdfstring{$\ast$}{*} rgb\+\_\+matrix\+::\+Create\+Matrix\+From\+Options (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \&}]{options,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \&}]{runtime\+\_\+options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespacergb__matrix_aade514105177fcac88c4757543cfc99f}\label{namespacergb__matrix_aade514105177fcac88c4757543cfc99f} 
+\index{rgb\_matrix@{rgb\_matrix}!DrawCircle@{DrawCircle}}
+\index{DrawCircle@{DrawCircle}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{DrawCircle()}{DrawCircle()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Draw\+Circle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{radius,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&}]{color }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a07c6eed910c0cff033bd550b92799e39}\label{namespacergb__matrix_a07c6eed910c0cff033bd550b92799e39} 
+\index{rgb\_matrix@{rgb\_matrix}!DrawLine@{DrawLine}}
+\index{DrawLine@{DrawLine}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{DrawLine()}{DrawLine()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Draw\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{int}]{x0,  }\item[{int}]{y0,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&}]{color }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a09b811ae4138c07cab26c7664ff5c97e}\label{namespacergb__matrix_a09b811ae4138c07cab26c7664ff5c97e} 
+\index{rgb\_matrix@{rgb\_matrix}!DrawText@{DrawText}}
+\index{DrawText@{DrawText}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{DrawText()}{DrawText()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily int rgb\+\_\+matrix\+::\+Draw\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&}]{color,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{utf8\+\_\+text }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_ac4f039afe40d0bc9792b35e360bdd62d}\label{namespacergb__matrix_ac4f039afe40d0bc9792b35e360bdd62d} 
+\index{rgb\_matrix@{rgb\_matrix}!DrawText@{DrawText}}
+\index{DrawText@{DrawText}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{DrawText()}{DrawText()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily int rgb\+\_\+matrix\+::\+Draw\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&}]{color,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}}]{background\+\_\+color,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{utf8\+\_\+text }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a7a0b23d8e628d97ce9499a2b51954679}\label{namespacergb__matrix_a7a0b23d8e628d97ce9499a2b51954679} 
+\index{rgb\_matrix@{rgb\_matrix}!DrawText@{DrawText}}
+\index{DrawText@{DrawText}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{DrawText()}{DrawText()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int rgb\+\_\+matrix\+::\+Draw\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&}]{color,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}}]{background\+\_\+color,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{utf8\+\_\+text,  }\item[{int}]{kerning\+\_\+offset = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a8b7b4ea110ce1f728a63448de8a433bb}\label{namespacergb__matrix_a8b7b4ea110ce1f728a63448de8a433bb} 
+\index{rgb\_matrix@{rgb\_matrix}!FindPixelMapper@{FindPixelMapper}}
+\index{FindPixelMapper@{FindPixelMapper}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{FindPixelMapper()}{FindPixelMapper()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{Pixel\+Mapper}} \texorpdfstring{$\ast$}{*} rgb\+\_\+matrix\+::\+Find\+Pixel\+Mapper (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name,  }\item[{int}]{chain,  }\item[{int}]{parallel,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{parameter = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a83867b879b75c884231f3d1c24ad85c3}\label{namespacergb__matrix_a83867b879b75c884231f3d1c24ad85c3} 
+\index{rgb\_matrix@{rgb\_matrix}!GetAvailablePixelMappers@{GetAvailablePixelMappers}}
+\index{GetAvailablePixelMappers@{GetAvailablePixelMappers}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{GetAvailablePixelMappers()}{GetAvailablePixelMappers()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ rgb\+\_\+matrix\+::\+Get\+Available\+Pixel\+Mappers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a11bdf9bdffe27cc5b94028744bb758be}\label{namespacergb__matrix_a11bdf9bdffe27cc5b94028744bb758be} 
+\index{rgb\_matrix@{rgb\_matrix}!GetMicrosecondCounter@{GetMicrosecondCounter}}
+\index{GetMicrosecondCounter@{GetMicrosecondCounter}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{GetMicrosecondCounter()}{GetMicrosecondCounter()}}
+{\footnotesize\ttfamily uint32\+\_\+t rgb\+\_\+matrix\+::\+Get\+Microsecond\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a06ec270dc0cf66ad8e253826deb5d92a}\label{namespacergb__matrix_a06ec270dc0cf66ad8e253826deb5d92a} 
+\index{rgb\_matrix@{rgb\_matrix}!ParseOptionsFromFlags@{ParseOptionsFromFlags}}
+\index{ParseOptionsFromFlags@{ParseOptionsFromFlags}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{ParseOptionsFromFlags()}{ParseOptionsFromFlags()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+Parse\+Options\+From\+Flags (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv,  }\item[{\mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \texorpdfstring{$\ast$}{*}}]{default\+\_\+options,  }\item[{\mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \texorpdfstring{$\ast$}{*}}]{rt\+\_\+options,  }\item[{bool}]{remove\+\_\+consumed\+\_\+flags = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a4289cc81716699d2080dae776d4580c0}\label{namespacergb__matrix_a4289cc81716699d2080dae776d4580c0} 
+\index{rgb\_matrix@{rgb\_matrix}!PrintMatrixFlags@{PrintMatrixFlags}}
+\index{PrintMatrixFlags@{PrintMatrixFlags}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{PrintMatrixFlags()}{PrintMatrixFlags()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Print\+Matrix\+Flags (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{out,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \&}]{defaults = {\ttfamily \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}}()},  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \&}]{rt\+\_\+opt = {\ttfamily \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}}()} }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a1116b61fad066887482a1e85b104bdd8}\label{namespacergb__matrix_a1116b61fad066887482a1e85b104bdd8} 
+\index{rgb\_matrix@{rgb\_matrix}!RegisterPixelMapper@{RegisterPixelMapper}}
+\index{RegisterPixelMapper@{RegisterPixelMapper}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{RegisterPixelMapper()}{RegisterPixelMapper()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Register\+Pixel\+Mapper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{Pixel\+Mapper}} \texorpdfstring{$\ast$}{*}}]{mapper }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a84178f20c2857a6659f725e8c9e89d3c}\label{namespacergb__matrix_a84178f20c2857a6659f725e8c9e89d3c} 
+\index{rgb\_matrix@{rgb\_matrix}!SetImage@{SetImage}}
+\index{SetImage@{SetImage}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{SetImage()}{SetImage()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+Set\+Image (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{int}]{canvas\+\_\+offset\+\_\+x,  }\item[{int}]{canvas\+\_\+offset\+\_\+y,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{image\+\_\+buffer,  }\item[{size\+\_\+t}]{buffer\+\_\+size\+\_\+bytes,  }\item[{int}]{image\+\_\+width,  }\item[{int}]{image\+\_\+height,  }\item[{bool}]{is\+\_\+bgr }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_ae2650ad120ab84a01ee62c3367424fa7}\label{namespacergb__matrix_ae2650ad120ab84a01ee62c3367424fa7} 
+\index{rgb\_matrix@{rgb\_matrix}!SleepMicroseconds@{SleepMicroseconds}}
+\index{SleepMicroseconds@{SleepMicroseconds}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{SleepMicroseconds()}{SleepMicroseconds()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Sleep\+Microseconds (\begin{DoxyParamCaption}\item[{long}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacergb__matrix_a9312bde9364a573bc5eb8ec2d13809b0}\label{namespacergb__matrix_a9312bde9364a573bc5eb8ec2d13809b0} 
+\index{rgb\_matrix@{rgb\_matrix}!VerticalDrawText@{VerticalDrawText}}
+\index{VerticalDrawText@{VerticalDrawText}!rgb\_matrix@{rgb\_matrix}}
+\doxysubsubsection{\texorpdfstring{VerticalDrawText()}{VerticalDrawText()}}
+{\footnotesize\ttfamily int rgb\+\_\+matrix\+::\+Vertical\+Draw\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&}]{color,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}}]{background\+\_\+color,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{utf8\+\_\+text,  }\item[{int}]{kerning\+\_\+offset = {\ttfamily 0} }\end{DoxyParamCaption})}
+

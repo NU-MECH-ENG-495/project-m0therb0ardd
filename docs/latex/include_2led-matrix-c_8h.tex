@@ -1,0 +1,254 @@
+\doxysection{include/led-\/matrix-\/c.h File Reference}
+\hypertarget{include_2led-matrix-c_8h}{}\label{include_2led-matrix-c_8h}\index{include/led-\/matrix-\/c.h@{include/led-\/matrix-\/c.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for led-\/matrix-\/c.h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{include_2led-matrix-c_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}}
+\item 
+struct \mbox{\hyperlink{structRGBLedRuntimeOptions}{RGBLed\+Runtime\+Options}}
+\item 
+struct \mbox{\hyperlink{structColor}{Color}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_a7501c43fe63e295b6e24e59d5655dac6}{led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options}} (struct \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \texorpdfstring{$\ast$}{*}options, int \texorpdfstring{$\ast$}{*}argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\item 
+struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_a3c68fd7fa45eba344363fd9f7055311a}{led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options\+\_\+const\+\_\+argv}} (struct \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \texorpdfstring{$\ast$}{*}options, int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\item 
+struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_a6d8c3d24514979adce8d9f4d5b6c2c83}{led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options\+\_\+and\+\_\+rt\+\_\+options}} (struct \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \texorpdfstring{$\ast$}{*}opts, struct \mbox{\hyperlink{structRGBLedRuntimeOptions}{RGBLed\+Runtime\+Options}} \texorpdfstring{$\ast$}{*}rt\+\_\+opts)
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a46916f1cda251902954a5b785dd9755b}{led\+\_\+matrix\+\_\+print\+\_\+flags}} (FILE \texorpdfstring{$\ast$}{*}out)
+\item 
+struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_a237be12a430cf8d7e782d6007edc8332}{led\+\_\+matrix\+\_\+create}} (int rows, int chained, int parallel)
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a0f504125f850b1275d1e3ccae6a69a96}{led\+\_\+matrix\+\_\+delete}} (struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}})
+\item 
+struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_aa8665babf3d61bdb62d42b81970c5bdd}{led\+\_\+matrix\+\_\+get\+\_\+canvas}} (struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}})
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_abd14698697f0522675fbfe73700be0bd}{led\+\_\+canvas\+\_\+get\+\_\+size}} (const struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}}, int \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{content-streamer_8cc_a325272ddd9a962f05deb905101d25cbd}{width}}, int \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{content-streamer_8cc_a6ad4f820ce4e75cda0686fcaad5168be}{height}})
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_ae91ac8a3fe5f4c227b5a6a66ad4eaf6c}{led\+\_\+canvas\+\_\+set\+\_\+pixel}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}}, int x, int y, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b)
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a5271e94c9d4716bd140b6ffb7786900f}{led\+\_\+canvas\+\_\+set\+\_\+pixels}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}}, int x, int y, int \mbox{\hyperlink{content-streamer_8cc_a325272ddd9a962f05deb905101d25cbd}{width}}, int \mbox{\hyperlink{content-streamer_8cc_a6ad4f820ce4e75cda0686fcaad5168be}{height}}, struct \mbox{\hyperlink{structColor}{Color}} \texorpdfstring{$\ast$}{*}colors)
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a486fb3ba12cb3c666342dd02168df3e6}{led\+\_\+canvas\+\_\+clear}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}})
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a566a5c14f307331d5e09c52760a1c989}{led\+\_\+canvas\+\_\+fill}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}}, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b)
+\item 
+struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_af9eb28c3ba18ff19cf1ebb87daf9cb0c}{led\+\_\+matrix\+\_\+create\+\_\+offscreen\+\_\+canvas}} (struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}})
+\item 
+struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_a782ed60dea3233a2528211823c5d7907}{led\+\_\+matrix\+\_\+swap\+\_\+on\+\_\+vsync}} (struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}}, struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}})
+\item 
+uint8\+\_\+t \mbox{\hyperlink{include_2led-matrix-c_8h_ad94dcfc7829a29e42a9f7db448f0ede7}{led\+\_\+matrix\+\_\+get\+\_\+brightness}} (struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}})
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a076fdafa25a5454c11679f1701d9e0f9}{led\+\_\+matrix\+\_\+set\+\_\+brightness}} (struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}}, uint8\+\_\+t brightness)
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a37770616766c99b0579f714df1868fb8}{set\+\_\+image}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}c, int canvas\+\_\+offset\+\_\+x, int canvas\+\_\+offset\+\_\+y, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}image\+\_\+buffer, size\+\_\+t buffer\+\_\+size\+\_\+bytes, int image\+\_\+width, int image\+\_\+height, char is\+\_\+bgr)
+\item 
+struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_aa4053848f3504ec7421d9c40f632d469}{load\+\_\+font}} (const char \texorpdfstring{$\ast$}{*}bdf\+\_\+font\+\_\+file)
+\item 
+int \mbox{\hyperlink{include_2led-matrix-c_8h_af632e2f4fdf0d9ce85cc9f61ebba7ed5}{baseline\+\_\+font}} (struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}})
+\item 
+int \mbox{\hyperlink{include_2led-matrix-c_8h_afce785f02d1e510dbb6f28b6f956924e}{height\+\_\+font}} (struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}})
+\item 
+struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{include_2led-matrix-c_8h_a4b867d6f3a6cbaf4d377a6783031899b}{create\+\_\+outline\+\_\+font}} (struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}})
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a7692d864f324e22b48dda309ad1bd973}{delete\+\_\+font}} (struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}})
+\item 
+int \mbox{\hyperlink{include_2led-matrix-c_8h_a8413477cdb7f8adb2734f70530734089}{draw\+\_\+text}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}c, struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text, int kerning\+\_\+offset)
+\item 
+int \mbox{\hyperlink{include_2led-matrix-c_8h_a5859958f955869f30fa57971656945ba}{vertical\+\_\+draw\+\_\+text}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}c, struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text, int kerning\+\_\+offset)
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_ac13dc90a9eba391e12278a3fd73219f5}{draw\+\_\+circle}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}c, int x, int y, int radius, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b)
+\item 
+void \mbox{\hyperlink{include_2led-matrix-c_8h_a23dedf8723cdcdf7ba1a0ddd4c5c2078}{draw\+\_\+line}} (struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}c, int x0, int y0, int x1, int y1, uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{include_2led-matrix-c_8h_af632e2f4fdf0d9ce85cc9f61ebba7ed5}\label{include_2led-matrix-c_8h_af632e2f4fdf0d9ce85cc9f61ebba7ed5} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!baseline\_font@{baseline\_font}}
+\index{baseline\_font@{baseline\_font}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{baseline\_font()}{baseline\_font()}}
+{\footnotesize\ttfamily int baseline\+\_\+font (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}}]{font }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_a4b867d6f3a6cbaf4d377a6783031899b}\label{include_2led-matrix-c_8h_a4b867d6f3a6cbaf4d377a6783031899b} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!create\_outline\_font@{create\_outline\_font}}
+\index{create\_outline\_font@{create\_outline\_font}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{create\_outline\_font()}{create\_outline\_font()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*} create\+\_\+outline\+\_\+font (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}}]{font }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_a7692d864f324e22b48dda309ad1bd973}\label{include_2led-matrix-c_8h_a7692d864f324e22b48dda309ad1bd973} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!delete\_font@{delete\_font}}
+\index{delete\_font@{delete\_font}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{delete\_font()}{delete\_font()}}
+{\footnotesize\ttfamily void delete\+\_\+font (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}}]{font }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_ac13dc90a9eba391e12278a3fd73219f5}\label{include_2led-matrix-c_8h_ac13dc90a9eba391e12278a3fd73219f5} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!draw\_circle@{draw\_circle}}
+\index{draw\_circle@{draw\_circle}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{draw\_circle()}{draw\_circle()}}
+{\footnotesize\ttfamily void draw\+\_\+circle (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{radius,  }\item[{uint8\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{g,  }\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_a23dedf8723cdcdf7ba1a0ddd4c5c2078}\label{include_2led-matrix-c_8h_a23dedf8723cdcdf7ba1a0ddd4c5c2078} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!draw\_line@{draw\_line}}
+\index{draw\_line@{draw\_line}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{draw\_line()}{draw\_line()}}
+{\footnotesize\ttfamily void draw\+\_\+line (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{int}]{x0,  }\item[{int}]{y0,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{uint8\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{g,  }\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_a8413477cdb7f8adb2734f70530734089}\label{include_2led-matrix-c_8h_a8413477cdb7f8adb2734f70530734089} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!draw\_text@{draw\_text}}
+\index{draw\_text@{draw\_text}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{draw\_text()}{draw\_text()}}
+{\footnotesize\ttfamily int draw\+\_\+text (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint8\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{g,  }\item[{uint8\+\_\+t}]{b,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{utf8\+\_\+text,  }\item[{int}]{kerning\+\_\+offset }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_afce785f02d1e510dbb6f28b6f956924e}\label{include_2led-matrix-c_8h_afce785f02d1e510dbb6f28b6f956924e} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!height\_font@{height\_font}}
+\index{height\_font@{height\_font}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{height\_font()}{height\_font()}}
+{\footnotesize\ttfamily int height\+\_\+font (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}}]{font }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_a486fb3ba12cb3c666342dd02168df3e6}\label{include_2led-matrix-c_8h_a486fb3ba12cb3c666342dd02168df3e6} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_canvas\_clear@{led\_canvas\_clear}}
+\index{led\_canvas\_clear@{led\_canvas\_clear}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_canvas\_clear()}{led\_canvas\_clear()}}
+{\footnotesize\ttfamily void led\+\_\+canvas\+\_\+clear (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas }\end{DoxyParamCaption})}
+
+Clear screen (black). \Hypertarget{include_2led-matrix-c_8h_a566a5c14f307331d5e09c52760a1c989}\label{include_2led-matrix-c_8h_a566a5c14f307331d5e09c52760a1c989} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_canvas\_fill@{led\_canvas\_fill}}
+\index{led\_canvas\_fill@{led\_canvas\_fill}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_canvas\_fill()}{led\_canvas\_fill()}}
+{\footnotesize\ttfamily void led\+\_\+canvas\+\_\+fill (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas,  }\item[{uint8\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{g,  }\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+Fill matrix with given color. \Hypertarget{include_2led-matrix-c_8h_abd14698697f0522675fbfe73700be0bd}\label{include_2led-matrix-c_8h_abd14698697f0522675fbfe73700be0bd} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_canvas\_get\_size@{led\_canvas\_get\_size}}
+\index{led\_canvas\_get\_size@{led\_canvas\_get\_size}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_canvas\_get\_size()}{led\_canvas\_get\_size()}}
+{\footnotesize\ttfamily void led\+\_\+canvas\+\_\+get\+\_\+size (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas,  }\item[{int \texorpdfstring{$\ast$}{*}}]{width,  }\item[{int \texorpdfstring{$\ast$}{*}}]{height }\end{DoxyParamCaption})}
+
+Return size of canvas. \Hypertarget{include_2led-matrix-c_8h_ae91ac8a3fe5f4c227b5a6a66ad4eaf6c}\label{include_2led-matrix-c_8h_ae91ac8a3fe5f4c227b5a6a66ad4eaf6c} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_canvas\_set\_pixel@{led\_canvas\_set\_pixel}}
+\index{led\_canvas\_set\_pixel@{led\_canvas\_set\_pixel}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_canvas\_set\_pixel()}{led\_canvas\_set\_pixel()}}
+{\footnotesize\ttfamily void led\+\_\+canvas\+\_\+set\+\_\+pixel (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint8\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{g,  }\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+Set pixel at (x, y) with color (r,g,b). \Hypertarget{include_2led-matrix-c_8h_a5271e94c9d4716bd140b6ffb7786900f}\label{include_2led-matrix-c_8h_a5271e94c9d4716bd140b6ffb7786900f} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_canvas\_set\_pixels@{led\_canvas\_set\_pixels}}
+\index{led\_canvas\_set\_pixels@{led\_canvas\_set\_pixels}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_canvas\_set\_pixels()}{led\_canvas\_set\_pixels()}}
+{\footnotesize\ttfamily void led\+\_\+canvas\+\_\+set\+\_\+pixels (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{struct \mbox{\hyperlink{structColor}{Color}} \texorpdfstring{$\ast$}{*}}]{colors }\end{DoxyParamCaption})}
+
+Copies pixels to rectangle at (x, y) with size (width, height). \Hypertarget{include_2led-matrix-c_8h_a237be12a430cf8d7e782d6007edc8332}\label{include_2led-matrix-c_8h_a237be12a430cf8d7e782d6007edc8332} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_create@{led\_matrix\_create}}
+\index{led\_matrix\_create@{led\_matrix\_create}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_create()}{led\_matrix\_create()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*} led\+\_\+matrix\+\_\+create (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{chained,  }\item[{int}]{parallel }\end{DoxyParamCaption})}
+
+Simple form of \doxylink{include_2led-matrix-c_8h_a7501c43fe63e295b6e24e59d5655dac6}{led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options()} with just the few main options. Returns NULL if that was not possible. The "{}rows"{} are the number of rows supported by the display, so 32, 16 or 8.
+
+Number of "{}chained\+\_\+display"{}s tells many of these are daisy-\/chained together (output of one connected to input of next).
+
+The "{}parallel\+\_\+display"{} number determines if there is one or two displays connected in parallel to the GPIO port -\/ this only works with newer Raspberry Pi that have 40 interface pins.
+
+This creates a realtime thread and requires root access to access the GPIO pins. So if you run this in a daemon, this should be called after becoming a daemon (as fork/exec stops threads) and before dropping privileges. \Hypertarget{include_2led-matrix-c_8h_a7501c43fe63e295b6e24e59d5655dac6}\label{include_2led-matrix-c_8h_a7501c43fe63e295b6e24e59d5655dac6} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_create\_from\_options@{led\_matrix\_create\_from\_options}}
+\index{led\_matrix\_create\_from\_options@{led\_matrix\_create\_from\_options}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_create\_from\_options()}{led\_matrix\_create\_from\_options()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*} led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \texorpdfstring{$\ast$}{*}}]{options,  }\item[{int \texorpdfstring{$\ast$}{*}}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+Universal way to create and initialize a matrix. The "{}options"{} struct (if not NULL) contains all default configuration values chosen by the programmer to create the matrix.
+
+If "{}argc"{} and "{}argv"{} are provided, this function also reads command line flags provided, that then can override any of the defaults given. The arguments that have been used from the command line are removed from the argv list (and argc is adjusted) -\/ that way these don\textquotesingle{}t mess with your own command line handling.
+
+The actual options used are filled back into the "{}options"{} struct if not NULL.\hypertarget{led-matrix-c_8cc_autotoc_md0}{}\doxysubsubsection{\texorpdfstring{Usage\+:}{Usage:}}\label{led-matrix-c_8cc_autotoc_md0}
+int \doxylink{c-example_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main(int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)} \{ struct \doxylink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options} options; memset(\&options, 0, sizeof(options)); options.\+rows = 32; // You can set defaults if you want. options.\+chain\+\_\+length = 1; struct \doxylink{structRGBLedMatrix}{RGBLed\+Matrix} \texorpdfstring{$\ast$}{*}matrix = led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options(\&options,                                                                \&argc, \&argv); if (matrix == NULL) \{ led\+\_\+matrix\+\_\+print\+\_\+flags(stderr); return 1; \} // do additional commandline handling; then use matrix... \hypertarget{led-matrix-c_8cc_autotoc_md1}{}\doxysubsubsection{\texorpdfstring{\}}{\}}}\label{led-matrix-c_8cc_autotoc_md1}
+\Hypertarget{include_2led-matrix-c_8h_a6d8c3d24514979adce8d9f4d5b6c2c83}\label{include_2led-matrix-c_8h_a6d8c3d24514979adce8d9f4d5b6c2c83} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_create\_from\_options\_and\_rt\_options@{led\_matrix\_create\_from\_options\_and\_rt\_options}}
+\index{led\_matrix\_create\_from\_options\_and\_rt\_options@{led\_matrix\_create\_from\_options\_and\_rt\_options}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_create\_from\_options\_and\_rt\_options()}{led\_matrix\_create\_from\_options\_and\_rt\_options()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*} led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options\+\_\+and\+\_\+rt\+\_\+options (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \texorpdfstring{$\ast$}{*}}]{opts,  }\item[{struct \mbox{\hyperlink{structRGBLedRuntimeOptions}{RGBLed\+Runtime\+Options}} \texorpdfstring{$\ast$}{*}}]{rt\+\_\+opts }\end{DoxyParamCaption})}
+
+The way to completely initialize your matrix without using command line flags to initialize some things.
+
+The actual options used are filled back into the "{}options"{} and "{}rt\+\_\+options"{} struct if not NULL. If they are null, the default value is used.\hypertarget{led-matrix-c_8cc_autotoc_md2}{}\doxysubsubsection{\texorpdfstring{Usage\+:}{Usage:}}\label{led-matrix-c_8cc_autotoc_md2}
+int \doxylink{c-example_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main(int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)} \{ struct \doxylink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options} options; struct \doxylink{structRGBLedRuntimeOptions}{RGBLed\+Runtime\+Options} rt\+\_\+options; memset(\&options, 0, sizeof(options)); memset(\&rt\+\_\+options, 0, sizeof(rt\+\_\+options)); options.\+rows = 32; // You can set defaults if you want. options.\+chain\+\_\+length = 1; rt\+\_\+options.\+gpio\+\_\+slowdown = 4; struct \doxylink{structRGBLedMatrix}{RGBLed\+Matrix} \texorpdfstring{$\ast$}{*}matrix = led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options\+\_\+and\+\_\+rt\+\_\+options(\&options, \&rt\+\_\+options); if (matrix == NULL) \{ return 1; \} // do additional commandline handling; then use matrix... \hypertarget{led-matrix-c_8cc_autotoc_md3}{}\doxysubsubsection{\texorpdfstring{\}}{\}}}\label{led-matrix-c_8cc_autotoc_md3}
+\Hypertarget{include_2led-matrix-c_8h_a3c68fd7fa45eba344363fd9f7055311a}\label{include_2led-matrix-c_8h_a3c68fd7fa45eba344363fd9f7055311a} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_create\_from\_options\_const\_argv@{led\_matrix\_create\_from\_options\_const\_argv}}
+\index{led\_matrix\_create\_from\_options\_const\_argv@{led\_matrix\_create\_from\_options\_const\_argv}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_create\_from\_options\_const\_argv()}{led\_matrix\_create\_from\_options\_const\_argv()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*} led\+\_\+matrix\+\_\+create\+\_\+from\+\_\+options\+\_\+const\+\_\+argv (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \texorpdfstring{$\ast$}{*}}]{options,  }\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_af9eb28c3ba18ff19cf1ebb87daf9cb0c}\label{include_2led-matrix-c_8h_af9eb28c3ba18ff19cf1ebb87daf9cb0c} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_create\_offscreen\_canvas@{led\_matrix\_create\_offscreen\_canvas}}
+\index{led\_matrix\_create\_offscreen\_canvas@{led\_matrix\_create\_offscreen\_canvas}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_create\_offscreen\_canvas()}{led\_matrix\_create\_offscreen\_canvas()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*} led\+\_\+matrix\+\_\+create\+\_\+offscreen\+\_\+canvas (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}}]{matrix }\end{DoxyParamCaption})}
+
+Create a new canvas to be used with \doxylink{include_2led-matrix-c_8h_a782ed60dea3233a2528211823c5d7907}{led\+\_\+matrix\+\_\+swap\+\_\+on\+\_\+vsync()} Ownership of returned pointer stays with the matrix, don\textquotesingle{}t free(). \Hypertarget{include_2led-matrix-c_8h_a0f504125f850b1275d1e3ccae6a69a96}\label{include_2led-matrix-c_8h_a0f504125f850b1275d1e3ccae6a69a96} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_delete@{led\_matrix\_delete}}
+\index{led\_matrix\_delete@{led\_matrix\_delete}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_delete()}{led\_matrix\_delete()}}
+{\footnotesize\ttfamily void led\+\_\+matrix\+\_\+delete (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}}]{matrix }\end{DoxyParamCaption})}
+
+Stop matrix and free memory. Always call before the end of the program to properly reset the hardware \Hypertarget{include_2led-matrix-c_8h_ad94dcfc7829a29e42a9f7db448f0ede7}\label{include_2led-matrix-c_8h_ad94dcfc7829a29e42a9f7db448f0ede7} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_get\_brightness@{led\_matrix\_get\_brightness}}
+\index{led\_matrix\_get\_brightness@{led\_matrix\_get\_brightness}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_get\_brightness()}{led\_matrix\_get\_brightness()}}
+{\footnotesize\ttfamily uint8\+\_\+t led\+\_\+matrix\+\_\+get\+\_\+brightness (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}}]{matrix }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_aa8665babf3d61bdb62d42b81970c5bdd}\label{include_2led-matrix-c_8h_aa8665babf3d61bdb62d42b81970c5bdd} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_get\_canvas@{led\_matrix\_get\_canvas}}
+\index{led\_matrix\_get\_canvas@{led\_matrix\_get\_canvas}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_get\_canvas()}{led\_matrix\_get\_canvas()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*} led\+\_\+matrix\+\_\+get\+\_\+canvas (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}}]{matrix }\end{DoxyParamCaption})}
+
+Get active canvas from LED matrix for you to draw on. Ownership of returned pointer stays with the matrix, don\textquotesingle{}t free(). \Hypertarget{include_2led-matrix-c_8h_a46916f1cda251902954a5b785dd9755b}\label{include_2led-matrix-c_8h_a46916f1cda251902954a5b785dd9755b} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_print\_flags@{led\_matrix\_print\_flags}}
+\index{led\_matrix\_print\_flags@{led\_matrix\_print\_flags}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_print\_flags()}{led\_matrix\_print\_flags()}}
+{\footnotesize\ttfamily void led\+\_\+matrix\+\_\+print\+\_\+flags (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{out }\end{DoxyParamCaption})}
+
+Print available LED matrix options. \Hypertarget{include_2led-matrix-c_8h_a076fdafa25a5454c11679f1701d9e0f9}\label{include_2led-matrix-c_8h_a076fdafa25a5454c11679f1701d9e0f9} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_set\_brightness@{led\_matrix\_set\_brightness}}
+\index{led\_matrix\_set\_brightness@{led\_matrix\_set\_brightness}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_set\_brightness()}{led\_matrix\_set\_brightness()}}
+{\footnotesize\ttfamily void led\+\_\+matrix\+\_\+set\+\_\+brightness (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}}]{matrix,  }\item[{uint8\+\_\+t}]{brightness }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_a782ed60dea3233a2528211823c5d7907}\label{include_2led-matrix-c_8h_a782ed60dea3233a2528211823c5d7907} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!led\_matrix\_swap\_on\_vsync@{led\_matrix\_swap\_on\_vsync}}
+\index{led\_matrix\_swap\_on\_vsync@{led\_matrix\_swap\_on\_vsync}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{led\_matrix\_swap\_on\_vsync()}{led\_matrix\_swap\_on\_vsync()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*} led\+\_\+matrix\+\_\+swap\+\_\+on\+\_\+vsync (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structRGBLedMatrix}{RGBLed\+Matrix}} \texorpdfstring{$\ast$}{*}}]{matrix,  }\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas }\end{DoxyParamCaption})}
+
+Swap the given canvas (created with create\+\_\+offscreen\+\_\+canvas) with the currently active canvas on vsync (blocks until vsync is reached). Returns the previously active canvas. So with that, you can create double buffering\+:
+
+struct \doxylink{structLedCanvas}{Led\+Canvas} \texorpdfstring{$\ast$}{*}offscreen = led\+\_\+matrix\+\_\+create\+\_\+offscreen\+\_\+canvas(...); led\+\_\+canvas\+\_\+set\+\_\+pixel(offscreen, ...); // not shown until swap-\/on-\/vsync offscreen = led\+\_\+matrix\+\_\+swap\+\_\+on\+\_\+vsync(matrix, offscreen); // The returned buffer, assigned to offscreen, is now the inactive buffer // fill, then swap again. \Hypertarget{include_2led-matrix-c_8h_aa4053848f3504ec7421d9c40f632d469}\label{include_2led-matrix-c_8h_aa4053848f3504ec7421d9c40f632d469} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!load\_font@{load\_font}}
+\index{load\_font@{load\_font}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{load\_font()}{load\_font()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*} load\+\_\+font (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{bdf\+\_\+font\+\_\+file }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_a37770616766c99b0579f714df1868fb8}\label{include_2led-matrix-c_8h_a37770616766c99b0579f714df1868fb8} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!set\_image@{set\_image}}
+\index{set\_image@{set\_image}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{set\_image()}{set\_image()}}
+{\footnotesize\ttfamily void set\+\_\+image (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{int}]{canvas\+\_\+offset\+\_\+x,  }\item[{int}]{canvas\+\_\+offset\+\_\+y,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{image\+\_\+buffer,  }\item[{size\+\_\+t}]{buffer\+\_\+size\+\_\+bytes,  }\item[{int}]{image\+\_\+width,  }\item[{int}]{image\+\_\+height,  }\item[{char}]{is\+\_\+bgr }\end{DoxyParamCaption})}
+
+\Hypertarget{include_2led-matrix-c_8h_a5859958f955869f30fa57971656945ba}\label{include_2led-matrix-c_8h_a5859958f955869f30fa57971656945ba} 
+\index{led-\/matrix-\/c.h@{led-\/matrix-\/c.h}!vertical\_draw\_text@{vertical\_draw\_text}}
+\index{vertical\_draw\_text@{vertical\_draw\_text}!led-\/matrix-\/c.h@{led-\/matrix-\/c.h}}
+\doxysubsubsection{\texorpdfstring{vertical\_draw\_text()}{vertical\_draw\_text()}}
+{\footnotesize\ttfamily int vertical\+\_\+draw\+\_\+text (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structLedCanvas}{Led\+Canvas}} \texorpdfstring{$\ast$}{*}}]{c,  }\item[{struct \mbox{\hyperlink{structLedFont}{Led\+Font}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint8\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{g,  }\item[{uint8\+\_\+t}]{b,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{utf8\+\_\+text,  }\item[{int}]{kerning\+\_\+offset }\end{DoxyParamCaption})}
+

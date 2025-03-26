@@ -1,0 +1,524 @@
+\doxysection{led-\/matrix.h}
+\hypertarget{matrix_2include_2led-matrix_8h_source}{}\label{matrix_2include_2led-matrix_8h_source}\index{matrix/include/led-\/matrix.h@{matrix/include/led-\/matrix.h}}
+\mbox{\hyperlink{matrix_2include_2led-matrix_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/*-\/\ mode:\ c++;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (C)\ 2013\ Henner\ Zeller\ <h.zeller@acm.org>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ the\ Free\ Software\ Foundation\ version\ 2.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://gnu.org/licenses/gpl-\/2.0.txt>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Controlling\ 16x32\ or\ 32x32\ RGB\ matrixes\ via\ GPIO.\ It\ allows\ daisy\ chaining}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ of\ a\ string\ of\ these,\ and\ also\ connecting\ a\ parallel\ string\ on\ newer}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ Raspberry\ Pis\ with\ more\ GPIO\ pins\ available.}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ RPI\_RGBMATRIX\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ RPI\_RGBMATRIX\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_2include_2canvas_8h}{canvas.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_2include_2thread_8h}{thread.h}}"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_2include_2pixel-mapper_8h}{pixel-\/mapper.h}}"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_2include_2graphics_8h}{graphics.h}}"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }RGBMatrix;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }FrameCanvas;\ \ \ \textcolor{comment}{//\ Canvas\ for\ Double-\/\ and\ Multibuffering}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{struct\ }RuntimeOptions;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ The\ RGB\ matrix\ provides\ the\ framebuffer\ and\ the\ facilities\ to\ constantly}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ update\ the\ LED\ matrix.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ This\ implement\ the\ Canvas\ interface\ that\ represents\ the\ display\ with}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ (led\_cols\ *\ chained\_displays)x(rows\ *\ parallel\_displays)\ pixels.}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ If\ can\ do\ multi-\/buffering\ using\ the\ CreateFrameCanvas()\ and\ SwapOnVSync()}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ methods.\ This\ is\ useful\ for\ animations\ and\ to\ prevent\ tearing.}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ If\ you\ arrange\ the\ panels\ in\ a\ different\ way\ in\ the\ physical\ space,\ write}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ a\ CanvasTransformer\ that\ does\ coordinate\ remapping\ and\ which\ should\ be\ added}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ to\ the\ transformers,\ like\ with\ UArrangementTransformer\ in\ demo-\/main.cc.}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }RGBMatrix\ :\ \textcolor{keyword}{public}\ Canvas\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ Options\ to\ initialize\ the\ RGBMatrix.\ Also\ see\ the\ main\ README.md\ for}}
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ detailed\ descriptions\ of\ the\ command\ line\ flags.}}
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{struct\ }Options\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a9c10c62e21a5a6a824a1e13bffcee7ac}{Options}}();\ \ \ \textcolor{comment}{//\ Creates\ a\ default\ option\ set.}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Validate\ the\ options\ and\ possibly\ output\ a\ message\ to\ string.\ If}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ "{}err"{}\ is\ NULL,\ outputs\ validation\ problems\ to\ stderr.}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Returns\ 'true'\ if\ all\ options\ look\ good.}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_aeb5c416692b14732bfdb87c35053ebb8}{Validate}}(std::string\ *err)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Name\ of\ the\ hardware\ mapping.\ Something\ like\ "{}regular"{}\ or\ "{}adafruit-\/hat"{}}}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_ab75631b2db453b735acc04df953236a0}{hardware\_mapping}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ The\ "{}rows"{}\ are\ the\ number}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ of\ rows\ supported\ by\ the\ display,\ so\ 32\ or\ 16.\ Default:\ 32.}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/rows}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_ad00bd59f13bfb87a758f9bf748484222}{rows}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ The\ "{}cols"{}\ are\ the\ number\ of\ columns\ per\ panel.\ Typically\ something}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ like\ 32,\ but\ also\ 64\ is\ possible.\ Sometimes\ even\ 40.}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ cols\ *\ chain\_length\ is\ the\ total\ length\ of\ the\ display,\ so\ you\ can}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ represent\ a\ 64\ wide\ display\ as\ cols=32,\ chain=2\ or\ cols=64,\ chain=1;}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ same\ thing,\ but\ more\ convenient\ to\ think\ of.}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/cols}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_ada85cfb391f494e412e715231d8bc613}{cols}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ The\ chain\_length\ is\ the\ number\ of\ displays\ daisy-\/chained\ together}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ (output\ of\ one\ connected\ to\ input\ of\ next).\ Default:\ 1}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/chain}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_ab3e6961f4d82fecfa0d8a984df3fd59e}{chain\_length}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ The\ number\ of\ parallel\ chains\ connected\ to\ the\ Pi;\ in\ old\ Pis\ with\ 26}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ GPIO\ pins,\ that\ is\ 1,\ in\ newer\ Pis\ with\ 40\ interfaces\ pins,\ that\ can}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ also\ be\ 2\ or\ 3.\ The\ effective\ number\ of\ pixels\ in\ vertical\ direction\ is}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ then\ thus\ rows\ *\ parallel.\ Default:\ 1}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/parallel}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a07f053ba2fe9576686b819e3f6364a24}{parallel}};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ Set\ PWM\ bits\ used\ for\ output.\ Default\ is\ 11,\ but\ if\ you\ only\ deal\ with}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ limited\ comic-\/colors,\ 1\ might\ be\ sufficient.\ Lower\ require\ less\ CPU\ and}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ increases\ refresh-\/rate.}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/pwm-\/bits}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a2844de5103eb83278407555a4d20205d}{pwm\_bits}};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Change\ the\ base\ time-\/unit\ for\ the\ on-\/time\ in\ the\ lowest}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ significant\ bit\ in\ nanoseconds.}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ Higher\ numbers\ provide\ better\ quality\ (more\ accurate\ color,\ less}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ ghosting),\ but\ have\ a\ negative\ impact\ on\ the\ frame\ rate.}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/pwm-\/lsb-\/nanoseconds}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_aa6446a410cbe6f012a085acecc31f019}{pwm\_lsb\_nanoseconds}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//\ The\ lower\ bits\ can\ be\ time-\/dithered\ for\ higher\ refresh\ rate.}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/pwm-\/dither-\/bits}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a7589d1c12704b3d8b00c79dffafbf966}{pwm\_dither\_bits}};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ The\ initial\ brightness\ of\ the\ panel\ in\ percent.\ Valid\ range\ is\ 1..100}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ Default:\ 100}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/brightness}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a55ef562ea57adfb6289599ad50c2cb1f}{brightness}};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ Scan\ mode:\ 0=progressive,\ 1=interlaced.}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/scan-\/mode}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a566081e3ff0211b77a9497d695973277}{scan\_mode}};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ Default\ row\ address\ type\ is\ 0,\ corresponding\ to\ direct\ setting\ of\ the}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ row,\ while\ row\ address\ type\ 1\ is\ used\ for\ panels\ that\ only\ have\ A/B,}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ typically\ some\ 64x64\ panels}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a27fedd9e097c53fe873308baa0342163}{row\_address\_type}};\ \ \textcolor{comment}{//\ Flag\ -\/-\/led-\/row-\/addr-\/type}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ Type\ of\ multiplexing.\ 0\ =\ direct,\ 1\ =\ stripe,\ 2\ =\ checker,...}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/multiplexing}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a0f0512d221c85236829dac4962b7f999}{multiplexing}};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ Disable\ the\ PWM\ hardware\ subsystem\ to\ create\ pulses.}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ Typically,\ you\ don't\ want\ to\ disable\ hardware\ pulsing,\ this\ is\ mostly}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ for\ debugging\ and\ figuring\ out\ if\ there\ is\ interference\ with\ the}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ sound\ system.}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ This\ won't\ do\ anything\ if\ output\ enable\ is\ not\ connected\ to\ GPIO\ 18\ in}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ non-\/standard\ wirings.}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a0dc05631463f153cad8863173a94fe0e}{disable\_hardware\_pulsing}};\ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/hardware-\/pulse}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ Show\ refresh\ rate\ on\ the\ terminal\ for\ debugging\ and\ tweaking\ purposes.}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a69b0d7d3913c9ca85985a05dd7e5d681}{show\_refresh\_rate}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/show-\/refresh}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ Some\ panels\ have\ inversed\ colors.}}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a93dbc535f209e4bb6edf1ce1cd1cea3d}{inverse\_colors}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/inverse}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ In\ case\ the\ internal\ sequence\ of\ mapping\ is\ not\ "{}RGB"{},\ this\ contains\ the}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//\ real\ mapping.\ Some\ panels\ mix\ up\ these\ colors.\ String\ of\ length\ three}}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ which\ has\ to\ contain\ all\ characters\ R,\ G\ and\ B.}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_abafa7516a0b37deea80fe218cf096c2e}{led\_rgb\_sequence}};\ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/rgb-\/sequence}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//\ A\ string\ describing\ a\ sequence\ of\ pixel\ mappers\ that\ should\ be\ applied}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//\ to\ this\ matrix.\ A\ semicolon-\/separated\ list\ of\ pixel-\/mappers\ with\ optional}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ parameter.}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a121134168a9c197483751377bbb4c3a9}{pixel\_mapper\_config}};\ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/pixel-\/mapper}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ Panel\ type.\ Typically\ an\ empty\ string\ or\ NULL,\ but\ some\ panels\ need}}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ a\ particular\ initialization\ sequence,\ so\ this\ is\ used\ for\ that.}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//\ This\ can\ be\ e.g.\ "{}FM6126A"{}\ for\ that\ particular\ panel\ type.}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a313ff447ce04b54d2fd0f20efc6b2c5e}{panel\_type}};\ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/panel-\/type}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{//\ Limit\ refresh\ rate\ of\ LED\ panel.\ This\ will\ help\ on\ a\ loaded\ system}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//\ to\ keep\ a\ constant\ refresh\ rate.\ <=\ 0\ for\ no\ limit.}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_a119e13de3c4c7eb23502c96eae6563fa}{limit\_refresh\_rate\_hz}};\ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/limit-\/refresh}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{comment}{//\ Sleep\ instead\ of\ busy\ wait\ to\ free\ CPU\ cycles\ but\ get\ slightly\ less}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{//\ accurate\ frame\ timing.}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options_ae4f73cbe201d6c505c929742e34de9bc}{disable\_busy\_waiting}};\ \ \ \textcolor{comment}{//\ Flag:\ -\/-\/led-\/busy-\/waiting}}
+\DoxyCodeLine{00162\ \ \ \};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \textcolor{comment}{//\ Factory\ to\ create\ a\ matrix.\ Additional\ functionality\ includes\ dropping}}
+\DoxyCodeLine{00165\ \ \ \textcolor{comment}{//\ privileges\ and\ becoming\ a\ daemon.}}
+\DoxyCodeLine{00166\ \ \ \textcolor{comment}{//\ Returns\ NULL,\ if\ there\ was\ a\ problem\ (a\ message\ then\ is\ written\ to\ stderr).}}
+\DoxyCodeLine{00167\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}}\ *\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_ad3f21375dca0677cee85179e576273da}{CreateFromOptions}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{Options}}\ \&options,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{RuntimeOptions}}\ \&runtime\_options);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \textcolor{comment}{//\ A\ factory\ that\ parses\ your\ main()\ commandline\ flags\ to\ read\ options}}
+\DoxyCodeLine{00171\ \ \ \textcolor{comment}{//\ meant\ to\ configure\ the\ the\ matrix\ and\ returns\ a\ freshly\ allocated\ matrix.}}
+\DoxyCodeLine{00172\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00173\ \ \ \textcolor{comment}{//\ Optionally,\ \ you\ can\ pass\ in\ option\ structs\ with\ a\ couple\ of\ defaults}}
+\DoxyCodeLine{00174\ \ \ \textcolor{comment}{//\ which\ are\ used\ unless\ overwritten\ on\ the\ command\ line.}}
+\DoxyCodeLine{00175\ \ \ \textcolor{comment}{//\ A\ matrix\ is\ created\ and\ returned;\ also\ the\ options\ structs\ are}}
+\DoxyCodeLine{00176\ \ \ \textcolor{comment}{//\ updated\ to\ reflect\ the\ values\ that\ were\ used\ and\ set\ on\ the\ command\ line.}}
+\DoxyCodeLine{00177\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00178\ \ \ \textcolor{comment}{//\ If\ you\ allow\ the\ user\ to\ start\ a\ daemon\ with\ -\/-\/led-\/daemon,\ make\ sure\ to}}
+\DoxyCodeLine{00179\ \ \ \textcolor{comment}{//\ call\ this\ function\ before\ you\ have\ started\ any\ threads,\ so\ early\ on\ in}}
+\DoxyCodeLine{00180\ \ \ \textcolor{comment}{//\ main()\ (see\ RuntimeOptions\ documentation).}}
+\DoxyCodeLine{00181\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00182\ \ \ \textcolor{comment}{//\ Note,\ the\ permissions\ are\ dropped\ by\ default\ from\ 'root'\ to\ 'daemon',\ so}}
+\DoxyCodeLine{00183\ \ \ \textcolor{comment}{//\ if\ you\ are\ required\ to\ stay\ root\ after\ this,\ disable\ this\ option\ in}}
+\DoxyCodeLine{00184\ \ \ \textcolor{comment}{//\ the\ default\ RuntimeOptions\ (set\ drop\_privileges\ =\ -\/1).}}
+\DoxyCodeLine{00185\ \ \ \textcolor{comment}{//\ Returns\ NULL,\ if\ there\ was\ a\ problem\ (a\ message\ then\ is\ written\ to\ stderr).}}
+\DoxyCodeLine{00186\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}}\ *\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a013ce12ec3b5432e56419fa55c6543b7}{CreateFromFlags}}(\textcolor{keywordtype}{int}\ *argc,\ \textcolor{keywordtype}{char}\ ***argv,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix::Options}}\ *default\_options\ =\ NULL,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{RuntimeOptions}}\ *default\_runtime\_opts\ =\ NULL,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ remove\_consumed\_flags\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \textcolor{comment}{//\ Stop\ matrix,\ delete\ all\ resources.}}
+\DoxyCodeLine{00192\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a08380093b16c315a3d567dbf9c2afe20}{\string~RGBMatrix}}();}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \textcolor{comment}{//\ -\/-\/\ Canvas\ interface.\ These\ write\ to\ the\ active\ FrameCanvas}}
+\DoxyCodeLine{00195\ \ \ \textcolor{comment}{//\ (see\ documentation\ in\ canvas.h)}}
+\DoxyCodeLine{00196\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00197\ \ \ \textcolor{comment}{//\ Since\ this\ is\ updating\ the\ canvas\ that\ is\ currently\ displayed,\ this}}
+\DoxyCodeLine{00198\ \ \ \textcolor{comment}{//\ might\ result\ in\ tearing.}}
+\DoxyCodeLine{00199\ \ \ \textcolor{comment}{//\ Prefer\ using\ a\ FrameCanvas\ and\ do\ double-\/buffering,\ see\ section\ below.}}
+\DoxyCodeLine{00200\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a5a6d58b7511a0b29513d177d0203c574}{width}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00201\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a8cc871f01e9e992cdfeeb6990675d79e}{height}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00202\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_aff5ae973b326280611e598e33595a808}{SetPixel}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue);}
+\DoxyCodeLine{00204\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a1a58014f1a97f2e81d19bf4276870fff}{Clear}}();}
+\DoxyCodeLine{00205\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a8971203ab3838183ea1376d92717af84}{Fill}}(uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \textcolor{comment}{//\ -\/-\/\ Double-\/\ and\ Multibuffering.}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \textcolor{comment}{//\ Create\ a\ new\ buffer\ to\ be\ used\ for\ multi-\/buffering.\ The\ returned\ new}}
+\DoxyCodeLine{00210\ \ \ \textcolor{comment}{//\ Buffer\ implements\ a\ Canvas\ with\ the\ same\ size\ of\ thie\ RGBMatrix.}}
+\DoxyCodeLine{00211\ \ \ \textcolor{comment}{//\ You\ can\ use\ it\ to\ draw\ off-\/screen\ on\ it,\ then\ swap\ it\ with\ the\ active}}
+\DoxyCodeLine{00212\ \ \ \textcolor{comment}{//\ buffer\ using\ SwapOnVSync().\ That\ would\ be\ classic\ double-\/buffering.}}
+\DoxyCodeLine{00213\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00214\ \ \ \textcolor{comment}{//\ You\ can\ also\ create\ as\ many\ FrameCanvas\ as\ you\ like\ and\ for\ instance\ use}}
+\DoxyCodeLine{00215\ \ \ \textcolor{comment}{//\ them\ to\ pre-\/fill\ scenes\ of\ an\ animation\ for\ fast\ playback\ later.}}
+\DoxyCodeLine{00216\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00217\ \ \ \textcolor{comment}{//\ The\ ownership\ of\ the\ created\ Canvases\ remains\ with\ the\ RGBMatrix,\ so\ you}}
+\DoxyCodeLine{00218\ \ \ \textcolor{comment}{//\ don't\ have\ to\ worry\ about\ deleting\ them\ (but\ you\ also\ don't\ want\ to\ create}}
+\DoxyCodeLine{00219\ \ \ \textcolor{comment}{//\ more\ than\ needed\ as\ this\ will\ fill\ up\ your\ memory\ as\ they\ are\ only\ deleted}}
+\DoxyCodeLine{00220\ \ \ \textcolor{comment}{//\ when\ the\ RGBMatrix\ is\ deleted).}}
+\DoxyCodeLine{00221\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}\ *\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a174f7f60bc677a5fe5ab5ee7055f1176}{CreateFrameCanvas}}();}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \textcolor{comment}{//\ This\ method\ waits\ to\ the\ next\ VSync\ and\ swaps\ the\ active\ buffer\ with\ the}}
+\DoxyCodeLine{00224\ \ \ \textcolor{comment}{//\ supplied\ buffer.\ The\ formerly\ active\ buffer\ is\ returned.}}
+\DoxyCodeLine{00225\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00226\ \ \ \textcolor{comment}{//\ If\ you\ pass\ in\ NULL,\ the\ active\ buffer\ is\ returned,\ but\ it\ won't\ be}}
+\DoxyCodeLine{00227\ \ \ \textcolor{comment}{//\ replaced\ with\ NULL.\ You\ can\ use\ the\ NULL-\/behavior\ to\ just\ wait\ on}}
+\DoxyCodeLine{00228\ \ \ \textcolor{comment}{//\ VSync\ or\ to\ retrieve\ the\ initial\ buffer\ when\ preparing\ a\ multi-\/buffer}}
+\DoxyCodeLine{00229\ \ \ \textcolor{comment}{//\ animation.}}
+\DoxyCodeLine{00230\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00231\ \ \ \textcolor{comment}{//\ The\ optional\ "{}framerate\_fraction"{}\ parameter\ allows\ to\ choose\ which}}
+\DoxyCodeLine{00232\ \ \ \textcolor{comment}{//\ multiple\ of\ the\ global\ frame-\/count\ to\ use.\ So\ it\ slows\ down\ your\ animation}}
+\DoxyCodeLine{00233\ \ \ \textcolor{comment}{//\ to\ an\ exact\ integer\ fraction\ of\ the\ refresh\ rate.}}
+\DoxyCodeLine{00234\ \ \ \textcolor{comment}{//\ Default\ is\ 1,\ so\ immediately\ next\ available\ frame.}}
+\DoxyCodeLine{00235\ \ \ \textcolor{comment}{//\ (Say\ you\ have\ 140Hz\ refresh\ rate,\ then\ a\ value\ of\ 5\ would\ give\ you\ an}}
+\DoxyCodeLine{00236\ \ \ \textcolor{comment}{//\ 28Hz\ animation,\ nicely\ locked\ to\ the\ refresh-\/rate).}}
+\DoxyCodeLine{00237\ \ \ \textcolor{comment}{//\ If\ you\ combine\ this\ with\ Options::limit\_refresh\_rate\_hz\ you\ can\ create}}
+\DoxyCodeLine{00238\ \ \ \textcolor{comment}{//\ time-\/correct\ animations.}}
+\DoxyCodeLine{00239\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}\ *\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a14abd7d189c420e45af9cc4aec90e1e4}{SwapOnVSync}}(\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}\ *other,\ \textcolor{keywordtype}{unsigned}\ framerate\_fraction\ =\ 1);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \textcolor{comment}{//\ -\/-\/\ Setting\ shape\ and\ behavior\ of\ matrix.}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \textcolor{comment}{//\ Apply\ a\ pixel\ mapper.\ This\ is\ used\ to\ re-\/map\ pixels\ according\ to\ some}}
+\DoxyCodeLine{00244\ \ \ \textcolor{comment}{//\ scheme\ implemented\ by\ the\ PixelMapper.\ Does\ \_not\_\ take\ ownership\ of\ the}}
+\DoxyCodeLine{00245\ \ \ \textcolor{comment}{//\ mapper.\ Mapper\ can\ be\ NULL,\ in\ which\ case\ nothing\ happens.}}
+\DoxyCodeLine{00246\ \ \ \textcolor{comment}{//\ Returns\ a\ boolean\ indicating\ if\ this\ was\ successful.}}
+\DoxyCodeLine{00247\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_aa284d5bff03750a6c82a5f96c86c7c2c}{ApplyPixelMapper}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{PixelMapper}}\ *mapper);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \textcolor{comment}{//\ Note,\ there\ used\ to\ be\ ApplyStaticTransformer(),\ which\ has\ been\ deprecated}}
+\DoxyCodeLine{00250\ \ \ \textcolor{comment}{//\ since\ 2018\ and\ changed\ to\ a\ compile-\/time\ option,\ then\ finally\ removed}}
+\DoxyCodeLine{00251\ \ \ \textcolor{comment}{//\ in\ 2020.\ Use\ PixelMapper\ instead,\ which\ is\ simpler\ and\ more\ intuitive.}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \textcolor{comment}{//\ Set\ PWM\ bits\ used\ for\ output.\ Default\ is\ 11,\ but\ if\ you\ only\ deal\ with}}
+\DoxyCodeLine{00254\ \ \ \textcolor{comment}{//\ limited\ comic-\/colors,\ 1\ might\ be\ sufficient.\ Lower\ require\ less\ CPU\ and}}
+\DoxyCodeLine{00255\ \ \ \textcolor{comment}{//\ increases\ refresh-\/rate.}}
+\DoxyCodeLine{00256\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00257\ \ \ \textcolor{comment}{//\ Returns\ boolean\ to\ signify\ if\ value\ was\ within\ range.}}
+\DoxyCodeLine{00258\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00259\ \ \ \textcolor{comment}{//\ This\ sets\ the\ PWM\ bits\ for\ the\ current\ active\ FrameCanvas\ and\ future}}
+\DoxyCodeLine{00260\ \ \ \textcolor{comment}{//\ ones\ that\ are\ created\ with\ CreateFrameCanvas().}}
+\DoxyCodeLine{00261\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_ab1ac4e0a1b2cedf3b3c8796b4a323930}{SetPWMBits}}(uint8\_t\ value);}
+\DoxyCodeLine{00262\ \ \ uint8\_t\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_ad56403f533df1a11af7ef66506996df8}{pwmbits}}();\ \ \ \textcolor{comment}{//\ return\ the\ pwm-\/bits\ of\ the\ currently\ active\ buffer.}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \textcolor{comment}{//\ Map\ brightness\ of\ output\ linearly\ to\ input\ with\ CIE1931\ profile.}}
+\DoxyCodeLine{00265\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a75cda48ba6bd031e3fdf9d6b0a8fd9d5}{set\_luminance\_correct}}(\textcolor{keywordtype}{bool}\ on);}
+\DoxyCodeLine{00266\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a3c853328ea8b33386aab1f7a64093abc}{luminance\_correct}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \textcolor{comment}{//\ Set\ brightness\ in\ percent\ for\ all\ created\ FrameCanvas.\ 1\%..100\%.}}
+\DoxyCodeLine{00269\ \ \ \textcolor{comment}{//\ This\ will\ only\ affect\ newly\ set\ pixels.}}
+\DoxyCodeLine{00270\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a69c6fefc4e2786c30c0cf1dcc271ab60}{SetBrightness}}(uint8\_t\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a0655c9e2cf4818c39770d77baf411897}{brightness}});}
+\DoxyCodeLine{00271\ \ \ uint8\_t\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a0655c9e2cf4818c39770d77baf411897}{brightness}}();}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \textcolor{comment}{//-\/-\/\ GPIO\ interaction.}}
+\DoxyCodeLine{00274\ \ \ \textcolor{comment}{//\ This\ library\ uses\ the\ GPIO\ pins\ to\ drive\ the\ matrix;\ this\ is\ a\ safe\ way}}
+\DoxyCodeLine{00275\ \ \ \textcolor{comment}{//\ to\ request\ the\ 'remaining'\ bits\ to\ be\ used\ for\ user\ purposes.}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \textcolor{comment}{//\ Request\ user\ readable\ GPIO\ bits.}}
+\DoxyCodeLine{00278\ \ \ \textcolor{comment}{//\ This\ function\ allows\ you\ to\ request\ pins\ you'd\ like\ to\ read\ with}}
+\DoxyCodeLine{00279\ \ \ \textcolor{comment}{//\ AwaitInputChange().}}
+\DoxyCodeLine{00280\ \ \ \textcolor{comment}{//\ Only\ bits\ that\ are\ not\ already\ in\ use\ for\ reading\ or\ wrtiting}}
+\DoxyCodeLine{00281\ \ \ \textcolor{comment}{//\ by\ the\ matrix\ are\ allowed.}}
+\DoxyCodeLine{00282\ \ \ \textcolor{comment}{//\ Input\ is\ a\ bitmap\ of\ all\ the\ GPIO\ bits\ you're\ interested\ in;\ returns\ all}}
+\DoxyCodeLine{00283\ \ \ \textcolor{comment}{//\ the\ bits\ that\ are\ actually\ available.}}
+\DoxyCodeLine{00284\ \ \ uint64\_t\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a43abbc83f24ff973865ea74a1463f8d8}{RequestInputs}}(uint64\_t\ all\_interested\_bits);}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \textcolor{comment}{//\ This\ function\ will\ return\ whenever\ the\ GPIO\ input\ pins}}
+\DoxyCodeLine{00287\ \ \ \textcolor{comment}{//\ change\ (pins\ that\ are\ not\ already\ in\ use\ for\ output,\ that\ is)\ or\ the}}
+\DoxyCodeLine{00288\ \ \ \textcolor{comment}{//\ timeout\ is\ reached.\ You\ need\ to\ have\ reserved\ the\ inputs\ with}}
+\DoxyCodeLine{00289\ \ \ \textcolor{comment}{//\ matrix-\/>RequestInputs(...)\ first\ (e.g.}}
+\DoxyCodeLine{00290\ \ \ \textcolor{comment}{//\ \ \ matrix-\/>RequestInputs((1<<25)|(1<<24));}}
+\DoxyCodeLine{00291\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00292\ \ \ \textcolor{comment}{//\ A\ positive\ timeout\ waits\ the\ given\ amount\ of\ milliseconds\ for\ a\ change}}
+\DoxyCodeLine{00293\ \ \ \textcolor{comment}{//\ (e.g.\ a\ button-\/press)\ to\ occur;\ if\ there\ is\ no\ change,\ it\ will\ just}}
+\DoxyCodeLine{00294\ \ \ \textcolor{comment}{//\ return\ the\ last\ value.}}
+\DoxyCodeLine{00295\ \ \ \textcolor{comment}{//\ If\ you\ just\ want\ to\ know\ how\ the\ pins\ are\ right\ now,\ call\ with\ zero}}
+\DoxyCodeLine{00296\ \ \ \textcolor{comment}{//\ timeout.}}
+\DoxyCodeLine{00297\ \ \ \textcolor{comment}{//\ A\ negative\ number\ waits\ forever\ and\ will\ only\ return\ if\ there\ is\ a\ change.}}
+\DoxyCodeLine{00298\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00299\ \ \ \textcolor{comment}{//\ This\ function\ only\ samples\ between\ display\ refreshes\ so\ polling\ some}}
+\DoxyCodeLine{00300\ \ \ \textcolor{comment}{//\ input\ does\ not\ generate\ flicker\ and\ provide\ a\ convenient\ change\ interface.}}
+\DoxyCodeLine{00301\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00302\ \ \ \textcolor{comment}{//\ Returns\ the\ bitmap\ of\ all\ GPIO\ input\ pins.}}
+\DoxyCodeLine{00303\ \ \ uint64\_t\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_afb01d3fb34a4559299813685b73f9b66}{AwaitInputChange}}(\textcolor{keywordtype}{int}\ timeout\_ms);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \textcolor{comment}{//\ Request\ user\ writable\ GPIO\ bits.}}
+\DoxyCodeLine{00306\ \ \ \textcolor{comment}{//\ This\ allows\ to\ request\ a\ bitmap\ of\ GPIO-\/bits\ to\ be\ used\ by\ the\ user\ for}}
+\DoxyCodeLine{00307\ \ \ \textcolor{comment}{//\ writing.}}
+\DoxyCodeLine{00308\ \ \ \textcolor{comment}{//\ Only\ bits\ that\ are\ not\ already\ in\ use\ for\ reading\ or\ wrtiting}}
+\DoxyCodeLine{00309\ \ \ \textcolor{comment}{//\ by\ the\ matrix\ are\ allowed.}}
+\DoxyCodeLine{00310\ \ \ \textcolor{comment}{//\ Returns\ the\ subset\ bits\ that\ are\ \_actually\_\ available,}}
+\DoxyCodeLine{00311\ \ \ uint64\_t\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a942eea44f064ac75bc3f4fe20be680c1}{RequestOutputs}}(uint64\_t\ output\_bits);}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \textcolor{comment}{//\ Set\ the\ user-\/settable\ bits\ according\ to\ output\ bits.}}
+\DoxyCodeLine{00314\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a3da4990443e75e9043e945ce04ea58bb}{OutputGPIO}}(uint64\_t\ output\_bits);}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \textcolor{comment}{//\ Legacy\ way\ to\ set\ gpio\ pins.\ We're\ not\ doing\ this\ anymore\ but\ need\ to}}
+\DoxyCodeLine{00317\ \ \ \textcolor{comment}{//\ be\ source-\/compatible\ with\ old\ calls\ of\ the\ form}}
+\DoxyCodeLine{00318\ \ \ \textcolor{comment}{//\ matrix-\/>gpio()-\/>RequestInputs(...)}}
+\DoxyCodeLine{00319\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00320\ \ \ \textcolor{comment}{//\ Don't\ use,\ use\ AwaitInputChange()\ directly.}}
+\DoxyCodeLine{00321\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}}\ *\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a04f1027227247492598857c2e9ff13d9}{gpio}}()\ \_\_attribute\_\_((deprecated))\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \textcolor{comment}{//-\/-\/\ \ Rarely\ needed}}
+\DoxyCodeLine{00324\ \ \ \textcolor{comment}{//\ Start\ the\ refresh\ thread.}}
+\DoxyCodeLine{00325\ \ \ \textcolor{comment}{//\ This\ is\ only\ needed\ if\ you\ chose\ RuntimeOptions::daemon\ =\ -\/1\ (see\ below),}}
+\DoxyCodeLine{00326\ \ \ \textcolor{comment}{//\ otherwise\ the\ refresh\ thread\ is\ already\ started.}}
+\DoxyCodeLine{00327\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a5d941b032bf81aa17006b69112280a34}{StartRefresh}}();}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00330\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl}{Impl}};}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}}(\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl}{Impl}}\ *impl)\ :\ impl\_(impl)\ \{\}}
+\DoxyCodeLine{00333\ \ \ Impl\ *\textcolor{keyword}{const}\ impl\_;}
+\DoxyCodeLine{00334\ \};}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \textcolor{keyword}{namespace\ }internal\ \{}
+\DoxyCodeLine{00337\ \textcolor{keyword}{class\ }Framebuffer;}
+\DoxyCodeLine{00338\ \}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \textcolor{keyword}{class\ }FrameCanvas\ :\ \textcolor{keyword}{public}\ Canvas\ \{}
+\DoxyCodeLine{00341\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00342\ \ \ \textcolor{comment}{//\ Set\ PWM\ bits\ used\ for\ this\ Frame.}}
+\DoxyCodeLine{00343\ \ \ \textcolor{comment}{//\ Simple\ comic-\/colors,\ 1\ might\ be\ sufficient\ (111\ RGB,\ i.e.\ 8\ colors).}}
+\DoxyCodeLine{00344\ \ \ \textcolor{comment}{//\ Lower\ require\ less\ CPU.}}
+\DoxyCodeLine{00345\ \ \ \textcolor{comment}{//\ Returns\ boolean\ to\ signify\ if\ value\ was\ within\ range.}}
+\DoxyCodeLine{00346\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a0029e74aa58ae224eab6f4de7467a959}{SetPWMBits}}(uint8\_t\ value);}
+\DoxyCodeLine{00347\ \ \ uint8\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a8729b213a74ee98ca0afce6d2cb94b4f}{pwmbits}}();}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \textcolor{comment}{//\ Map\ brightness\ of\ output\ linearly\ to\ input\ with\ CIE1931\ profile.}}
+\DoxyCodeLine{00350\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_abb509947015e3881d76c26ab559b968c}{set\_luminance\_correct}}(\textcolor{keywordtype}{bool}\ on);}
+\DoxyCodeLine{00351\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ae0ed5768ae30e80c11c749edca78f05d}{luminance\_correct}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a5ff88d51f030150c48e4a06597518f7c}{SetBrightness}}(uint8\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea}{brightness}});}
+\DoxyCodeLine{00354\ \ \ uint8\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea}{brightness}}();}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \textcolor{comment}{//-\/-\/\ Serialize()/Deserialize()\ are\ fast\ ways\ to\ store\ and\ re-\/create\ a\ canvas.}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \textcolor{comment}{//\ Provides\ a\ pointer\ to\ a\ buffer\ of\ the\ internal\ representation\ to}}
+\DoxyCodeLine{00359\ \ \ \textcolor{comment}{//\ be\ copied\ out\ for\ later\ Deserialize().}}
+\DoxyCodeLine{00360\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00361\ \ \ \textcolor{comment}{//\ Returns\ a\ "{}data"{}\ pointer\ and\ the\ data\ "{}len"{}\ in\ the\ given\ out-\/paramters;}}
+\DoxyCodeLine{00362\ \ \ \textcolor{comment}{//\ the\ content\ can\ be\ copied\ from\ there\ by\ the\ caller.}}
+\DoxyCodeLine{00363\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00364\ \ \ \textcolor{comment}{//\ Note,\ the\ content\ is\ not\ simply\ RGB,\ it\ is\ the\ opaque\ and\ platform}}
+\DoxyCodeLine{00365\ \ \ \textcolor{comment}{//\ specific\ representation\ which\ allows\ to\ make\ deserialization\ very\ fast.}}
+\DoxyCodeLine{00366\ \ \ \textcolor{comment}{//\ It\ is\ also\ bigger\ than\ just\ RGB;\ if\ you\ want\ to\ store\ it\ somewhere,}}
+\DoxyCodeLine{00367\ \ \ \textcolor{comment}{//\ using\ compression\ is\ a\ good\ idea.}}
+\DoxyCodeLine{00368\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a8d4456d7565f82f66e268d1470b66502}{Serialize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **data,\ \textcolor{keywordtype}{size\_t}\ *len)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \textcolor{comment}{//\ Load\ data\ previously\ stored\ with\ Serialize().\ Needs\ to\ be\ restored\ into}}
+\DoxyCodeLine{00371\ \ \ \textcolor{comment}{//\ a\ FrameCanvas\ with\ exactly\ the\ same\ settings\ (rows,\ chain,\ transformer,...)}}
+\DoxyCodeLine{00372\ \ \ \textcolor{comment}{//\ as\ serialized.}}
+\DoxyCodeLine{00373\ \ \ \textcolor{comment}{//\ Returns\ 'false'\ if\ size\ is\ unexpected.}}
+\DoxyCodeLine{00374\ \ \ \textcolor{comment}{//\ This\ method\ should\ only\ be\ called\ if\ FrameCanvas\ is\ off-\/screen.}}
+\DoxyCodeLine{00375\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_aed061956e5d9e4819d7a2d44dd26fed0}{Deserialize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *data,\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \textcolor{comment}{//\ Copy\ content\ from\ other\ FrameCanvas\ owned\ by\ the\ same\ RGBMatrix.}}
+\DoxyCodeLine{00378\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab9e93e67d9d71608e9e3fddeec1bbde8}{CopyFrom}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}\ \&other);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \textcolor{comment}{//\ -\/-\/\ Canvas\ interface.}}
+\DoxyCodeLine{00381\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a70166040611df14ac590b61cc9ebec8b}{width}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00382\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab8dee4d0fcf20aa992d483c9c076459b}{height}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00383\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a5485404a66019d8aea341283cfba5f01}{SetPixel}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue);}
+\DoxyCodeLine{00385\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_acd2617cb652287c99395e2311c2b6a75}{SetPixels}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab6a4de84a8668af8cfd26ae97721ae9f}{width}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a1a062dd225d1bc25c333fe1324f968d2}{height}},}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ *colors);}
+\DoxyCodeLine{00387\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab26f93bf5f6af98e41d03b2410f34044}{Clear}}();}
+\DoxyCodeLine{00388\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ad179084c33559e6a7bc023768bb75dbb}{Fill}}(uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue);}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00391\ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}};}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}(\mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer}{internal::Framebuffer}}\ *\mbox{\hyperlink{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}})\ :\ frame\_(\mbox{\hyperlink{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}})\{\}}
+\DoxyCodeLine{00394\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{\string~FrameCanvas}}();\ \ \ \textcolor{comment}{//\ Any\ FrameCanvas\ is\ owned\ by\ RGBMatrix.}}
+\DoxyCodeLine{00395\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer}{internal::Framebuffer}}\ *framebuffer()\ \{\ \textcolor{keywordflow}{return}\ frame\_;\ \}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ internal::Framebuffer\ *\textcolor{keyword}{const}\ frame\_;}
+\DoxyCodeLine{00398\ \};}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \textcolor{comment}{//\ Runtime\ options\ to\ simplify\ doing\ common\ things\ for\ many\ programs\ such\ as}}
+\DoxyCodeLine{00401\ \textcolor{comment}{//\ dropping\ privileges\ and\ becoming\ a\ daemon.}}
+\DoxyCodeLine{00402\ \textcolor{keyword}{struct\ }RuntimeOptions\ \{}
+\DoxyCodeLine{00403\ \ \ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions_a9e965d4aeffcf59fbbe4643df3fe5165}{RuntimeOptions}}();}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions_a983edb23689650730c5417fe3c55c4cd}{gpio\_slowdown}};\ \ \ \ \textcolor{comment}{//\ 0\ =\ no\ slowdown.\ \ \ \ Flag:\ -\/-\/led-\/slowdown-\/gpio}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00408\ \ \ \textcolor{comment}{//\ If\ the\ following\ options\ are\ set\ to\ disabled\ with\ -\/1,\ they\ are\ not}}
+\DoxyCodeLine{00409\ \ \ \textcolor{comment}{//\ even\ offered\ via\ the\ command\ line\ flags.}}
+\DoxyCodeLine{00410\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \textcolor{comment}{//\ Thre\ are\ three\ possible\ values\ here}}
+\DoxyCodeLine{00413\ \ \ \textcolor{comment}{//\ \ \ -\/1\ :\ don't\ leave\ choise\ of\ becoming\ daemon\ to\ the\ command\ line}}
+\DoxyCodeLine{00414\ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ parsing.\ If\ set\ to\ -\/1,\ the\ -\/-\/led-\/daemon\ option\ is\ not\ offered.}}
+\DoxyCodeLine{00415\ \ \ \textcolor{comment}{//\ \ \ \ 0\ :\ do\ not\ becoma\ a\ daemon,\ run\ in\ forgreound\ (default\ value)}}
+\DoxyCodeLine{00416\ \ \ \textcolor{comment}{//\ \ \ \ 1\ :\ become\ a\ daemon,\ run\ in\ background.}}
+\DoxyCodeLine{00417\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00418\ \ \ \textcolor{comment}{//\ If\ daemon\ is\ disabled\ (=\ -\/1),\ the\ user\ has\ to\ call}}
+\DoxyCodeLine{00419\ \ \ \textcolor{comment}{//\ RGBMatrix::StartRefresh()\ manually\ once\ the\ matrix\ is\ created,\ to\ leave}}
+\DoxyCodeLine{00420\ \ \ \textcolor{comment}{//\ the\ decision\ to\ become\ a\ daemon}}
+\DoxyCodeLine{00421\ \ \ \textcolor{comment}{//\ after\ the\ call\ (which\ requires\ that\ no\ threads\ have\ been\ started\ yet).}}
+\DoxyCodeLine{00422\ \ \ \textcolor{comment}{//\ In\ the\ other\ cases\ (off\ or\ on),\ the\ choice\ is\ already\ made,\ so\ the}}
+\DoxyCodeLine{00423\ \ \ \textcolor{comment}{//\ thread\ is\ conveniently\ already\ started\ for\ you.}}
+\DoxyCodeLine{00424\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions_a101156ac246e04da15055bdcc3ae16d4}{daemon}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/1\ disabled.\ 0=off,\ 1=on.\ Flag:\ -\/-\/led-\/daemon}}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \textcolor{comment}{//\ Drop\ privileges\ from\ 'root'\ to\ drop\_priv\_user/group\ once\ the\ hardware\ is}}
+\DoxyCodeLine{00427\ \ \ \textcolor{comment}{//\ initialized.}}
+\DoxyCodeLine{00428\ \ \ \textcolor{comment}{//\ This\ is\ usually\ a\ good\ idea\ unless\ you\ need\ to\ stay\ on\ elevated\ privs.}}
+\DoxyCodeLine{00429\ \ \ \textcolor{comment}{//\ -\/1,\ 0,\ 1\ similar\ meaning\ to\ 'daemon'\ above.}}
+\DoxyCodeLine{00430\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions_a47b65d31b997c99b3d96b8b7ad0a8ec0}{drop\_privileges}};\ \ \textcolor{comment}{//\ -\/1\ disabled.\ 0=off,\ 1=on.\ flag:\ -\/-\/led-\/drop-\/privs}}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \textcolor{comment}{//\ By\ default,\ the\ gpio\ is\ initialized\ for\ you,\ but\ if\ you\ run\ on\ a\ platform}}
+\DoxyCodeLine{00433\ \ \ \textcolor{comment}{//\ not\ the\ Raspberry\ Pi,\ this\ will\ fail.\ If\ you\ don't\ need\ to\ access\ GPIO}}
+\DoxyCodeLine{00434\ \ \ \textcolor{comment}{//\ e.g.\ you\ want\ to\ just\ create\ a\ stream\ output\ (see\ content-\/streamer.h),}}
+\DoxyCodeLine{00435\ \ \ \textcolor{comment}{//\ set\ this\ to\ false.}}
+\DoxyCodeLine{00436\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions_aa9e20d13a1e1ba2b53ce15584f7a39bb}{do\_gpio\_init}};}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \textcolor{comment}{//\ If\ drop\ privileges\ is\ enabled,\ this\ is\ the\ user/group\ we\ drop\ privileges}}
+\DoxyCodeLine{00439\ \ \ \textcolor{comment}{//\ to.\ Unless\ chosen\ otherwise,\ the\ default\ is\ "{}daemon"{}\ for\ user\ and\ group.}}
+\DoxyCodeLine{00440\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions_a56dd1269f1775c02af6bb978c3d2823d}{drop\_priv\_user}};}
+\DoxyCodeLine{00441\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions_a0c961f964037bc6f72f2fce0b71499c2}{drop\_priv\_group}};}
+\DoxyCodeLine{00442\ \};}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \textcolor{comment}{//\ Convenience\ utility\ functions\ to\ read\ standard\ rgb-\/matrix\ flags\ and\ create}}
+\DoxyCodeLine{00445\ \textcolor{comment}{//\ a\ RGBMatrix.\ Commandline\ flags\ are\ something\ like\ -\/-\/led-\/rows,\ -\/-\/led-\/chain,}}
+\DoxyCodeLine{00446\ \textcolor{comment}{//\ -\/-\/led-\/parallel.\ See\ output\ of\ PrintMatrixFlags()\ for\ all\ available\ options}}
+\DoxyCodeLine{00447\ \textcolor{comment}{//\ and\ detailed\ description\ in}}
+\DoxyCodeLine{00448\ \textcolor{comment}{//\ https://github.com/hzeller/rpi-\/rgb-\/led-\/matrix\#changing-\/parameters-\/via-\/command-\/line-\/flags}}
+\DoxyCodeLine{00449\ \textcolor{comment}{//}}
+\DoxyCodeLine{00450\ \textcolor{comment}{//\ Example\ use:}}
+\DoxyCodeLine{00451\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00452\ \textcolor{comment}{using\ rgb\_matrix::RGBMatrix;}}
+\DoxyCodeLine{00453\ \textcolor{comment}{int\ main(int\ argc,\ char\ **argv)\ \{}}
+\DoxyCodeLine{00454\ \textcolor{comment}{\ \ RGBMatrix::Options\ led\_options;}}
+\DoxyCodeLine{00455\ \textcolor{comment}{\ \ rgb\_matrix::RuntimeOptions\ runtime;}}
+\DoxyCodeLine{00456\ \textcolor{comment}{}}
+\DoxyCodeLine{00457\ \textcolor{comment}{\ \ //\ Set\ defaults}}
+\DoxyCodeLine{00458\ \textcolor{comment}{\ \ led\_options.chain\_length\ =\ 3;}}
+\DoxyCodeLine{00459\ \textcolor{comment}{\ \ led\_options.show\_refresh\_rate\ =\ true;}}
+\DoxyCodeLine{00460\ \textcolor{comment}{\ \ runtime.drop\_privileges\ =\ 1;}}
+\DoxyCodeLine{00461\ \textcolor{comment}{\ \ if\ (!rgb\_matrix::ParseOptionsFromFlags(\&argc,\ \&argv,\ \&led\_options,\ \&runtime))\ \{}}
+\DoxyCodeLine{00462\ \textcolor{comment}{\ \ \ \ rgb\_matrix::PrintMatrixFlags(stderr);}}
+\DoxyCodeLine{00463\ \textcolor{comment}{\ \ \ \ return\ 1;}}
+\DoxyCodeLine{00464\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00465\ \textcolor{comment}{}}
+\DoxyCodeLine{00466\ \textcolor{comment}{\ \ //\ Do\ your\ own\ command\ line\ handling\ with\ the\ remaining\ flags.}}
+\DoxyCodeLine{00467\ \textcolor{comment}{\ \ while\ (getopt())\ \{...\}}}
+\DoxyCodeLine{00468\ \textcolor{comment}{}}
+\DoxyCodeLine{00469\ \textcolor{comment}{\ \ //\ Looks\ like\ we're\ ready\ to\ start}}
+\DoxyCodeLine{00470\ \textcolor{comment}{\ \ RGBMatrix\ *matrix\ =\ RGBMatrix::CreateFromOptions(led\_options,\ runtime);}}
+\DoxyCodeLine{00471\ \textcolor{comment}{\ \ if\ (matrix\ ==\ NULL)\ \{}}
+\DoxyCodeLine{00472\ \textcolor{comment}{\ \ \ \ return\ 1;}}
+\DoxyCodeLine{00473\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00474\ \textcolor{comment}{}}
+\DoxyCodeLine{00475\ \textcolor{comment}{\ \ //\ \ ..\ now\ use\ matrix}}
+\DoxyCodeLine{00476\ \textcolor{comment}{}}
+\DoxyCodeLine{00477\ \textcolor{comment}{\ \ delete\ matrix;\ \ \ //\ Make\ sure\ to\ delete\ it\ in\ the\ end\ to\ switch\ off\ LEDs.}}
+\DoxyCodeLine{00478\ \textcolor{comment}{\ \ return\ 0;}}
+\DoxyCodeLine{00479\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00480\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00481\ \textcolor{comment}{//\ This\ parses\ the\ flags\ from\ argv\ and\ updates\ the\ structs\ with\ the\ parsed-\/out}}
+\DoxyCodeLine{00482\ \textcolor{comment}{//\ values.\ Structs\ can\ be\ NULL\ if\ you\ are\ not\ interested\ in\ it.}}
+\DoxyCodeLine{00483\ \textcolor{comment}{//}}
+\DoxyCodeLine{00484\ \textcolor{comment}{//\ The\ recongized\ flags\ are\ removed\ from\ argv\ if\ "{}remove\_consumed\_flags"{}\ is}}
+\DoxyCodeLine{00485\ \textcolor{comment}{//\ true;\ this\ simplifies\ your\ command\ line\ processing\ for\ the\ remaining\ options.}}
+\DoxyCodeLine{00486\ \textcolor{comment}{//}}
+\DoxyCodeLine{00487\ \textcolor{comment}{//\ Returns\ 'true'\ on\ success,\ 'false'\ if\ there\ was\ flag\ parsing\ problem.}}
+\DoxyCodeLine{00488\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacergb__matrix_a06ec270dc0cf66ad8e253826deb5d92a}{ParseOptionsFromFlags}}(\textcolor{keywordtype}{int}\ *argc,\ \textcolor{keywordtype}{char}\ ***argv,}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix::Options}}\ *default\_options,}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{RuntimeOptions}}\ *rt\_options,}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ remove\_consumed\_flags\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \textcolor{comment}{//\ Show\ all\ the\ available\ options\ in\ a\ style\ that\ can\ be\ used\ in\ a\ -\/-\/help}}
+\DoxyCodeLine{00494\ \textcolor{comment}{//\ output\ on\ the\ command\ line.}}
+\DoxyCodeLine{00495\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacergb__matrix_a4289cc81716699d2080dae776d4580c0}{PrintMatrixFlags}}(FILE\ *out,}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix::Options}}\ \&defaults\ =\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix::Options}}(),}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{RuntimeOptions}}\ \&rt\_opt\ =\ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{RuntimeOptions}}());}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \textcolor{comment}{//\ Legacy\ version\ of\ RGBMatrix::CreateFromOptions()}}
+\DoxyCodeLine{00500\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}}\ *\mbox{\hyperlink{namespacergb__matrix_a38d3a75975e3aa64cb3a8fad3191c572}{CreateMatrixFromOptions}}(}
+\DoxyCodeLine{00501\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix::Options}}\ \&options,}
+\DoxyCodeLine{00502\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{RuntimeOptions}}\ \&runtime\_options)\ \{}
+\DoxyCodeLine{00503\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_a6394234632895f9da0db72ef869343a4}{RGBMatrix::CreateFromOptions}}(options,\ runtime\_options);}
+\DoxyCodeLine{00504\ \}}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00506\ \textcolor{comment}{//\ Legacy\ version\ of\ RGBMatrix::CreateFromFlags()}}
+\DoxyCodeLine{00507\ \textcolor{keyword}{inline}\ RGBMatrix\ *\mbox{\hyperlink{namespacergb__matrix_a812ef557db4a55bfb0fbbb6c10ccdc1b}{CreateMatrixFromFlags}}(}
+\DoxyCodeLine{00508\ \ \ \textcolor{keywordtype}{int}\ *argc,\ \textcolor{keywordtype}{char}\ ***argv,}
+\DoxyCodeLine{00509\ \ \ RGBMatrix::Options\ *default\_options\ =\ NULL,}
+\DoxyCodeLine{00510\ \ \ RuntimeOptions\ *default\_runtime\_opts\ =\ NULL,}
+\DoxyCodeLine{00511\ \ \ \textcolor{keywordtype}{bool}\ remove\_consumed\_flags\ =\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00512\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_aaf6a3fcdd884d79f0ffec9265ee12bfa}{RGBMatrix::CreateFromFlags}}(argc,\ argv,}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ default\_options,\ default\_runtime\_opts,}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ remove\_consumed\_flags);}
+\DoxyCodeLine{00515\ \}}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \}\ \ \textcolor{comment}{//\ end\ namespace\ rgb\_matrix}}
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ RPI\_RGBMATRIX\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,98 @@
+\doxysection{matrix/utils/video-\/viewer.cc File Reference}
+\hypertarget{video-viewer_8cc}{}\label{video-viewer_8cc}\index{matrix/utils/video-\/viewer.cc@{matrix/utils/video-\/viewer.cc}}
+{\ttfamily \#include $<$libavcodec/avcodec.\+h$>$}\newline
+{\ttfamily \#include $<$libavformat/avformat.\+h$>$}\newline
+{\ttfamily \#include $<$libavutil/imgutils.\+h$>$}\newline
+{\ttfamily \#include $<$libswscale/swscale.\+h$>$}\newline
+{\ttfamily \#include $<$libavdevice/avdevice.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include "{}led-\/matrix.\+h"{}}\newline
+{\ttfamily \#include "{}content-\/streamer.\+h"{}}\newline
+Include dependency graph for video-\/viewer.cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{video-viewer_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structLedPixel}{Led\+Pixel}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{video-viewer_8cc_a786132414c30f947907be33a4c28125a}{\+\_\+\+\_\+\+STDC\+\_\+\+CONSTANT\+\_\+\+MACROS}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{video-viewer_8cc_aa3e25129a3219fd427db674a3bbb3ecc}{Copy\+Frame}} (AVFrame \texorpdfstring{$\ast$}{*}p\+Frame, \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}}, int offset\+\_\+x, int offset\+\_\+y, int \mbox{\hyperlink{content-streamer_8cc_a325272ddd9a962f05deb905101d25cbd}{width}}, int \mbox{\hyperlink{content-streamer_8cc_a6ad4f820ce4e75cda0686fcaad5168be}{height}})
+\item 
+void \mbox{\hyperlink{video-viewer_8cc_a75c4ad636d024fac9f542dfa14e4e5fa}{Scale\+To\+Fit\+Keep\+Ascpet}} (int fit\+\_\+in\+\_\+width, int fit\+\_\+in\+\_\+height, int \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{content-streamer_8cc_a325272ddd9a962f05deb905101d25cbd}{width}}, int \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{content-streamer_8cc_a6ad4f820ce4e75cda0686fcaad5168be}{height}})
+\item 
+Sws\+Context \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{video-viewer_8cc_ab5bb4eeb0c93605105e96c6a04404d7d}{Create\+SWSContext}} (const AVCodec\+Context \texorpdfstring{$\ast$}{*}codec\+\_\+ctx, int display\+\_\+width, int display\+\_\+height)
+\item 
+int \mbox{\hyperlink{video-viewer_8cc_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile bool \mbox{\hyperlink{video-viewer_8cc_a160bb4f9851e63fa18e20d070d98b8ca}{interrupt\+\_\+received}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{video-viewer_8cc_a786132414c30f947907be33a4c28125a}\label{video-viewer_8cc_a786132414c30f947907be33a4c28125a} 
+\index{video-\/viewer.cc@{video-\/viewer.cc}!\_\_STDC\_CONSTANT\_MACROS@{\_\_STDC\_CONSTANT\_MACROS}}
+\index{\_\_STDC\_CONSTANT\_MACROS@{\_\_STDC\_CONSTANT\_MACROS}!video-\/viewer.cc@{video-\/viewer.cc}}
+\doxysubsubsection{\texorpdfstring{\_\_STDC\_CONSTANT\_MACROS}{\_\_STDC\_CONSTANT\_MACROS}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+STDC\+\_\+\+CONSTANT\+\_\+\+MACROS}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{video-viewer_8cc_aa3e25129a3219fd427db674a3bbb3ecc}\label{video-viewer_8cc_aa3e25129a3219fd427db674a3bbb3ecc} 
+\index{video-\/viewer.cc@{video-\/viewer.cc}!CopyFrame@{CopyFrame}}
+\index{CopyFrame@{CopyFrame}!video-\/viewer.cc@{video-\/viewer.cc}}
+\doxysubsubsection{\texorpdfstring{CopyFrame()}{CopyFrame()}}
+{\footnotesize\ttfamily void Copy\+Frame (\begin{DoxyParamCaption}\item[{AVFrame \texorpdfstring{$\ast$}{*}}]{p\+Frame,  }\item[{\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas,  }\item[{int}]{offset\+\_\+x,  }\item[{int}]{offset\+\_\+y,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+\Hypertarget{video-viewer_8cc_ab5bb4eeb0c93605105e96c6a04404d7d}\label{video-viewer_8cc_ab5bb4eeb0c93605105e96c6a04404d7d} 
+\index{video-\/viewer.cc@{video-\/viewer.cc}!CreateSWSContext@{CreateSWSContext}}
+\index{CreateSWSContext@{CreateSWSContext}!video-\/viewer.cc@{video-\/viewer.cc}}
+\doxysubsubsection{\texorpdfstring{CreateSWSContext()}{CreateSWSContext()}}
+{\footnotesize\ttfamily Sws\+Context \texorpdfstring{$\ast$}{*} Create\+SWSContext (\begin{DoxyParamCaption}\item[{const AVCodec\+Context \texorpdfstring{$\ast$}{*}}]{codec\+\_\+ctx,  }\item[{int}]{display\+\_\+width,  }\item[{int}]{display\+\_\+height }\end{DoxyParamCaption})}
+
+\Hypertarget{video-viewer_8cc_a0ddf1224851353fc92bfbff6f499fa97}\label{video-viewer_8cc_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{video-\/viewer.cc@{video-\/viewer.cc}!main@{main}}
+\index{main@{main}!video-\/viewer.cc@{video-\/viewer.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{video-viewer_8cc_a75c4ad636d024fac9f542dfa14e4e5fa}\label{video-viewer_8cc_a75c4ad636d024fac9f542dfa14e4e5fa} 
+\index{video-\/viewer.cc@{video-\/viewer.cc}!ScaleToFitKeepAscpet@{ScaleToFitKeepAscpet}}
+\index{ScaleToFitKeepAscpet@{ScaleToFitKeepAscpet}!video-\/viewer.cc@{video-\/viewer.cc}}
+\doxysubsubsection{\texorpdfstring{ScaleToFitKeepAscpet()}{ScaleToFitKeepAscpet()}}
+{\footnotesize\ttfamily void Scale\+To\+Fit\+Keep\+Ascpet (\begin{DoxyParamCaption}\item[{int}]{fit\+\_\+in\+\_\+width,  }\item[{int}]{fit\+\_\+in\+\_\+height,  }\item[{int \texorpdfstring{$\ast$}{*}}]{width,  }\item[{int \texorpdfstring{$\ast$}{*}}]{height }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{video-viewer_8cc_a160bb4f9851e63fa18e20d070d98b8ca}\label{video-viewer_8cc_a160bb4f9851e63fa18e20d070d98b8ca} 
+\index{video-\/viewer.cc@{video-\/viewer.cc}!interrupt\_received@{interrupt\_received}}
+\index{interrupt\_received@{interrupt\_received}!video-\/viewer.cc@{video-\/viewer.cc}}
+\doxysubsubsection{\texorpdfstring{interrupt\_received}{interrupt\_received}}
+{\footnotesize\ttfamily volatile bool interrupt\+\_\+received = false}
+

@@ -1,0 +1,9 @@
+<map id="rgb_matrix::internal::P3Outdoor64x64MultiplexMapper" name="rgb_matrix::internal::P3Outdoor64x64MultiplexMapper">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,255,253,295"/>
+<area shape="rect" id="Node000002" href="$classrgb__matrix_1_1internal_1_1MultiplexMapperBase.html" title=" " alt="" coords="43,167,215,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,221,132,254,127,254,127,221"/>
+<area shape="rect" id="Node000003" href="$classrgb__matrix_1_1internal_1_1MultiplexMapper.html" title=" " alt="" coords="54,79,205,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="132,133,132,166,127,166,127,133"/>
+<area shape="rect" id="Node000004" href="$classrgb__matrix_1_1PixelMapper.html" title=" " alt="" coords="39,5,220,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="132,44,132,79,127,79,127,44"/>
+</map>

@@ -1,0 +1,29 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classDemoRunner.html" title="Abstract base class for all LED matrix demos." alt="" coords="5,301,112,327"/>
+<area shape="rect" id="Node000001" href="$classAnt.html" title=" " alt="" coords="233,5,277,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="59,287,66,235,83,168,96,133,112,99,133,68,158,40,176,28,196,21,233,15,233,21,197,26,178,33,162,44,137,71,117,102,100,135,88,170,72,236,64,288"/>
+<area shape="rect" id="Node000002" href="$classBrightnessPulseGenerator.html" title=" " alt="" coords="160,55,351,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="62,287,72,244,90,191,118,136,137,111,158,89,177,78,180,82,162,93,141,115,122,139,95,193,77,245,67,288"/>
+<area shape="rect" id="Node000003" href="$classColorPulseGenerator.html" title=" " alt="" coords="177,104,333,129"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="65,287,78,253,97,213,124,173,158,139,179,127,181,132,162,143,128,176,102,216,83,256,70,289"/>
+<area shape="rect" id="Node000004" href="$classGameLife.html" title=" " alt="" coords="213,153,298,179"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="71,288,106,237,130,210,159,188,185,175,212,168,213,173,186,180,161,192,134,214,110,240,75,291"/>
+<area shape="rect" id="Node000005" href="$classGeneticColors.html" title=" " alt="" coords="199,203,312,228"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="82,290,117,262,159,237,198,223,199,228,161,242,120,267,86,294"/>
+<area shape="rect" id="Node000006" href="$classGrayScaleBlock.html" title=" " alt="" coords="193,252,317,277"/>
+<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="122,295,203,275,205,280,124,301"/>
+<area shape="rect" id="Node000007" href="$classGuidedColorEvolution.html" title=" " alt="" coords="174,301,337,327"/>
+<area shape="poly" id="edge7_Node000000_Node000007" title=" " alt="" coords="126,311,174,311,174,317,126,317"/>
+<area shape="rect" id="Node000008" href="$classImageScroller.html" title=" " alt="" coords="199,351,311,376"/>
+<area shape="poly" id="edge8_Node000000_Node000008" title=" " alt="" coords="124,327,205,348,203,353,122,333"/>
+<area shape="rect" id="Node000009" href="$classPortalEffect.html" title=" " alt="" coords="207,400,304,425"/>
+<area shape="poly" id="edge9_Node000000_Node000009" title=" " alt="" coords="86,334,120,360,161,385,207,401,206,406,159,390,117,365,82,338"/>
+<area shape="rect" id="Node000010" href="$classRotatingBlockGenerator.html" title=" " alt="" coords="166,449,345,475"/>
+<area shape="poly" id="edge10_Node000000_Node000010" title=" " alt="" coords="76,337,111,387,134,413,161,434,187,447,185,452,159,439,131,417,107,391,72,340"/>
+<area shape="rect" id="Node000011" href="$classSandpile.html" title=" " alt="" coords="216,499,295,524"/>
+<area shape="poly" id="edge11_Node000000_Node000011" title=" " alt="" coords="70,339,83,372,103,412,129,451,162,484,188,498,216,505,215,510,186,503,158,488,124,454,98,414,78,374,65,341"/>
+<area shape="rect" id="Node000012" href="$classSimpleSquare.html" title=" " alt="" coords="199,548,311,573"/>
+<area shape="poly" id="edge12_Node000000_Node000012" title=" " alt="" coords="67,339,77,382,95,434,123,488,141,512,162,533,180,545,200,552,198,557,177,549,158,537,137,516,118,491,90,437,72,383,62,341"/>
+<area shape="rect" id="Node000013" href="$classVolumeBars.html" title=" " alt="" coords="205,597,305,623"/>
+<area shape="poly" id="edge13_Node000000_Node000013" title=" " alt="" coords="65,340,72,392,88,457,117,525,137,556,162,583,182,596,206,603,204,608,180,601,158,587,133,559,112,527,83,459,67,393,59,341"/>
+</map>

@@ -1,0 +1,224 @@
+\doxysection{rgb\+\_\+matrix\+::internal\+::Framebuffer Class Reference}
+\hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer}{}\label{classrgb__matrix_1_1internal_1_1Framebuffer}\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+
+
+{\ttfamily \#include $<$framebuffer-\/internal.\+h$>$}
+
+
+
+Collaboration diagram for rgb\+\_\+matrix\+::internal\+::Framebuffer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{classrgb__matrix_1_1internal_1_1Framebuffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a7bc7d73499f31f1392b446f607de721e}{Framebuffer}} (int rows, int columns, int parallel, int scan\+\_\+mode, const char \texorpdfstring{$\ast$}{*}led\+\_\+sequence, bool inverse\+\_\+color, \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap}{Pixel\+Designator\+Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}mapper)
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_aa7c30deddc5cf0e20fd1866899678fe4}{\texorpdfstring{$\sim$}{\string~}\+Framebuffer}} ()
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ac0971ada43fa0ea6ae16859b9c34a558}{Set\+PWMBits}} (uint8\+\_\+t value)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ae2e9d0a470a1385f550a9bddfc7c28ce}{pwmbits}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a3cab1c1ce1034dc12b74339211ae8419}{set\+\_\+luminance\+\_\+correct}} (bool on)
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_af68d3cac0a051d3d6bece80ba3ab2146}{luminance\+\_\+correct}} () const
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_af4439a73bf7e38ffe20ff19a346a17b9}{Set\+Brightness}} (uint8\+\_\+t b)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a60e7a9ab3fbfc90c8de9b6190477be3e}{brightness}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a2740cbe0e3af1317dd9db962e9fe82b9}{Dump\+To\+Matrix}} (\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}io, int pwm\+\_\+bits\+\_\+to\+\_\+show)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a21f094d42f1bbd6fa4abb14efa7b479c}{Serialize}} (const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data, size\+\_\+t \texorpdfstring{$\ast$}{*}len) const
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a6752552000f7ad093edc086d4be73ade}{Deserialize}} (const char \texorpdfstring{$\ast$}{*}data, size\+\_\+t len)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a50f35b9d2f2edf4dc193ebebc1eeb4bf}{Copy\+From}} (const \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer}{Framebuffer}} \texorpdfstring{$\ast$}{*}other)
+\item 
+int \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a72cd62d77339e59c7e564ca639ab68ba}{width}} () const
+\item 
+int \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_afa3dbadc88d15424da8c8b02492c1942}{height}} () const
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a7a9a5e14dd27d4db29fbb34c0b83a4cf}{Set\+Pixel}} (int x, int y, uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ab8ee8016c92c12f712d5244217affbe8}{Set\+Pixels}} (int x, int y, int \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a72cd62d77339e59c7e564ca639ab68ba}{width}}, int \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_afa3dbadc88d15424da8c8b02492c1942}{height}}, \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}colors)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_aed343d7944ed440760da4a78a7a200b1}{Clear}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_abe56a3ef5bf832bb618697f6ac676cac}{Fill}} (uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a40107a07db2832ea0136224ce5efc8ec}{Init\+Hardware\+Mapping}} (const char \texorpdfstring{$\ast$}{*}named\+\_\+hardware)
+\item 
+static void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ad91b3721490ff3a5fe97484c7ffd1af0}{Init\+GPIO}} (\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}io, int rows, int parallel, bool allow\+\_\+hardware\+\_\+pulsing, int pwm\+\_\+lsb\+\_\+nanoseconds, int dither\+\_\+bits, int row\+\_\+address\+\_\+type)
+\item 
+static void \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ac01dd78462f20e0a1d68328976eb9455}{Initialize\+Panels}} (\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}io, const char \texorpdfstring{$\ast$}{*}panel\+\_\+type, int columns)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_acd7ccaca49cdd1cf3af880d14df298d4}{k\+Bit\+Planes}} = 11
+\item 
+static constexpr int \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a1ba09cac4e412e6c0d068d396ee09dc4}{k\+Default\+Bit\+Planes}} = 11
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a7bc7d73499f31f1392b446f607de721e}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a7bc7d73499f31f1392b446f607de721e} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!Framebuffer@{Framebuffer}}
+\index{Framebuffer@{Framebuffer}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{Framebuffer()}{Framebuffer()}}
+{\footnotesize\ttfamily rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Framebuffer (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{columns,  }\item[{int}]{parallel,  }\item[{int}]{scan\+\_\+mode,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{led\+\_\+sequence,  }\item[{bool}]{inverse\+\_\+color,  }\item[{\mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap}{Pixel\+Designator\+Map}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{mapper }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_aa7c30deddc5cf0e20fd1866899678fe4}\label{classrgb__matrix_1_1internal_1_1Framebuffer_aa7c30deddc5cf0e20fd1866899678fe4} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!````~Framebuffer@{\texorpdfstring{$\sim$}{\string~}Framebuffer}}
+\index{````~Framebuffer@{\texorpdfstring{$\sim$}{\string~}Framebuffer}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Framebuffer()}{\string~Framebuffer()}}
+{\footnotesize\ttfamily rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\texorpdfstring{$\sim$}{\string~}\+Framebuffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a60e7a9ab3fbfc90c8de9b6190477be3e}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a60e7a9ab3fbfc90c8de9b6190477be3e} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!brightness@{brightness}}
+\index{brightness@{brightness}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{brightness()}{brightness()}}
+{\footnotesize\ttfamily uint8\+\_\+t rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::brightness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_aed343d7944ed440760da4a78a7a200b1}\label{classrgb__matrix_1_1internal_1_1Framebuffer_aed343d7944ed440760da4a78a7a200b1} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!Clear@{Clear}}
+\index{Clear@{Clear}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a50f35b9d2f2edf4dc193ebebc1eeb4bf}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a50f35b9d2f2edf4dc193ebebc1eeb4bf} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!CopyFrom@{CopyFrom}}
+\index{CopyFrom@{CopyFrom}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{CopyFrom()}{CopyFrom()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Copy\+From (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer}{Framebuffer}} \texorpdfstring{$\ast$}{*}}]{other }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a6752552000f7ad093edc086d4be73ade}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a6752552000f7ad093edc086d4be73ade} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{Deserialize()}{Deserialize()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Deserialize (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a2740cbe0e3af1317dd9db962e9fe82b9}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a2740cbe0e3af1317dd9db962e9fe82b9} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!DumpToMatrix@{DumpToMatrix}}
+\index{DumpToMatrix@{DumpToMatrix}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{DumpToMatrix()}{DumpToMatrix()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Dump\+To\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}}]{io,  }\item[{int}]{pwm\+\_\+bits\+\_\+to\+\_\+show }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_abe56a3ef5bf832bb618697f6ac676cac}\label{classrgb__matrix_1_1internal_1_1Framebuffer_abe56a3ef5bf832bb618697f6ac676cac} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!Fill@{Fill}}
+\index{Fill@{Fill}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Fill (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{red,  }\item[{uint8\+\_\+t}]{green,  }\item[{uint8\+\_\+t}]{blue }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_afa3dbadc88d15424da8c8b02492c1942}\label{classrgb__matrix_1_1internal_1_1Framebuffer_afa3dbadc88d15424da8c8b02492c1942} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!height@{height}}
+\index{height@{height}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily int rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_ad91b3721490ff3a5fe97484c7ffd1af0}\label{classrgb__matrix_1_1internal_1_1Framebuffer_ad91b3721490ff3a5fe97484c7ffd1af0} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!InitGPIO@{InitGPIO}}
+\index{InitGPIO@{InitGPIO}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{InitGPIO()}{InitGPIO()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Init\+GPIO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}}]{io,  }\item[{int}]{rows,  }\item[{int}]{parallel,  }\item[{bool}]{allow\+\_\+hardware\+\_\+pulsing,  }\item[{int}]{pwm\+\_\+lsb\+\_\+nanoseconds,  }\item[{int}]{dither\+\_\+bits,  }\item[{int}]{row\+\_\+address\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a40107a07db2832ea0136224ce5efc8ec}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a40107a07db2832ea0136224ce5efc8ec} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!InitHardwareMapping@{InitHardwareMapping}}
+\index{InitHardwareMapping@{InitHardwareMapping}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{InitHardwareMapping()}{InitHardwareMapping()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Init\+Hardware\+Mapping (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{named\+\_\+hardware }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_ac01dd78462f20e0a1d68328976eb9455}\label{classrgb__matrix_1_1internal_1_1Framebuffer_ac01dd78462f20e0a1d68328976eb9455} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!InitializePanels@{InitializePanels}}
+\index{InitializePanels@{InitializePanels}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{InitializePanels()}{InitializePanels()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Initialize\+Panels (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}}]{io,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{panel\+\_\+type,  }\item[{int}]{columns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_af68d3cac0a051d3d6bece80ba3ab2146}\label{classrgb__matrix_1_1internal_1_1Framebuffer_af68d3cac0a051d3d6bece80ba3ab2146} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!luminance\_correct@{luminance\_correct}}
+\index{luminance\_correct@{luminance\_correct}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{luminance\_correct()}{luminance\_correct()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::luminance\+\_\+correct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_ae2e9d0a470a1385f550a9bddfc7c28ce}\label{classrgb__matrix_1_1internal_1_1Framebuffer_ae2e9d0a470a1385f550a9bddfc7c28ce} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!pwmbits@{pwmbits}}
+\index{pwmbits@{pwmbits}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{pwmbits()}{pwmbits()}}
+{\footnotesize\ttfamily uint8\+\_\+t rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::pwmbits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a21f094d42f1bbd6fa4abb14efa7b479c}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a21f094d42f1bbd6fa4abb14efa7b479c} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{Serialize()}{Serialize()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Serialize (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{len }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a3cab1c1ce1034dc12b74339211ae8419}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a3cab1c1ce1034dc12b74339211ae8419} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!set\_luminance\_correct@{set\_luminance\_correct}}
+\index{set\_luminance\_correct@{set\_luminance\_correct}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{set\_luminance\_correct()}{set\_luminance\_correct()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::set\+\_\+luminance\+\_\+correct (\begin{DoxyParamCaption}\item[{bool}]{on }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_af4439a73bf7e38ffe20ff19a346a17b9}\label{classrgb__matrix_1_1internal_1_1Framebuffer_af4439a73bf7e38ffe20ff19a346a17b9} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!SetBrightness@{SetBrightness}}
+\index{SetBrightness@{SetBrightness}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{SetBrightness()}{SetBrightness()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Set\+Brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a7a9a5e14dd27d4db29fbb34c0b83a4cf}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a7a9a5e14dd27d4db29fbb34c0b83a4cf} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!SetPixel@{SetPixel}}
+\index{SetPixel@{SetPixel}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{SetPixel()}{SetPixel()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Set\+Pixel (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint8\+\_\+t}]{red,  }\item[{uint8\+\_\+t}]{green,  }\item[{uint8\+\_\+t}]{blue }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_ab8ee8016c92c12f712d5244217affbe8}\label{classrgb__matrix_1_1internal_1_1Framebuffer_ab8ee8016c92c12f712d5244217affbe8} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!SetPixels@{SetPixels}}
+\index{SetPixels@{SetPixels}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{SetPixels()}{SetPixels()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Set\+Pixels (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}}]{colors }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_ac0971ada43fa0ea6ae16859b9c34a558}\label{classrgb__matrix_1_1internal_1_1Framebuffer_ac0971ada43fa0ea6ae16859b9c34a558} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!SetPWMBits@{SetPWMBits}}
+\index{SetPWMBits@{SetPWMBits}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{SetPWMBits()}{SetPWMBits()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::\+Set\+PWMBits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a72cd62d77339e59c7e564ca639ab68ba}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a72cd62d77339e59c7e564ca639ab68ba} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!width@{width}}
+\index{width@{width}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily int rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_acd7ccaca49cdd1cf3af880d14df298d4}\label{classrgb__matrix_1_1internal_1_1Framebuffer_acd7ccaca49cdd1cf3af880d14df298d4} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!kBitPlanes@{kBitPlanes}}
+\index{kBitPlanes@{kBitPlanes}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{kBitPlanes}{kBitPlanes}}
+{\footnotesize\ttfamily constexpr int rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::k\+Bit\+Planes = 11\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{classrgb__matrix_1_1internal_1_1Framebuffer_a1ba09cac4e412e6c0d068d396ee09dc4}\label{classrgb__matrix_1_1internal_1_1Framebuffer_a1ba09cac4e412e6c0d068d396ee09dc4} 
+\index{rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}!kDefaultBitPlanes@{kDefaultBitPlanes}}
+\index{kDefaultBitPlanes@{kDefaultBitPlanes}!rgb\_matrix::internal::Framebuffer@{rgb\_matrix::internal::Framebuffer}}
+\doxysubsubsection{\texorpdfstring{kDefaultBitPlanes}{kDefaultBitPlanes}}
+{\footnotesize\ttfamily constexpr int rgb\+\_\+matrix\+::internal\+::\+Framebuffer\+::k\+Default\+Bit\+Planes = 11\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+matrix/lib/\mbox{\hyperlink{framebuffer-internal_8h}{framebuffer-\/internal.\+h}}\item 
+matrix/lib/\mbox{\hyperlink{framebuffer_8cc}{framebuffer.\+cc}}\end{DoxyCompactItemize}

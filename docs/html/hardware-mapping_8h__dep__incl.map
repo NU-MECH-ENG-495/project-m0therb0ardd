@@ -1,0 +1,13 @@
+<map id="matrix/lib/hardware&#45;mapping.h" name="matrix/lib/hardware&#45;mapping.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="315,5,465,45"/>
+<area shape="rect" id="Node000002" href="$framebuffer-internal_8h.html" title=" " alt="" coords="216,93,383,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="362,57,321,95,318,91,358,53"/>
+<area shape="rect" id="Node000006" href="$hardware-mapping_8c.html" title=" " alt="" coords="407,93,557,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="422,53,463,91,460,95,418,57"/>
+<area shape="rect" id="Node000003" href="$framebuffer_8cc.html" title=" " alt="" coords="5,189,188,214"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,141,125,191,123,186,241,136"/>
+<area shape="rect" id="Node000004" href="$led-matrix_8cc.html" title=" " alt="" coords="212,189,387,214"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="302,147,302,188,297,188,297,147"/>
+<area shape="rect" id="Node000005" href="$options-initialize_8cc.html" title=" " alt="" coords="411,181,548,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="352,137,441,179,439,184,350,142"/>
+</map>

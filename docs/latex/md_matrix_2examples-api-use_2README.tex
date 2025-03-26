@@ -1,0 +1,344 @@
+\chapter{Running some demos}
+\hypertarget{md_matrix_2examples-api-use_2README}{}\label{md_matrix_2examples-api-use_2README}\index{Running some demos@{Running some demos}}
+Let\textquotesingle{}s start by running some demos, then we can dive into code. The \href{demo-main.cc}{\texttt{ demo-\/main.\+cc}} has some testing demos. Via command line flags, you can choose the display type you have (16x32 or 32x32), and how many you have chained and paralleled. For detailed description of these flags see the \href{../README.md\#changing-parameters-via-command-line-flags}{\texttt{ main README section}} about it.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ make}
+\DoxyCodeLine{\$\ sudo\ ./demo}
+\DoxyCodeLine{usage:\ ./demo\ <options>\ -\/D\ <demo-\/nr>\ [optional\ parameter]}
+\DoxyCodeLine{Options:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/D\ <demo-\/nr>\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Always\ needs\ to\ be\ set}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/gpio-\/mapping=<name>\ :\ Name\ of\ GPIO\ mapping\ used.\ Default\ "{}regular"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/rows=<rows>\ \ \ \ \ \ \ \ \ :\ Panel\ rows.\ Typically\ 8,\ 16,\ 32\ or\ 64.\ (Default:\ 32).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/cols=<cols>\ \ \ \ \ \ \ \ \ :\ Panel\ columns.\ Typically\ 32\ or\ 64.\ (Default:\ 32).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/chain=<chained>\ \ \ \ \ :\ Number\ of\ daisy-\/chained\ panels.\ (Default:\ 1).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/parallel=<parallel>\ :\ Parallel\ chains.\ range=1..3\ (Default:\ 1).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/multiplexing=<0..17>\ :\ Mux\ type:\ 0=direct;\ 1=Stripe;\ 2=Checkered;\ 3=Spiral;\ 4=ZStripe;\ 5=ZnMirrorZStripe;\ 6=coreman;\ 7=Kaler2Scan;\ 8=ZStripeUneven;\ 9=P10-\/128x4-\/Z;\ 10=QiangLiQ8;\ 11=InversedZStripe;\ 12=P10Outdoor1R1G1-\/1;\ 13=P10Outdoor1R1G1-\/2;\ 14=P10Outdoor1R1G1-\/3;\ 15=P10CoremanMapper;\ 16=P8Outdoor1R1G1;\ 17=FlippedStripe\ (Default:\ 0)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/pixel-\/mapper\ \ \ \ \ \ \ \ :\ Semicolon-\/separated\ list\ of\ pixel-\/mappers\ to\ arrange\ pixels.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Optional\ params\ after\ a\ colon\ e.g.\ "{}U-\/mapper;Rotate:90"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Available:\ "{}Mirror"{},\ "{}Rotate"{},\ "{}U-\/mapper"{},\ "{}V-\/mapper"{}.\ Default:\ "{}"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/pwm-\/bits=<1..11>\ \ \ \ :\ PWM\ bits\ (Default:\ 11).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/brightness=<percent>:\ Brightness\ in\ percent\ (Default:\ 100).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/scan-\/mode=<0..1>\ \ \ \ :\ 0\ =\ progressive;\ 1\ =\ interlaced\ (Default:\ 0).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/row-\/addr-\/type=<0..4>:\ 0\ =\ default;\ 1\ =\ AB-\/addressed\ panels;\ 2\ =\ direct\ row\ select;\ 3\ =\ ABC-\/addressed\ panels;\ 4\ =\ ABC\ Shift\ +\ DE\ direct\ (Default:\ 0).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/show-\/refresh\ \ \ \ \ \ \ \ :\ Show\ refresh\ rate.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/limit-\/refresh=<Hz>\ \ :\ Limit\ refresh\ rate\ to\ this\ frequency\ in\ Hz.\ Useful\ to\ keep\ a}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ constant\ refresh\ rate\ on\ loaded\ system.\ 0=no\ limit.\ Default:\ 0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/inverse\ \ \ \ \ \ \ \ \ \ \ \ \ :\ Switch\ if\ your\ matrix\ has\ inverse\ colors\ on.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/rgb-\/sequence\ \ \ \ \ \ \ \ :\ Switch\ if\ your\ matrix\ has\ led\ colors\ swapped\ (Default:\ "{}RGB"{})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/pwm-\/lsb-\/nanoseconds\ :\ PWM\ Nanoseconds\ for\ LSB\ (Default:\ 130)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/pwm-\/dither-\/bits=<0..2>\ :\ Time\ dithering\ of\ lower\ bits\ (Default:\ 0)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/no-\/hardware-\/pulse\ \ \ :\ Don't\ use\ hardware\ pin-\/pulse\ generation.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/panel-\/type=<name>\ \ \ :\ Needed\ to\ initialize\ special\ panels.\ Supported:\ 'FM6126A',\ 'FM6127'}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/slowdown-\/gpio=<0..4>:\ Slowdown\ GPIO.\ Needed\ for\ faster\ Pis/slower\ panels\ (Default:\ 1).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/daemon\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Make\ the\ process\ run\ in\ the\ background\ as\ daemon.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/-\/led-\/no-\/drop-\/privs\ \ \ \ \ \ \ :\ Don't\ drop\ privileges\ from\ 'root'\ after\ initializing\ the\ hardware.}
+\DoxyCodeLine{Demos,\ choosen\ with\ -\/D}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0\ \ -\/\ some\ rotating\ square}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 1\ \ -\/\ forward\ scrolling\ an\ image\ (-\/m\ <scroll-\/ms>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 2\ \ -\/\ backward\ scrolling\ an\ image\ (-\/m\ <scroll-\/ms>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 3\ \ -\/\ test\ image:\ a\ square}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 4\ \ -\/\ Pulsing\ color}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 5\ \ -\/\ Grayscale\ Block}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 6\ \ -\/\ Abelian\ sandpile\ model\ (-\/m\ <time-\/step-\/ms>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 7\ \ -\/\ Conway's\ game\ of\ life\ (-\/m\ <time-\/step-\/ms>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 8\ \ -\/\ Langton's\ ant\ (-\/m\ <time-\/step-\/ms>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 9\ \ -\/\ Volume\ bars\ (-\/m\ <time-\/step-\/ms>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 10\ -\/\ Evolution\ of\ color\ (-\/m\ <time-\/step-\/ms>)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 11\ -\/\ Brightness\ pulse\ generator}
+\DoxyCodeLine{Example:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ./demo\ -\/D\ 1\ runtext.ppm}
+\DoxyCodeLine{Scrolls\ the\ runtext\ until\ Ctrl-\/C\ is\ pressed}
+
+\end{DoxyCode}
+
+
+To run the actual demos, you need to run this as root so that the GPIO pins can be accessed; as soon as that established, the program will drop the privileges.
+
+Here is how demo \textquotesingle{}1\textquotesingle{} looks. It requires a ppm (type raw) with a height of 32 pixel -\/ it is infinitely scrolled over the screen; for convenience, there is a little runtext.\+ppm example included\+: \begin{DoxyVerb} $ sudo ./demo -D 1 runtext.ppm
+\end{DoxyVerb}
+ Here is a video of how it looks \href{http://youtu.be/OJvEWyvO4ro}{\texttt{ }}\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md17}{}\doxysection{\texorpdfstring{Other Examples}{Other Examples}}\label{md_matrix_2examples-api-use_2README_autotoc_md17}
+There are a few other examples that you can use as starting point for your own exploration of the API. If you just type {\ttfamily make} in this directory, the Makefile will build all of these, so they are ready to use. Some examples need BDF fonts, of which there are a few provided in \href{../fonts}{\texttt{ ../fonts}}.
+
+Some of these example programs are described in more detail further down this page.
+
+
+\begin{DoxyItemize}
+\item \href{./minimal-example.cc}{\texttt{ minimal-\/example}} Good to get started with the API
+\item \href{./image-example.cc}{\texttt{ image-\/example}} How to show an image (requires to install the graphics magic library, see in the header of that demo)
+\item \href{./text-example.cc}{\texttt{ text-\/example}} Reads text from stdin and displays it.
+\item \href{./scrolling-text-example.cc}{\texttt{ scrolling-\/text-\/example}} Scrolls a text given on the command-\/line.
+\item \href{./clock.cc}{\texttt{ clock}} Shows a clock with choosable date format string in one or multiple lines.
+\item \href{./input-example.cc}{\texttt{ input-\/example}} Example how to use the LED-\/\+Matrix but also read inputs from free GPIO-\/pins. Needed if you build some interactive piece.
+\item \href{./ledcat.cc}{\texttt{ ledcat}} LED-\/cat compatible reading of pixels from stdin.
+\item \href{./pixel-mover.cc}{\texttt{ pixel-\/mover}} Displays pixel on the display and it\textquotesingle{}s expected position on the terminal. Helpful for testing panels and figuring out new multiplexing mappings. Shows single dot or leaves a trail with length passed with {\ttfamily -\/t} option (think of \textquotesingle{}snake\textquotesingle{}). Can move around the pixel with W=Up, S=Down, A=Left, D=Right keys.
+\end{DoxyItemize}\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md18}{}\doxysection{\texorpdfstring{Using the API}{Using the API}}\label{md_matrix_2examples-api-use_2README_autotoc_md18}
+While there is the demo program and the \href{../utils}{\texttt{ utilities}}, this code can be used independently as a library to be used in your own programs. The includes are in {\ttfamily include/}, the library to link is built in {\ttfamily lib/}. This is a C++ also with C bindings. There is also a \href{../bindings/python}{\texttt{ Python}} and \href{../bindings/c\%23}{\texttt{ c\#}} bindings.\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md19}{}\doxysection{\texorpdfstring{Getting started}{Getting started}}\label{md_matrix_2examples-api-use_2README_autotoc_md19}
+The relevant part to start with is to look at \href{../include/led-matrix.h}{\texttt{ led-\/matrix.\+h}}.
+
+You can would typically use the {\ttfamily RGBMatrix\+::\+Create\+From\+Flags()} factory to create an RGBMatrix and then go from there.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ ++}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}led-\/matrix.h"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{rgb\_matrix::RGBMatrix}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{CMakeCCompilerId_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Set\ some\ defaults}}
+\DoxyCodeLine{\ \ RGBMatrix::Options\ my\_defaults;}
+\DoxyCodeLine{\ \ my\_defaults.hardware\_mapping\ =\ \textcolor{stringliteral}{"{}regular"{}};\ \ \textcolor{comment}{//\ or\ e.g.\ "{}adafruit-\/hat"{}\ or\ "{}adafruit-\/hat-\/pwm"{}}}
+\DoxyCodeLine{\ \ my\_defaults.chain\_length\ =\ 3;}
+\DoxyCodeLine{\ \ my\_defaults.show\_refresh\_rate\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{rgb\_matrix::RuntimeOptions}}\ runtime\_defaults;}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ If\ you\ drop\ privileges,\ the\ root\ user\ you\ start\ the\ program\ with}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ to\ be\ able\ to\ initialize\ the\ hardware\ will\ be\ switched\ to\ an\ unprivileged}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ user\ to\ minimize\ a\ potential\ security\ attack\ surface.}}
+\DoxyCodeLine{\ \ runtime\_defaults.\mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions_a47b65d31b997c99b3d96b8b7ad0a8ec0}{drop\_privileges}}\ =\ 1;}
+\DoxyCodeLine{\ \ RGBMatrix\ *\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}}\ =\ RGBMatrix::CreateFromFlags(\&argc,\ \&argv,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&my\_defaults,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&runtime\_defaults);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}}\ ==\ NULL)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacergb__matrix_a4289cc81716699d2080dae776d4580c0}{PrintMatrixFlags}}(stderr,\ my\_defaults,\ runtime\_defaults);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ matrix-\/>ApplyPixelMapper(...);\ \ //\ Optional}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Do\ your\ own\ command\ line\ handling\ with\ the\ remaining\ options.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ \ ..\ now\ use\ matrix}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}};\ \ \ \textcolor{comment}{//\ Make\ sure\ to\ delete\ it\ in\ the\ end.}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The {\ttfamily RGBMatrix} is essentially a canvas, it provides some basic functionality such as {\ttfamily Set\+Pixel()}, {\ttfamily Fill()} or {\ttfamily Clear()}. If you want to do more, you might be interested in functions provided in the \href{../include/graphics.h}{\texttt{ graphics.\+h}} header.
+
+If you have animations, you might be interested in double-\/buffering. There is a way to create new canvases with {\ttfamily Create\+Frame\+Canvas()}, and then use {\ttfamily Swap\+On\+VSync()} to change the content atomically. See API documentation for details.
+
+Start with the \href{./minimal-example.cc}{\texttt{ minimal-\/example.\+cc}} to start.
+
+If you are interested in drawing text and the font drawing functions in graphics.\+h, have a look at the \href{./text-example.cc}{\texttt{ text example}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ ./text-\/example\ -\/f\ ../fonts/8x13.bdf}
+\DoxyCodeLine{hello}
+
+\end{DoxyCode}
+
+
+
+
+How about a clock ?
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ ./clock\ -\/f\ ../fonts/7x13.bdf\ -\/-\/led-\/chain=2\ -\/d\ "{}\%A"{}\ -\/d\ "{}\%H:\%M:\%S"{}}
+
+\end{DoxyCode}
+ 
+
+Fonts are in a human readable and editbable {\ttfamily \texorpdfstring{$\ast$}{*}.bdf} format. There are some public domain fonts available in the \href{../fonts}{\texttt{ {\ttfamily ../fonts/}}} directory. Any other fonts you might want to use or scale to the size you need can be converted to a BDF format (either with a font editor or the \href{https://github.com/jirutka/otf2bdf}{\texttt{ otf2bdf}} tool).
+
+Here is an example how you could create a 30pixel high BDF font from some True\+Type font\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{otf2bdf\ -\/v\ -\/o\ myfont.bdf\ -\/r\ 72\ -\/p\ 30\ /path/to/font-\/Bold.ttf}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md20}{}\doxysection{\texorpdfstring{Integrating in your own application}{Integrating in your own application}}\label{md_matrix_2examples-api-use_2README_autotoc_md20}
+Until this library shows up in your favorite Linux distribution, you can just include the library via github; it is pretty easy to be up-\/to-\/date.
+
+I suggest to add this code as a sub-\/module in your git repository. That way you can use that particular version and easily update it if there are changes\+: \begin{DoxyVerb} git submodule add https://github.com/hzeller/rpi-rgb-led-matrix.git matrix
+\end{DoxyVerb}
+ (Read more about how to use \href{http://git-scm.com/book/en/Git-Tools-Submodules}{\texttt{ submodules in git}})
+
+This will check out the repository in a subdirectory {\ttfamily matrix/}. The library to build would be in directory {\ttfamily matrix/lib}, so let\textquotesingle{}s hook that into your toplevel Makefile. I suggest to set up some variables like this; you only need to change the location {\ttfamily RGB\+\_\+\+LIB\+\_\+\+DISTRIBUTION} is pointing to; in the sub-\/module example, this was the {\ttfamily matrix} directory\+: \begin{DoxyVerb} RGB_LIB_DISTRIBUTION=matrix
+ RGB_INCDIR=$(RGB_LIB_DISTRIBUTION)/include
+ RGB_LIBDIR=$(RGB_LIB_DISTRIBUTION)/lib
+ RGB_LIBRARY_NAME=rgbmatrix
+ RGB_LIBRARY=$(RGB_LIBDIR)/lib$(RGB_LIBRARY_NAME).a
+ LDFLAGS+=-L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthread
+\end{DoxyVerb}
+ Also, you want to add a target to build the libary in your sub-\/module \begin{DoxyVerb} # (FYI: Make sure, there is a TAB-character in front of the $(MAKE))
+ $(RGB_LIBRARY):
+     $(MAKE) -C $(RGB_LIBDIR)
+\end{DoxyVerb}
+ Now, your final binary needs to depend on your objects and also the {\ttfamily \$(RGB\+\_\+\+LIBRARY)} \begin{DoxyVerb} my-binary : $(OBJECTS) $(RGB_LIBRARY)
+     $(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
+\end{DoxyVerb}
+ As an example, see the \href{https://github.com/hzeller/rpi-matrix-pixelpusher}{\texttt{ Pixel\+Pusher implementation}} which is using this library in a git sub-\/module.
+
+If you are writing your own Makefile, make sure to pass the {\ttfamily -\/O3} option to the compiler to make sure to generate fast code.
+
+Note, all the types provided are in the {\ttfamily \doxylink{namespacergb__matrix}{rgb\+\_\+matrix}} namespace. That way, they won\textquotesingle{}t clash with other types you might use in your code; in particular pretty common names such as {\ttfamily GPIO} or {\ttfamily Canvas} might run into clashing trouble.
+
+Anyway, for convenience you just might add using-\/declarations in your code\+: \begin{DoxyVerb} // Types exported by the RGB-Matrix library.
+ using rgb_matrix::Canvas;
+ using rgb_matrix::GPIO;
+ using rgb_matrix::RGBMatrix;
+\end{DoxyVerb}
+ Or, if you are lazy, just import the whole namespace\+: \begin{DoxyVerb} using namespace rgb_matrix;
+\end{DoxyVerb}
+ Read the \href{./minimal-example.cc}{\texttt{ {\ttfamily minimal-\/example.\+cc}}} to get started, then have a look into \href{./demo-main.cc}{\texttt{ {\ttfamily demo-\/main.\+cc}}}.\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md21}{}\doxysection{\texorpdfstring{Remapping coordinates}{Remapping coordinates}}\label{md_matrix_2examples-api-use_2README_autotoc_md21}
+You might choose a different physical layout than the wiring provides.
+
+There is an option {\ttfamily -\/-\/led-\/pixel-\/mapper} that allows you to choose between some re-\/mapping options, and also programmatic ways to do so.\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md22}{}\doxysubsection{\texorpdfstring{Standard mappers}{Standard mappers}}\label{md_matrix_2examples-api-use_2README_autotoc_md22}
+\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md23}{}\doxysubsubsection{\texorpdfstring{U-\/mapper (\+U-\/shape connection)}{U-mapper (U-shape connection)}}\label{md_matrix_2examples-api-use_2README_autotoc_md23}
+Say you have 4 displays with 32x32 and only a single output like with a Raspberry Pi 1 or the Adafruit HAT -- if we chain them, we get a display 32 pixel high, (4\texorpdfstring{$\ast$}{*}32)=128 pixel long. If we arrange the boards in a U-\/shape so that they form a square, we get a logical display of 64x64 pixels\+:
+
+ In action\+: \href{http://youtu.be/ZglGuMaKvpY}{\texttt{ }}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{So\ the\ following\ chain\ (Viewed\ looking\ at\ the\ LED-\/side\ of\ the\ panels)}
+\DoxyCodeLine{\ \ \ \ [<][<][<][<]\ \}-\/\ Raspbery\ Pi\ connector}
+\DoxyCodeLine{}
+\DoxyCodeLine{is\ arranged\ in\ this\ U-\/shape\ (on\ its\ side)}
+\DoxyCodeLine{\ \ \ \ [<][<]\ \}-\/-\/-\/-\/-\/\ Raspberry\ Pi\ connector}
+\DoxyCodeLine{\ \ \ \ [>][>]}
+
+\end{DoxyCode}
+
+
+Now we need to internally map pixels the pixels so that the \textquotesingle{}folded\textquotesingle{} 128x32 screen behaves like a 64x64 screen.
+
+There is a pixel-\/mapper that can help with this "{}\+U-\/\+Arrangement"{}, you choose it with {\ttfamily -\/-\/led-\/pixel-\/mapper=U-\/mapper}. So in this particular case,
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./demo\ -\/-\/led-\/chain=4\ -\/-\/led-\/pixel-\/mapper="{}U-\/mapper"{}}
+
+\end{DoxyCode}
+
+
+This works for longer and more than one chain as well. Here an arrangement with two chains with 8 panels each
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[<][<][<][<]\ \ \}-\/-\/-\/\ Pi\ connector\ \#1}
+\DoxyCodeLine{[>][>][>][>]}
+\DoxyCodeLine{[<][<][<][<]\ \ \}-\/-\/-\/\ Pi\ connector\ \#2}
+\DoxyCodeLine{[>][>][>][>]}
+
+\end{DoxyCode}
+
+
+({\ttfamily -\/-\/led-\/chain=8 -\/-\/led-\/parallel=2 -\/-\/led-\/pixel-\/mapper="{}\+U-\/mapper"{}}).\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md24}{}\doxysubsubsection{\texorpdfstring{V-\/mapper and Vmapper\+:\+Z (\+Vertical arrangement)}{V-mapper and Vmapper:Z (Vertical arrangement)}}\label{md_matrix_2examples-api-use_2README_autotoc_md24}
+By default, when you add panels on a chain, they are added horizontally. If you have 2 panels of 64x32, you get 128x32. The V-\/mapper allows the stacking to be vertical and not horizontal and get the 64x64 you might want.
+
+By default, all the panels are correct side up, and you need more cable length as you need to cross back to the start of the next panel. If you wish to use shorter cables, you can add use Vmapper\+:Z which will give you serpentine cabling and every other panel will be upside down (see below for an example).
+
+It is compatible with parallel chains, so you can have multiple stacks of panels all building a coherent overall display.
+
+Here an example with 3 chains of 4 panels (128x64) for a total of about 98k display pixels.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./demo\ -\/-\/led-\/rows=64\ -\/-\/led-\/cols=128\ -\/-\/led-\/chain=4\ -\/led-\/parallel=3\ -\/-\/led-\/pixel-\/mapper=V-\/mapper\ -\/D0}
+
+\end{DoxyCode}
+
+
+Viewed looking the LED-\/side of the panels\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ Vmapper\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vmapper:Z}
+\DoxyCodeLine{}
+\DoxyCodeLine{[O\ <\ I]\ [O\ <\ I]\ [O\ <\ I]\ \ \ \ \ \ \ \ \ \ \ \ \ [I\ >\ O]\ [I\ >\ O]\ [I\ >\ O]}
+\DoxyCodeLine{\ ,-\/-\/-\/\string^\ \ \ ,-\/-\/-\/\string^\ \ \ ,-\/-\/-\/\string^\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^}
+\DoxyCodeLine{[O\ <\ I]\ [O\ <\ I]\ [O\ <\ I]\ \ \ \ \ \ \ \ \ \ \ \ \ [O\ <\ I]\ [O\ <\ I]\ [O\ <\ I]}
+\DoxyCodeLine{\ ,-\/-\/-\/\string^\ \ \ ,-\/-\/-\/\string^\ \ \ ,-\/-\/-\/\string^\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^}
+\DoxyCodeLine{[O\ <\ I]\ [O\ <\ I]\ [O\ <\ I]\ \ \ \ \ \ \ \ \ \ \ \ \ [I\ >\ O]\ [I\ >\ O]\ [I\ >\ O]}
+\DoxyCodeLine{\ ,-\/-\/-\/\string^\ \ \ ,-\/-\/-\/\string^\ \ \ ,-\/-\/-\/\string^\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^}
+\DoxyCodeLine{[O\ <\ I]\ [O\ <\ I]\ [O\ <\ I]\ \ \ \ \ \ \ \ \ \ \ \ \ [O\ <\ I]\ [O\ <\ I]\ [O\ <\ I]}
+\DoxyCodeLine{\ \ \ \ \ \string^\ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^}
+\DoxyCodeLine{\ \ \ \ \#1\ \ \ \ \ \ \#2\ \ \ \ \ \ \ \#3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#1\ \ \ \ \ \ \#2\ \ \ \ \ \ \ \#3}
+\DoxyCodeLine{\ \ \ \ \ \ \ Pi\ connector\ (three\ parallel\ chains\ of\ len\ 4)}
+
+\end{DoxyCode}
+
+
+(This is also a good time to notice that 384x256 with 12 128x64 panels, is probably an upper limit of what you can reasonably output without having an unusable fresh rate (Try these options to help\+: --led-\/pwm-\/bits=7 --led-\/pwm-\/dither-\/bits=1 and get about 100Hz)).
+
+This shows the wiring of a 3x5 Vmapper\+:Z array built by Marc MERLIN, using 15x 64x32 panels\+:  With --led-\/pwm-\/bits=7 --led-\/pwm-\/dither-\/bits=1, it gets a better 300Hz refresh but only offers around 31K pixels instead of 98K pixels in the previous example.
+
+Please note that Vmapper can also be used to improve the refresh rate of a long display even if it is only one panel high (e.\+g. for a text running output) by splitting the load into multiple parallel chains.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[O\ <\ I]\ [O\ <\ I]\ [O\ <\ I]}
+\DoxyCodeLine{\ \ \ \ \ \string^\ \ \ \ \ \ \ \string^\ \ \ \ \ \ \ \string^}
+\DoxyCodeLine{\ \ \ \ \#1\ \ \ \ \ \ \#2\ \ \ \ \ \ \ \#3\ Pi\ connector\ (three\ parallel\ chains\ of\ len\ 1)}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md25}{}\doxysubsubsection{\texorpdfstring{Rotate}{Rotate}}\label{md_matrix_2examples-api-use_2README_autotoc_md25}
+The "{}\+Rotate"{} mapper allows you to rotate your screen. It takes an angle as parameter after a colon\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./demo\ -\/-\/led-\/pixel-\/mapper="{}Rotate:90"{}}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md26}{}\doxysubsubsection{\texorpdfstring{Mirror}{Mirror}}\label{md_matrix_2examples-api-use_2README_autotoc_md26}
+The \textquotesingle{}Mirror\textquotesingle{} mapper allows to mirror the output horizontally or vertically. Without parameter, it mirrors horizontally. The parameter is a single character \textquotesingle{}H\textquotesingle{} or \textquotesingle{}V\textquotesingle{} for horizontal or vertical mirroring.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./demo\ -\/-\/led-\/pixel-\/mapper="{}Mirror:H"{}}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md27}{}\doxysubsubsection{\texorpdfstring{Combining Mappers}{Combining Mappers}}\label{md_matrix_2examples-api-use_2README_autotoc_md27}
+You can chain multiple mappers in the configuration, by separating them with a semicolon. The mappers are applied in the sequence you give them, so if you want to arrange a couple of panels with the U-\/arrangement, and then rotate the resulting screen, use
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./demo\ -\/-\/led-\/chain=8\ -\/-\/led-\/parallel=3\ -\/-\/led-\/pixel-\/mapper="{}U-\/mapper;Rotate:90"{}}
+
+\end{DoxyCode}
+
+
+Here, we first create a 128x192 screen (4 panels wide ({\ttfamily 4\texorpdfstring{$\ast$}{*}32=128}), with three folded chains ({\ttfamily 6\texorpdfstring{$\ast$}{*}32=192})) and then rotate it by 90 degrees to get a 192x128 screen.\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md28}{}\doxysubsubsection{\texorpdfstring{Programmatic access}{Programmatic access}}\label{md_matrix_2examples-api-use_2README_autotoc_md28}
+If you want to choose these mappers programmatically from your program and not via the flags, you can do this by setting the {\ttfamily pixel\+\_\+mapper\+\_\+config} option in the options struct in C++ or Python.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{options.pixel\_mapper\_config\ =\ "{}Rotate:90"{};}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md29}{}\doxysubsection{\texorpdfstring{Writing your own mappers}{Writing your own mappers}}\label{md_matrix_2examples-api-use_2README_autotoc_md29}
+If you want to write your own mappers, e.\+g. if you have a fancy panel arrangement, you can do so using the API provided.
+
+In the API, there is an interface to implement, a \href{../include/pixel-mapper.h}{\texttt{ {\ttfamily Pixel\+Mapper}}} that allows to program re-\/arrangements of pixels in any way. You can plug such an implementation of a {\ttfamily Pixel\+Mapper} into the RGBMatrix to use it\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{bool\ RGBMatrix::ApplyPixelMapper(const\ PixelMapper\ *mapper);}
+
+\end{DoxyCode}
+
+
+If you want, you can also register your Pixel\+Mapper globally before you parse the command line options; then this pixel-\/mapper is automatically provided in the {\ttfamily -\/-\/led-\/pixel-\/mapper} command line option\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RegisterPixelMapper(new\ MyOwnPixelMapper());}
+\DoxyCodeLine{RGBMatrix\ *matrix\ =\ RGBMatrix::CreateFromFlags(...);}
+
+\end{DoxyCode}
+
+
+Now your mapper can be used alongside (and combined with) the standard mappers already there (e.\+g. "{}\+U-\/mapper"{} or "{}\+Rotate"{}). Your mapper can have parameters\+: In the command-\/line flag, parameters provided after {\ttfamily \+:} are passed as-\/is to your {\ttfamily Set\+Parameters()} implementation (e.\+g. using {\ttfamily -\/-\/led-\/pixel-\/mapper="{}\+Rotate\+:90"{}}, the {\ttfamily Rotate} mapper gets a parameter string {\ttfamily "{}90"{}} as parameter).\hypertarget{md_matrix_2examples-api-use_2README_autotoc_md30}{}\doxysubsubsection{\texorpdfstring{Multiplex Mappers}{Multiplex Mappers}}\label{md_matrix_2examples-api-use_2README_autotoc_md30}
+Sometimes you even need this for the panel itself\+: In some panels (typically the \textquotesingle{}outdoor panels\textquotesingle{}, often with 1\+:4 multiplexing) the pixels are not mapped in a straight-\/forward way, but in a snake arrangement for instance.
+
+There are simplified pixel mappers for this purpose, the \href{../lib/multiplex-mappers.cc}{\texttt{ multiplex mappers}}. These are defined there and then can be accessed via the command line flag {\ttfamily -\/-\/led-\/multiplexing=...}.
+
+If you find that whatever parameter you give to {\ttfamily -\/-\/led-\/multiplexing=} doesn\textquotesingle{}t work, you might need to write your own mapper (extend {\ttfamily Multiplex\+Mapper\+Base} and implement the one method {\ttfamily Map\+Single\+Panel()}). Then register them with the {\ttfamily Create\+Multiplex\+Mapper\+List()} function in that file. When you do this, this will automatically become available in the {\ttfamily -\/-\/led-\/multiplexing=} command line option in C++ and Python. 

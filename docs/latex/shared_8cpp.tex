@@ -1,0 +1,88 @@
+\doxysection{src/shared.cpp File Reference}
+\hypertarget{shared_8cpp}{}\label{shared_8cpp}\index{src/shared.cpp@{src/shared.cpp}}
+
+
+Contains shared global variables and image loading utilities for LED matrix demos.  
+
+
+{\ttfamily \#include "{}shared.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for shared.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{shared_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} \mbox{\hyperlink{shared_8cpp_a7609923562a007605133ba523e244922}{Load\+Image\+And\+Scale\+Image}} (const char \texorpdfstring{$\ast$}{*}filename, int target\+\_\+width, int target\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Loads and scales an image to the given matrix dimensions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{shared_8cpp_a2a78370c1f882722b1433352b36d4c91}{target\+Pixels}}
+\begin{DoxyCompactList}\small\item\em Global vector that stores the RGB values for the target image pixels. \end{DoxyCompactList}\item 
+volatile bool \mbox{\hyperlink{shared_8cpp_a160bb4f9851e63fa18e20d070d98b8ca}{interrupt\+\_\+received}} = false
+\begin{DoxyCompactList}\small\item\em Global flag that is set to true when a termination signal is received. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains shared global variables and image loading utilities for LED matrix demos. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{shared_8cpp_a7609923562a007605133ba523e244922}\label{shared_8cpp_a7609923562a007605133ba523e244922} 
+\index{shared.cpp@{shared.cpp}!LoadImageAndScaleImage@{LoadImageAndScaleImage}}
+\index{LoadImageAndScaleImage@{LoadImageAndScaleImage}!shared.cpp@{shared.cpp}}
+\doxysubsubsection{\texorpdfstring{LoadImageAndScaleImage()}{LoadImageAndScaleImage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} Load\+Image\+And\+Scale\+Image (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{int}]{target\+\_\+width,  }\item[{int}]{target\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Loads and scales an image to the given matrix dimensions. 
+
+Uses Graphics\+Magick to load a static image or first frame of a GIF, and resizes it to the target dimensions (e.\+g., 64x64) for display on the LED matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the image file to load. \\
+\hline
+{\em target\+\_\+width} & Desired output width in pixels. \\
+\hline
+{\em target\+\_\+height} & Desired output height in pixels. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image\+Vector Vector of Magick\+::\+Image objects. Returns an empty vector on error. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Loads frames from image file
+
+\texorpdfstring{$<$}{<} Use the first frame only (good for static or GIF)
+
+\texorpdfstring{$<$}{<} Resize image to match matrix
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{shared_8cpp_a160bb4f9851e63fa18e20d070d98b8ca}\label{shared_8cpp_a160bb4f9851e63fa18e20d070d98b8ca} 
+\index{shared.cpp@{shared.cpp}!interrupt\_received@{interrupt\_received}}
+\index{interrupt\_received@{interrupt\_received}!shared.cpp@{shared.cpp}}
+\doxysubsubsection{\texorpdfstring{interrupt\_received}{interrupt\_received}}
+{\footnotesize\ttfamily volatile bool interrupt\+\_\+received = false}
+
+
+
+Global flag that is set to true when a termination signal is received. 
+
+\Hypertarget{shared_8cpp_a2a78370c1f882722b1433352b36d4c91}\label{shared_8cpp_a2a78370c1f882722b1433352b36d4c91} 
+\index{shared.cpp@{shared.cpp}!targetPixels@{targetPixels}}
+\index{targetPixels@{targetPixels}!shared.cpp@{shared.cpp}}
+\doxysubsubsection{\texorpdfstring{targetPixels}{targetPixels}}
+{\footnotesize\ttfamily std\+::vector$<$uint32\+\_\+t$>$ target\+Pixels}
+
+
+
+Global vector that stores the RGB values for the target image pixels. 
+

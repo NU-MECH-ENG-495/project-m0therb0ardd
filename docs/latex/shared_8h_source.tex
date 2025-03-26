@@ -1,0 +1,29 @@
+\doxysection{shared.\+h}
+\hypertarget{shared_8h_source}{}\label{shared_8h_source}\index{include/shared.h@{include/shared.h}}
+\mbox{\hyperlink{shared_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Magick++.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdint>}\ \ \textcolor{comment}{//\ for\ uint32\_t}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ }\mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{ImageVector}}\ =\ std::vector<Magick::Image>;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Terminal\ formatting\ macros}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ TERM\_ERR\ \ "{}\(\backslash\)033[1;31m"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ TERM\_NORM\ "{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Global\ pixel\ target\ data}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ std::vector<uint32\_t>\ \mbox{\hyperlink{shared_8h_a2a78370c1f882722b1433352b36d4c91}{targetPixels}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Graceful\ interrupt\ signal}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{shared_8h_a160bb4f9851e63fa18e20d070d98b8ca}{interrupt\_received}};}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{shared_8h_a7a412a966816bfd7e9e410746f5eebdd}{InterruptHandler}}(\textcolor{keywordtype}{int}\ signo);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Image\ loader}}
+\DoxyCodeLine{00021\ \mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{ImageVector}}\ \mbox{\hyperlink{shared_8h_a7609923562a007605133ba523e244922}{LoadImageAndScaleImage}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ target\_width,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ target\_height);}
+
+\end{DoxyCode}

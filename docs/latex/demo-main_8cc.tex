@@ -1,0 +1,114 @@
+\doxysection{matrix/examples-\/api-\/use/demo-\/main.cc File Reference}
+\hypertarget{demo-main_8cc}{}\label{demo-main_8cc}\index{matrix/examples-\/api-\/use/demo-\/main.cc@{matrix/examples-\/api-\/use/demo-\/main.cc}}
+{\ttfamily \#include "{}led-\/matrix.\+h"{}}\newline
+{\ttfamily \#include "{}pixel-\/mapper.\+h"{}}\newline
+{\ttfamily \#include "{}graphics.\+h"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for demo-\/main.cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{demo-main_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classDemoRunner}{Demo\+Runner}}
+\begin{DoxyCompactList}\small\item\em Abstract base class for all LED matrix demos. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classColorPulseGenerator}{Color\+Pulse\+Generator}}
+\item 
+class \mbox{\hyperlink{classBrightnessPulseGenerator}{Brightness\+Pulse\+Generator}}
+\item 
+class \mbox{\hyperlink{classSimpleSquare}{Simple\+Square}}
+\item 
+class \mbox{\hyperlink{classGrayScaleBlock}{Gray\+Scale\+Block}}
+\item 
+class \mbox{\hyperlink{classRotatingBlockGenerator}{Rotating\+Block\+Generator}}
+\item 
+class \mbox{\hyperlink{classImageScroller}{Image\+Scroller}}
+\item 
+class \mbox{\hyperlink{classSandpile}{Sandpile}}
+\item 
+class \mbox{\hyperlink{classGameLife}{Game\+Life}}
+\item 
+class \mbox{\hyperlink{classAnt}{Ant}}
+\item 
+class \mbox{\hyperlink{classVolumeBars}{Volume\+Bars}}
+\item 
+class \mbox{\hyperlink{classGeneticColors}{Genetic\+Colors}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{demo-main_8cc_aeefbf3f8baac8f481abbf06e6de70553}{TERM\+\_\+\+ERR}}~"{}\textbackslash{}033\mbox{[}1;31m"{}
+\item 
+\#define \mbox{\hyperlink{demo-main_8cc_afac50b656e71d572736fff99fce297b2}{TERM\+\_\+\+NORM}}~"{}\textbackslash{}033\mbox{[}0m"{}
+\item 
+\#define \mbox{\hyperlink{demo-main_8cc_a5e11313794320a9e010a945b205b92e3}{EXIT\+\_\+\+WITH\+\_\+\+MSG}}(m)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{demo-main_8cc_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile bool \mbox{\hyperlink{demo-main_8cc_a160bb4f9851e63fa18e20d070d98b8ca}{interrupt\+\_\+received}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{demo-main_8cc_a5e11313794320a9e010a945b205b92e3}\label{demo-main_8cc_a5e11313794320a9e010a945b205b92e3} 
+\index{demo-\/main.cc@{demo-\/main.cc}!EXIT\_WITH\_MSG@{EXIT\_WITH\_MSG}}
+\index{EXIT\_WITH\_MSG@{EXIT\_WITH\_MSG}!demo-\/main.cc@{demo-\/main.cc}}
+\doxysubsubsection{\texorpdfstring{EXIT\_WITH\_MSG}{EXIT\_WITH\_MSG}}
+{\footnotesize\ttfamily \#define EXIT\+\_\+\+WITH\+\_\+\+MSG(\begin{DoxyParamCaption}\item[{}]{m }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \{\ fprintf(stderr,\ \textcolor{stringliteral}{"{}\%s:\ \%s\ |\%s"{}},\ filename,\ m,\ line);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ fclose(f);\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+
+\end{DoxyCode}
+\Hypertarget{demo-main_8cc_aeefbf3f8baac8f481abbf06e6de70553}\label{demo-main_8cc_aeefbf3f8baac8f481abbf06e6de70553} 
+\index{demo-\/main.cc@{demo-\/main.cc}!TERM\_ERR@{TERM\_ERR}}
+\index{TERM\_ERR@{TERM\_ERR}!demo-\/main.cc@{demo-\/main.cc}}
+\doxysubsubsection{\texorpdfstring{TERM\_ERR}{TERM\_ERR}}
+{\footnotesize\ttfamily \#define TERM\+\_\+\+ERR~"{}\textbackslash{}033\mbox{[}1;31m"{}}
+
+\Hypertarget{demo-main_8cc_afac50b656e71d572736fff99fce297b2}\label{demo-main_8cc_afac50b656e71d572736fff99fce297b2} 
+\index{demo-\/main.cc@{demo-\/main.cc}!TERM\_NORM@{TERM\_NORM}}
+\index{TERM\_NORM@{TERM\_NORM}!demo-\/main.cc@{demo-\/main.cc}}
+\doxysubsubsection{\texorpdfstring{TERM\_NORM}{TERM\_NORM}}
+{\footnotesize\ttfamily \#define TERM\+\_\+\+NORM~"{}\textbackslash{}033\mbox{[}0m"{}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{demo-main_8cc_a0ddf1224851353fc92bfbff6f499fa97}\label{demo-main_8cc_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{demo-\/main.cc@{demo-\/main.cc}!main@{main}}
+\index{main@{main}!demo-\/main.cc@{demo-\/main.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{demo-main_8cc_a160bb4f9851e63fa18e20d070d98b8ca}\label{demo-main_8cc_a160bb4f9851e63fa18e20d070d98b8ca} 
+\index{demo-\/main.cc@{demo-\/main.cc}!interrupt\_received@{interrupt\_received}}
+\index{interrupt\_received@{interrupt\_received}!demo-\/main.cc@{demo-\/main.cc}}
+\doxysubsubsection{\texorpdfstring{interrupt\_received}{interrupt\_received}}
+{\footnotesize\ttfamily volatile bool interrupt\+\_\+received = false}
+

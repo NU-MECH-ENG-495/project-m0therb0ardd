@@ -1,0 +1,13 @@
+<map id="rgb_matrix::internal::P10Outdoor1R1G1BMultiplexMapper3" name="rgb_matrix::internal::P10Outdoor1R1G1BMultiplexMapper3">
+<area shape="rect" id="Node000001" title=" " alt="" coords="56,435,275,489"/>
+<area shape="rect" id="Node000002" href="$classrgb__matrix_1_1internal_1_1P10Outdoor1R1G1BMultiplexBase.html" title=" " alt="" coords="40,345,291,385"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,399,168,435,163,435,163,399"/>
+<area shape="rect" id="Node000003" href="$classrgb__matrix_1_1internal_1_1MultiplexMapperBase.html" title=" " alt="" coords="10,169,182,209"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,221,160,344,155,346,106,223"/>
+<area shape="rect" id="Node000004" href="$classrgb__matrix_1_1internal_1_1MultiplexMapper.html" title=" " alt="" coords="21,80,171,120"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="99,134,99,169,93,169,93,134"/>
+<area shape="rect" id="Node000005" href="$classrgb__matrix_1_1PixelMapper.html" title=" " alt="" coords="5,5,187,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="99,44,99,80,93,80,93,44"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="207,177,265,202"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="229,216,175,346,171,344,224,214"/>
+</map>

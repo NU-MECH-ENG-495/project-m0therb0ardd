@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['c_0',['c',['../structHardwareMapping.html#af86a346bd170fc90f4fb282820ad2045',1,'HardwareMapping']]],
+  ['cameramatrix_1',['cameraMatrix',['../Rotating3DCube_2Program_8cs.html#a0f3811a1ad0d462a1179c926f6926e8a',1,'Program.cs']]],
+  ['cancelkeypress_2',['cancelkeypress',['../Rotating3DCube_2Program_8cs.html#a9c0ca0a41addf25a640f039b3f5b1343',1,'CancelKeyPress:&#160;Program.cs'],['../PulsingBrightness_2Program_8cs.html#a9c0ca0a41addf25a640f039b3f5b1343',1,'CancelKeyPress:&#160;Program.cs'],['../PlayGIF_2Program_8cs.html#a9c0ca0a41addf25a640f039b3f5b1343',1,'CancelKeyPress:&#160;Program.cs'],['../MatrixRain_2Program_8cs.html#a9c0ca0a41addf25a640f039b3f5b1343',1,'CancelKeyPress:&#160;Program.cs'],['../FontExample_2Program_8cs.html#a9c0ca0a41addf25a640f039b3f5b1343',1,'CancelKeyPress:&#160;Program.cs']]],
+  ['canvas_3',['canvas',['../MatrixRain_2Program_8cs.html#a1c82fafbefefac03f47e6f1a3cad5b73',1,'canvas:&#160;Program.cs'],['../FontExample_2Program_8cs.html#a1c82fafbefefac03f47e6f1a3cad5b73',1,'canvas:&#160;Program.cs'],['../MinimalExample_2Program_8cs.html#a1c82fafbefefac03f47e6f1a3cad5b73',1,'canvas:&#160;Program.cs'],['../PlayGIF_2Program_8cs.html#a1c82fafbefefac03f47e6f1a3cad5b73',1,'canvas:&#160;Program.cs'],['../PulsingBrightness_2Program_8cs.html#a1c82fafbefefac03f47e6f1a3cad5b73',1,'canvas:&#160;Program.cs'],['../Rotating3DCube_2Program_8cs.html#a1c82fafbefefac03f47e6f1a3cad5b73',1,'canvas:&#160;Program.cs'],['../namespacegif-viewer.html#a363cdef3503ccf02d7495037614f52ee',1,'gif-viewer.canvas']]],
+  ['canvases_4',['canvases',['../namespacegif-viewer.html#a9ff122a0be5da07a2324104126f6396b',1,'gif-viewer']]],
+  ['centerx_5',['centerX',['../MinimalExample_2Program_8cs.html#adf7baff05eb51fee6cba1e0303061d71',1,'Program.cs']]],
+  ['centery_6',['centerY',['../MinimalExample_2Program_8cs.html#a22a4a7a09d12d54e4ccb0616646a5325',1,'Program.cs']]],
+  ['chain_5flength_7',['chain_length',['../namespacegif-viewer.html#a8ef1b29c719e6d8e7b495ea9b83d9663',1,'gif-viewer.chain_length'],['../namespaceimage-draw.html#a5541d73b031e00e46ceda4af9ff3e925',1,'image-draw.chain_length'],['../namespaceimage-viewer.html#ab0e336307e39756dcb30b1418da0c04a',1,'image-viewer.chain_length'],['../structRGBLedMatrixOptions.html#aec121430f1ed1a915a75c4c80968e430',1,'RGBLedMatrixOptions::chain_length'],['../structrgb__matrix_1_1RGBMatrix_1_1Options.html#ab3e6961f4d82fecfa0d8a984df3fd59e',1,'rgb_matrix::RGBMatrix::Options::chain_length']]],
+  ['chainlength_8',['ChainLength',['../structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions.html#a99686edfbb6067c6a8c9290b842849a0',1,'RPiRgbLEDMatrix::RGBLedMatrixOptions']]],
+  ['classifiers_9',['classifiers',['../namespacesetup.html#abe96a9c38c1c61f9f0fdb002c482f785',1,'setup']]],
+  ['clock_10',['clock',['../structHardwareMapping.html#a9663f78ab4d8b4f7d10b7ac814da7321',1,'HardwareMapping']]],
+  ['color_11',['color',['../structrgb__matrix_1_1internal_1_1ColorLookup.html#a01d8632cb234dac2634517155509797a',1,'rgb_matrix::internal::ColorLookup::color'],['../PulsingBrightness_2Program_8cs.html#af7d5324db5d60558c1083bc06389fefe',1,'color:&#160;Program.cs']]],
+  ['color_5fb_12',['color_b',['../structPortalGene.html#ac5275d3ac1639f2868ad71b8bf874b42',1,'PortalGene']]],
+  ['color_5fg_13',['color_g',['../structPortalGene.html#ac21794830a73d090883c3661a4beed69',1,'PortalGene']]],
+  ['color_5fr_14',['color_r',['../structPortalGene.html#a8663fc908907e8e41585cd43d3ad5dd4',1,'PortalGene']]],
+  ['cols_15',['cols',['../structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions.html#aaa226493dae6ea476ca7b4c3d59e83a3',1,'RPiRgbLEDMatrix.RGBLedMatrixOptions.Cols'],['../structrgb__matrix_1_1RGBMatrix_1_1Options.html#ada85cfb391f494e412e715231d8bc613',1,'rgb_matrix::RGBMatrix::Options::cols'],['../structRGBLedMatrixOptions.html#a2d75a62c402757553b9de01e3d38af8f',1,'RGBLedMatrixOptions::cols'],['../namespacegif-viewer.html#ac0834a332ce68fcc8d278a64be7ffb57',1,'gif-viewer.cols']]],
+  ['content_5fstream_16',['content_stream',['../structFileInfo.html#a21264478153dd5b66a3eb81939398eac',1,'FileInfo']]],
+  ['core_5fext_17',['core_ext',['../namespacesetup.html#a76db6798ca8c821cdd132a048b2bccf2',1,'setup']]],
+  ['cur_5fframe_18',['cur_frame',['../namespacegif-viewer.html#a671ff27520a50dcdbd3980b0dd21da94',1,'gif-viewer']]]
+];

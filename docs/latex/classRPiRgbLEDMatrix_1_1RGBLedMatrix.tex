@@ -1,0 +1,174 @@
+\doxysection{RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix Class Reference}
+\hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix}\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+
+
+Represents a RGB matrix.  
+
+
+
+
+Inheritance diagram for RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classRPiRgbLEDMatrix_1_1RGBLedMatrix__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{classRPiRgbLEDMatrix_1_1RGBLedMatrix__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix_aee663f798af7f522a8afa1e558c9bcea}{RGBLed\+Matrix}} (int rows, int chained, int parallel)
+\begin{DoxyCompactList}\small\item\em Initializes a new matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a87799551574b6b53d31e60c9682c49f9}{RGBLed\+Matrix}} (\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} options)
+\begin{DoxyCompactList}\small\item\em Initializes a new matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas}{RGBLed\+Canvas}} \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a3a4445efe15490f915ad46ec28df0b8a}{Create\+Offscreen\+Canvas}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new backbuffer canvas for drawing on. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas}{RGBLed\+Canvas}} \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a4dba4149fac24e7f13823558b5ee1eb9}{Get\+Canvas}} ()
+\begin{DoxyCompactList}\small\item\em Returns a canvas representing the current frame buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a5656645f273a4671d9b7f7078fed0b31}{Swap\+On\+Vsync}} (\mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas}{RGBLed\+Canvas}} \mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}})
+\begin{DoxyCompactList}\small\item\em Swaps this canvas with the currently active canvas. The active canvas becomes a backbuffer and is mapped to {\itshape canvas}  instance. ~\newline
+ This operation guarantees vertical synchronization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix_ab897fd8f9fbb7f8f397dd1cd25fbd980}{Dispose}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix_ac34d0d37b088efc99a7c868c03be844e}{Dispose}} (bool disposing)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+byte \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a837de26533a1fd123f9f5b77a3e493cc}{Brightness}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The general brightness of the matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a RGB matrix. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix_aee663f798af7f522a8afa1e558c9bcea}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix_aee663f798af7f522a8afa1e558c9bcea} 
+\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}!RGBLedMatrix@{RGBLedMatrix}}
+\index{RGBLedMatrix@{RGBLedMatrix}!RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+\doxysubsubsection{\texorpdfstring{RGBLedMatrix()}{RGBLedMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix.\+RGBLed\+Matrix (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{chained,  }\item[{int}]{parallel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & Size of a single module. Can be 32, 16 or 8.\\
+\hline
+{\em chained} & How many modules are connected in a chain.\\
+\hline
+{\em parallel} & How many modules are connected in a parallel.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a87799551574b6b53d31e60c9682c49f9}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a87799551574b6b53d31e60c9682c49f9} 
+\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}!RGBLedMatrix@{RGBLedMatrix}}
+\index{RGBLedMatrix@{RGBLedMatrix}!RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+\doxysubsubsection{\texorpdfstring{RGBLedMatrix()}{RGBLedMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix.\+RGBLed\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions}{RGBLed\+Matrix\+Options}}}]{options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & A configuration of a matrix.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a3a4445efe15490f915ad46ec28df0b8a}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a3a4445efe15490f915ad46ec28df0b8a} 
+\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}!CreateOffscreenCanvas@{CreateOffscreenCanvas}}
+\index{CreateOffscreenCanvas@{CreateOffscreenCanvas}!RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+\doxysubsubsection{\texorpdfstring{CreateOffscreenCanvas()}{CreateOffscreenCanvas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas}{RGBLed\+Canvas}} RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix.\+Create\+Offscreen\+Canvas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new backbuffer canvas for drawing on. 
+
+\begin{DoxyReturn}{Returns}
+An instance of RGBLed\+Canvas representing the canvas.
+\end{DoxyReturn}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix_ab897fd8f9fbb7f8f397dd1cd25fbd980}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix_ab897fd8f9fbb7f8f397dd1cd25fbd980} 
+\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix.\+Dispose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+
+
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix_ac34d0d37b088efc99a7c868c03be844e}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix_ac34d0d37b088efc99a7c868c03be844e} 
+\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+\doxysubsubsection{\texorpdfstring{Dispose()}{Dispose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix.\+Dispose (\begin{DoxyParamCaption}\item[{bool}]{disposing }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a4dba4149fac24e7f13823558b5ee1eb9}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a4dba4149fac24e7f13823558b5ee1eb9} 
+\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}!GetCanvas@{GetCanvas}}
+\index{GetCanvas@{GetCanvas}!RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+\doxysubsubsection{\texorpdfstring{GetCanvas()}{GetCanvas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas}{RGBLed\+Canvas}} RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix.\+Get\+Canvas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a canvas representing the current frame buffer. 
+
+\begin{DoxyReturn}{Returns}
+An instance of RGBLed\+Canvas representing the canvas.
+\end{DoxyReturn}
+
+
+Consider using Create\+Offscreen\+Canvas instead.\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a5656645f273a4671d9b7f7078fed0b31}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a5656645f273a4671d9b7f7078fed0b31} 
+\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}!SwapOnVsync@{SwapOnVsync}}
+\index{SwapOnVsync@{SwapOnVsync}!RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+\doxysubsubsection{\texorpdfstring{SwapOnVsync()}{SwapOnVsync()}}
+{\footnotesize\ttfamily void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix.\+Swap\+On\+Vsync (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas}{RGBLed\+Canvas}}}]{canvas }\end{DoxyParamCaption})}
+
+
+
+Swaps this canvas with the currently active canvas. The active canvas becomes a backbuffer and is mapped to {\itshape canvas}  instance. ~\newline
+ This operation guarantees vertical synchronization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em canvas} & Backbuffer canvas to swap.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a837de26533a1fd123f9f5b77a3e493cc}\label{classRPiRgbLEDMatrix_1_1RGBLedMatrix_a837de26533a1fd123f9f5b77a3e493cc} 
+\index{RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}!Brightness@{Brightness}}
+\index{Brightness@{Brightness}!RPiRgbLEDMatrix.RGBLedMatrix@{RPiRgbLEDMatrix.RGBLedMatrix}}
+\doxysubsubsection{\texorpdfstring{Brightness}{Brightness}}
+{\footnotesize\ttfamily byte RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix.\+Brightness\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The general brightness of the matrix. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+matrix/bindings/c\#/\mbox{\hyperlink{RGBLedMatrix_8cs}{RGBLed\+Matrix.\+cs}}\end{DoxyCompactItemize}

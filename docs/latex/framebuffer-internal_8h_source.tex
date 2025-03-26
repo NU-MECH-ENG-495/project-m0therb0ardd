@@ -1,0 +1,183 @@
+\doxysection{framebuffer-\/internal.h}
+\hypertarget{framebuffer-internal_8h_source}{}\label{framebuffer-internal_8h_source}\index{matrix/lib/framebuffer-\/internal.h@{matrix/lib/framebuffer-\/internal.h}}
+\mbox{\hyperlink{framebuffer-internal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/*-\/\ mode:\ c++;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (C)\ 2013\ Henner\ Zeller\ <h.zeller@acm.org>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ the\ Free\ Software\ Foundation\ version\ 2.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://gnu.org/licenses/gpl-\/2.0.txt>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ RPI\_RGBMATRIX\_FRAMEBUFFER\_INTERNAL\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ RPI\_RGBMATRIX\_FRAMEBUFFER\_INTERNAL\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hardware-mapping_8h}{hardware-\/mapping.h}}"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../include/graphics.h"{}}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }GPIO;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }PinPulser;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }internal\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }RowAddressSetter;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ An\ opaque\ type\ used\ within\ the\ framebuffer\ that\ can\ be\ used}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ to\ copy\ between\ PixelMappers.}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator}{PixelDesignator}}\ \{}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_a07eb7e30d6999d76888d25f040100a01}{PixelDesignator}}()\ :\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_ae22d4a4f3b14be2fb89c8a3b5e2986da}{gpio\_word}}(-\/1),\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_abd4234a5936d77b9a1c6b66e93e054ea}{r\_bit}}(0),\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_a19a9c8413c389c8954fe63ef798d055e}{g\_bit}}(0),\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_ab6b6cf289f8d0c61ef7943979bbc6084}{b\_bit}}(0),\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_a4e9ee0d0a7f4b92354ef97f8912bbccc}{mask}}(\string~0u)\{\}}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_ae22d4a4f3b14be2fb89c8a3b5e2986da}{gpio\_word}};}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_abd4234a5936d77b9a1c6b66e93e054ea}{r\_bit}};}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_a19a9c8413c389c8954fe63ef798d055e}{g\_bit}};}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_ab6b6cf289f8d0c61ef7943979bbc6084}{b\_bit}};}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator_a4e9ee0d0a7f4b92354ef97f8912bbccc}{mask}};}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap}{PixelDesignatorMap}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap}{PixelDesignatorMap}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap_a87da6f3c12f4fdfec4f0f533c5f6930f}{width}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap_a6f1046ccd890579c1d9b25d10e04ed19}{height}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator}{PixelDesignator}}\ \&fill\_bits);}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap_a3d5fc8a9797dd4f25147d16e411b56da}{\string~PixelDesignatorMap}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ Get\ a\ writable\ version\ of\ the\ PixelDesignator.\ Outside\ Framebuffer\ used}}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ by\ the\ RGBMatrix\ to\ re-\/assign\ mappings\ to\ new\ PixelDesignatorMappers.}}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator}{PixelDesignator}}\ *\mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap_a193a7fa3e26152878165fb2f63917a0e}{get}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap_a87da6f3c12f4fdfec4f0f533c5f6930f}{width}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ width\_;\ \}}
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap_a6f1046ccd890579c1d9b25d10e04ed19}{height}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ height\_;\ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ All\ bits\ that\ set\ red/green/blue\ pixels;\ used\ for\ Fill().}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator}{PixelDesignator}}\ \&\mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap_ad5d27f73f12f1bb2165a0e2961e8ed9f}{GetFillColorBits}}()\ \{\ \textcolor{keywordflow}{return}\ fill\_bits\_;\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ width\_;}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height\_;}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator}{PixelDesignator}}\ fill\_bits\_;\ \ \textcolor{comment}{//\ Precalculated\ for\ fill.}}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator}{PixelDesignator}}\ *\textcolor{keyword}{const}\ buffer\_;}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ Internal\ representation\ of\ the\ frame-\/buffer\ that\ as\ well\ can}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ write\ itself\ to\ GPIO.}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ Our\ internal\ memory\ layout\ mimicks\ as\ much\ as\ possible\ what\ needs\ to\ be}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ written\ out.}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer}{Framebuffer}}\ \{}
+\DoxyCodeLine{00068\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00069\ \ \ \textcolor{comment}{//\ Maximum\ usable\ bitplanes.}}
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ 11\ bits\ seems\ to\ be\ a\ sweet\ spot\ in\ which\ we\ still\ get\ somewhat\ useful}}
+\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//\ refresh\ rate\ and\ have\ good\ color\ richness.\ This\ is\ the\ default\ setting}}
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ However,\ in\ low-\/light\ situations,\ we\ want\ to\ be\ able\ to\ scale\ down}}
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ brightness\ more,\ having\ more\ bits\ at\ the\ bottom.}}
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//\ TODO(hzeller):\ make\ the\ default\ 15\ bit\ or\ so,\ but\ slide\ the\ use\ of}}
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ \ timing\ to\ lower\ bits\ if\ fewer\ bits\ requested\ to\ not\ affect\ the\ overall}}
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ \ refresh\ in\ that\ case.}}
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ \ This\ needs\ to\ be\ balanced\ to\ not\ create\ too\ agressive\ timing\ however.}}
+\DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\ \ To\ be\ explored\ in\ a\ separete\ commit.}}
+\DoxyCodeLine{00080\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00081\ \ \ \textcolor{comment}{//\ For\ now,\ if\ someone\ needs\ very\ low\ level\ of\ light,\ change\ this\ to}}
+\DoxyCodeLine{00082\ \ \ \textcolor{comment}{//\ say\ 13\ and\ recompile.\ Run\ with\ -\/-\/led-\/pwm-\/bits=13.\ Also,\ consider}}
+\DoxyCodeLine{00083\ \ \ \textcolor{comment}{//\ -\/-\/led-\/pwm-\/dither-\/bits=2\ to\ have\ the\ refresh\ rate\ not\ suffer\ too\ much.}}
+\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_acd7ccaca49cdd1cf3af880d14df298d4}{kBitPlanes}}\ =\ 11;}
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a1ba09cac4e412e6c0d068d396ee09dc4}{kDefaultBitPlanes}}\ =\ 11;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer}{Framebuffer}}(\textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ columns,\ \textcolor{keywordtype}{int}\ parallel,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ scan\_mode,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ led\_sequence,\ \textcolor{keywordtype}{bool}\ inverse\_color,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap}{PixelDesignatorMap}}\ **mapper);}
+\DoxyCodeLine{00091\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_aa7c30deddc5cf0e20fd1866899678fe4}{\string~Framebuffer}}();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{comment}{//\ Initialize\ GPIO\ bits\ for\ output.\ Only\ call\ once.}}
+\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a40107a07db2832ea0136224ce5efc8ec}{InitHardwareMapping}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *named\_hardware);}
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ad91b3721490ff3a5fe97484c7ffd1af0}{InitGPIO}}(\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}}\ *io,\ \textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ parallel,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ allow\_hardware\_pulsing,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pwm\_lsb\_nanoseconds,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dither\_bits,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row\_address\_type);}
+\DoxyCodeLine{00100\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ac01dd78462f20e0a1d68328976eb9455}{InitializePanels}}(\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}}\ *io,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *panel\_type,\ \textcolor{keywordtype}{int}\ columns);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{comment}{//\ Set\ PWM\ bits\ used\ for\ output.\ Default\ is\ 11,\ but\ if\ you\ only\ deal\ with}}
+\DoxyCodeLine{00103\ \ \ \textcolor{comment}{//\ simple\ comic-\/colors,\ 1\ might\ be\ sufficient.\ Lower\ require\ less\ CPU.}}
+\DoxyCodeLine{00104\ \ \ \textcolor{comment}{//\ Returns\ boolean\ to\ signify\ if\ value\ was\ within\ range.}}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ac0971ada43fa0ea6ae16859b9c34a558}{SetPWMBits}}(uint8\_t\ value);}
+\DoxyCodeLine{00106\ \ \ uint8\_t\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ae2e9d0a470a1385f550a9bddfc7c28ce}{pwmbits}}()\ \{\ \textcolor{keywordflow}{return}\ pwm\_bits\_;\ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \textcolor{comment}{//\ Map\ brightness\ of\ output\ linearly\ to\ input\ with\ CIE1931\ profile.}}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a3cab1c1ce1034dc12b74339211ae8419}{set\_luminance\_correct}}(\textcolor{keywordtype}{bool}\ on)\ \{\ do\_luminance\_correct\_\ =\ on;\ \}}
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_af68d3cac0a051d3d6bece80ba3ab2146}{luminance\_correct}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ do\_luminance\_correct\_;\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{comment}{//\ Set\ brightness\ in\ percent;\ range=1..100}}
+\DoxyCodeLine{00113\ \ \ \textcolor{comment}{//\ This\ will\ only\ affect\ newly\ set\ pixels.}}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_af4439a73bf7e38ffe20ff19a346a17b9}{SetBrightness}}(uint8\_t\ b)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ brightness\_\ =\ (b\ <=\ 100\ ?\ (b\ !=\ 0\ ?\ b\ :\ 1)\ :\ 100);}
+\DoxyCodeLine{00116\ \ \ \}}
+\DoxyCodeLine{00117\ \ \ uint8\_t\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a60e7a9ab3fbfc90c8de9b6190477be3e}{brightness}}()\ \{\ \textcolor{keywordflow}{return}\ brightness\_;\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a2740cbe0e3af1317dd9db962e9fe82b9}{DumpToMatrix}}(\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}}\ *io,\ \textcolor{keywordtype}{int}\ pwm\_bits\_to\_show);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a21f094d42f1bbd6fa4abb14efa7b479c}{Serialize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **data,\ \textcolor{keywordtype}{size\_t}\ *len)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a6752552000f7ad093edc086d4be73ade}{Deserialize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *data,\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a50f35b9d2f2edf4dc193ebebc1eeb4bf}{CopyFrom}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer}{Framebuffer}}\ *other);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{comment}{//\ Canvas-\/inspired\ methods,\ but\ we're\ not\ implementing\ this\ interface\ to\ not}}
+\DoxyCodeLine{00126\ \ \ \textcolor{comment}{//\ have\ an\ unnecessary\ vtable.}}
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a72cd62d77339e59c7e564ca639ab68ba}{width}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_afa3dbadc88d15424da8c8b02492c1942}{height}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a7a9a5e14dd27d4db29fbb34c0b83a4cf}{SetPixel}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue);}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_ab8ee8016c92c12f712d5244217affbe8}{SetPixels}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_a72cd62d77339e59c7e564ca639ab68ba}{width}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_afa3dbadc88d15424da8c8b02492c1942}{height}},\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ *colors);}
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_aed343d7944ed440760da4a78a7a200b1}{Clear}}();}
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1Framebuffer_abe56a3ef5bf832bb618697f6ac676cac}{Fill}}(uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00135\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structHardwareMapping}{HardwareMapping}}\ *hardware\_mapping\_;}
+\DoxyCodeLine{00136\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1RowAddressSetter}{RowAddressSetter}}\ *row\_setter\_;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{comment}{//\ This\ returns\ the\ gpio-\/bit\ for\ given\ color\ (one\ of\ 'R',\ 'G',\ 'B').\ This\ is}}
+\DoxyCodeLine{00139\ \ \ \textcolor{comment}{//\ returning\ the\ right\ value\ in\ case\ "{}led\_sequence"{}\ is\ \_not\_\ "{}RGB"{}}}
+\DoxyCodeLine{00140\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ GetGpioFromLedSequence(\textcolor{keywordtype}{char}\ col,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *led\_sequence,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ default\_r,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ default\_g,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ default\_b);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{void}\ InitDefaultDesignator(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *led\_sequence,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrgb__matrix_1_1internal_1_1PixelDesignator}{PixelDesignator}}\ *designator);}
+\DoxyCodeLine{00147\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ MapColors(uint8\_t\ r,\ uint8\_t\ g,\ uint8\_t\ b,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ *red,\ uint16\_t\ *green,\ uint16\_t\ *blue);}
+\DoxyCodeLine{00149\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ rows\_;\ \ \ \ \ \textcolor{comment}{//\ Number\ of\ rows.\ 16\ or\ 32.}}
+\DoxyCodeLine{00150\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ parallel\_;\ \textcolor{comment}{//\ Parallel\ rows\ of\ chains.\ 1\ or\ 2.}}
+\DoxyCodeLine{00151\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ height\_;\ \ \ \textcolor{comment}{//\ rows\ *\ parallel}}
+\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ columns\_;\ \ \textcolor{comment}{//\ Number\ of\ columns.\ Number\ of\ chained\ boards\ *\ 32.}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ scan\_mode\_;}
+\DoxyCodeLine{00155\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ inverse\_color\_;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ uint8\_t\ pwm\_bits\_;\ \ \ \textcolor{comment}{//\ PWM\ bits\ to\ display.}}
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordtype}{bool}\ do\_luminance\_correct\_;}
+\DoxyCodeLine{00159\ \ \ uint8\_t\ brightness\_;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ double\_rows\_;}
+\DoxyCodeLine{00162\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ buffer\_size\_;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \textcolor{comment}{//\ The\ frame-\/buffer\ is\ organized\ in\ bitplanes.}}
+\DoxyCodeLine{00165\ \ \ \textcolor{comment}{//\ Highest\ level\ (slowest\ to\ cycle\ through)\ are\ double\ rows.}}
+\DoxyCodeLine{00166\ \ \ \textcolor{comment}{//\ For\ each\ double-\/row,\ we\ store\ pwm-\/bits\ columns\ of\ a\ bitplane.}}
+\DoxyCodeLine{00167\ \ \ \textcolor{comment}{//\ Each\ bitplane-\/column\ is\ pre-\/filled\ IoBits,\ of\ which\ the\ colors\ are\ set.}}
+\DoxyCodeLine{00168\ \ \ \textcolor{comment}{//\ Of\ course,\ that\ means\ that\ we\ store\ unrelated\ bits\ in\ the\ frame-\/buffer,}}
+\DoxyCodeLine{00169\ \ \ \textcolor{comment}{//\ but\ it\ allows\ easy\ access\ in\ the\ critical\ section.}}
+\DoxyCodeLine{00170\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ *bitplane\_buffer\_;}
+\DoxyCodeLine{00171\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ *ValueAt(\textcolor{keywordtype}{int}\ double\_row,\ \textcolor{keywordtype}{int}\ column,\ \textcolor{keywordtype}{int}\ bit);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1internal_1_1PixelDesignatorMap}{PixelDesignatorMap}}\ **shared\_mapper\_;\ \ \textcolor{comment}{//\ Storage\ in\ RGBMatrix.}}
+\DoxyCodeLine{00174\ \};}
+\DoxyCodeLine{00175\ \}\ \ \textcolor{comment}{//\ namespace\ internal}}
+\DoxyCodeLine{00176\ \}\ \ \textcolor{comment}{//\ namespace\ rgb\_matrix}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RPI\_RGBMATRIX\_FRAMEBUFFER\_INTERNAL\_H}}
+
+\end{DoxyCode}

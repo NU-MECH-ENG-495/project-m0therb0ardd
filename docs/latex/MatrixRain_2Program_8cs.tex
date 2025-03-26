@@ -1,0 +1,106 @@
+\doxysection{matrix/bindings/c\#/examples/\+Matrix\+Rain/\+Program.cs File Reference}
+\hypertarget{MatrixRain_2Program_8cs}{}\label{MatrixRain_2Program_8cs}\index{matrix/bindings/c\#/examples/MatrixRain/Program.cs@{matrix/bindings/c\#/examples/MatrixRain/Program.cs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classPoint}{Point}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{MatrixRain_2Program_8cs_a1521579bb68c3dad1bc87d99b04378b4}{matrix}} = new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(new \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \{ Chain\+Length=2 \})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{MatrixRain_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a}{while}} (\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+var \mbox{\hyperlink{MatrixRain_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}} = matrix.\+Create\+Offscreen\+Canvas()
+\item 
+var \mbox{\hyperlink{MatrixRain_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be}{rnd}} = new Random()
+\item 
+var \mbox{\hyperlink{MatrixRain_2Program_8cs_a293ff09924a9ada71153a7d692fc68f0}{points}} = new List$<$\mbox{\hyperlink{classPoint}{Point}}$>$()
+\item 
+var \mbox{\hyperlink{MatrixRain_2Program_8cs_ab55d1ad1e8cc6ab382b943f1d8d6bf9b}{recycled}} = new Stack$<$\mbox{\hyperlink{classPoint}{Point}}$>$()
+\item 
+var \mbox{\hyperlink{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}} = 0
+\item 
+var \mbox{\hyperlink{MatrixRain_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}} = true
+\item 
+Console. \mbox{\hyperlink{MatrixRain_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}{Cancel\+Key\+Press}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{MatrixRain_2Program_8cs_a1521579bb68c3dad1bc87d99b04378b4}\label{MatrixRain_2Program_8cs_a1521579bb68c3dad1bc87d99b04378b4} 
+\index{Program.cs@{Program.cs}!matrix@{matrix}}
+\index{matrix@{matrix}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}} =  new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(new \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \{ Chain\+Length = 2 \})}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{MatrixRain_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a}\label{MatrixRain_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a} 
+\index{Program.cs@{Program.cs}!while@{while}}
+\index{while@{while}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{while()}{while()}}
+{\footnotesize\ttfamily while (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{MatrixRain_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}\label{MatrixRain_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343} 
+\index{Program.cs@{Program.cs}!CancelKeyPress@{CancelKeyPress}}
+\index{CancelKeyPress@{CancelKeyPress}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{CancelKeyPress}{CancelKeyPress}}
+{\footnotesize\ttfamily Console. Cancel\+Key\+Press}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ (s,\ e)\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{MatrixRain_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ e.Cancel\ =\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{MatrixRain_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}\label{MatrixRain_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73} 
+\index{Program.cs@{Program.cs}!canvas@{canvas}}
+\index{canvas@{canvas}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{canvas}{canvas}}
+{\footnotesize\ttfamily var canvas = matrix.\+Create\+Offscreen\+Canvas()}
+
+\Hypertarget{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}\label{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b} 
+\index{Program.cs@{Program.cs}!frame@{frame}}
+\index{frame@{frame}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily var frame = 0}
+
+\Hypertarget{MatrixRain_2Program_8cs_a293ff09924a9ada71153a7d692fc68f0}\label{MatrixRain_2Program_8cs_a293ff09924a9ada71153a7d692fc68f0} 
+\index{Program.cs@{Program.cs}!points@{points}}
+\index{points@{points}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily var points = new List$<$\mbox{\hyperlink{classPoint}{Point}}$>$()}
+
+\Hypertarget{MatrixRain_2Program_8cs_ab55d1ad1e8cc6ab382b943f1d8d6bf9b}\label{MatrixRain_2Program_8cs_ab55d1ad1e8cc6ab382b943f1d8d6bf9b} 
+\index{Program.cs@{Program.cs}!recycled@{recycled}}
+\index{recycled@{recycled}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{recycled}{recycled}}
+{\footnotesize\ttfamily var recycled = new Stack$<$\mbox{\hyperlink{classPoint}{Point}}$>$()}
+
+\Hypertarget{MatrixRain_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be}\label{MatrixRain_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be} 
+\index{Program.cs@{Program.cs}!rnd@{rnd}}
+\index{rnd@{rnd}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{rnd}{rnd}}
+{\footnotesize\ttfamily var rnd = new Random()}
+
+\Hypertarget{MatrixRain_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}\label{MatrixRain_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e} 
+\index{Program.cs@{Program.cs}!running@{running}}
+\index{running@{running}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily var running = true}
+

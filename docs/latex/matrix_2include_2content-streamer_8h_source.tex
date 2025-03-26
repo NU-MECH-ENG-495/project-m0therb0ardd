@@ -1,0 +1,143 @@
+\doxysection{content-\/streamer.h}
+\hypertarget{matrix_2include_2content-streamer_8h_source}{}\label{matrix_2include_2content-streamer_8h_source}\index{matrix/include/content-\/streamer.h@{matrix/include/content-\/streamer.h}}
+\mbox{\hyperlink{matrix_2include_2content-streamer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/*-\/\ mode:\ c++;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Abstractions\ to\ read\ and\ write\ FrameCanvas\ objects\ to\ streams.\ This\ allows}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ you\ to\ create\ canned\ streams\ of\ content\ with\ minimal\ overhead\ at\ runtime}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ to\ play\ with\ extreme\ pixel-\/throughput\ which\ also\ minimizes\ overheads\ in}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ the\ Pi\ to\ avoid\ stuttering\ or\ brightness\ glitches.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ The\ disadvantage\ is,\ that\ this\ represents\ the\ full\ expanded\ internal}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ representation\ of\ a\ frame,\ so\ is\ very\ large\ memory\ wise.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ These\ abstractions\ are\ used\ in\ util/led-\/image-\/viewer.cc\ to\ read\ and}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ write\ such\ animations\ to\ disk.\ It\ is\ also\ used\ in\ util/video-\/viewer.cc}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ to\ write\ a\ version\ to\ disk\ that\ then\ can\ be\ played\ with\ the\ led-\/image-\/viewer.}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ RPI\_CONTENT\_STREAMER\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ RPI\_CONTENT\_STREAMER\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }FrameCanvas;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ An\ abstraction\ of\ a\ data\ stream.\ Two\ implementations\ exist\ for\ files\ and}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ an\ in-\/memory\ representation,\ but\ this\ allows\ your\ own\ implementation,\ e.g.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ reading\ from\ a\ socket.}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }StreamIO\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO_ac5702678edfef9ace06c165e94af99d8}{\string~StreamIO}}()\ \{\}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{comment}{//\ Rewind\ stream.}}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO_ac186478337c60fee93e327a0bf74f556}{Rewind}}()\ =\ 0;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{//\ Read\ bytes\ into\ buffer\ at\ current\ position\ of\ stream.}}
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Similar\ to\ Posix\ behavior\ that\ allows\ short\ reads.}}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{virtual}\ ssize\_t\ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO_a99b3c86d1e4de98405964be5820dbf2f}{Read}}(\textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ count)\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ Write\ bytes\ from\ buffer.\ Similar\ to\ Posix\ behavior\ that\ allows\ short}}
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ writes.}}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{virtual}\ ssize\_t\ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO_ae1795038b95af5f8da6cde6f7080eb39}{Append}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ count)\ =\ 0;}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO}{FileStreamIO}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO}{StreamIO}}\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_a59b541b989afb3ebc599ff33353f996d}{FileStreamIO}}(\textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_a3c7e1a7af969abe7f1ae6c70028c4e9e}{\string~FileStreamIO}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_a7fa47c6991fed4981dc7d0f82d743759}{Rewind}}()\ final;}
+\DoxyCodeLine{00052\ \ \ ssize\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_a6958207eaa0db975b1bf29026b8c2c5d}{Read}}(\textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ count)\ final;}
+\DoxyCodeLine{00053\ \ \ ssize\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_aed737e26d15e2522949c97c08a850cdf}{Append}}(const\ \textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ count)\ final;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ private:}
+\DoxyCodeLine{00056\ \ \ const\ \textcolor{keywordtype}{int}\ fd\_;}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ Storing\ a\ stream\ in\ memory.\ Owns\ the\ memory.}}
+\DoxyCodeLine{00060\ class\ \mbox{\hyperlink{classrgb__matrix_1_1MemStreamIO}{MemStreamIO}}\ :\ public\ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO}{StreamIO}}\ \{}
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1MemStreamIO_a14e2b75659905161332331b58aead39f}{Rewind}}()\ final;}
+\DoxyCodeLine{00063\ \ \ ssize\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_a6958207eaa0db975b1bf29026b8c2c5d}{Read}}(\textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ count)\ final;}
+\DoxyCodeLine{00064\ \ \ ssize\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_aed737e26d15e2522949c97c08a850cdf}{Append}}(const\ \textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ count)\ final;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ private:}
+\DoxyCodeLine{00067\ \ \ std::\textcolor{keywordtype}{string}\ buffer\_;\ \ \textcolor{comment}{//\ super\ simplistic.}}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{size\_t}\ pos\_;}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ Just\ a\ view\ around\ the\ memory,\ possibly\ a\ memory\ mapped\ file.}}
+\DoxyCodeLine{00072\ class\ \mbox{\hyperlink{classrgb__matrix_1_1MemMapViewInput}{MemMapViewInput}}\ :\ public\ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO}{StreamIO}}\ \{}
+\DoxyCodeLine{00073\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1MemMapViewInput_a8859cfe9b3e36443743c72cdb460f0ec}{MemMapViewInput}}(\textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1MemMapViewInput_a8744509cf30f0dda3a41adb036e7e95a}{\string~MemMapViewInput}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ Since\ mmmap()\ might\ fail,\ this\ tells\ us\ if\ it\ was\ successful.}}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1MemMapViewInput_a765fa386785eec0207d45d365b03175c}{IsInitialized}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ buffer\_\ !=\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1MemMapViewInput_a819505d47233c1167c3d965b8ba775f1}{Rewind}}()\ final;}
+\DoxyCodeLine{00081\ \ \ ssize\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_a6958207eaa0db975b1bf29026b8c2c5d}{Read}}(\textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ count)\ final;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{comment}{//\ No\ append,\ this\ is\ purely\ read-\/only.}}
+\DoxyCodeLine{00084\ \ \ ssize\_t\ \mbox{\hyperlink{classrgb__matrix_1_1FileStreamIO_aed737e26d15e2522949c97c08a850cdf}{Append}}(const\ \textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ count)\ final\ \{\ \textcolor{keywordflow}{return}\ -\/1;\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{char}\ *buffer\_;}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{char}\ *end\_;}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{char}\ *pos\_;}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{class\ }StreamWriter\ \{}
+\DoxyCodeLine{00093\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00094\ \ \ \textcolor{comment}{//\ Does\ not\ take\ ownership\ of\ StreamIO}}
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1StreamWriter_a83e2bddd9cd51f9142dc5a2a76cb75fe}{StreamWriter}}(\mbox{\hyperlink{classrgb__matrix_1_1StreamIO}{StreamIO}}\ *io);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{comment}{//\ Stream\ out\ given\ canvas\ at\ the\ given\ time.\ "{}hold\_time\_us"{}\ indicates}}
+\DoxyCodeLine{00098\ \ \ \textcolor{comment}{//\ for\ how\ long\ this\ frame\ is\ to\ be\ shown\ in\ microseconds.}}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1StreamWriter_a00fff8c3f6b732bcbc36a2cc6e935255}{Stream}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}\ \&\mbox{\hyperlink{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}},\ uint32\_t\ \mbox{\hyperlink{content-streamer_8cc_aae74c1c207d0076ca32551ff3c268f5e}{hold\_time\_us}});}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}\ WriteFileHeader(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}\ \&\mbox{\hyperlink{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}},\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO}{StreamIO}}\ *\textcolor{keyword}{const}\ io\_;}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{bool}\ header\_written\_;}
+\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1StreamReader}{StreamReader}}\ \{}
+\DoxyCodeLine{00109\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00110\ \ \ \textcolor{comment}{//\ Does\ not\ take\ ownership\ of\ StreamIO}}
+\DoxyCodeLine{00111\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1StreamReader_a55b7c971e3209ab9a917f8e775520608}{StreamReader}}(\mbox{\hyperlink{classrgb__matrix_1_1StreamIO}{StreamIO}}\ *io);}
+\DoxyCodeLine{00112\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1StreamReader_a655801452de5e99aaeec2cf0f5caf463}{\string~StreamReader}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{comment}{//\ Go\ back\ to\ the\ beginning.}}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1StreamReader_a33e99d4dfde497fdf65084b9ea7605d2}{Rewind}}();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{comment}{//\ Get\ next\ frame\ and\ its\ timestamp.\ Returns\ 'false'\ if\ there\ is\ an\ error}}
+\DoxyCodeLine{00118\ \ \ \textcolor{comment}{//\ or\ end\ of\ stream\ reached..}}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1StreamReader_a05aca8ee262bbedaa8d69050a8c4e6a6}{GetNext}}(\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}\ *\mbox{\hyperlink{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}},\ uint32\_t*\ \mbox{\hyperlink{content-streamer_8cc_aae74c1c207d0076ca32551ff3c268f5e}{hold\_time\_us}});}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00122\ \ \ \textcolor{keyword}{enum}\ State\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ STREAM\_AT\_BEGIN,}
+\DoxyCodeLine{00124\ \ \ \ \ STREAM\_READING,}
+\DoxyCodeLine{00125\ \ \ \ \ STREAM\_ERROR,}
+\DoxyCodeLine{00126\ \ \ \};}
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{bool}\ ReadFileHeader(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{FrameCanvas}}\ \&\mbox{\hyperlink{MatrixRain_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}});}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1StreamIO}{StreamIO}}\ *io\_;}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{size\_t}\ frame\_buf\_size\_;}
+\DoxyCodeLine{00131\ \ \ State\ state\_;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{char}\ *header\_frame\_buffer\_;}
+\DoxyCodeLine{00134\ \};}
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

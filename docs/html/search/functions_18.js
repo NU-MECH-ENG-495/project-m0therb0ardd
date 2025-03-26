@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['_7eant_0',['~Ant',['../classAnt.html#a33ca6bd592236726a18a2159908e4116',1,'Ant']]],
+  ['_7ecanvas_1',['~canvas',['../classrgb__matrix_1_1Canvas.html#affcc5a0e1b739a90b0c836f05a0cca1a',1,'rgb_matrix::Canvas::~Canvas()'],['../classrgb__matrix_1_1Canvas.html#affcc5a0e1b739a90b0c836f05a0cca1a',1,'rgb_matrix::Canvas::~Canvas()']]],
+  ['_7edemorunner_2',['~demorunner',['../classDemoRunner.html#a37c7e64aa2f655968ec360c0b0dd85e1',1,'DemoRunner::~DemoRunner()=default'],['../classDemoRunner.html#af9510dbb8c3881d5ae18ecb5eb175af4',1,'DemoRunner::~DemoRunner()'],['../classDemoRunner.html#af9510dbb8c3881d5ae18ecb5eb175af4',1,'DemoRunner::~DemoRunner()']]],
+  ['_7efilestreamio_3',['~filestreamio',['../classrgb__matrix_1_1FileStreamIO.html#a3c7e1a7af969abe7f1ae6c70028c4e9e',1,'rgb_matrix::FileStreamIO::~FileStreamIO()'],['../classrgb__matrix_1_1FileStreamIO.html#a3c7e1a7af969abe7f1ae6c70028c4e9e',1,'rgb_matrix::FileStreamIO::~FileStreamIO()']]],
+  ['_7efont_4',['~font',['../classrgb__matrix_1_1Font.html#a58802d597e20fbb7987b0f0f98a8d490',1,'rgb_matrix::Font::~Font()'],['../classrgb__matrix_1_1Font.html#a58802d597e20fbb7987b0f0f98a8d490',1,'rgb_matrix::Font::~Font()']]],
+  ['_7eframebuffer_5',['~Framebuffer',['../classrgb__matrix_1_1internal_1_1Framebuffer.html#aa7c30deddc5cf0e20fd1866899678fe4',1,'rgb_matrix::internal::Framebuffer']]],
+  ['_7egamelife_6',['~GameLife',['../classGameLife.html#a8d0ad984d33eb0f479ea09a061831494',1,'GameLife']]],
+  ['_7egeneticcolors_7',['~GeneticColors',['../classGeneticColors.html#aba241979fb743cb1a29538c9b4f45760',1,'GeneticColors']]],
+  ['_7eimpl_8',['~Impl',['../classrgb__matrix_1_1RGBMatrix_1_1Impl.html#a792c77ef047e533ecdc143ad8064d3c6',1,'rgb_matrix::RGBMatrix::Impl']]],
+  ['_7ememmapviewinput_9',['~memmapviewinput',['../classrgb__matrix_1_1MemMapViewInput.html#a8744509cf30f0dda3a41adb036e7e95a',1,'rgb_matrix::MemMapViewInput::~MemMapViewInput()'],['../classrgb__matrix_1_1MemMapViewInput.html#a8744509cf30f0dda3a41adb036e7e95a',1,'rgb_matrix::MemMapViewInput::~MemMapViewInput()']]],
+  ['_7emutex_10',['~mutex',['../classrgb__matrix_1_1Mutex.html#a93bad89108a889d4931fa1974dede940',1,'rgb_matrix::Mutex::~Mutex()'],['../classrgb__matrix_1_1Mutex.html#a93bad89108a889d4931fa1974dede940',1,'rgb_matrix::Mutex::~Mutex()']]],
+  ['_7emutexlock_11',['~mutexlock',['../classrgb__matrix_1_1MutexLock.html#aa85bcc5a3b5fc6b54f8d3426430e47e2',1,'rgb_matrix::MutexLock::~MutexLock()'],['../classrgb__matrix_1_1MutexLock.html#aa85bcc5a3b5fc6b54f8d3426430e47e2',1,'rgb_matrix::MutexLock::~MutexLock()']]],
+  ['_7epinpulser_12',['~PinPulser',['../classrgb__matrix_1_1PinPulser.html#a89163ace2e29f52d85f779376f462df2',1,'rgb_matrix::PinPulser']]],
+  ['_7epixeldesignatormap_13',['~PixelDesignatorMap',['../classrgb__matrix_1_1internal_1_1PixelDesignatorMap.html#a3d5fc8a9797dd4f25147d16e411b56da',1,'rgb_matrix::internal::PixelDesignatorMap']]],
+  ['_7epixelmapper_14',['~pixelmapper',['../classrgb__matrix_1_1PixelMapper.html#ae172f2392a07806e2e21c3aed6860ba1',1,'rgb_matrix::PixelMapper::~PixelMapper()'],['../classrgb__matrix_1_1PixelMapper.html#ae172f2392a07806e2e21c3aed6860ba1',1,'rgb_matrix::PixelMapper::~PixelMapper()']]],
+  ['_7ergbmatrix_15',['~rgbmatrix',['../classrgb__matrix_1_1RGBMatrix.html#a51f1f731ba2b9e548efb6e03d65e5878',1,'rgb_matrix::RGBMatrix::~RGBMatrix()'],['../classrgb__matrix_1_1RGBMatrix.html#a08380093b16c315a3d567dbf9c2afe20',1,'rgb_matrix::RGBMatrix::~RGBMatrix()']]],
+  ['_7erowaddresssetter_16',['~RowAddressSetter',['../classrgb__matrix_1_1internal_1_1RowAddressSetter.html#af4c720bb72939f9ad67c424a1801b9e9',1,'rgb_matrix::internal::RowAddressSetter']]],
+  ['_7esandpile_17',['~Sandpile',['../classSandpile.html#abf1b24d5f193d720eb62cc652098da3c',1,'Sandpile']]],
+  ['_7estreamio_18',['~streamio',['../classrgb__matrix_1_1StreamIO.html#ac5702678edfef9ace06c165e94af99d8',1,'rgb_matrix::StreamIO::~StreamIO()'],['../classrgb__matrix_1_1StreamIO.html#ac5702678edfef9ace06c165e94af99d8',1,'rgb_matrix::StreamIO::~StreamIO()']]],
+  ['_7estreamreader_19',['~streamreader',['../classrgb__matrix_1_1StreamReader.html#a655801452de5e99aaeec2cf0f5caf463',1,'rgb_matrix::StreamReader::~StreamReader()'],['../classrgb__matrix_1_1StreamReader.html#a655801452de5e99aaeec2cf0f5caf463',1,'rgb_matrix::StreamReader::~StreamReader()']]],
+  ['_7ethread_20',['~thread',['../classrgb__matrix_1_1Thread.html#a60501b17444f4541ae3d71fcd6686dcb',1,'rgb_matrix::Thread::~Thread()'],['../classrgb__matrix_1_1Thread.html#ad0dbe8f790f4684b68d37d385dda38a7',1,'rgb_matrix::Thread::~Thread()']]],
+  ['_7ethreadedcanvasmanipulator_21',['~threadedcanvasmanipulator',['../classrgb__matrix_1_1ThreadedCanvasManipulator.html#aa9f1b58decbc86d30736619353f94cfb',1,'rgb_matrix::ThreadedCanvasManipulator::~ThreadedCanvasManipulator()'],['../classrgb__matrix_1_1ThreadedCanvasManipulator.html#aa9f1b58decbc86d30736619353f94cfb',1,'rgb_matrix::ThreadedCanvasManipulator::~ThreadedCanvasManipulator()']]],
+  ['_7evolumebars_22',['~VolumeBars',['../classVolumeBars.html#a0094e825abe9ef6fffed52417c37cfd5',1,'VolumeBars']]]
+];

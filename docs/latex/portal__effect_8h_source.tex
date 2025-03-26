@@ -1,0 +1,93 @@
+\doxysection{portal\+\_\+effect.\+h}
+\hypertarget{portal__effect_8h_source}{}\label{portal__effect_8h_source}\index{include/portal\_effect.h@{include/portal\_effect.h}}
+\mbox{\hyperlink{portal__effect_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PORTAL\_EFFECT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PORTAL\_EFFECT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_2include_2led-matrix_8h}{led-\/matrix.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ Forward\ declaration\ of\ the\ DemoRunner\ class}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDemoRunner}{DemoRunner}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classDemoRunner_ad06a34cdc2e5f35b67c8b9d37361ba32}{DemoRunner}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})\ :\ canvas\_(\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})\ \{\}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *\mbox{\hyperlink{classDemoRunner_a180b9c0dc464679d02e54f93074ca78d}{canvas}}()\ \{\ \textcolor{keywordflow}{return}\ canvas\_;\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classDemoRunner_af9510dbb8c3881d5ae18ecb5eb175af4}{\string~DemoRunner}}()\ \{\}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDemoRunner_ae9aefbf0a6a7aa868007b4508e95c353}{Run}}()\ =\ 0;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *\textcolor{keyword}{const}\ canvas\_;}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Define\ a\ namespace\ for\ custom\ code}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMyApp}{MyApp}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ Define\ the\ Color\ struct}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ uint8\_t\ r,\ g,\ b;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}(uint8\_t\ r,\ uint8\_t\ g,\ uint8\_t\ b)\ :\ r(r),\ g(g),\ b(b)\ \{\}}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Function\ declarations}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacergb__matrix_aade514105177fcac88c4757543cfc99f}{DrawCircle}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ radius,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\&\ \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}});}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawSquare(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{content-streamer_8cc_ab2c6b258f02add8fdf4cfc7c371dd772}{size}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\&\ \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}});}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ DrawTriangle(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{content-streamer_8cc_ab2c6b258f02add8fdf4cfc7c371dd772}{size}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\&\ \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}});}
+\DoxyCodeLine{00041\ \}\ \textcolor{comment}{//\ End\ of\ namespace\ MyApp}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ Define\ PortalGene\ and\ PortalChromosome}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPortalGene}{PortalGene}}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structPortalGene_a8663fc908907e8e41585cd43d3ad5dd4}{color\_r}};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structPortalGene_ac21794830a73d090883c3661a4beed69}{color\_g}};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structPortalGene_ac5275d3ac1639f2868ad71b8bf874b42}{color\_b}};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structPortalGene_ac335d01e2d25ae4cc5c6f5bcd25b410e}{shape}};\ \textcolor{comment}{//\ 0:\ circle,\ 1:\ square,\ 2:\ triangle}}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPortalChromosome}{PortalChromosome}}\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classPortalChromosome_a0b7e7f803c8d82d0369704defc77e795}{PortalChromosome}}();}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classPortalChromosome_a0452f92d87fa88392329c46ba1e3af38}{PortalChromosome}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structPortalGene}{PortalGene}}\&\ g);}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{structPortalGene}{PortalGene}}\ \mbox{\hyperlink{classPortalChromosome_af6553241b45e829bcdf55c74be8b8495}{genes}};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classPortalChromosome_ac8849f765a4f7e4af3fca8b76a645b39}{fitness}};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPortalChromosome_ad88e73b70e26ff462e4d7d58cfe4ae96}{mutate}}();}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classPortalChromosome}{PortalChromosome}}\ \mbox{\hyperlink{classPortalChromosome_a313bc36f3e9bfb7dc87b1cd185ca4d3b}{crossover}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPortalChromosome}{PortalChromosome}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPortalChromosome}{PortalChromosome}}\&\ b);}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ Define\ the\ PortalPopulation\ class}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPortalPopulation}{PortalPopulation}}\ \{}
+\DoxyCodeLine{00063\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classPortalPopulation_ac40b2abc666ff096fb6671088a1106db}{PortalPopulation}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{content-streamer_8cc_ab2c6b258f02add8fdf4cfc7c371dd772}{size}});}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPortalPopulation_a78c376a64a01e74efa58a8b52c2b0617}{evolve}}();}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPortalPopulation_a722651040111b6a38f4d1532af14fa4a}{calculateFitness}}();}
+\DoxyCodeLine{00067\ \ \ \ \ std::vector<PortalChromosome>\ \mbox{\hyperlink{classPortalPopulation_ad82703138fff98205b2287b42ab9b0d0}{population}};}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ Define\ the\ PortalEffect\ class}}
+\DoxyCodeLine{00071\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPortalEffect}{PortalEffect}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classDemoRunner}{DemoRunner}}\ \{}
+\DoxyCodeLine{00072\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classPortalEffect_ac57fe07764357a23b8832c334f784c14}{PortalEffect}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *m,\ \textcolor{keywordtype}{int}\ delay\_ms\ =\ 50,\ \textcolor{keywordtype}{int}\ num\_portals\ =\ 5);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPortalEffect_a38dc4e8819df0ddc31ea891e5846b17e}{Run}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ portalThread(\textcolor{keywordtype}{int}\ portal\_id);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ delay\_ms\_;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_portals\_;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ t\_;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ center\_x\_;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ center\_y\_;}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classPortalPopulation}{PortalPopulation}}\ population\_;}
+\DoxyCodeLine{00084\ \ \ \ \ std::mutex\ mutex\_;}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PORTAL\_EFFECT\_H}}
+
+\end{DoxyCode}

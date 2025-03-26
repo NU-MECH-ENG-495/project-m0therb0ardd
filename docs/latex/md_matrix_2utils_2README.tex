@@ -1,0 +1,313 @@
+\chapter{Utilities}
+\hypertarget{md_matrix_2utils_2README}{}\label{md_matrix_2utils_2README}\index{Utilities@{Utilities}}
+This contains useful utilities that might be directly useful without having to write any code.
+
+Below, the description of the utilities contains a list of commandline flags they support. Next to the specific flags for their use, they all have a set of standard options that always come with the LED matrix, such as choosing the {\ttfamily -\/-\/led-\/rows} or {\ttfamily -\/-\/led-\/chain}.
+
+For brevity, we don\textquotesingle{}t repeat them below in the synopsis prints of each of these utilities. You find a description of the standard options in the \href{../README.md\#changing-parameters-via-command-line-flags}{\texttt{ toplevel readme}}
+
+
+
+{\bfseries{Unfold\+: Standard LED-\/matrix options present in all utilities}}\begin{adjustwidth}{1em}{0em}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/-\/led-\/gpio-\/mapping=<name>\ :\ Name\ of\ GPIO\ mapping\ used.\ Default\ "{}regular"{}}
+\DoxyCodeLine{-\/-\/led-\/rows=<rows>\ \ \ \ \ \ \ \ \ :\ Panel\ rows.\ Typically\ 8,\ 16,\ 32\ or\ 64.\ (Default:\ 32).}
+\DoxyCodeLine{-\/-\/led-\/cols=<cols>\ \ \ \ \ \ \ \ \ :\ Panel\ columns.\ Typically\ 32\ or\ 64.\ (Default:\ 32).}
+\DoxyCodeLine{-\/-\/led-\/chain=<chained>\ \ \ \ \ :\ Number\ of\ daisy-\/chained\ panels.\ (Default:\ 1).}
+\DoxyCodeLine{-\/-\/led-\/parallel=<parallel>\ :\ Parallel\ chains.\ range=1..3\ (Default:\ 1).}
+\DoxyCodeLine{-\/-\/led-\/multiplexing=<0..11>\ :\ Mux\ type:\ 0=direct;\ 1=Stripe;\ 2=Checkered;\ 3=Spiral;\ 4=ZStripe;\ 5=ZnMirrorZStripe;\ 6=coreman;\ 7=Kaler2Scan;\ 8=ZStripeUneven;\ 9=P10-\/128x4-\/Z;\ 10=QiangLiQ8;\ 11=InversedZStripe\ (Default:\ 0)}
+\DoxyCodeLine{-\/-\/led-\/pixel-\/mapper\ \ \ \ \ \ \ \ :\ Semicolon-\/separated\ list\ of\ pixel-\/mappers\ to\ arrange\ pixels.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Optional\ params\ after\ a\ colon\ e.g.\ "{}U-\/mapper;Rotate:90"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Available:\ "{}Mirror"{},\ "{}Rotate"{},\ "{}U-\/mapper"{}.\ Default:\ "{}"{}}
+\DoxyCodeLine{-\/-\/led-\/pwm-\/bits=<1..11>\ \ \ \ :\ PWM\ bits\ (Default:\ 11).}
+\DoxyCodeLine{-\/-\/led-\/brightness=<percent>:\ Brightness\ in\ percent\ (Default:\ 100).}
+\DoxyCodeLine{-\/-\/led-\/scan-\/mode=<0..1>\ \ \ \ :\ 0\ =\ progressive;\ 1\ =\ interlaced\ (Default:\ 0).}
+\DoxyCodeLine{-\/-\/led-\/row-\/addr-\/type=<0..4>:\ 0\ =\ default;\ 1\ =\ AB-\/addressed\ panels;\ 2\ =\ direct\ row\ select;\ 3\ =\ ABC-\/addressed\ panels;\ 4\ =\ ABC\ Shift\ +\ DE\ direct\ (Default:\ 0).}
+\DoxyCodeLine{-\/-\/led-\/show-\/refresh\ \ \ \ \ \ \ \ :\ Show\ refresh\ rate.}
+\DoxyCodeLine{-\/-\/led-\/inverse\ \ \ \ \ \ \ \ \ \ \ \ \ :\ Switch\ if\ your\ matrix\ has\ inverse\ colors\ on.}
+\DoxyCodeLine{-\/-\/led-\/rgb-\/sequence\ \ \ \ \ \ \ \ :\ Switch\ if\ your\ matrix\ has\ led\ colors\ swapped\ (Default:\ "{}RGB"{})}
+\DoxyCodeLine{-\/-\/led-\/pwm-\/lsb-\/nanoseconds\ :\ PWM\ Nanoseconds\ for\ LSB\ (Default:\ 130)}
+\DoxyCodeLine{-\/-\/led-\/pwm-\/dither-\/bits=<0..2>\ :\ Time\ dithering\ of\ lower\ bits\ (Default:\ 0)}
+\DoxyCodeLine{-\/-\/led-\/no-\/hardware-\/pulse\ \ \ :\ Don't\ use\ hardware\ pin-\/pulse\ generation.}
+\DoxyCodeLine{-\/-\/led-\/panel-\/type=<name>\ \ \ :\ Needed\ to\ initialize\ special\ panels.\ Supported:\ 'FM6126A'}
+\DoxyCodeLine{-\/-\/led-\/slowdown-\/gpio=<0..4>:\ Slowdown\ GPIO.\ Needed\ for\ faster\ Pis/slower\ panels\ (Default:\ 1).}
+\DoxyCodeLine{-\/-\/led-\/daemon\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Make\ the\ process\ run\ in\ the\ background\ as\ daemon.}
+\DoxyCodeLine{-\/-\/led-\/no-\/drop-\/privs\ \ \ \ \ \ \ :\ Don't\ drop\ privileges\ from\ 'root'\ after\ initializing\ the\ hardware.}
+\DoxyCodeLine{-\/-\/led-\/drop-\/priv-\/user\ \ \ \ \ \ :\ Drop\ privileges\ to\ this\ username\ or\ UID\ (Default:\ 'daemon')}
+\DoxyCodeLine{-\/-\/led-\/drop-\/priv-\/group\ \ \ \ \ :\ Drop\ privileges\ to\ this\ groupname\ or\ GID\ (Default:\ 'daemon')}
+
+\end{DoxyCode}
+ \end{adjustwidth}
+\hypertarget{md_matrix_2utils_2README_autotoc_md71}{}\doxysubsection{\texorpdfstring{Image Viewer}{Image Viewer}}\label{md_matrix_2utils_2README_autotoc_md71}
+The image viewer reads all kinds of image formats, including animated gifs.
+
+To speed up lengthy loading of image files or animations, you also can also pre-\/process images or animations and write them to a \textquotesingle{}stream\textquotesingle{} file that then later can be loaded very quickly by this viewer (at the expense of disk-\/space as these are not compressed). This is in particular useful for large panels and animations with many frames\+: less loading time and less RAM used. See {\ttfamily -\/O} example below in the example section.\hypertarget{md_matrix_2utils_2README_autotoc_md72}{}\doxyparagraph{\texorpdfstring{Building}{Building}}\label{md_matrix_2utils_2README_autotoc_md72}
+The {\ttfamily led-\/image-\/viewer} requires the Graphics\+Magick dependency first, then it can be built with {\ttfamily make led-\/image-\/viewer}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ apt-\/get\ update}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ libgraphicsmagick++-\/dev\ libwebp-\/dev\ -\/y}
+\DoxyCodeLine{make\ led-\/image-\/viewer}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2utils_2README_autotoc_md73}{}\doxyparagraph{\texorpdfstring{Usage}{Usage}}\label{md_matrix_2utils_2README_autotoc_md73}
+The resulting binary has a couple of flags. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{usage:\ ./led-\/image-\/viewer\ [options]\ <image>\ [option]\ [<image>\ ...]}
+\DoxyCodeLine{Options:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/O<streamfile>\ \ \ \ \ \ \ \ \ \ \ \ :\ Output\ to\ stream-\/file\ instead\ of\ matrix\ (Don't\ need\ to\ be\ root).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/C\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Center\ images.}
+\DoxyCodeLine{}
+\DoxyCodeLine{These\ options\ affect\ images\ FOLLOWING\ them\ on\ the\ command\ line,}
+\DoxyCodeLine{so\ it\ is\ possible\ to\ have\ different\ options\ for\ each\ image}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/w<seconds>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Regular\ image:\ Wait\ time\ in\ seconds\ before\ next\ image\ is\ shown\ (default:\ 1.5).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/t<seconds>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ For\ animations:\ stop\ after\ this\ time.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/l<loop-\/count>\ \ \ \ \ \ \ \ \ \ \ \ :\ For\ animations:\ number\ of\ loops\ through\ a\ full\ cycle.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/D<animation-\/delay-\/ms>\ \ \ \ :\ For\ animations:\ override\ the\ delay\ between\ frames\ given\ in\ the}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gif/stream\ animation\ with\ this\ value.\ Use\ -\/1\ to\ use\ default\ value.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/V<vsync-\/multiple>\ \ \ \ \ \ \ \ :\ For\ animation\ (expert):\ Only\ do\ frame\ vsync-\/swaps\ on\ multiples\ of\ refresh\ (default:\ 1)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Tip:\ use\ -\/-\/led-\/limit-\/refresh\ for\ stable\ rate)}
+\DoxyCodeLine{}
+\DoxyCodeLine{Options\ affecting\ display\ of\ multiple\ images:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/f\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Forever\ cycle\ through\ the\ list\ of\ files\ on\ the\ command\ line.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/s\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ If\ multiple\ images\ are\ given:\ shuffle.}
+\DoxyCodeLine{}
+\DoxyCodeLine{General\ LED\ matrix\ options:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <...\ all\ the\ -\/-\/led-\/\ options>}
+\DoxyCodeLine{}
+\DoxyCodeLine{Switch\ time\ between\ files:\ -\/w\ for\ static\ images;\ -\/t/-\/l\ for\ animations}
+\DoxyCodeLine{Animated\ gifs:\ If\ both\ -\/l\ and\ -\/t\ are\ given,\ whatever\ finishes\ first\ determines\ duration.}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ -\/w,\ -\/t\ and\ -\/l\ options\ apply\ to\ the\ following\ images\ until\ a\ new\ instance\ of\ one\ of\ these\ options\ is\ seen.}
+\DoxyCodeLine{So\ you\ can\ choose\ different\ durations\ for\ different\ images.}
+
+\end{DoxyCode}
+
+
+Then, you can run it with any common image format, including animated gifs\+:\hypertarget{md_matrix_2utils_2README_autotoc_md74}{}\doxyparagraph{\texorpdfstring{Examples}{Examples}}\label{md_matrix_2utils_2README_autotoc_md74}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ some-\/image.jpg\ \ \ \ \ \ \ \#\ Display\ an\ image.}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ animated.gif\ \ \ \ \ \ \ \ \ \#\ Show\ an\ animated\ gif}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/t5\ animated.gif\ \ \ \ \ \#\ Show\ an\ animated\ gif\ for\ 5\ seconds}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/l2\ animated.gif\ \ \ \ \ \#\ Show\ an\ animated\ gif\ for\ 2\ loops}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/D16\ animated.gif\ \ \ \ \#\ Play\ animated\ gif,\ use\ 16ms\ frame\ delay}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ If\ you\ want\ to\ have\ an\ even\ frame\ rate,\ that\ is\ depending\ on\ your}
+\DoxyCodeLine{\#\ refresh\ rate,\ use\ the\ following.\ Note,\ your\ refresh\ rate\ is\ dependent\ on}
+\DoxyCodeLine{\#\ factors\ such\ as\ chain\ length\ and\ rows;\ use\ -\/-\/led-\/show-\/refresh\ to\ get\ an\ idea.}
+\DoxyCodeLine{\#\ Then\ fix\ it\ with\ -\/-\/led-\/limit-\/refresh}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/-\/led-\/limit-\/refresh=200\ -\/D0\ -\/V10\ animated.gif\ \#\ Frame\ rate\ =\ 1/12\ refresh\ rate}
+\DoxyCodeLine{}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ \ \ \ -\/w3\ foo.jpg\ bar.png\ \ \#\ show\ two\ images,\ wait\ 3\ seconds\ between.\ Stop.}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ \ \ \ -\/w3\ foo.jpg\ -\/w2\ bar.png\ baz.png\ \ \#\ show\ images,\ wait\ 3\ seconds\ after\ the\ first,\ 2\ seconds\ after\ the\ second\ and\ third.\ Stop.}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/f\ -\/w3\ foo.jpg\ bar.png\ \ \#\ show\ images,\ wait\ 3sec\ between,\ go\ back\ and\ loop\ forever}
+\DoxyCodeLine{}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/f\ -\/w3\ *.png\ *.jpg\ \ \ \#\ Loop\ forever\ through\ a\ list\ of\ images}
+\DoxyCodeLine{}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/f\ -\/s\ *.png\ \ \#\ Loop\ forever\ but\ randomize\ (shuffle)\ each\ round.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Show\ image.png\ and\ animated.gif\ in\ a\ loop.\ Show\ the\ static\ image\ for\ 3\ seconds}
+\DoxyCodeLine{\#\ while\ the\ animation\ is\ shown\ for\ 5\ seconds\ (-\/t\ takes\ precedence\ for\ animated}
+\DoxyCodeLine{\#\ images\ over\ -\/w)}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/f\ -\/w3\ -\/t5\ image.png\ animated.gif}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Create\ a\ fast\ animation\ from\ a\ bunch\ of\ *.png\ files}
+\DoxyCodeLine{\#\ with\ 16.6ms\ frame\ time\ (=60Hz)\ and\ write\ to\ a\ raw\ animation\ stream}
+\DoxyCodeLine{\#\ animation-\/out.stream\ (beware,\ uncompressed,\ uses\ lots\ of\ disk).}
+\DoxyCodeLine{\#\ Note:}
+\DoxyCodeLine{\#\ \ o\ We\ have\ to\ supply\ all\ the\ options\ (rows,\ chain,\ parallel,\ hardware-\/mapping,}
+\DoxyCodeLine{\#\ \ \ \ rotation\ etc),\ that\ we\ would\ supply\ to\ the\ real\ viewer\ later.}
+\DoxyCodeLine{\#\ \ o\ We\ don't\ need\ to\ be\ root,\ as\ we\ don't\ write\ to\ the\ matrix}
+\DoxyCodeLine{./led-\/image-\/viewer\ -\/-\/led-\/rows=32\ -\/-\/led-\/chain=4\ -\/-\/led-\/parallel=3\ -\/w0.016667\ *.png\ -\/Oanimation-\/out.stream}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Now,\ play\ back\ this\ animation.}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/-\/led-\/rows=32\ -\/-\/led-\/chain=4\ -\/-\/led-\/parallel=3\ animation-\/out.stream}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2utils_2README_autotoc_md75}{}\doxysubsection{\texorpdfstring{Text Scroller}{Text Scroller}}\label{md_matrix_2utils_2README_autotoc_md75}
+The text scroller allows to show some scrolling text.\hypertarget{md_matrix_2utils_2README_autotoc_md76}{}\doxyparagraph{\texorpdfstring{Building}{Building}}\label{md_matrix_2utils_2README_autotoc_md76}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ text-\/scroller}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2utils_2README_autotoc_md77}{}\doxyparagraph{\texorpdfstring{Usage}{Usage}}\label{md_matrix_2utils_2README_autotoc_md77}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{usage:\ ./text-\/scroller\ [options]\ <text>}
+\DoxyCodeLine{Takes\ text\ and\ scrolls\ it\ with\ speed\ -\/s}
+\DoxyCodeLine{Options:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/f\ <font-\/file>\ \ \ \ :\ Path\ to\ *.bdf-\/font\ to\ be\ used.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/i\ <textfile>\ \ \ \ \ :\ Input\ from\ file.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/s\ <speed>\ \ \ \ \ \ \ \ :\ Approximate\ letters\ per\ second.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Positive:\ scroll\ right\ to\ left;\ Negative:\ scroll\ left\ to\ right}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Zero\ for\ no\ scrolling)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/l\ <loop-\/count>\ \ \ :\ Number\ of\ loops\ through\ the\ text.\ -\/1\ for\ endless\ (default)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/b\ <on-\/time>,<off-\/time>\ \ :\ Blink\ while\ scrolling.\ Keep\ on\ and\ off\ for\ these\ amount\ of\ scrolled\ pixels.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/x\ <x-\/origin>\ \ \ \ \ :\ Shift\ X-\/Origin\ of\ displaying\ text\ (Default:\ 0)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/y\ <y-\/origin>\ \ \ \ \ :\ Shift\ Y-\/Origin\ of\ displaying\ text\ (Default:\ 0)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/t\ <track-\/spacing>:\ Spacing\ pixels\ between\ letters\ (Default:\ 0)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/C\ <r,g,b>\ \ \ \ \ \ \ \ :\ Text\ Color.\ Default\ 255,255,255\ (white)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/B\ <r,g,b>\ \ \ \ \ \ \ \ :\ Background-\/Color.\ Default\ 0,0,0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/O\ <r,g,b>\ \ \ \ \ \ \ \ :\ Outline-\/Color,\ e.g.\ to\ increase\ contrast.}
+\DoxyCodeLine{}
+\DoxyCodeLine{General\ LED\ matrix\ options:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <...\ all\ the\ -\/-\/led-\/\ options>}
+
+\end{DoxyCode}
+
+
+You need to specify a font for the tool to use. We are using BDF-\/fonts, which are bitmap fonts nicely suited for low-\/resolution displays such as ours. A few fonts you find in the \href{../fonts}{\texttt{ ../fonts}} directory. The \doxysectlink{md_matrix_2fonts_2README}{README.md}{0} there also describes how to make your own.
+
+The program directly takes the text found on the command line and scrolls it over the screen. Alternatively, with the {\ttfamily -\/i} option, a file is read with the text to be scrolled. The file is watched, and if the content changes, the {\ttfamily text-\/scroller} automatically updates the scroll text.\hypertarget{md_matrix_2utils_2README_autotoc_md78}{}\doxyparagraph{\texorpdfstring{Examples}{Examples}}\label{md_matrix_2utils_2README_autotoc_md78}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ (use\ your\ -\/-\/led-\/rows,\ -\/-\/led-\/chain\ and\ -\/-\/led-\/parallel\ suited\ for\ your\ setup)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Print\ simple\ 'Hello\ world'}
+\DoxyCodeLine{sudo\ ./text-\/scroller\ -\/f\ ../fonts/9x18.bdf\ "{}Hello\ World\ ♥"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Read\ input\ from\ text\ file\ (will\ pick\ up\ changes\ when\ file\ changes)}
+\DoxyCodeLine{echo\ "{}Hello\ world"{}\ >\ input.txt}
+\DoxyCodeLine{sudo\ ./text-\/scroller\ -\/f\ ../fonts/9x18.bdf\ -\/i\ input.txt}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Red\ (-\/C)\ text\ on\ a\ display\ with\ 4\ chained\ displays.\ Notice\ you\ can\ use\ UTF-\/8\ characters}
+\DoxyCodeLine{\#\ if\ they\ are\ supported\ by\ the\ font.}
+\DoxyCodeLine{sudo\ ./text-\/scroller\ -\/f\ ../fonts/9x18.bdf\ -\/C255,0,0\ -\/-\/led-\/chain=4\ "{}Hello\ World\ ♥"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ ..\ faster\ speed;\ roughly\ 20\ characters\ per\ second\ with\ option\ -\/s.}
+\DoxyCodeLine{sudo\ ./text-\/scroller\ -\/f\ ../fonts/9x18.bdf\ -\/C255,0,0\ -\/-\/led-\/chain=4\ -\/s20\ "{}The\ quick\ brown\ fox\ jumps\ over\ the\ lazy\ dog"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ A\ speed\ of\ zero\ does\ just\ shows\ the\ text,\ no\ scrolling.}
+\DoxyCodeLine{sudo\ ./text-\/scroller\ -\/f\ ../fonts/9x18.bdf\ -\/C255,0,0\ -\/-\/led-\/chain=4\ -\/s0\ "{}No\ Scroll"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ A\ text\ might\ need\ to\ be\ arranged\ a\ bit.\ Let's\ move\ it\ 15\ pixels\ to\ the\ right\ and\ 5\ down:}
+\DoxyCodeLine{sudo\ ./text-\/scroller\ -\/f\ ../fonts/9x18.bdf\ -\/C255,0,0\ -\/-\/led-\/chain=4\ -\/s0\ -\/x15\ -\/y5\ "{}Shifted"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Now\ text\ in\ red\ color\ on\ a\ blue\ background\ (-\/B).\ We\ choose\ an\ outline\ (-\/O)}
+\DoxyCodeLine{\#\ of\ a\ slightly\ darker\ blue\ for\ better\ contrast}
+\DoxyCodeLine{sudo\ ./text-\/scroller\ -\/f\ ../fonts/9x18.bdf\ -\/B0,0,255\ -\/O0,0,100\ -\/C255,0,0\ -\/-\/led-\/chain=4\ "{}Contrast\ outline"{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ A\ larger\ font.\ This\ one\ needs\ a\ bit\ of\ an\ y-\/adjustment}
+\DoxyCodeLine{\#\ (move\ up\ 11\ pixels:\ a\ negative\ y\ shift)\ to\ fit\ nicely\ on\ a\ panel.}
+\DoxyCodeLine{sudo\ ./text-\/scroller\ -\/f\ ../fonts/texgyre-\/27.bdf\ -\/-\/led-\/chain=4\ -\/y-\/11\ "{}Large\ Font"{}}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2utils_2README_autotoc_md79}{}\doxysubsection{\texorpdfstring{Video Viewer}{Video Viewer}}\label{md_matrix_2utils_2README_autotoc_md79}
+The video viewer allows to play common video formats on the RGB matrix (just the picture, no sound).
+
+This is currently doing a software decode; if you are familiar with the av libraries, a pull request that adds hardware decoding is welcome.
+
+Right now, this is CPU intensive and decoding can result in an output that is not smooth or presents flicker, in particular on older Pis. If you observe that, it is suggested to prepare a preprocessed stream that you then later watch with {\ttfamily led-\/image-\/viewer} (see example below). This will use a bit of disk-\/space, but it will result in best quality as all the expensive calculation has been done beforehand.
+
+Short of that, if you want to use the video viewer directly (e.\+g. because the stream file would be super-\/large), do the following when you observe flicker\+:
+\begin{DoxyItemize}
+\item Use the {\ttfamily -\/T} option to add more decode threads; {\ttfamily -\/T2} or {\ttfamily -\/T3} typically.
+\item Transcode the video first to the width and height of the final output size so that decoding and scaling is much cheaper at runtime.
+\item If you use tools such as \href{https://youtube-dl.org/}{\texttt{ youtube-\/dl}} to acquire the video, tell it to choose a low resolution version (e.\+g. for that program use option {\ttfamily -\/f"{}\mbox{[}height$<$480\mbox{]}"{}}).
+\item Synchronize output as integer fraction of matrix refresh rate (example below).
+\item Another route to watch videos is to run a \href{https://github.com/hzeller/flaschen-taschen/tree/master/server\#rgb-matrix-panel-display}{\texttt{ flaschen-\/taschen}} server on your Pi, that provides a network interface to your LED-\/\+Matrix. Now, you can use \href{https://www.videolan.org/vlc}{\texttt{ vlc}} from some other computer on your network and stream the output to your Pi. You have to provide the IP address and size of the panel\+: {\ttfamily  vlc -\/-\/vout flaschen -\/-\/flaschen-\/display=\texorpdfstring{$<$}{<}IP-\/address-\/of-\/your-\/pi\texorpdfstring{$>$}{>} \textbackslash{} -\/-\/flaschen-\/width=128 -\/-\/flaschen-\/height=64 \textbackslash{} \texorpdfstring{$<$}{<}video-\/filename-\/or-\/\+You\+Tube-\/\+URL\texorpdfstring{$>$}{>} }
+\end{DoxyItemize}\hypertarget{md_matrix_2utils_2README_autotoc_md80}{}\doxyparagraph{\texorpdfstring{Building}{Building}}\label{md_matrix_2utils_2README_autotoc_md80}
+The video-\/viewer requires some dependencies first, then it can be built with {\ttfamily make video-\/viewer}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ apt-\/get\ update}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ pkg-\/config\ libavcodec-\/dev\ libavformat-\/dev\ libswscale-\/dev\ libavdevice-\/dev}
+\DoxyCodeLine{make\ video-\/viewer}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2utils_2README_autotoc_md81}{}\doxyparagraph{\texorpdfstring{Usage}{Usage}}\label{md_matrix_2utils_2README_autotoc_md81}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Show\ one\ or\ a\ sequence\ of\ video\ files\ on\ the\ RGB-\/Matrix}
+\DoxyCodeLine{usage:\ ./video-\/viewer\ [options]\ <video>\ [<video>...]}
+\DoxyCodeLine{Options:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/F\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Full\ screen\ without\ black\ bars;\ aspect\ ratio\ might\ suffer}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/O<streamfile>\ \ \ \ \ :\ Output\ to\ stream-\/file\ instead\ of\ matrix\ (don't\ need\ to\ be\ root).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/s\ <count>\ \ \ \ \ \ \ \ \ :\ Skip\ these\ number\ of\ frames\ in\ the\ beginning.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/c\ <count>\ \ \ \ \ \ \ \ \ :\ Only\ show\ this\ number\ of\ frames\ (excluding\ skipped\ frames).}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/V<vsync-\/multiple>\ :\ Instead\ of\ native\ video\ framerate,\ playback\ framerate}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\ a\ fraction\ of\ matrix\ refresh.\ In\ particular\ with\ a\ stable\ refresh,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this\ can\ result\ in\ more\ smooth\ playback.\ Choose\ multiple\ for\ desired\ framerate.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Tip:\ use\ -\/-\/led-\/limit-\/refresh\ for\ stable\ rate)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/T\ <threads>\ \ \ \ \ \ \ :\ Number\ of\ threads\ used\ to\ decode\ (default\ 1,\ max=4)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/v\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ verbose;\ prints\ video\ metadata\ and\ other\ info.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/f\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Loop\ forever.}
+\DoxyCodeLine{}
+\DoxyCodeLine{General\ LED\ matrix\ options:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <...\ all\ the\ -\/-\/led-\/\ options>}
+
+\end{DoxyCode}
+\hypertarget{md_matrix_2utils_2README_autotoc_md82}{}\doxyparagraph{\texorpdfstring{Examples}{Examples}}\label{md_matrix_2utils_2README_autotoc_md82}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Play\ video.\ If\ you\ observe\ that\ the\ Pi\ has\ trouble\ to\ keep\ up\ (extensive}
+\DoxyCodeLine{\#\ flickering),\ transcode\ the\ video\ first\ to\ the\ exact\ size\ of\ your\ display.}
+\DoxyCodeLine{sudo\ ./video-\/viewer\ -\/-\/led-\/chain=4\ -\/-\/led-\/parallel=3\ -\/T2\ myvideo.webm}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ If\ you\ observe\ flicker\ you\ can\ try\ to\ synchronize\ video\ output\ with}
+\DoxyCodeLine{\#\ the\ refresh\ rate\ of\ the\ panel.\ For\ that,\ first\ figure\ out\ with}
+\DoxyCodeLine{\#\ -\/-\/led-\/show-\/refresh\ what\ the\ 'natural'\ refresh\ rate\ is\ of\ your\ LED\ panel.}
+\DoxyCodeLine{\#\ Then\ choose\ one\ that\ is\ lower\ and\ a\ multiple\ of\ the\ frame-\/rate\ of\ the}
+\DoxyCodeLine{\#\ video.\ Let's\ say\ we\ have\ a\ video\ with\ a\ framerate\ of\ 25fps\ and\ find\ that}
+\DoxyCodeLine{\#\ our\ panel\ can\ refresh\ with\ more\ than\ 200Hz\ (after\ the\ usual\ refresh}
+\DoxyCodeLine{\#\ tweakings\ such\ as\ with\ -\/-\/led-\/pwm-\/dither-\/bits).}
+\DoxyCodeLine{\#\ Let's\ fix\ the\ refresh\ rate\ to\ 200\ and\ sync\ a\ new\ frame\ with\ every}
+\DoxyCodeLine{\#\ 8th\ refresh\ to\ get\ the\ desired\ video\ fps\ (200/8\ =\ 25)}
+\DoxyCodeLine{sudo\ ./video-\/viewer\ -\/-\/led-\/chain=4\ -\/-\/led-\/parallel=3\ -\/-\/led-\/limit-\/refresh=200\ -\/V8\ myvideo.webm}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Output\ a\ webcam.\ Since\ /dev/video0\ is\ usually\ not\ readable\ by\ the\ user}
+\DoxyCodeLine{\#\ the\ privileges\ are\ dropped\ to\ ('daemon'),\ in\ the\ simplest\ case,\ just}
+\DoxyCodeLine{\#\ switch\ of\ privilege\ dropping.}
+\DoxyCodeLine{\#\ (Note,\ reading\ from\ a\ camerea\ device\ and\ scaling\ it\ then\ writing\ to\ the\ LED}
+\DoxyCodeLine{\#\ \ panel\ might\ create\ enough\ contention\ on\ the\ Pi\ memory\ busses\ that\ slight}
+\DoxyCodeLine{\#\ \ flicker\ might\ be\ noticeable)}
+\DoxyCodeLine{sudo\ ./video-\/viewer\ -\/-\/led-\/chain=5\ -\/-\/led-\/parallel=3\ -\/-\/led-\/no-\/drop-\/privs\ /dev/video0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Often,\ webcam\ camera\ streams\ are\ pretty\ large\ which\ need\ to\ be\ scaled}
+\DoxyCodeLine{\#\ in\ the\ video\ viewer.\ Reading\ large\ amounts\ of\ data\ from\ USB\ and\ scaling\ are}
+\DoxyCodeLine{\#\ known\ to\ result\ in\ flickering\ on\ the\ matrix,\ so\ setting\ the\ video\ resolution}
+\DoxyCodeLine{\#\ as\ close\ as\ possible\ using\ the\ video4linux\ utils\ can\ reduce\ the\ impact.}
+\DoxyCodeLine{\#\ Consider\ you\ have\ an\ RGB\ panel\ with\ 160x96\ pixels,\ use\ \`{}v4l2-\/ctl`\ for\ an\ best}
+\DoxyCodeLine{\#\ effort\ to\ pre-\/scale\ the\ video.\ Use\ the\ \`{}-\/v`\ verbose\ option\ on\ the}
+\DoxyCodeLine{\#\ video-\/viewer\ to\ see\ some\ meta-\/data\ about\ the\ stream\ it\ receives:}
+\DoxyCodeLine{v4l2-\/ctl\ -\/d\ /dev/video0\ -\/-\/set-\/fmt-\/video=width=160,height=96}
+\DoxyCodeLine{sudo\ ./video-\/viewer\ -\/v\ -\/-\/led-\/chain=5\ -\/-\/led-\/parallel=3\ -\/-\/led-\/no-\/drop-\/privs\ /dev/video0}
+
+\end{DoxyCode}
+
+
+{\bfseries{Example preparing a preprocessed stream}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ A\ way\ to\ avoid\ flicker\ playback\ with\ best\ possible\ results\ even\ with}
+\DoxyCodeLine{\#\ very\ high\ framerate:\ create\ a\ preprocessed\ stream\ first,\ then\ replay\ it\ with}
+\DoxyCodeLine{\#\ led-\/image-\/viewer.\ This\ results\ in\ best\ quality\ (no\ CPU\ use\ at\ play-\/time),\ but}
+\DoxyCodeLine{\#\ comes\ with\ a\ caveat:\ It\ can\ use\ \_A\ LOT\_\ of\ disk,\ as\ it\ is\ not\ compressed.}
+\DoxyCodeLine{\#\ Note:}
+\DoxyCodeLine{\#\ \ o\ We\ don't\ need\ to\ be\ root,\ as\ we\ don't\ write\ to\ the\ matrix,\ just\ to\ a\ file.}
+\DoxyCodeLine{\#\ \ o\ We\ have\ to\ supply\ all\ the\ options\ (rows,\ chain,\ parallel,\ hardware-\/mapping,}
+\DoxyCodeLine{\#\ \ \ \ rotation\ etc),\ that\ we\ would\ supply\ to\ the\ real\ viewer\ later\ as\ the}
+\DoxyCodeLine{\#\ \ \ \ framebuffer\ is\ fully\ pre-\/processed\ to\ avoid\ any\ overhead\ while\ playing.}
+\DoxyCodeLine{\#\ \ o\ You\ could\ even\ run\ this\ on\ your\ much\ faster\ regular\ Linux\ PC\ (little}
+\DoxyCodeLine{\#\ \ \ \ endian)\ and\ create\ a\ stream\ that\ you\ then\ can\ play\ on\ your\ Pi.}
+\DoxyCodeLine{\#\ -\/-\/-\/-\/-\/\ STEP\ 1\ Preprocessing\ -\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{./video-\/viewer\ -\/-\/led-\/chain=5\ -\/-\/led-\/parallel=3\ -\/T4\ myvideo.mp4\ -\/O/tmp/vid.stream}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#..\ now\ play\ the\ resulting\ stream\ with\ the\ with\ led-\/image-\/viewer.\ Also\ try}
+\DoxyCodeLine{\#\ using\ -\/D\ or\ -\/V\ to\ replay\ with\ different\ frame\ rate.}
+\DoxyCodeLine{\#\ Note,\ you\ need\ to\ give\ the\ same\ options\ (rows,\ chain,\ parallel\ etc.)\ as}
+\DoxyCodeLine{\#\ you\ did\ when\ creating\ the\ stream.}
+\DoxyCodeLine{\#\ -\/-\/-\/-\/-\/\ STEP\ 2\ Actual\ Playing\ -\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{sudo\ ./led-\/image-\/viewer\ -\/-\/led-\/chain=5\ -\/-\/led-\/parallel=3\ /tmp/vid.stream}
+
+\end{DoxyCode}
+ 

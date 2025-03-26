@@ -1,0 +1,17 @@
+var searchData=
+[
+  ['gamelife_0',['GameLife',['../classGameLife.html#aa6978ae9d5303eaa73400f4b4c33c2fb',1,'GameLife']]],
+  ['geneticcolors_1',['geneticcolors',['../classGeneticColors.html#a17f538eafed83dbc7f5166cf55fb2089',1,'GeneticColors::GeneticColors(rgb_matrix::Canvas *canvas, int delay_ms=200)'],['../classGeneticColors.html#a9b4b8cebf6285a68f2e096f31fce3733',1,'GeneticColors::GeneticColors(Canvas *m, int delay_ms=200)']]],
+  ['get_2',['get',['../classrgb__matrix_1_1internal_1_1PixelDesignatorMap.html#a193a7fa3e26152878165fb2f63917a0e',1,'rgb_matrix::internal::PixelDesignatorMap']]],
+  ['getavailablepixelmappers_3',['GetAvailablePixelMappers',['../namespacergb__matrix.html#a83867b879b75c884231f3d1c24ad85c3',1,'rgb_matrix']]],
+  ['getcanvas_4',['GetCanvas',['../classRPiRgbLEDMatrix_1_1RGBLedMatrix.html#a4dba4149fac24e7f13823558b5ee1eb9',1,'RPiRgbLEDMatrix::RGBLedMatrix']]],
+  ['getfillcolorbits_5',['GetFillColorBits',['../classrgb__matrix_1_1internal_1_1PixelDesignatorMap.html#ad5d27f73f12f1bb2165a0e2961e8ed9f',1,'rgb_matrix::internal::PixelDesignatorMap']]],
+  ['getmicrosecondcounter_6',['GetMicrosecondCounter',['../namespacergb__matrix.html#a11bdf9bdffe27cc5b94028744bb758be',1,'rgb_matrix']]],
+  ['getname_7',['getname',['../classrgb__matrix_1_1PixelMapper.html#a4895e858b76e4d28389544bc4c9c3514',1,'rgb_matrix::PixelMapper::GetName() const =0'],['../classrgb__matrix_1_1PixelMapper.html#a4895e858b76e4d28389544bc4c9c3514',1,'rgb_matrix::PixelMapper::GetName() const =0'],['../classrgb__matrix_1_1internal_1_1MultiplexMapperBase.html#a20e26ae614b9477a9921c981d7385270',1,'rgb_matrix::internal::MultiplexMapperBase::GetName()']]],
+  ['getnext_8',['getnext',['../classrgb__matrix_1_1StreamReader.html#a05aca8ee262bbedaa8d69050a8c4e6a6',1,'rgb_matrix::StreamReader::GetNext(FrameCanvas *frame, uint32_t *hold_time_us)'],['../classrgb__matrix_1_1StreamReader.html#a05aca8ee262bbedaa8d69050a8c4e6a6',1,'rgb_matrix::StreamReader::GetNext(FrameCanvas *frame, uint32_t *hold_time_us)']]],
+  ['getregisteredmultiplexmappers_9',['GetRegisteredMultiplexMappers',['../namespacergb__matrix_1_1internal.html#a4ca70ebe6eb5f5031f00ea1c9ddb6bb1',1,'rgb_matrix::internal']]],
+  ['getsizemapping_10',['getsizemapping',['../classrgb__matrix_1_1internal_1_1MultiplexMapperBase.html#ac04b03f682ba497c83b37268f10d2640',1,'rgb_matrix::internal::MultiplexMapperBase::GetSizeMapping()'],['../classrgb__matrix_1_1PixelMapper.html#aa28de4baefef705135540c4caa473aa1',1,'rgb_matrix::PixelMapper::GetSizeMapping(int matrix_width, int matrix_height, int *visible_width, int *visible_height) const =0'],['../classrgb__matrix_1_1PixelMapper.html#aa28de4baefef705135540c4caa473aa1',1,'rgb_matrix::PixelMapper::GetSizeMapping(int matrix_width, int matrix_height, int *visible_width, int *visible_height) const =0']]],
+  ['gpio_11',['gpio',['../classrgb__matrix_1_1GPIO.html#a51a429e5e3e8de24a67c2d24992e6d53',1,'rgb_matrix::GPIO::GPIO()'],['../classrgb__matrix_1_1RGBMatrix.html#a04f1027227247492598857c2e9ff13d9',1,'rgb_matrix::RGBMatrix::gpio() __attribute__((deprecated))'],['../classrgb__matrix_1_1RGBMatrix.html#a04f1027227247492598857c2e9ff13d9',1,'rgb_matrix::RGBMatrix::gpio() __attribute__((deprecated))']]],
+  ['grayscaleblock_12',['GrayScaleBlock',['../classGrayScaleBlock.html#a2d1d0133df4d12d6a35e39f153ea61e1',1,'GrayScaleBlock']]],
+  ['guidedcolorevolution_13',['GuidedColorEvolution',['../classGuidedColorEvolution.html#a76a525d0875d49ac6dcedc7fa1f7421f',1,'GuidedColorEvolution']]]
+];

@@ -1,0 +1,140 @@
+\doxysection{include/shared.h File Reference}
+\hypertarget{shared_8h}{}\label{shared_8h}\index{include/shared.h@{include/shared.h}}
+{\ttfamily \#include $<$Magick++.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+Include dependency graph for shared.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{shared_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{shared_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{shared_8h_aeefbf3f8baac8f481abbf06e6de70553}{TERM\+\_\+\+ERR}}~"{}\textbackslash{}033\mbox{[}1;31m"{}
+\item 
+\#define \mbox{\hyperlink{shared_8h_afac50b656e71d572736fff99fce297b2}{TERM\+\_\+\+NORM}}~"{}\textbackslash{}033\mbox{[}0m"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} = std\+::vector$<$ Magick\+::\+Image $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{shared_8h_a7a412a966816bfd7e9e410746f5eebdd}{Interrupt\+Handler}} (int signo)
+\begin{DoxyCompactList}\small\item\em Signal handler to catch interrupt signals and set termination flag. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} \mbox{\hyperlink{shared_8h_a7609923562a007605133ba523e244922}{Load\+Image\+And\+Scale\+Image}} (const char \texorpdfstring{$\ast$}{*}filename, int target\+\_\+width, int target\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Loads and scales an image to the given matrix dimensions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{shared_8h_a2a78370c1f882722b1433352b36d4c91}{target\+Pixels}}
+\begin{DoxyCompactList}\small\item\em Global vector that stores the RGB values for the target image pixels. \end{DoxyCompactList}\item 
+volatile bool \mbox{\hyperlink{shared_8h_a160bb4f9851e63fa18e20d070d98b8ca}{interrupt\+\_\+received}}
+\begin{DoxyCompactList}\small\item\em Global flag that is set to true when a termination signal is received. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{shared_8h_aeefbf3f8baac8f481abbf06e6de70553}\label{shared_8h_aeefbf3f8baac8f481abbf06e6de70553} 
+\index{shared.h@{shared.h}!TERM\_ERR@{TERM\_ERR}}
+\index{TERM\_ERR@{TERM\_ERR}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{TERM\_ERR}{TERM\_ERR}}
+{\footnotesize\ttfamily \#define TERM\+\_\+\+ERR~"{}\textbackslash{}033\mbox{[}1;31m"{}}
+
+\Hypertarget{shared_8h_afac50b656e71d572736fff99fce297b2}\label{shared_8h_afac50b656e71d572736fff99fce297b2} 
+\index{shared.h@{shared.h}!TERM\_NORM@{TERM\_NORM}}
+\index{TERM\_NORM@{TERM\_NORM}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{TERM\_NORM}{TERM\_NORM}}
+{\footnotesize\ttfamily \#define TERM\+\_\+\+NORM~"{}\textbackslash{}033\mbox{[}0m"{}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}\label{shared_8h_a54e62bcde672b135a1c05fc77fafa52d} 
+\index{shared.h@{shared.h}!ImageVector@{ImageVector}}
+\index{ImageVector@{ImageVector}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{ImageVector}{ImageVector}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} =  std\+::vector$<$Magick\+::\+Image$>$}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{shared_8h_a7a412a966816bfd7e9e410746f5eebdd}\label{shared_8h_a7a412a966816bfd7e9e410746f5eebdd} 
+\index{shared.h@{shared.h}!InterruptHandler@{InterruptHandler}}
+\index{InterruptHandler@{InterruptHandler}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{InterruptHandler()}{InterruptHandler()}}
+{\footnotesize\ttfamily void Interrupt\+Handler (\begin{DoxyParamCaption}\item[{int}]{signo }\end{DoxyParamCaption})}
+
+
+
+Signal handler to catch interrupt signals and set termination flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signo} & The signal number received. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{shared_8h_a7609923562a007605133ba523e244922}\label{shared_8h_a7609923562a007605133ba523e244922} 
+\index{shared.h@{shared.h}!LoadImageAndScaleImage@{LoadImageAndScaleImage}}
+\index{LoadImageAndScaleImage@{LoadImageAndScaleImage}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{LoadImageAndScaleImage()}{LoadImageAndScaleImage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} Load\+Image\+And\+Scale\+Image (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename,  }\item[{int}]{target\+\_\+width,  }\item[{int}]{target\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Loads and scales an image to the given matrix dimensions. 
+
+Uses Graphics\+Magick to load a static image or first frame of a GIF, and resizes it to the target dimensions (e.\+g., 64x64) for display on the LED matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the image file to load. \\
+\hline
+{\em target\+\_\+width} & Desired output width in pixels. \\
+\hline
+{\em target\+\_\+height} & Desired output height in pixels. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Image\+Vector Vector of Magick\+::\+Image objects. Returns an empty vector on error. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Loads frames from image file
+
+\texorpdfstring{$<$}{<} Use the first frame only (good for static or GIF)
+
+\texorpdfstring{$<$}{<} Resize image to match matrix
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{shared_8h_a160bb4f9851e63fa18e20d070d98b8ca}\label{shared_8h_a160bb4f9851e63fa18e20d070d98b8ca} 
+\index{shared.h@{shared.h}!interrupt\_received@{interrupt\_received}}
+\index{interrupt\_received@{interrupt\_received}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{interrupt\_received}{interrupt\_received}}
+{\footnotesize\ttfamily volatile bool interrupt\+\_\+received\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Global flag that is set to true when a termination signal is received. 
+
+\Hypertarget{shared_8h_a2a78370c1f882722b1433352b36d4c91}\label{shared_8h_a2a78370c1f882722b1433352b36d4c91} 
+\index{shared.h@{shared.h}!targetPixels@{targetPixels}}
+\index{targetPixels@{targetPixels}!shared.h@{shared.h}}
+\doxysubsubsection{\texorpdfstring{targetPixels}{targetPixels}}
+{\footnotesize\ttfamily std\+::vector$<$uint32\+\_\+t$>$ target\+Pixels\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Global vector that stores the RGB values for the target image pixels. 
+

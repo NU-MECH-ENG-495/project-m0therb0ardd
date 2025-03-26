@@ -1,0 +1,25 @@
+\doxysection{demo\+\_\+runner.\+h}
+\hypertarget{demo__runner_8h_source}{}\label{demo__runner_8h_source}\index{include/demo\_runner.h@{include/demo\_runner.h}}
+\mbox{\hyperlink{demo__runner_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DEMO\_RUNNER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DEMO\_RUNNER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_2include_2led-matrix_8h}{led-\/matrix.h}}"{}}\ \ \textcolor{comment}{//\ For\ rgb\_matrix::Canvas}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDemoRunner}{DemoRunner}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDemoRunner_ae82e0e4d4c9d0ece96c3b7fc6c20036f}{DemoRunner}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\_matrix::Canvas}}*\ \mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})\ :\ canvas\_(\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})\ \{\}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\_matrix::Canvas}}*\ \mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}}()\ \{\ \textcolor{keywordflow}{return}\ canvas\_;\ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classDemoRunner_a37c7e64aa2f655968ec360c0b0dd85e1}{\string~DemoRunner}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDemoRunner_ae9aefbf0a6a7aa868007b4508e95c353}{Run}}()\ =\ 0;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\_matrix::Canvas}}*\ \textcolor{keyword}{const}\ canvas\_;\ \ \textcolor{comment}{//\ Immutable\ pointer\ to\ canvas}}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DEMO\_RUNNER\_H}}
+
+\end{DoxyCode}

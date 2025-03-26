@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,104,56"/>
+<area shape="rect" id="Node000001" href="$classRPiRgbLEDMatrix_1_1RGBLedFont.html" title="Represents a .BDF font." alt="" coords="159,5,377,31"/>
+<area shape="poly" id="edge14_Node000000_Node000001" title=" " alt="" coords="117,33,161,28,161,33,118,39"/>
+<area shape="rect" id="Node000002" href="$classRPiRgbLEDMatrix_1_1RGBLedMatrix.html" title="Represents a RGB matrix." alt="" coords="152,55,384,80"/>
+<area shape="poly" id="edge15_Node000000_Node000002" title=" " alt="" coords="118,48,155,52,155,57,117,53"/>
+</map>

@@ -1,0 +1,96 @@
+\doxysection{rgb\+\_\+matrix\+::GPIO Class Reference}
+\hypertarget{classrgb__matrix_1_1GPIO}{}\label{classrgb__matrix_1_1GPIO}\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+
+
+{\ttfamily \#include $<$gpio.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1GPIO_a51a429e5e3e8de24a67c2d24992e6d53}{GPIO}} ()
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1GPIO_aac5fecf324e5a1c09b50da4db246c385}{Init}} (int slowdown)
+\item 
+\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a297d25c48236007d685561f6546ded7f}{Init\+Outputs}} (\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} outputs, bool adafruit\+\_\+hack\+\_\+needed=false)
+\item 
+\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} \mbox{\hyperlink{classrgb__matrix_1_1GPIO_af054d625cc4e9f17df6151dd8efc1fd6}{Request\+Inputs}} (\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} inputs)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a7193bbccda94f2da4db6f3f8fda26507}{Set\+Bits}} (\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} value)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a068ac44244dd56133148550305294266}{Clear\+Bits}} (\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} value)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a546ba4326bfdb9ac50af37774becb2ef}{Write\+Masked\+Bits}} (\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} value, \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} mask)
+\item 
+\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} \mbox{\hyperlink{classrgb__matrix_1_1GPIO_ae716de4aba8aa4eca3efc0d6230d33e4}{Read}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a9633b383fe692a8c7f0e2ce40648e0f4}{Is\+Pi4}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrgb__matrix_1_1GPIO_a51a429e5e3e8de24a67c2d24992e6d53}\label{classrgb__matrix_1_1GPIO_a51a429e5e3e8de24a67c2d24992e6d53} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!GPIO@{GPIO}}
+\index{GPIO@{GPIO}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{GPIO()}{GPIO()}}
+{\footnotesize\ttfamily rgb\+\_\+matrix\+::\+GPIO\+::\+GPIO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrgb__matrix_1_1GPIO_a068ac44244dd56133148550305294266}\label{classrgb__matrix_1_1GPIO_a068ac44244dd56133148550305294266} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!ClearBits@{ClearBits}}
+\index{ClearBits@{ClearBits}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{ClearBits()}{ClearBits()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+GPIO\+::\+Clear\+Bits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1GPIO_aac5fecf324e5a1c09b50da4db246c385}\label{classrgb__matrix_1_1GPIO_aac5fecf324e5a1c09b50da4db246c385} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!Init@{Init}}
+\index{Init@{Init}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+GPIO\+::\+Init (\begin{DoxyParamCaption}\item[{int}]{slowdown }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1GPIO_a297d25c48236007d685561f6546ded7f}\label{classrgb__matrix_1_1GPIO_a297d25c48236007d685561f6546ded7f} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!InitOutputs@{InitOutputs}}
+\index{InitOutputs@{InitOutputs}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{InitOutputs()}{InitOutputs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} rgb\+\_\+matrix\+::\+GPIO\+::\+Init\+Outputs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}}}]{outputs,  }\item[{bool}]{adafruit\+\_\+hack\+\_\+needed = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1GPIO_a9633b383fe692a8c7f0e2ce40648e0f4}\label{classrgb__matrix_1_1GPIO_a9633b383fe692a8c7f0e2ce40648e0f4} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!IsPi4@{IsPi4}}
+\index{IsPi4@{IsPi4}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{IsPi4()}{IsPi4()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+GPIO\+::\+Is\+Pi4 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classrgb__matrix_1_1GPIO_ae716de4aba8aa4eca3efc0d6230d33e4}\label{classrgb__matrix_1_1GPIO_ae716de4aba8aa4eca3efc0d6230d33e4} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!Read@{Read}}
+\index{Read@{Read}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} rgb\+\_\+matrix\+::\+GPIO\+::\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1GPIO_af054d625cc4e9f17df6151dd8efc1fd6}\label{classrgb__matrix_1_1GPIO_af054d625cc4e9f17df6151dd8efc1fd6} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!RequestInputs@{RequestInputs}}
+\index{RequestInputs@{RequestInputs}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{RequestInputs()}{RequestInputs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} rgb\+\_\+matrix\+::\+GPIO\+::\+Request\+Inputs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}}}]{inputs }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1GPIO_a7193bbccda94f2da4db6f3f8fda26507}\label{classrgb__matrix_1_1GPIO_a7193bbccda94f2da4db6f3f8fda26507} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!SetBits@{SetBits}}
+\index{SetBits@{SetBits}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{SetBits()}{SetBits()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+GPIO\+::\+Set\+Bits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}}}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1GPIO_a546ba4326bfdb9ac50af37774becb2ef}\label{classrgb__matrix_1_1GPIO_a546ba4326bfdb9ac50af37774becb2ef} 
+\index{rgb\_matrix::GPIO@{rgb\_matrix::GPIO}!WriteMaskedBits@{WriteMaskedBits}}
+\index{WriteMaskedBits@{WriteMaskedBits}!rgb\_matrix::GPIO@{rgb\_matrix::GPIO}}
+\doxysubsubsection{\texorpdfstring{WriteMaskedBits()}{WriteMaskedBits()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+GPIO\+::\+Write\+Masked\+Bits (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}}}]{value,  }\item[{\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}}}]{mask }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+matrix/lib/\mbox{\hyperlink{gpio_8h}{gpio.\+h}}\item 
+matrix/lib/\mbox{\hyperlink{gpio_8cc}{gpio.\+cc}}\end{DoxyCompactItemize}

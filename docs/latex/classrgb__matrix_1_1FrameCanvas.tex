@@ -1,0 +1,340 @@
+\doxysection{rgb\+\_\+matrix\+::Frame\+Canvas Class Reference}
+\hypertarget{classrgb__matrix_1_1FrameCanvas}{}\label{classrgb__matrix_1_1FrameCanvas}\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+
+
+{\ttfamily \#include $<$led-\/matrix.\+h$>$}
+
+
+
+Inheritance diagram for rgb\+\_\+matrix\+::Frame\+Canvas\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classrgb__matrix_1_1FrameCanvas__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for rgb\+\_\+matrix\+::Frame\+Canvas\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classrgb__matrix_1_1FrameCanvas__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a0029e74aa58ae224eab6f4de7467a959}{Set\+PWMBits}} (uint8\+\_\+t value)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a8729b213a74ee98ca0afce6d2cb94b4f}{pwmbits}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_abb509947015e3881d76c26ab559b968c}{set\+\_\+luminance\+\_\+correct}} (bool on)
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ae0ed5768ae30e80c11c749edca78f05d}{luminance\+\_\+correct}} () const
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a5ff88d51f030150c48e4a06597518f7c}{Set\+Brightness}} (uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea}{brightness}})
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea}{brightness}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a8d4456d7565f82f66e268d1470b66502}{Serialize}} (const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data, size\+\_\+t \texorpdfstring{$\ast$}{*}len) const
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_aed061956e5d9e4819d7a2d44dd26fed0}{Deserialize}} (const char \texorpdfstring{$\ast$}{*}data, size\+\_\+t len)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab9e93e67d9d71608e9e3fddeec1bbde8}{Copy\+From}} (const \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \&other)
+\item 
+virtual int \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab6a4de84a8668af8cfd26ae97721ae9f}{width}} () const
+\item 
+virtual int \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a1a062dd225d1bc25c333fe1324f968d2}{height}} () const
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a886731b3147fd33b101fda1e147d5cb6}{Set\+Pixel}} (int x, int y, uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_af398c504a8b7ee6fe136ec091af844d7}{Set\+Pixels}} (int x, int y, int \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab6a4de84a8668af8cfd26ae97721ae9f}{width}}, int \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a1a062dd225d1bc25c333fe1324f968d2}{height}}, \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}colors)
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab7001820603143d6dc4e6d6820ecfb2d}{Clear}} ()
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_aeba684d23ac57c9d44e6910d81fc4360}{Fill}} (uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a0029e74aa58ae224eab6f4de7467a959}{Set\+PWMBits}} (uint8\+\_\+t value)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a8729b213a74ee98ca0afce6d2cb94b4f}{pwmbits}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_abb509947015e3881d76c26ab559b968c}{set\+\_\+luminance\+\_\+correct}} (bool on)
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ae0ed5768ae30e80c11c749edca78f05d}{luminance\+\_\+correct}} () const
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a5ff88d51f030150c48e4a06597518f7c}{Set\+Brightness}} (uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea}{brightness}})
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea}{brightness}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a8d4456d7565f82f66e268d1470b66502}{Serialize}} (const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}data, size\+\_\+t \texorpdfstring{$\ast$}{*}len) const
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_aed061956e5d9e4819d7a2d44dd26fed0}{Deserialize}} (const char \texorpdfstring{$\ast$}{*}data, size\+\_\+t len)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab9e93e67d9d71608e9e3fddeec1bbde8}{Copy\+From}} (const \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \&other)
+\item 
+virtual int \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a70166040611df14ac590b61cc9ebec8b}{width}} () const
+\item 
+virtual int \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab8dee4d0fcf20aa992d483c9c076459b}{height}} () const
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a5485404a66019d8aea341283cfba5f01}{Set\+Pixel}} (int x, int y, uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_acd2617cb652287c99395e2311c2b6a75}{Set\+Pixels}} (int x, int y, int \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab6a4de84a8668af8cfd26ae97721ae9f}{width}}, int \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a1a062dd225d1bc25c333fe1324f968d2}{height}}, \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}colors)
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ab26f93bf5f6af98e41d03b2410f34044}{Clear}} ()
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_ad179084c33559e6a7bc023768bb75dbb}{Fill}} (uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classrgb__matrix_1_1Canvas_affcc5a0e1b739a90b0c836f05a0cca1a}{\texorpdfstring{$\sim$}{\string~}\+Canvas}} ()
+\item 
+virtual \mbox{\hyperlink{classrgb__matrix_1_1Canvas_affcc5a0e1b739a90b0c836f05a0cca1a}{\texorpdfstring{$\sim$}{\string~}\+Canvas}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas_a1c4fe3d3e30cfa40ac2b017b0e055fff}{RGBMatrix}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea}\label{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!brightness@{brightness}}
+\index{brightness@{brightness}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{brightness()}{brightness()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t rgb\+\_\+matrix\+::\+Frame\+Canvas\+::brightness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea}\label{classrgb__matrix_1_1FrameCanvas_a81819b484642fe0e6b8b6a2c913352ea} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!brightness@{brightness}}
+\index{brightness@{brightness}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{brightness()}{brightness()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t rgb\+\_\+matrix\+::\+Frame\+Canvas\+::brightness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ab7001820603143d6dc4e6d6820ecfb2d}\label{classrgb__matrix_1_1FrameCanvas_ab7001820603143d6dc4e6d6820ecfb2d} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!Clear@{Clear}}
+\index{Clear@{Clear}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_aa2ffcf9d80ae29491efdb64742a0687d}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ab26f93bf5f6af98e41d03b2410f34044}\label{classrgb__matrix_1_1FrameCanvas_ab26f93bf5f6af98e41d03b2410f34044} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!Clear@{Clear}}
+\index{Clear@{Clear}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_aa2ffcf9d80ae29491efdb64742a0687d}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ab9e93e67d9d71608e9e3fddeec1bbde8}\label{classrgb__matrix_1_1FrameCanvas_ab9e93e67d9d71608e9e3fddeec1bbde8} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!CopyFrom@{CopyFrom}}
+\index{CopyFrom@{CopyFrom}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{CopyFrom()}{CopyFrom()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Copy\+From (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \&}]{other }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ab9e93e67d9d71608e9e3fddeec1bbde8}\label{classrgb__matrix_1_1FrameCanvas_ab9e93e67d9d71608e9e3fddeec1bbde8} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!CopyFrom@{CopyFrom}}
+\index{CopyFrom@{CopyFrom}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{CopyFrom()}{CopyFrom()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Copy\+From (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \&}]{other }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_aed061956e5d9e4819d7a2d44dd26fed0}\label{classrgb__matrix_1_1FrameCanvas_aed061956e5d9e4819d7a2d44dd26fed0} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{Deserialize()}{Deserialize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Deserialize (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_aed061956e5d9e4819d7a2d44dd26fed0}\label{classrgb__matrix_1_1FrameCanvas_aed061956e5d9e4819d7a2d44dd26fed0} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!Deserialize@{Deserialize}}
+\index{Deserialize@{Deserialize}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{Deserialize()}{Deserialize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Deserialize (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_aeba684d23ac57c9d44e6910d81fc4360}\label{classrgb__matrix_1_1FrameCanvas_aeba684d23ac57c9d44e6910d81fc4360} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!Fill@{Fill}}
+\index{Fill@{Fill}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{Fill()}{Fill()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Fill (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{red,  }\item[{uint8\+\_\+t}]{green,  }\item[{uint8\+\_\+t}]{blue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a0744ba9acc44b12796fdf3138d7796e9}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ad179084c33559e6a7bc023768bb75dbb}\label{classrgb__matrix_1_1FrameCanvas_ad179084c33559e6a7bc023768bb75dbb} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!Fill@{Fill}}
+\index{Fill@{Fill}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{Fill()}{Fill()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Fill (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{red,  }\item[{uint8\+\_\+t}]{green,  }\item[{uint8\+\_\+t}]{blue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a0744ba9acc44b12796fdf3138d7796e9}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a1a062dd225d1bc25c333fe1324f968d2}\label{classrgb__matrix_1_1FrameCanvas_a1a062dd225d1bc25c333fe1324f968d2} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!height@{height}}
+\index{height@{height}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int rgb\+\_\+matrix\+::\+Frame\+Canvas\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a1960babc4eba48b5128e4e5ceecd7a7f}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ab8dee4d0fcf20aa992d483c9c076459b}\label{classrgb__matrix_1_1FrameCanvas_ab8dee4d0fcf20aa992d483c9c076459b} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!height@{height}}
+\index{height@{height}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual int rgb\+\_\+matrix\+::\+Frame\+Canvas\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a1960babc4eba48b5128e4e5ceecd7a7f}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ae0ed5768ae30e80c11c749edca78f05d}\label{classrgb__matrix_1_1FrameCanvas_ae0ed5768ae30e80c11c749edca78f05d} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!luminance\_correct@{luminance\_correct}}
+\index{luminance\_correct@{luminance\_correct}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{luminance\_correct()}{luminance\_correct()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+Frame\+Canvas\+::luminance\+\_\+correct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ae0ed5768ae30e80c11c749edca78f05d}\label{classrgb__matrix_1_1FrameCanvas_ae0ed5768ae30e80c11c749edca78f05d} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!luminance\_correct@{luminance\_correct}}
+\index{luminance\_correct@{luminance\_correct}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{luminance\_correct()}{luminance\_correct()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+Frame\+Canvas\+::luminance\+\_\+correct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a8729b213a74ee98ca0afce6d2cb94b4f}\label{classrgb__matrix_1_1FrameCanvas_a8729b213a74ee98ca0afce6d2cb94b4f} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!pwmbits@{pwmbits}}
+\index{pwmbits@{pwmbits}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{pwmbits()}{pwmbits()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t rgb\+\_\+matrix\+::\+Frame\+Canvas\+::pwmbits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a8729b213a74ee98ca0afce6d2cb94b4f}\label{classrgb__matrix_1_1FrameCanvas_a8729b213a74ee98ca0afce6d2cb94b4f} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!pwmbits@{pwmbits}}
+\index{pwmbits@{pwmbits}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{pwmbits()}{pwmbits()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t rgb\+\_\+matrix\+::\+Frame\+Canvas\+::pwmbits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a8d4456d7565f82f66e268d1470b66502}\label{classrgb__matrix_1_1FrameCanvas_a8d4456d7565f82f66e268d1470b66502} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{Serialize()}{Serialize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Serialize (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{len }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a8d4456d7565f82f66e268d1470b66502}\label{classrgb__matrix_1_1FrameCanvas_a8d4456d7565f82f66e268d1470b66502} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!Serialize@{Serialize}}
+\index{Serialize@{Serialize}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{Serialize()}{Serialize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Serialize (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{data,  }\item[{size\+\_\+t \texorpdfstring{$\ast$}{*}}]{len }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_abb509947015e3881d76c26ab559b968c}\label{classrgb__matrix_1_1FrameCanvas_abb509947015e3881d76c26ab559b968c} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!set\_luminance\_correct@{set\_luminance\_correct}}
+\index{set\_luminance\_correct@{set\_luminance\_correct}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{set\_luminance\_correct()}{set\_luminance\_correct()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::set\+\_\+luminance\+\_\+correct (\begin{DoxyParamCaption}\item[{bool}]{on }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_abb509947015e3881d76c26ab559b968c}\label{classrgb__matrix_1_1FrameCanvas_abb509947015e3881d76c26ab559b968c} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!set\_luminance\_correct@{set\_luminance\_correct}}
+\index{set\_luminance\_correct@{set\_luminance\_correct}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{set\_luminance\_correct()}{set\_luminance\_correct()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::set\+\_\+luminance\+\_\+correct (\begin{DoxyParamCaption}\item[{bool}]{on }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a5ff88d51f030150c48e4a06597518f7c}\label{classrgb__matrix_1_1FrameCanvas_a5ff88d51f030150c48e4a06597518f7c} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!SetBrightness@{SetBrightness}}
+\index{SetBrightness@{SetBrightness}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{SetBrightness()}{SetBrightness()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Set\+Brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{brightness }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a5ff88d51f030150c48e4a06597518f7c}\label{classrgb__matrix_1_1FrameCanvas_a5ff88d51f030150c48e4a06597518f7c} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!SetBrightness@{SetBrightness}}
+\index{SetBrightness@{SetBrightness}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{SetBrightness()}{SetBrightness()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Set\+Brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{brightness }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a886731b3147fd33b101fda1e147d5cb6}\label{classrgb__matrix_1_1FrameCanvas_a886731b3147fd33b101fda1e147d5cb6} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!SetPixel@{SetPixel}}
+\index{SetPixel@{SetPixel}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{SetPixel()}{SetPixel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Set\+Pixel (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint8\+\_\+t}]{red,  }\item[{uint8\+\_\+t}]{green,  }\item[{uint8\+\_\+t}]{blue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_af5d09df2cd99c41aca2aff8e38707d9c}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a5485404a66019d8aea341283cfba5f01}\label{classrgb__matrix_1_1FrameCanvas_a5485404a66019d8aea341283cfba5f01} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!SetPixel@{SetPixel}}
+\index{SetPixel@{SetPixel}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{SetPixel()}{SetPixel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Set\+Pixel (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{uint8\+\_\+t}]{red,  }\item[{uint8\+\_\+t}]{green,  }\item[{uint8\+\_\+t}]{blue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_af5d09df2cd99c41aca2aff8e38707d9c}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_af398c504a8b7ee6fe136ec091af844d7}\label{classrgb__matrix_1_1FrameCanvas_af398c504a8b7ee6fe136ec091af844d7} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!SetPixels@{SetPixels}}
+\index{SetPixels@{SetPixels}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{SetPixels()}{SetPixels()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Set\+Pixels (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}}]{colors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_acd2617cb652287c99395e2311c2b6a75}\label{classrgb__matrix_1_1FrameCanvas_acd2617cb652287c99395e2311c2b6a75} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!SetPixels@{SetPixels}}
+\index{SetPixels@{SetPixels}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{SetPixels()}{SetPixels()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Set\+Pixels (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}}]{colors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a0029e74aa58ae224eab6f4de7467a959}\label{classrgb__matrix_1_1FrameCanvas_a0029e74aa58ae224eab6f4de7467a959} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!SetPWMBits@{SetPWMBits}}
+\index{SetPWMBits@{SetPWMBits}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{SetPWMBits()}{SetPWMBits()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Set\+PWMBits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a0029e74aa58ae224eab6f4de7467a959}\label{classrgb__matrix_1_1FrameCanvas_a0029e74aa58ae224eab6f4de7467a959} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!SetPWMBits@{SetPWMBits}}
+\index{SetPWMBits@{SetPWMBits}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{SetPWMBits()}{SetPWMBits()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+Frame\+Canvas\+::\+Set\+PWMBits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_ab6a4de84a8668af8cfd26ae97721ae9f}\label{classrgb__matrix_1_1FrameCanvas_ab6a4de84a8668af8cfd26ae97721ae9f} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!width@{width}}
+\index{width@{width}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int rgb\+\_\+matrix\+::\+Frame\+Canvas\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a58f0d92b6672e44aca4450e24b766a44}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a70166040611df14ac590b61cc9ebec8b}\label{classrgb__matrix_1_1FrameCanvas_a70166040611df14ac590b61cc9ebec8b} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!width@{width}}
+\index{width@{width}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual int rgb\+\_\+matrix\+::\+Frame\+Canvas\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a58f0d92b6672e44aca4450e24b766a44}{rgb\+\_\+matrix\+::\+Canvas}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classrgb__matrix_1_1FrameCanvas_a1c4fe3d3e30cfa40ac2b017b0e055fff}\label{classrgb__matrix_1_1FrameCanvas_a1c4fe3d3e30cfa40ac2b017b0e055fff} 
+\index{rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}!RGBMatrix@{RGBMatrix}}
+\index{RGBMatrix@{RGBMatrix}!rgb\_matrix::FrameCanvas@{rgb\_matrix::FrameCanvas}}
+\doxysubsubsection{\texorpdfstring{RGBMatrix}{RGBMatrix}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{include_2led-matrix_8h}{led-\/matrix.\+h}}\item 
+matrix/include/\mbox{\hyperlink{matrix_2include_2led-matrix_8h}{led-\/matrix.\+h}}\item 
+matrix/lib/\mbox{\hyperlink{led-matrix_8cc}{led-\/matrix.\+cc}}\end{DoxyCompactItemize}

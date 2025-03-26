@@ -1,0 +1,110 @@
+\doxysection{matrix/lib/content-\/streamer.cc File Reference}
+\hypertarget{content-streamer_8cc}{}\label{content-streamer_8cc}\index{matrix/lib/content-\/streamer.cc@{matrix/lib/content-\/streamer.cc}}
+{\ttfamily \#include "{}content-\/streamer.\+h"{}}\newline
+{\ttfamily \#include "{}led-\/matrix.\+h"{}}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}gpio-\/bits.\+h"{}}\newline
+Include dependency graph for content-\/streamer.cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{content-streamer_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacergb__matrix}{rgb\+\_\+matrix}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{content-streamer_8cc_afabe8076e53dae7e85fb538b5a62b9b3}{STATIC\+\_\+\+ASSERT}}(msg,  c)~typedef int static\+\_\+assert\+\_\+\#\#msg\mbox{[}(c) ? 1 \+: -\/1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{content-streamer_8cc_afabe8076e53dae7e85fb538b5a62b9b3}\label{content-streamer_8cc_afabe8076e53dae7e85fb538b5a62b9b3} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!STATIC\_ASSERT@{STATIC\_ASSERT}}
+\index{STATIC\_ASSERT@{STATIC\_ASSERT}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{STATIC\_ASSERT}{STATIC\_ASSERT}}
+{\footnotesize\ttfamily \#define STATIC\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{msg,  }\item[{}]{c }\end{DoxyParamCaption})~typedef int static\+\_\+assert\+\_\+\#\#msg\mbox{[}(c) ? 1 \+: -\/1\mbox{]}}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{content-streamer_8cc_a50820ebe716191dad920c497510b3220}\label{content-streamer_8cc_a50820ebe716191dad920c497510b3220} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!buf\_size@{buf\_size}}
+\index{buf\_size@{buf\_size}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{buf\_size}{buf\_size}}
+{\footnotesize\ttfamily uint32\+\_\+t buf\+\_\+size}
+
+\Hypertarget{content-streamer_8cc_aa18d1cac4766ad54f731c1b7be247053}\label{content-streamer_8cc_aa18d1cac4766ad54f731c1b7be247053} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!flags\_future\_use@{flags\_future\_use}}
+\index{flags\_future\_use@{flags\_future\_use}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{flags\_future\_use}{flags\_future\_use}}
+{\footnotesize\ttfamily uint64\+\_\+t flags\+\_\+future\+\_\+use}
+
+\Hypertarget{content-streamer_8cc_a741ef58601e4aad126e6261109aeb838}\label{content-streamer_8cc_a741ef58601e4aad126e6261109aeb838} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!future\_use1@{future\_use1}}
+\index{future\_use1@{future\_use1}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{future\_use1}{future\_use1}}
+{\footnotesize\ttfamily uint32\+\_\+t future\+\_\+use1}
+
+\Hypertarget{content-streamer_8cc_adcef2acdb3497398a83d1391df951ca4}\label{content-streamer_8cc_adcef2acdb3497398a83d1391df951ca4} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!future\_use2@{future\_use2}}
+\index{future\_use2@{future\_use2}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{future\_use2}{future\_use2}}
+{\footnotesize\ttfamily uint64\+\_\+t future\+\_\+use2}
+
+\Hypertarget{content-streamer_8cc_a436e2f575f864c690a5de342d12a50b1}\label{content-streamer_8cc_a436e2f575f864c690a5de342d12a50b1} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!future\_use3@{future\_use3}}
+\index{future\_use3@{future\_use3}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{future\_use3}{future\_use3}}
+{\footnotesize\ttfamily uint64\+\_\+t future\+\_\+use3}
+
+\Hypertarget{content-streamer_8cc_a6ad4f820ce4e75cda0686fcaad5168be}\label{content-streamer_8cc_a6ad4f820ce4e75cda0686fcaad5168be} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!height@{height}}
+\index{height@{height}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily uint32\+\_\+t height}
+
+\Hypertarget{content-streamer_8cc_aae74c1c207d0076ca32551ff3c268f5e}\label{content-streamer_8cc_aae74c1c207d0076ca32551ff3c268f5e} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!hold\_time\_us@{hold\_time\_us}}
+\index{hold\_time\_us@{hold\_time\_us}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{hold\_time\_us}{hold\_time\_us}}
+{\footnotesize\ttfamily uint32\+\_\+t hold\+\_\+time\+\_\+us}
+
+\Hypertarget{content-streamer_8cc_a70d9420812bf80ea47a57ae168325cf3}\label{content-streamer_8cc_a70d9420812bf80ea47a57ae168325cf3} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!is\_wide\_gpio@{is\_wide\_gpio}}
+\index{is\_wide\_gpio@{is\_wide\_gpio}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{is\_wide\_gpio}{is\_wide\_gpio}}
+{\footnotesize\ttfamily uint64\+\_\+t is\+\_\+wide\+\_\+gpio}
+
+\Hypertarget{content-streamer_8cc_a57f54349f4fd1cbbb52058812e146af2}\label{content-streamer_8cc_a57f54349f4fd1cbbb52058812e146af2} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!magic@{magic}}
+\index{magic@{magic}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{magic}{magic}}
+{\footnotesize\ttfamily uint32\+\_\+t magic}
+
+\Hypertarget{content-streamer_8cc_ab2c6b258f02add8fdf4cfc7c371dd772}\label{content-streamer_8cc_ab2c6b258f02add8fdf4cfc7c371dd772} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!size@{size}}
+\index{size@{size}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint32\+\_\+t size}
+
+\Hypertarget{content-streamer_8cc_a325272ddd9a962f05deb905101d25cbd}\label{content-streamer_8cc_a325272ddd9a962f05deb905101d25cbd} 
+\index{content-\/streamer.cc@{content-\/streamer.cc}!width@{width}}
+\index{width@{width}!content-\/streamer.cc@{content-\/streamer.cc}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily uint32\+\_\+t width}
+

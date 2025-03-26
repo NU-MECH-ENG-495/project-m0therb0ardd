@@ -1,0 +1,92 @@
+\doxysection{thread.\+h}
+\hypertarget{include_2thread_8h_source}{}\label{include_2thread_8h_source}\index{include/thread.h@{include/thread.h}}
+\mbox{\hyperlink{include_2thread_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/*-\/\ mode:\ c++;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (C)\ 2013\ Henner\ Zeller\ <h.zeller@acm.org>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ the\ Free\ Software\ Foundation\ version\ 2.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://gnu.org/licenses/gpl-\/2.0.txt>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ RPI\_THREAD\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ RPI\_THREAD\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Simple\ thread\ abstraction.}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1Thread}{Thread}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Thread_a96312672c1d400438594e7ebcfd3d138}{Thread}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ The\ destructor\ waits\ for\ Run()\ to\ return\ so\ make\ sure\ it\ does.}}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrgb__matrix_1_1Thread_a60501b17444f4541ae3d71fcd6686dcb}{\string~Thread}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ Wait\ for\ the\ Run()\ method\ to\ return.}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1Thread_a8d3f40032e796151681675d33a94d17a}{WaitStopped}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{comment}{//\ Start\ thread.\ If\ realtime\_priority\ is\ >\ 0,\ then\ this\ will\ be\ a}}
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ thread\ with\ SCHED\_FIFO\ and\ the\ given\ priority.}}
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ If\ cpu\_affinity\ is\ set\ !=,\ chooses\ the\ given\ bitmask\ of\ CPUs}}
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{//\ this\ thread\ should\ have\ an\ affinity\ to.}}
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ On\ a\ Raspberry\ Pi\ 1,\ this\ doesn't\ matter,\ as\ there\ is\ only\ one\ core,}}
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ Raspberry\ Pi\ 2\ can\ has\ 4\ cores,\ so\ any\ combination\ of\ (1<<0)\ ..\ (1<<3)\ is}}
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ valid.}}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1Thread_af84c729c98a743a0f5eb8497b021bd36}{Start}}(\textcolor{keywordtype}{int}\ realtime\_priority\ =\ 0,\ uint32\_t\ cpu\_affinity\_mask\ =\ 0);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//\ Override\ this\ to\ do\ the\ work.}}
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{//\ This\ will\ be\ called\ in\ a\ thread\ once\ Start()\ has\ been\ called.\ You\ typically}}
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ will\ have\ an\ endless\ loop\ doing\ stuff.}}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ It\ is\ a\ good\ idea\ to\ provide\ a\ way\ to\ communicate\ to\ the\ thread\ that}}
+\DoxyCodeLine{00049\ \ \ \textcolor{comment}{//\ it\ should\ stop\ (see\ ThreadedCanvasManipulator\ for\ an\ example)}}
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1Thread_a7f65e725ed9c434c2e3feb9436e52e7c}{Run}}()\ =\ 0;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *PthreadCallRun(\textcolor{keywordtype}{void}\ *tobject);}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{bool}\ started\_;}
+\DoxyCodeLine{00055\ \ \ pthread\_t\ thread\_;}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ Non-\/recursive\ Mutex.}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1Mutex}{Mutex}}\ \{}
+\DoxyCodeLine{00060\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Mutex_a8de05cac128b11f5df8e463968775b6e}{Mutex}}()\ \{\ pthread\_mutex\_init(\&mutex\_,\ NULL);\ \}}
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Mutex_a93bad89108a889d4931fa1974dede940}{\string~Mutex}}()\ \{\ pthread\_mutex\_destroy(\&mutex\_);\ \}}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1Mutex_a9991e1d0b00e8c4ab893910fcfd25c49}{Lock}}()\ \{\ pthread\_mutex\_lock(\&mutex\_);\ \}}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1Mutex_a5b46fe867449f99f6ed09406cc7f01a5}{Unlock}}()\ \{\ pthread\_mutex\_unlock(\&mutex\_);\ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Wait\ on\ condition.\ If\ "{}timeout\_ms"{}\ is\ <\ 0,\ it\ waits\ forever,\ otherwise}}
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ until\ timeout\ is\ reached.}}
+\DoxyCodeLine{00068\ \ \ \textcolor{comment}{//\ Returns\ 'true'\ if\ condition\ is\ met,\ 'false',\ if\ wait\ timed\ out.}}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1Mutex_a44ee018b37d4e56e0c0fbc514a714b01}{WaitOn}}(pthread\_cond\_t\ *cond,\ \textcolor{keywordtype}{long}\ timeout\_ms\ =\ -\/1);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00072\ \ \ pthread\_mutex\_t\ mutex\_;}
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ Useful\ RAII\ wrapper\ around\ mutex.}}
+\DoxyCodeLine{00076\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1MutexLock}{MutexLock}}\ \{}
+\DoxyCodeLine{00077\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1MutexLock_a6622062570e50e68fd4541c3792ae6a5}{MutexLock}}(\mbox{\hyperlink{classrgb__matrix_1_1Mutex}{Mutex}}\ *m)\ :\ mutex\_(m)\ \{\ mutex\_-\/>\mbox{\hyperlink{classrgb__matrix_1_1Mutex_a9991e1d0b00e8c4ab893910fcfd25c49}{Lock}}();\ \}}
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1MutexLock_aa85bcc5a3b5fc6b54f8d3426430e47e2}{\string~MutexLock}}()\ \{\ mutex\_-\/>\mbox{\hyperlink{classrgb__matrix_1_1Mutex_a5b46fe867449f99f6ed09406cc7f01a5}{Unlock}}();\ \}}
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Mutex}{Mutex}}\ *\textcolor{keyword}{const}\ mutex\_;}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \}\ \ \textcolor{comment}{//\ end\ namespace\ rgb\_matrix}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ RPI\_THREAD\_H}}
+
+\end{DoxyCode}

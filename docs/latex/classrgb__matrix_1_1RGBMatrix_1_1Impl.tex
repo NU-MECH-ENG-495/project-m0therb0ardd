@@ -1,0 +1,179 @@
+\doxysection{rgb\+\_\+matrix\+::RGBMatrix\+::Impl Class Reference}
+\hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl}{}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl}\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread}{Update\+Thread}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0c031874112e90fc57bf633243e66e0e}{Impl}} (\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}io, const \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{Options}} \&options)
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a792c77ef047e533ecdc143ad8064d3c6}{\texorpdfstring{$\sim$}{\string~}\+Impl}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_af15bd0fa228a8b9e233134862acb456d}{Set\+GPIO}} (\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}io, bool start\+\_\+thread=true)
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a835fabe6c41281ab3b0573be10020cef}{Start\+Refresh}} ()
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_ad93ea1294346fd33cf59dc45c8cfd1a9}{Create\+Frame\+Canvas}} ()
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0095a718fe47c24675ec92f192d80a2e}{Swap\+On\+VSync}} (\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*}other, unsigned framerate\+\_\+fraction)
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a49c8b22f9eb8fe17af9bbee968a7112f}{Apply\+Pixel\+Mapper}} (const \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{Pixel\+Mapper}} \texorpdfstring{$\ast$}{*}mapper)
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_ac85aaff6c33c98e9983925eb9dc78c9c}{Set\+PWMBits}} (uint8\+\_\+t value)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0cd16263fc873772cb172f6e0a9e6d98}{pwmbits}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a7fc33c5c6a544aa03f2d7122c71bde9d}{set\+\_\+luminance\+\_\+correct}} (bool on)
+\item 
+bool \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a7723ad2416026d0d43414bba78421eae}{luminance\+\_\+correct}} () const
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a308419299a26932e2949b96a34e0473b}{Set\+Brightness}} (uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a60601e30de6b811e283177d9c9efc3b3}{brightness}})
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a60601e30de6b811e283177d9c9efc3b3}{brightness}} ()
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a90a90727f67ed458ffbe282773666c45}{Request\+Inputs}} (uint64\+\_\+t)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a2411d4cc8e43c14e21982d1a3df0c6b8}{Await\+Input\+Change}} (int timeout\+\_\+ms)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_a81a87a675ab1adb58cd2dba2ff0cba70}{Request\+Outputs}} (uint64\+\_\+t output\+\_\+bits)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_aa55463ab197fece83faff77b005a29b3}{Output\+GPIO}} (uint64\+\_\+t output\+\_\+bits)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_aaa399ceec47a3b63fc81cd57f500ea67}{Update\+Thread}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_aa29ff0a3fba874f0fcedec77df0b4e4c}{RGBMatrix}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0c031874112e90fc57bf633243e66e0e}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0c031874112e90fc57bf633243e66e0e} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!Impl@{Impl}}
+\index{Impl@{Impl}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{Impl()}{Impl()}}
+{\footnotesize\ttfamily rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Impl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}}]{io,  }\item[{const \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{Options}} \&}]{options }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a792c77ef047e533ecdc143ad8064d3c6}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a792c77ef047e533ecdc143ad8064d3c6} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!````~Impl@{\texorpdfstring{$\sim$}{\string~}Impl}}
+\index{````~Impl@{\texorpdfstring{$\sim$}{\string~}Impl}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Impl()}{\string~Impl()}}
+{\footnotesize\ttfamily rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\texorpdfstring{$\sim$}{\string~}\+Impl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a49c8b22f9eb8fe17af9bbee968a7112f}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a49c8b22f9eb8fe17af9bbee968a7112f} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!ApplyPixelMapper@{ApplyPixelMapper}}
+\index{ApplyPixelMapper@{ApplyPixelMapper}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{ApplyPixelMapper()}{ApplyPixelMapper()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Apply\+Pixel\+Mapper (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{Pixel\+Mapper}} \texorpdfstring{$\ast$}{*}}]{mapper }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a2411d4cc8e43c14e21982d1a3df0c6b8}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a2411d4cc8e43c14e21982d1a3df0c6b8} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!AwaitInputChange@{AwaitInputChange}}
+\index{AwaitInputChange@{AwaitInputChange}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{AwaitInputChange()}{AwaitInputChange()}}
+{\footnotesize\ttfamily uint64\+\_\+t rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Await\+Input\+Change (\begin{DoxyParamCaption}\item[{int}]{timeout\+\_\+ms }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a60601e30de6b811e283177d9c9efc3b3}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a60601e30de6b811e283177d9c9efc3b3} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!brightness@{brightness}}
+\index{brightness@{brightness}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{brightness()}{brightness()}}
+{\footnotesize\ttfamily uint8\+\_\+t rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::brightness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_ad93ea1294346fd33cf59dc45c8cfd1a9}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_ad93ea1294346fd33cf59dc45c8cfd1a9} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!CreateFrameCanvas@{CreateFrameCanvas}}
+\index{CreateFrameCanvas@{CreateFrameCanvas}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{CreateFrameCanvas()}{CreateFrameCanvas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*} rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Create\+Frame\+Canvas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a7723ad2416026d0d43414bba78421eae}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a7723ad2416026d0d43414bba78421eae} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!luminance\_correct@{luminance\_correct}}
+\index{luminance\_correct@{luminance\_correct}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{luminance\_correct()}{luminance\_correct()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::luminance\+\_\+correct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_aa55463ab197fece83faff77b005a29b3}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_aa55463ab197fece83faff77b005a29b3} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!OutputGPIO@{OutputGPIO}}
+\index{OutputGPIO@{OutputGPIO}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{OutputGPIO()}{OutputGPIO()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Output\+GPIO (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{output\+\_\+bits }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0cd16263fc873772cb172f6e0a9e6d98}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0cd16263fc873772cb172f6e0a9e6d98} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!pwmbits@{pwmbits}}
+\index{pwmbits@{pwmbits}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{pwmbits()}{pwmbits()}}
+{\footnotesize\ttfamily uint8\+\_\+t rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::pwmbits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a90a90727f67ed458ffbe282773666c45}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a90a90727f67ed458ffbe282773666c45} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!RequestInputs@{RequestInputs}}
+\index{RequestInputs@{RequestInputs}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{RequestInputs()}{RequestInputs()}}
+{\footnotesize\ttfamily uint64\+\_\+t rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Request\+Inputs (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{bits }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a81a87a675ab1adb58cd2dba2ff0cba70}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a81a87a675ab1adb58cd2dba2ff0cba70} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!RequestOutputs@{RequestOutputs}}
+\index{RequestOutputs@{RequestOutputs}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{RequestOutputs()}{RequestOutputs()}}
+{\footnotesize\ttfamily uint64\+\_\+t rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Request\+Outputs (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{output\+\_\+bits }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a7fc33c5c6a544aa03f2d7122c71bde9d}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a7fc33c5c6a544aa03f2d7122c71bde9d} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!set\_luminance\_correct@{set\_luminance\_correct}}
+\index{set\_luminance\_correct@{set\_luminance\_correct}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{set\_luminance\_correct()}{set\_luminance\_correct()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::set\+\_\+luminance\+\_\+correct (\begin{DoxyParamCaption}\item[{bool}]{on }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a308419299a26932e2949b96a34e0473b}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a308419299a26932e2949b96a34e0473b} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!SetBrightness@{SetBrightness}}
+\index{SetBrightness@{SetBrightness}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{SetBrightness()}{SetBrightness()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Set\+Brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{brightness }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_af15bd0fa228a8b9e233134862acb456d}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_af15bd0fa228a8b9e233134862acb456d} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!SetGPIO@{SetGPIO}}
+\index{SetGPIO@{SetGPIO}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{SetGPIO()}{SetGPIO()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Set\+GPIO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}}]{io,  }\item[{bool}]{start\+\_\+thread = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_ac85aaff6c33c98e9983925eb9dc78c9c}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_ac85aaff6c33c98e9983925eb9dc78c9c} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!SetPWMBits@{SetPWMBits}}
+\index{SetPWMBits@{SetPWMBits}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{SetPWMBits()}{SetPWMBits()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Set\+PWMBits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a835fabe6c41281ab3b0573be10020cef}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a835fabe6c41281ab3b0573be10020cef} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!StartRefresh@{StartRefresh}}
+\index{StartRefresh@{StartRefresh}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{StartRefresh()}{StartRefresh()}}
+{\footnotesize\ttfamily bool rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Start\+Refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0095a718fe47c24675ec92f192d80a2e}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_a0095a718fe47c24675ec92f192d80a2e} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!SwapOnVSync@{SwapOnVSync}}
+\index{SwapOnVSync@{SwapOnVSync}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{SwapOnVSync()}{SwapOnVSync()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*} rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Swap\+On\+VSync (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*}}]{other,  }\item[{unsigned}]{framerate\+\_\+fraction }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_aa29ff0a3fba874f0fcedec77df0b4e4c}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_aa29ff0a3fba874f0fcedec77df0b4e4c} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!RGBMatrix@{RGBMatrix}}
+\index{RGBMatrix@{RGBMatrix}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{RGBMatrix}{RGBMatrix}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_aaa399ceec47a3b63fc81cd57f500ea67}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_aaa399ceec47a3b63fc81cd57f500ea67} 
+\index{rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}!UpdateThread@{UpdateThread}}
+\index{UpdateThread@{UpdateThread}!rgb\_matrix::RGBMatrix::Impl@{rgb\_matrix::RGBMatrix::Impl}}
+\doxysubsubsection{\texorpdfstring{UpdateThread}{UpdateThread}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread}{Update\+Thread}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+matrix/lib/\mbox{\hyperlink{led-matrix_8cc}{led-\/matrix.\+cc}}\end{DoxyCompactItemize}

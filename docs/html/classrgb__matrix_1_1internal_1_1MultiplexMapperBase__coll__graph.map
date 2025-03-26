@@ -1,0 +1,7 @@
+<map id="rgb_matrix::internal::MultiplexMapperBase" name="rgb_matrix::internal::MultiplexMapperBase">
+<area shape="rect" id="Node000001" title=" " alt="" coords="10,167,182,207"/>
+<area shape="rect" id="Node000002" href="$classrgb__matrix_1_1internal_1_1MultiplexMapper.html" title=" " alt="" coords="21,79,171,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,133,99,166,93,166,93,133"/>
+<area shape="rect" id="Node000003" href="$classrgb__matrix_1_1PixelMapper.html" title=" " alt="" coords="5,5,187,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="99,44,99,79,93,79,93,44"/>
+</map>

@@ -1,32 +1,59 @@
+/**
+ * @file main.cpp
+ * @brief Main entry point for running LED matrix evolution demos.
+ *
+ * This file initializes the LED matrix, loads a target image,
+ * and launches the selected demo animation (e.g., guided or genetic evolution).
+ */
 
-#include <iostream>     // for std::cout, std::cerr
-#include <csignal>      // for signal(), SIGINT, SIGTERM
-#include <getopt.h>     // for getopt(), optarg, optind
-#include <memory>       // for std::unique_ptr
-#include <cstdlib>      // for atoi()
-#include <Magick++.h>   // for Magick::InitializeMagick
+#include <iostream>
+#include <csignal>
+#include <getopt.h>
+#include <memory>
+#include <cstdlib>
+#include <Magick++.h>
 
-#include "led-matrix.h"         // for RGBMatrix, Canvas
-#include "demo_runner.h"        // for DemoRunner base class
-#include "guided_evolution.h"   // your GuidedColorEvolution
-#include "genetic_colors.h"     // your GeneticColors
-#include "shared.h"             // shared state, image loader
+#include "led-matrix.h"
+#include "demo_runner.h"
+#include "guided_evolution.h"
+#include "genetic_colors.h"
+#include "shared.h"
 
 using rgb_matrix::RGBMatrix;
 using rgb_matrix::Canvas;
 
+/**
+ * @brief Signal handler to catch interrupt signals and set termination flag.
+ * 
+ * @param signo The signal number received.
+ */
 void InterruptHandler(int signo) {
   interrupt_received = true;
 }
 
+/**
+ * @brief Prints usage instructions for this program.
+ * 
+ * @param progname The name of the executable.
+ * @return int Always returns 1 to indicate incorrect usage.
+ */
 int usage(const char* progname) {
   std::cerr << "Usage: " << progname << " -D <demo> [options]\n";
   return 1;
 }
 
-
+/**
+ * @brief Entry point of the program.
+ * 
+ * Parses command-line arguments, loads the target image, creates the LED matrix,
+ * and runs the specified demo (guided or genetic color evolution).
+ * 
+ * @param argc Number of command-line arguments.
+ * @param argv Array of command-line arguments.
+ * @return int Exit code.
+ */
 int main(int argc, char *argv[]) {
-  Magick::InitializeMagick(*argv);  // Initialize GraphicsMagick
+  Magick::InitializeMagick(*argv);  ///< Initialize ImageMagick
 
   int scroll_ms = 30;
   int demo = -1;
@@ -38,12 +65,12 @@ int main(int argc, char *argv[]) {
   matrix_options.chain_length = 1;
   matrix_options.parallel = 1;
 
-  // Parse matrix options
+  // Parse matrix-related command-line flags
   if (!ParseOptionsFromFlags(&argc, &argv, &matrix_options, &runtime_opt)) {
     return usage(argv[0]);
   }
 
-  // Parse command-line options
+  // Parse demo-specific command-line options
   int opt;
   while ((opt = getopt(argc, argv, "dD:r:P:c:p:b:m:LR:")) != -1) {
     switch (opt) {
@@ -59,14 +86,12 @@ int main(int argc, char *argv[]) {
 
   if (demo < 0) {
     std::cerr << TERM_ERR << "Expected required option -D <demo>\n" << TERM_NORM;
-
     return usage(argv[0]);
   }
 
-  // Create LED matrix
+  // Create the LED matrix object
   auto matrix = std::unique_ptr<RGBMatrix>(
       RGBMatrix::CreateFromOptions(matrix_options, runtime_opt));
-
   if (!matrix) {
     std::cerr << TERM_ERR << "Failed to initialize matrix.\n" << TERM_NORM;
     return 1;
@@ -74,7 +99,7 @@ int main(int argc, char *argv[]) {
 
   Canvas *canvas = matrix.get();
 
-  // Load and scale the image (first frame for now, but supports GIF later)
+  // Load the target image (1st frame if it's a GIF)
   ImageVector images = LoadImageAndScaleImage(
       demo_parameter, matrix->width(), matrix->height());
 
@@ -83,7 +108,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  // Convert first image to targetPixels
+  // Convert image to list of target pixel values
   const Magick::Image &targetImage = images[0];
   targetPixels.clear();
   for (size_t y = 0; y < targetImage.rows(); ++y) {
@@ -103,9 +128,8 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  //Create appropriate demo runner
+  // Instantiate the appropriate animation demo
   std::unique_ptr<DemoRunner> demo_runner;
-
   switch (demo) {
     case 10:
       demo_runner = std::make_unique<GuidedColorEvolution>(canvas, scroll_ms);
@@ -121,15 +145,14 @@ int main(int argc, char *argv[]) {
     return usage(argv[0]);
   }
 
-  // Set up signal handler to exit on CTRL+C
+  // Set up signal handlers to allow safe exit on Ctrl+C
   signal(SIGINT, InterruptHandler);
   signal(SIGTERM, InterruptHandler);
   std::cout << "Press <CTRL-C> to exit and reset LEDs\n";
 
-  // Run the selected animation
+  // Run the selected demo animation
   demo_runner->Run();
 
   std::cout << "Received CTRL-C. Exiting.\n";
   return 0;
 }
-

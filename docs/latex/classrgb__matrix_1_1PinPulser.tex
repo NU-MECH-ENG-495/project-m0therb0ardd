@@ -1,0 +1,56 @@
+\doxysection{rgb\+\_\+matrix\+::Pin\+Pulser Class Reference}
+\hypertarget{classrgb__matrix_1_1PinPulser}{}\label{classrgb__matrix_1_1PinPulser}\index{rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}}
+
+
+{\ttfamily \#include $<$gpio.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classrgb__matrix_1_1PinPulser_a89163ace2e29f52d85f779376f462df2}{\texorpdfstring{$\sim$}{\string~}\+Pin\+Pulser}} ()
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1PinPulser_aa591252034c9db890de585e1cda80f17}{Send\+Pulse}} (int time\+\_\+spec\+\_\+number)=0
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1PinPulser_ae2f37263b3e334eec3598e91a3c3eef6}{Wait\+Pulse\+Finished}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classrgb__matrix_1_1PinPulser}{Pin\+Pulser}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classrgb__matrix_1_1PinPulser_a75b2bca1629348e4b1d01189b48dfa65}{Create}} (\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}io, \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} gpio\+\_\+mask, bool allow\+\_\+hardware\+\_\+pulsing, const std\+::vector$<$ int $>$ \&nano\+\_\+wait\+\_\+spec)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrgb__matrix_1_1PinPulser_a89163ace2e29f52d85f779376f462df2}\label{classrgb__matrix_1_1PinPulser_a89163ace2e29f52d85f779376f462df2} 
+\index{rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}!````~PinPulser@{\texorpdfstring{$\sim$}{\string~}PinPulser}}
+\index{````~PinPulser@{\texorpdfstring{$\sim$}{\string~}PinPulser}!rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PinPulser()}{\string~PinPulser()}}
+{\footnotesize\ttfamily virtual rgb\+\_\+matrix\+::\+Pin\+Pulser\+::\texorpdfstring{$\sim$}{\string~}\+Pin\+Pulser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrgb__matrix_1_1PinPulser_a75b2bca1629348e4b1d01189b48dfa65}\label{classrgb__matrix_1_1PinPulser_a75b2bca1629348e4b1d01189b48dfa65} 
+\index{rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}!Create@{Create}}
+\index{Create@{Create}!rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb__matrix_1_1PinPulser}{Pin\+Pulser}} \texorpdfstring{$\ast$}{*} rgb\+\_\+matrix\+::\+Pin\+Pulser\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}}]{io,  }\item[{\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}}}]{gpio\+\_\+mask,  }\item[{bool}]{allow\+\_\+hardware\+\_\+pulsing,  }\item[{const std\+::vector$<$ int $>$ \&}]{nano\+\_\+wait\+\_\+spec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classrgb__matrix_1_1PinPulser_aa591252034c9db890de585e1cda80f17}\label{classrgb__matrix_1_1PinPulser_aa591252034c9db890de585e1cda80f17} 
+\index{rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}!SendPulse@{SendPulse}}
+\index{SendPulse@{SendPulse}!rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}}
+\doxysubsubsection{\texorpdfstring{SendPulse()}{SendPulse()}}
+{\footnotesize\ttfamily virtual void rgb\+\_\+matrix\+::\+Pin\+Pulser\+::\+Send\+Pulse (\begin{DoxyParamCaption}\item[{int}]{time\+\_\+spec\+\_\+number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\Hypertarget{classrgb__matrix_1_1PinPulser_ae2f37263b3e334eec3598e91a3c3eef6}\label{classrgb__matrix_1_1PinPulser_ae2f37263b3e334eec3598e91a3c3eef6} 
+\index{rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}!WaitPulseFinished@{WaitPulseFinished}}
+\index{WaitPulseFinished@{WaitPulseFinished}!rgb\_matrix::PinPulser@{rgb\_matrix::PinPulser}}
+\doxysubsubsection{\texorpdfstring{WaitPulseFinished()}{WaitPulseFinished()}}
+{\footnotesize\ttfamily virtual void rgb\+\_\+matrix\+::\+Pin\+Pulser\+::\+Wait\+Pulse\+Finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+matrix/lib/\mbox{\hyperlink{gpio_8h}{gpio.\+h}}\item 
+matrix/lib/\mbox{\hyperlink{gpio_8cc}{gpio.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+<map id="rgb_matrix::internal::P10Outdoor32x16QuarterScanMapper" name="rgb_matrix::internal::P10Outdoor32x16QuarterScanMapper">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,255,232,309"/>
+<area shape="rect" id="Node000002" href="$classrgb__matrix_1_1internal_1_1MultiplexMapperBase.html" title=" " alt="" coords="33,167,205,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,220,121,255,116,255,116,220"/>
+<area shape="rect" id="Node000003" href="$classrgb__matrix_1_1internal_1_1MultiplexMapper.html" title=" " alt="" coords="43,79,194,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,133,121,166,116,166,116,133"/>
+<area shape="rect" id="Node000004" href="$classrgb__matrix_1_1PixelMapper.html" title=" " alt="" coords="28,5,209,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="121,44,121,79,116,79,116,44"/>
+</map>

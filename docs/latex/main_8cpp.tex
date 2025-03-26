@@ -1,0 +1,98 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+Main entry point for running LED matrix evolution demos.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$csignal$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$Magick++.\+h$>$}\newline
+{\ttfamily \#include "{}led-\/matrix.\+h"{}}\newline
+{\ttfamily \#include "{}demo\+\_\+runner.\+h"{}}\newline
+{\ttfamily \#include "{}guided\+\_\+evolution.\+h"{}}\newline
+{\ttfamily \#include "{}genetic\+\_\+colors.\+h"{}}\newline
+{\ttfamily \#include "{}shared.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a7a412a966816bfd7e9e410746f5eebdd}{Interrupt\+Handler}} (int signo)
+\begin{DoxyCompactList}\small\item\em Signal handler to catch interrupt signals and set termination flag. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a39c3a9ec6e5e8485c111aa2ff74c12fd}{usage}} (const char \texorpdfstring{$\ast$}{*}progname)
+\begin{DoxyCompactList}\small\item\em Prints usage instructions for this program. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Entry point of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main entry point for running LED matrix evolution demos. 
+
+This file initializes the LED matrix, loads a target image, and launches the selected demo animation (e.\+g., guided or genetic evolution). 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a7a412a966816bfd7e9e410746f5eebdd}\label{main_8cpp_a7a412a966816bfd7e9e410746f5eebdd} 
+\index{main.cpp@{main.cpp}!InterruptHandler@{InterruptHandler}}
+\index{InterruptHandler@{InterruptHandler}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{InterruptHandler()}{InterruptHandler()}}
+{\footnotesize\ttfamily void Interrupt\+Handler (\begin{DoxyParamCaption}\item[{int}]{signo }\end{DoxyParamCaption})}
+
+
+
+Signal handler to catch interrupt signals and set termination flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signo} & The signal number received. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Entry point of the program. 
+
+Parses command-\/line arguments, loads the target image, creates the LED matrix, and runs the specified demo (guided or genetic color evolution).
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command-\/line arguments. \\
+\hline
+{\em argv} & Array of command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Exit code. 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Initialize Image\+Magick\Hypertarget{main_8cpp_a39c3a9ec6e5e8485c111aa2ff74c12fd}\label{main_8cpp_a39c3a9ec6e5e8485c111aa2ff74c12fd} 
+\index{main.cpp@{main.cpp}!usage@{usage}}
+\index{usage@{usage}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{usage()}{usage()}}
+{\footnotesize\ttfamily int usage (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{progname }\end{DoxyParamCaption})}
+
+
+
+Prints usage instructions for this program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em progname} & The name of the executable. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Always returns 1 to indicate incorrect usage. 
+\end{DoxyReturn}

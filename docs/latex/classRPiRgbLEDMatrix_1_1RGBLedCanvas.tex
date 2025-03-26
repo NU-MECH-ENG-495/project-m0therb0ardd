@@ -1,0 +1,206 @@
+\doxysection{RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas Class Reference}
+\hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas}{}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas}\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+
+
+Represents a canvas whose pixels can be manipulated.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a3e66acbc52369379391c233247017c73}{Set\+Pixel}} (int x, int y, \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}} \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}})
+\begin{DoxyCompactList}\small\item\em Sets the color of a specific pixel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ab9143416b16740a1b55ff5d6ea910f6b}{Set\+Pixels}} (int x, int y, int \mbox{\hyperlink{content-streamer_8cc_a325272ddd9a962f05deb905101d25cbd}{width}}, int \mbox{\hyperlink{content-streamer_8cc_a6ad4f820ce4e75cda0686fcaad5168be}{height}}, Span$<$ \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}} $>$ colors)
+\begin{DoxyCompactList}\small\item\em Copies the colors from the specified buffer to a rectangle on the canvas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a7e27069d73266b733a3a138807504c48}{Fill}} (\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}} \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}})
+\begin{DoxyCompactList}\small\item\em Sets the color of the entire canvas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ac025b21bde9fb99c823c125d153a7b55}{Clear}} ()
+\begin{DoxyCompactList}\small\item\em Cleans the entire canvas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ad969980f60b10b828e613d16839f8df6}{Draw\+Circle}} (int x, int y, int radius, \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}} \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}})
+\begin{DoxyCompactList}\small\item\em Draws a circle of the specified color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a011c4faa7278e5a5132f765c5e607eb8}{Draw\+Line}} (int x0, int y0, int x1, int y1, \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}} \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}})
+\begin{DoxyCompactList}\small\item\em Draws a line of the specified color. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a1f14121d4d14356beeb98ad6887ecc7b}{Draw\+Text}} (\mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedFont}{RGBLed\+Font}} \mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}} \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}}, string \mbox{\hyperlink{FontExample_2Program_8cs_a739bd7e413e61c963681e085a990979a}{text}}, int spacing=0, bool vertical=false)
+\begin{DoxyCompactList}\small\item\em Draws the text with the specified color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a308f340e7fa063ea1103531de76200db}{Width}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The width of the canvas in pixels. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a145852465d18c7f2f0e667cea4427550}{Height}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The height of the canvas in pixels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a canvas whose pixels can be manipulated. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ac025b21bde9fb99c823c125d153a7b55}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ac025b21bde9fb99c823c125d153a7b55} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!Clear@{Clear}}
+\index{Clear@{Clear}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cleans the entire canvas. 
+
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ad969980f60b10b828e613d16839f8df6}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ad969980f60b10b828e613d16839f8df6} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!DrawCircle@{DrawCircle}}
+\index{DrawCircle@{DrawCircle}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{DrawCircle()}{DrawCircle()}}
+{\footnotesize\ttfamily void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Draw\+Circle (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{radius,  }\item[{\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a circle of the specified color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X coordinate of the center.\\
+\hline
+{\em y} & The Y coordinate of the center.\\
+\hline
+{\em radius} & The radius of the circle, in pixels.\\
+\hline
+{\em color} & The color of the circle.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a011c4faa7278e5a5132f765c5e607eb8}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a011c4faa7278e5a5132f765c5e607eb8} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!DrawLine@{DrawLine}}
+\index{DrawLine@{DrawLine}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{DrawLine()}{DrawLine()}}
+{\footnotesize\ttfamily void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Draw\+Line (\begin{DoxyParamCaption}\item[{int}]{x0,  }\item[{int}]{y0,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Draws a line of the specified color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & The X coordinate of the first point.\\
+\hline
+{\em y0} & The Y coordinate of the first point.\\
+\hline
+{\em x1} & The X coordinate of the second point.\\
+\hline
+{\em y1} & The Y coordinate of the second point.\\
+\hline
+{\em color} & The color of the line.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a1f14121d4d14356beeb98ad6887ecc7b}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a1f14121d4d14356beeb98ad6887ecc7b} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!DrawText@{DrawText}}
+\index{DrawText@{DrawText}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{DrawText()}{DrawText()}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Draw\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedFont}{RGBLed\+Font}}}]{font,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}}}]{color,  }\item[{string}]{text,  }\item[{int}]{spacing = {\ttfamily 0},  }\item[{bool}]{vertical = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Draws the text with the specified color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em font} & Font to draw text with.\\
+\hline
+{\em x} & The X coordinate of the starting point.\\
+\hline
+{\em y} & The Y coordinate of the starting point.\\
+\hline
+{\em color} & The color of the text.\\
+\hline
+{\em text} & Text to draw.\\
+\hline
+{\em spacing} & Additional spacing between characters.\\
+\hline
+{\em vertical} & Whether to draw the text vertically.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+How many pixels was advanced on the screen.
+\end{DoxyReturn}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a7e27069d73266b733a3a138807504c48}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a7e27069d73266b733a3a138807504c48} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!Fill@{Fill}}
+\index{Fill@{Fill}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{Fill()}{Fill()}}
+{\footnotesize\ttfamily void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Fill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Sets the color of the entire canvas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & New canvas color.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a3e66acbc52369379391c233247017c73}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a3e66acbc52369379391c233247017c73} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!SetPixel@{SetPixel}}
+\index{SetPixel@{SetPixel}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{SetPixel()}{SetPixel()}}
+{\footnotesize\ttfamily void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Set\+Pixel (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}}}]{color }\end{DoxyParamCaption})}
+
+
+
+Sets the color of a specific pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X coordinate of the pixel.\\
+\hline
+{\em y} & The Y coordinate of the pixel.\\
+\hline
+{\em color} & New pixel color.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ab9143416b16740a1b55ff5d6ea910f6b}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_ab9143416b16740a1b55ff5d6ea910f6b} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!SetPixels@{SetPixels}}
+\index{SetPixels@{SetPixels}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{SetPixels()}{SetPixels()}}
+{\footnotesize\ttfamily void RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Set\+Pixels (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{Span$<$ \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}} $>$}]{colors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Copies the colors from the specified buffer to a rectangle on the canvas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X coordinate of the top-\/left pixel of the rectangle.\\
+\hline
+{\em y} & The Y coordinate of the top-\/left pixel of the rectangle.\\
+\hline
+{\em width} & Width of the rectangle.\\
+\hline
+{\em height} & Height of the rectangle.\\
+\hline
+{\em colors} & Buffer containing the colors to copy.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a145852465d18c7f2f0e667cea4427550}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a145852465d18c7f2f0e667cea4427550} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!Height@{Height}}
+\index{Height@{Height}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{Height}{Height}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Height\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The height of the canvas in pixels. 
+
+\Hypertarget{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a308f340e7fa063ea1103531de76200db}\label{classRPiRgbLEDMatrix_1_1RGBLedCanvas_a308f340e7fa063ea1103531de76200db} 
+\index{RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}!Width@{Width}}
+\index{Width@{Width}!RPiRgbLEDMatrix.RGBLedCanvas@{RPiRgbLEDMatrix.RGBLedCanvas}}
+\doxysubsubsection{\texorpdfstring{Width}{Width}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Canvas.\+Width\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The width of the canvas in pixels. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+matrix/bindings/c\#/\mbox{\hyperlink{RGBLedCanvas_8cs}{RGBLed\+Canvas.\+cs}}\end{DoxyCompactItemize}

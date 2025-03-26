@@ -1,0 +1,137 @@
+\doxysection{kicad-\/fab Namespace Reference}
+\hypertarget{namespacekicad-fab}{}\label{namespacekicad-fab}\index{kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacekicad-fab_a77918e24bd09f00af2e0c9bd8919a75b}{filename}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+\mbox{\hyperlink{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}{board}} = Load\+Board(\mbox{\hyperlink{namespacekicad-fab_a77918e24bd09f00af2e0c9bd8919a75b}{filename}})
+\item 
+str \mbox{\hyperlink{namespacekicad-fab_a45a5189992abeac3e027aa9fd5873862}{plot\+Dir}} = "{}plot/"{}
+\item 
+\mbox{\hyperlink{namespacekicad-fab_a80cbea63b8cc4febe4fcd53a6f9e8ca4}{pctl}} = PLOT\+\_\+\+CONTROLLER(\mbox{\hyperlink{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}{board}})
+\item 
+\mbox{\hyperlink{namespacekicad-fab_ae3edd2430ab2e4e6fb4a9eccde27fba0}{popt}} = pctl.\+Get\+Plot\+Options()
+\item 
+list \mbox{\hyperlink{namespacekicad-fab_a675e851d19b177960de6ebfc28d549a3}{plot\+\_\+plan}}
+\item 
+\mbox{\hyperlink{namespacekicad-fab_aa0e3be85b19b1fa50d1e52c76d0fb03c}{drlwriter}} = EXCELLON\+\_\+\+WRITER( \mbox{\hyperlink{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}{board}} )
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_a3c6dafe497caf9dfd56d83a73fa5bf22}{mirror}} = False
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_a4c5702eb89cbfc53fc080c6874072f1c}{minimal\+Header}} = False
+\item 
+\mbox{\hyperlink{namespacekicad-fab_a54a7f8ea201e6e494a32d7b8f718109d}{offset}} = wx\+Point(0,0)
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_a8cb648c41742c878d97598c8d9af199f}{merge\+NPTH}} = True
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_a7c24ed4ee3806f84fd7216d299a6af2b}{metric\+Fmt}} = True
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_ae01eb2312732bc0d41b80e6063a6bfa1}{gen\+Drl}} = True
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_aecc641955518e0fd42610182c0c976b9}{gen\+Map}} = True
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}\label{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3} 
+\index{kicad-\/fab@{kicad-\/fab}!board@{board}}
+\index{board@{board}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{board}{board}}
+{\footnotesize\ttfamily kicad-\/fab.\+board = Load\+Board(\mbox{\hyperlink{namespacekicad-fab_a77918e24bd09f00af2e0c9bd8919a75b}{filename}})}
+
+\Hypertarget{namespacekicad-fab_aa0e3be85b19b1fa50d1e52c76d0fb03c}\label{namespacekicad-fab_aa0e3be85b19b1fa50d1e52c76d0fb03c} 
+\index{kicad-\/fab@{kicad-\/fab}!drlwriter@{drlwriter}}
+\index{drlwriter@{drlwriter}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{drlwriter}{drlwriter}}
+{\footnotesize\ttfamily kicad-\/fab.\+drlwriter = EXCELLON\+\_\+\+WRITER( \mbox{\hyperlink{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}{board}} )}
+
+\Hypertarget{namespacekicad-fab_a77918e24bd09f00af2e0c9bd8919a75b}\label{namespacekicad-fab_a77918e24bd09f00af2e0c9bd8919a75b} 
+\index{kicad-\/fab@{kicad-\/fab}!filename@{filename}}
+\index{filename@{filename}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily kicad-\/fab.\+filename = sys.\+argv\mbox{[}1\mbox{]}}
+
+\Hypertarget{namespacekicad-fab_ae01eb2312732bc0d41b80e6063a6bfa1}\label{namespacekicad-fab_ae01eb2312732bc0d41b80e6063a6bfa1} 
+\index{kicad-\/fab@{kicad-\/fab}!genDrl@{genDrl}}
+\index{genDrl@{genDrl}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{genDrl}{genDrl}}
+{\footnotesize\ttfamily bool kicad-\/fab.\+gen\+Drl = True}
+
+\Hypertarget{namespacekicad-fab_aecc641955518e0fd42610182c0c976b9}\label{namespacekicad-fab_aecc641955518e0fd42610182c0c976b9} 
+\index{kicad-\/fab@{kicad-\/fab}!genMap@{genMap}}
+\index{genMap@{genMap}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{genMap}{genMap}}
+{\footnotesize\ttfamily bool kicad-\/fab.\+gen\+Map = True}
+
+\Hypertarget{namespacekicad-fab_a8cb648c41742c878d97598c8d9af199f}\label{namespacekicad-fab_a8cb648c41742c878d97598c8d9af199f} 
+\index{kicad-\/fab@{kicad-\/fab}!mergeNPTH@{mergeNPTH}}
+\index{mergeNPTH@{mergeNPTH}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{mergeNPTH}{mergeNPTH}}
+{\footnotesize\ttfamily bool kicad-\/fab.\+merge\+NPTH = True}
+
+\Hypertarget{namespacekicad-fab_a7c24ed4ee3806f84fd7216d299a6af2b}\label{namespacekicad-fab_a7c24ed4ee3806f84fd7216d299a6af2b} 
+\index{kicad-\/fab@{kicad-\/fab}!metricFmt@{metricFmt}}
+\index{metricFmt@{metricFmt}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{metricFmt}{metricFmt}}
+{\footnotesize\ttfamily bool kicad-\/fab.\+metric\+Fmt = True}
+
+\Hypertarget{namespacekicad-fab_a4c5702eb89cbfc53fc080c6874072f1c}\label{namespacekicad-fab_a4c5702eb89cbfc53fc080c6874072f1c} 
+\index{kicad-\/fab@{kicad-\/fab}!minimalHeader@{minimalHeader}}
+\index{minimalHeader@{minimalHeader}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{minimalHeader}{minimalHeader}}
+{\footnotesize\ttfamily bool kicad-\/fab.\+minimal\+Header = False}
+
+\Hypertarget{namespacekicad-fab_a3c6dafe497caf9dfd56d83a73fa5bf22}\label{namespacekicad-fab_a3c6dafe497caf9dfd56d83a73fa5bf22} 
+\index{kicad-\/fab@{kicad-\/fab}!mirror@{mirror}}
+\index{mirror@{mirror}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{mirror}{mirror}}
+{\footnotesize\ttfamily bool kicad-\/fab.\+mirror = False}
+
+\Hypertarget{namespacekicad-fab_a54a7f8ea201e6e494a32d7b8f718109d}\label{namespacekicad-fab_a54a7f8ea201e6e494a32d7b8f718109d} 
+\index{kicad-\/fab@{kicad-\/fab}!offset@{offset}}
+\index{offset@{offset}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{offset}{offset}}
+{\footnotesize\ttfamily kicad-\/fab.\+offset = wx\+Point(0,0)}
+
+\Hypertarget{namespacekicad-fab_a80cbea63b8cc4febe4fcd53a6f9e8ca4}\label{namespacekicad-fab_a80cbea63b8cc4febe4fcd53a6f9e8ca4} 
+\index{kicad-\/fab@{kicad-\/fab}!pctl@{pctl}}
+\index{pctl@{pctl}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{pctl}{pctl}}
+{\footnotesize\ttfamily kicad-\/fab.\+pctl = PLOT\+\_\+\+CONTROLLER(\mbox{\hyperlink{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}{board}})}
+
+\Hypertarget{namespacekicad-fab_a675e851d19b177960de6ebfc28d549a3}\label{namespacekicad-fab_a675e851d19b177960de6ebfc28d549a3} 
+\index{kicad-\/fab@{kicad-\/fab}!plot\_plan@{plot\_plan}}
+\index{plot\_plan@{plot\_plan}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{plot\_plan}{plot\_plan}}
+{\footnotesize\ttfamily list kicad-\/fab.\+plot\+\_\+plan}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ [}
+\DoxyCodeLine{00002\ \ \ \ \ (\ Edge\_Cuts,\ \textcolor{stringliteral}{"{}0-\/Edge\_Cuts"{}},\ \ \ \textcolor{stringliteral}{"{}Edges"{}}\ ),}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \ \ \ \ (\ F\_Paste,\ \ \ \textcolor{stringliteral}{"{}1-\/PasteTop"{}},\ \ \ \ \textcolor{stringliteral}{"{}Paste\ top"{}}\ ),}
+\DoxyCodeLine{00005\ \ \ \ \ (\ F\_SilkS,\ \ \ \textcolor{stringliteral}{"{}2-\/SilkTop"{}},\ \ \ \ \ \textcolor{stringliteral}{"{}Silk\ top"{}}\ ),}
+\DoxyCodeLine{00006\ \ \ \ \ (\ F\_Mask,\ \ \ \ \textcolor{stringliteral}{"{}3-\/MaskTop"{}},\ \ \ \ \ \textcolor{stringliteral}{"{}Mask\ top"{}}\ ),}
+\DoxyCodeLine{00007\ \ \ \ \ (\ F\_Cu,\ \ \ \ \ \ \textcolor{stringliteral}{"{}4-\/CuTop"{}},\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Top\ layer"{}}\ ),}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \ \ \ \ (\ B\_Cu,\ \ \ \ \ \ \textcolor{stringliteral}{"{}5-\/CuBottom"{}},\ \ \ \ \textcolor{stringliteral}{"{}Bottom\ layer"{}}\ ),}
+\DoxyCodeLine{00010\ \ \ \ \ (\ B\_Mask,\ \ \ \ \textcolor{stringliteral}{"{}6-\/MaskBottom"{}},\ \ \textcolor{stringliteral}{"{}Mask\ bottom"{}}\ ),}
+\DoxyCodeLine{00011\ \ \ \ \ (\ B\_SilkS,\ \ \ \textcolor{stringliteral}{"{}7-\/SilkBottom"{}},\ \ \textcolor{stringliteral}{"{}Silk\ top"{}}\ ),}
+\DoxyCodeLine{00012\ \ \ \ \ (\ B\_Paste,\ \ \ \textcolor{stringliteral}{"{}8-\/PasteBottom"{}},\ \textcolor{stringliteral}{"{}Paste\ Bottom"{}}\ ),}
+\DoxyCodeLine{00013\ ]}
+
+\end{DoxyCode}
+\Hypertarget{namespacekicad-fab_a45a5189992abeac3e027aa9fd5873862}\label{namespacekicad-fab_a45a5189992abeac3e027aa9fd5873862} 
+\index{kicad-\/fab@{kicad-\/fab}!plotDir@{plotDir}}
+\index{plotDir@{plotDir}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{plotDir}{plotDir}}
+{\footnotesize\ttfamily str kicad-\/fab.\+plot\+Dir = "{}plot/"{}}
+
+\Hypertarget{namespacekicad-fab_ae3edd2430ab2e4e6fb4a9eccde27fba0}\label{namespacekicad-fab_ae3edd2430ab2e4e6fb4a9eccde27fba0} 
+\index{kicad-\/fab@{kicad-\/fab}!popt@{popt}}
+\index{popt@{popt}!kicad-\/fab@{kicad-\/fab}}
+\doxysubsubsection{\texorpdfstring{popt}{popt}}
+{\footnotesize\ttfamily kicad-\/fab.\+popt = pctl.\+Get\+Plot\+Options()}
+

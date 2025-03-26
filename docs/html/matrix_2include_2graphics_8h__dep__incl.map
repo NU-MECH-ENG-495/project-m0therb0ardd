@@ -1,0 +1,14 @@
+<map id="matrix/include/graphics.h" name="matrix/include/graphics.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="90,5,277,31"/>
+<area shape="rect" id="Node000002" href="$matrix_2include_2led-matrix_8h.html" title=" " alt="" coords="5,79,145,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,41,103,81,100,76,155,37"/>
+<area shape="rect" id="Node000003" href="$framebuffer-internal_8h.html" title=" " alt="" coords="261,79,428,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,34,307,76,304,81,218,39"/>
+<area shape="rect" id="Node000004" href="$framebuffer_8cc.html" title=" " alt="" coords="72,174,255,199"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="183,45,167,174,162,174,178,44"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="294,127,189,176,186,172,291,122"/>
+<area shape="rect" id="Node000005" href="$led-matrix_8cc.html" title=" " alt="" coords="279,174,453,199"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="355,131,366,173,360,174,350,133"/>
+<area shape="rect" id="Node000006" href="$options-initialize_8cc.html" title=" " alt="" coords="477,167,615,207"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="403,122,503,164,501,169,401,127"/>
+</map>

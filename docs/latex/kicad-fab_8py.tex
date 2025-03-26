@@ -1,0 +1,40 @@
+\doxysection{matrix/adapter/kicad-\/scripts/kicad-\/fab.py File Reference}
+\hypertarget{kicad-fab_8py}{}\label{kicad-fab_8py}\index{matrix/adapter/kicad-\/scripts/kicad-\/fab.py@{matrix/adapter/kicad-\/scripts/kicad-\/fab.py}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacekicad-fab}{kicad-\/fab}}
+\item 
+namespace \mbox{\hyperlink{namespacekicad}{kicad}}
+\begin{DoxyCompactList}\small\item\em -\/fab \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacekicad-fab_a77918e24bd09f00af2e0c9bd8919a75b}{kicad-\/fab.\+filename}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+\mbox{\hyperlink{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}{kicad-\/fab.\+board}} = Load\+Board(\mbox{\hyperlink{namespacekicad-fab_a77918e24bd09f00af2e0c9bd8919a75b}{filename}})
+\item 
+str \mbox{\hyperlink{namespacekicad-fab_a45a5189992abeac3e027aa9fd5873862}{kicad-\/fab.\+plot\+Dir}} = "{}plot/"{}
+\item 
+\mbox{\hyperlink{namespacekicad-fab_a80cbea63b8cc4febe4fcd53a6f9e8ca4}{kicad-\/fab.\+pctl}} = PLOT\+\_\+\+CONTROLLER(\mbox{\hyperlink{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}{board}})
+\item 
+\mbox{\hyperlink{namespacekicad-fab_ae3edd2430ab2e4e6fb4a9eccde27fba0}{kicad-\/fab.\+popt}} = pctl.\+Get\+Plot\+Options()
+\item 
+list \mbox{\hyperlink{namespacekicad-fab_a675e851d19b177960de6ebfc28d549a3}{kicad-\/fab.\+plot\+\_\+plan}}
+\item 
+\mbox{\hyperlink{namespacekicad-fab_aa0e3be85b19b1fa50d1e52c76d0fb03c}{kicad-\/fab.\+drlwriter}} = EXCELLON\+\_\+\+WRITER( \mbox{\hyperlink{namespacekicad-fab_a24bc0823edb021fc9b8ecbf049deb1c3}{board}} )
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_a3c6dafe497caf9dfd56d83a73fa5bf22}{kicad-\/fab.\+mirror}} = False
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_a4c5702eb89cbfc53fc080c6874072f1c}{kicad-\/fab.\+minimal\+Header}} = False
+\item 
+\mbox{\hyperlink{namespacekicad-fab_a54a7f8ea201e6e494a32d7b8f718109d}{kicad-\/fab.\+offset}} = wx\+Point(0,0)
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_a8cb648c41742c878d97598c8d9af199f}{kicad-\/fab.\+merge\+NPTH}} = True
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_a7c24ed4ee3806f84fd7216d299a6af2b}{kicad-\/fab.\+metric\+Fmt}} = True
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_ae01eb2312732bc0d41b80e6063a6bfa1}{kicad-\/fab.\+gen\+Drl}} = True
+\item 
+bool \mbox{\hyperlink{namespacekicad-fab_aecc641955518e0fd42610182c0c976b9}{kicad-\/fab.\+gen\+Map}} = True
+\end{DoxyCompactItemize}

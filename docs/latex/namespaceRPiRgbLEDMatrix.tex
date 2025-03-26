@@ -1,0 +1,78 @@
+\doxysection{RPi\+Rgb\+LEDMatrix Namespace Reference}
+\hypertarget{namespaceRPiRgbLEDMatrix}{}\label{namespaceRPiRgbLEDMatrix}\index{RPiRgbLEDMatrix@{RPiRgbLEDMatrix}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Bindings}
+\item 
+struct \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{Color}}
+\begin{DoxyCompactList}\small\item\em Represents an RGB (red, green, blue) color. \end{DoxyCompactList}\item 
+struct {\bfseries Internal\+RGBLed\+Matrix\+Options}
+\item 
+class \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedCanvas}{RGBLed\+Canvas}}
+\begin{DoxyCompactList}\small\item\em Represents a canvas whose pixels can be manipulated. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedFont}{RGBLed\+Font}}
+\begin{DoxyCompactList}\small\item\em Represents a {\ttfamily .BDF} font. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}
+\begin{DoxyCompactList}\small\item\em Represents a RGB matrix. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions}{RGBLed\+Matrix\+Options}}
+\begin{DoxyCompactList}\small\item\em Represents the matrix settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecc}{Multiplexing}} \+: int \{ \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5eccafd1dd0c603be8170f9eae0be9f2f6afb}{Direct}} = 0
+, \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5eccace7566d1d08cc094b74cf283cf9c56a5}{Stripe}} = 1
+, \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecca3e83f7112d789bad0ae68c1064a7f1b1}{Checker}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Type of multiplexing. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39a}{Scan\+Modes}} \{ \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39aa9712e73e86ea0fe944ca2ce3f9f7dd87}{Progressive}} = 0
+, \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39aa1aa9297bdff20cc8c265644ec5775f61}{Interlaced}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Scan modes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecc}\label{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecc} 
+\index{RPiRgbLEDMatrix@{RPiRgbLEDMatrix}!Multiplexing@{Multiplexing}}
+\index{Multiplexing@{Multiplexing}!RPiRgbLEDMatrix@{RPiRgbLEDMatrix}}
+\doxysubsubsection{\texorpdfstring{Multiplexing}{Multiplexing}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecc}{RPi\+Rgb\+LEDMatrix.\+Multiplexing}} \+: int}
+
+
+
+Type of multiplexing. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Direct@{Direct}!RPiRgbLEDMatrix@{RPiRgbLEDMatrix}}\index{RPiRgbLEDMatrix@{RPiRgbLEDMatrix}!Direct@{Direct}}}\Hypertarget{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5eccafd1dd0c603be8170f9eae0be9f2f6afb}\label{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5eccafd1dd0c603be8170f9eae0be9f2f6afb} 
+Direct&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Stripe@{Stripe}!RPiRgbLEDMatrix@{RPiRgbLEDMatrix}}\index{RPiRgbLEDMatrix@{RPiRgbLEDMatrix}!Stripe@{Stripe}}}\Hypertarget{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5eccace7566d1d08cc094b74cf283cf9c56a5}\label{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5eccace7566d1d08cc094b74cf283cf9c56a5} 
+Stripe&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Checker@{Checker}!RPiRgbLEDMatrix@{RPiRgbLEDMatrix}}\index{RPiRgbLEDMatrix@{RPiRgbLEDMatrix}!Checker@{Checker}}}\Hypertarget{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecca3e83f7112d789bad0ae68c1064a7f1b1}\label{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecca3e83f7112d789bad0ae68c1064a7f1b1} 
+Checker&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39a}\label{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39a} 
+\index{RPiRgbLEDMatrix@{RPiRgbLEDMatrix}!ScanModes@{ScanModes}}
+\index{ScanModes@{ScanModes}!RPiRgbLEDMatrix@{RPiRgbLEDMatrix}}
+\doxysubsubsection{\texorpdfstring{ScanModes}{ScanModes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39a}{RPi\+Rgb\+LEDMatrix.\+Scan\+Modes}}}
+
+
+
+Scan modes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Progressive@{Progressive}!RPiRgbLEDMatrix@{RPiRgbLEDMatrix}}\index{RPiRgbLEDMatrix@{RPiRgbLEDMatrix}!Progressive@{Progressive}}}\Hypertarget{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39aa9712e73e86ea0fe944ca2ce3f9f7dd87}\label{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39aa9712e73e86ea0fe944ca2ce3f9f7dd87} 
+Progressive&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Interlaced@{Interlaced}!RPiRgbLEDMatrix@{RPiRgbLEDMatrix}}\index{RPiRgbLEDMatrix@{RPiRgbLEDMatrix}!Interlaced@{Interlaced}}}\Hypertarget{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39aa1aa9297bdff20cc8c265644ec5775f61}\label{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39aa1aa9297bdff20cc8c265644ec5775f61} 
+Interlaced&\\
+\hline
+
+\end{DoxyEnumFields}

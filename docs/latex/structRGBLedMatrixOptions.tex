@@ -1,0 +1,183 @@
+\doxysection{RGBLed\+Matrix\+Options Struct Reference}
+\hypertarget{structRGBLedMatrixOptions}{}\label{structRGBLedMatrixOptions}\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+
+
+{\ttfamily \#include $<$led-\/matrix-\/c.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structRGBLedMatrixOptions_ae09b156945af6f3adc60ee132f6f9933}{hardware\+\_\+mapping}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a58eec22d49de7d0b4e9ba6b55dce19cd}{rows}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a2d75a62c402757553b9de01e3d38af8f}{cols}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_aec121430f1ed1a915a75c4c80968e430}{chain\+\_\+length}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a3a5933de6f74b190259f123ae728a9ea}{parallel}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a46d26b81ac24fea3f376b268d6f44b9c}{pwm\+\_\+bits}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a3a4240bf20b94700fc231390920f3b5c}{pwm\+\_\+lsb\+\_\+nanoseconds}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a3d8a2be23f42092435fb254d4ed48fb8}{pwm\+\_\+dither\+\_\+bits}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a7e6c2657cad9a6d2b08f473740178b8e}{brightness}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a4b1584e7eb88422d4ee14223343e903b}{scan\+\_\+mode}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_af0ba81c234572c2dbb2ebea6087421bf}{row\+\_\+address\+\_\+type}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a2dee579fea9004605a5cd5a3019546b8}{multiplexing}}
+\item 
+bool \mbox{\hyperlink{structRGBLedMatrixOptions_aef5bd0b2f670eb19390ea1e74ac62486}{disable\+\_\+hardware\+\_\+pulsing}}
+\item 
+bool \mbox{\hyperlink{structRGBLedMatrixOptions_ab6a8f5c7c1a44e942f6497ae5e0bf61e}{show\+\_\+refresh\+\_\+rate}}
+\item 
+bool \mbox{\hyperlink{structRGBLedMatrixOptions_a4fabf42fad544f471ff7be19500ff212}{inverse\+\_\+colors}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structRGBLedMatrixOptions_a42f3ac60629168dbdb82c3bfbcf6af46}{led\+\_\+rgb\+\_\+sequence}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structRGBLedMatrixOptions_a767ee30cde2fd07eaba3c9be58020ba3}{pixel\+\_\+mapper\+\_\+config}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structRGBLedMatrixOptions_a1ecc508165123d8b9d6b9159b3f41c56}{panel\+\_\+type}}
+\item 
+int \mbox{\hyperlink{structRGBLedMatrixOptions_a0d7dc09ce8d12233bc5ac26cf0fb3500}{limit\+\_\+refresh\+\_\+rate\+\_\+hz}}
+\item 
+bool \mbox{\hyperlink{structRGBLedMatrixOptions_ae8deb62d90e258ba942bba1454b35707}{disable\+\_\+busy\+\_\+waiting}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parameters to create a new matrix.
+
+To get the defaults, non-\/set values have to be initialized to zero, so you should zero out this struct before setting anything. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structRGBLedMatrixOptions_a7e6c2657cad9a6d2b08f473740178b8e}\label{structRGBLedMatrixOptions_a7e6c2657cad9a6d2b08f473740178b8e} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!brightness@{brightness}}
+\index{brightness@{brightness}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{brightness}{brightness}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::brightness}
+
+\Hypertarget{structRGBLedMatrixOptions_aec121430f1ed1a915a75c4c80968e430}\label{structRGBLedMatrixOptions_aec121430f1ed1a915a75c4c80968e430} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!chain\_length@{chain\_length}}
+\index{chain\_length@{chain\_length}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{chain\_length}{chain\_length}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::chain\+\_\+length}
+
+\Hypertarget{structRGBLedMatrixOptions_a2d75a62c402757553b9de01e3d38af8f}\label{structRGBLedMatrixOptions_a2d75a62c402757553b9de01e3d38af8f} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!cols@{cols}}
+\index{cols@{cols}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{cols}{cols}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::cols}
+
+\Hypertarget{structRGBLedMatrixOptions_ae8deb62d90e258ba942bba1454b35707}\label{structRGBLedMatrixOptions_ae8deb62d90e258ba942bba1454b35707} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!disable\_busy\_waiting@{disable\_busy\_waiting}}
+\index{disable\_busy\_waiting@{disable\_busy\_waiting}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{disable\_busy\_waiting}{disable\_busy\_waiting}}
+{\footnotesize\ttfamily bool RGBLed\+Matrix\+Options\+::disable\+\_\+busy\+\_\+waiting}
+
+\Hypertarget{structRGBLedMatrixOptions_aef5bd0b2f670eb19390ea1e74ac62486}\label{structRGBLedMatrixOptions_aef5bd0b2f670eb19390ea1e74ac62486} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!disable\_hardware\_pulsing@{disable\_hardware\_pulsing}}
+\index{disable\_hardware\_pulsing@{disable\_hardware\_pulsing}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{disable\_hardware\_pulsing}{disable\_hardware\_pulsing}}
+{\footnotesize\ttfamily bool RGBLed\+Matrix\+Options\+::disable\+\_\+hardware\+\_\+pulsing}
+
+The following boolean flags are off by default \Hypertarget{structRGBLedMatrixOptions_ae09b156945af6f3adc60ee132f6f9933}\label{structRGBLedMatrixOptions_ae09b156945af6f3adc60ee132f6f9933} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!hardware\_mapping@{hardware\_mapping}}
+\index{hardware\_mapping@{hardware\_mapping}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{hardware\_mapping}{hardware\_mapping}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} RGBLed\+Matrix\+Options\+::hardware\+\_\+mapping}
+
+\Hypertarget{structRGBLedMatrixOptions_a4fabf42fad544f471ff7be19500ff212}\label{structRGBLedMatrixOptions_a4fabf42fad544f471ff7be19500ff212} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!inverse\_colors@{inverse\_colors}}
+\index{inverse\_colors@{inverse\_colors}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{inverse\_colors}{inverse\_colors}}
+{\footnotesize\ttfamily bool RGBLed\+Matrix\+Options\+::inverse\+\_\+colors}
+
+\Hypertarget{structRGBLedMatrixOptions_a42f3ac60629168dbdb82c3bfbcf6af46}\label{structRGBLedMatrixOptions_a42f3ac60629168dbdb82c3bfbcf6af46} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!led\_rgb\_sequence@{led\_rgb\_sequence}}
+\index{led\_rgb\_sequence@{led\_rgb\_sequence}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{led\_rgb\_sequence}{led\_rgb\_sequence}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} RGBLed\+Matrix\+Options\+::led\+\_\+rgb\+\_\+sequence}
+
+\Hypertarget{structRGBLedMatrixOptions_a0d7dc09ce8d12233bc5ac26cf0fb3500}\label{structRGBLedMatrixOptions_a0d7dc09ce8d12233bc5ac26cf0fb3500} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!limit\_refresh\_rate\_hz@{limit\_refresh\_rate\_hz}}
+\index{limit\_refresh\_rate\_hz@{limit\_refresh\_rate\_hz}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{limit\_refresh\_rate\_hz}{limit\_refresh\_rate\_hz}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::limit\+\_\+refresh\+\_\+rate\+\_\+hz}
+
+\Hypertarget{structRGBLedMatrixOptions_a2dee579fea9004605a5cd5a3019546b8}\label{structRGBLedMatrixOptions_a2dee579fea9004605a5cd5a3019546b8} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!multiplexing@{multiplexing}}
+\index{multiplexing@{multiplexing}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{multiplexing}{multiplexing}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::multiplexing}
+
+\Hypertarget{structRGBLedMatrixOptions_a1ecc508165123d8b9d6b9159b3f41c56}\label{structRGBLedMatrixOptions_a1ecc508165123d8b9d6b9159b3f41c56} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!panel\_type@{panel\_type}}
+\index{panel\_type@{panel\_type}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{panel\_type}{panel\_type}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} RGBLed\+Matrix\+Options\+::panel\+\_\+type}
+
+\Hypertarget{structRGBLedMatrixOptions_a3a5933de6f74b190259f123ae728a9ea}\label{structRGBLedMatrixOptions_a3a5933de6f74b190259f123ae728a9ea} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!parallel@{parallel}}
+\index{parallel@{parallel}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{parallel}{parallel}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::parallel}
+
+\Hypertarget{structRGBLedMatrixOptions_a767ee30cde2fd07eaba3c9be58020ba3}\label{structRGBLedMatrixOptions_a767ee30cde2fd07eaba3c9be58020ba3} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!pixel\_mapper\_config@{pixel\_mapper\_config}}
+\index{pixel\_mapper\_config@{pixel\_mapper\_config}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{pixel\_mapper\_config}{pixel\_mapper\_config}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} RGBLed\+Matrix\+Options\+::pixel\+\_\+mapper\+\_\+config}
+
+\Hypertarget{structRGBLedMatrixOptions_a46d26b81ac24fea3f376b268d6f44b9c}\label{structRGBLedMatrixOptions_a46d26b81ac24fea3f376b268d6f44b9c} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!pwm\_bits@{pwm\_bits}}
+\index{pwm\_bits@{pwm\_bits}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{pwm\_bits}{pwm\_bits}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::pwm\+\_\+bits}
+
+\Hypertarget{structRGBLedMatrixOptions_a3d8a2be23f42092435fb254d4ed48fb8}\label{structRGBLedMatrixOptions_a3d8a2be23f42092435fb254d4ed48fb8} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!pwm\_dither\_bits@{pwm\_dither\_bits}}
+\index{pwm\_dither\_bits@{pwm\_dither\_bits}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{pwm\_dither\_bits}{pwm\_dither\_bits}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::pwm\+\_\+dither\+\_\+bits}
+
+\Hypertarget{structRGBLedMatrixOptions_a3a4240bf20b94700fc231390920f3b5c}\label{structRGBLedMatrixOptions_a3a4240bf20b94700fc231390920f3b5c} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!pwm\_lsb\_nanoseconds@{pwm\_lsb\_nanoseconds}}
+\index{pwm\_lsb\_nanoseconds@{pwm\_lsb\_nanoseconds}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{pwm\_lsb\_nanoseconds}{pwm\_lsb\_nanoseconds}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::pwm\+\_\+lsb\+\_\+nanoseconds}
+
+\Hypertarget{structRGBLedMatrixOptions_af0ba81c234572c2dbb2ebea6087421bf}\label{structRGBLedMatrixOptions_af0ba81c234572c2dbb2ebea6087421bf} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!row\_address\_type@{row\_address\_type}}
+\index{row\_address\_type@{row\_address\_type}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{row\_address\_type}{row\_address\_type}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::row\+\_\+address\+\_\+type}
+
+\Hypertarget{structRGBLedMatrixOptions_a58eec22d49de7d0b4e9ba6b55dce19cd}\label{structRGBLedMatrixOptions_a58eec22d49de7d0b4e9ba6b55dce19cd} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!rows@{rows}}
+\index{rows@{rows}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{rows}{rows}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::rows}
+
+\Hypertarget{structRGBLedMatrixOptions_a4b1584e7eb88422d4ee14223343e903b}\label{structRGBLedMatrixOptions_a4b1584e7eb88422d4ee14223343e903b} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!scan\_mode@{scan\_mode}}
+\index{scan\_mode@{scan\_mode}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{scan\_mode}{scan\_mode}}
+{\footnotesize\ttfamily int RGBLed\+Matrix\+Options\+::scan\+\_\+mode}
+
+\Hypertarget{structRGBLedMatrixOptions_ab6a8f5c7c1a44e942f6497ae5e0bf61e}\label{structRGBLedMatrixOptions_ab6a8f5c7c1a44e942f6497ae5e0bf61e} 
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!show\_refresh\_rate@{show\_refresh\_rate}}
+\index{show\_refresh\_rate@{show\_refresh\_rate}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{show\_refresh\_rate}{show\_refresh\_rate}}
+{\footnotesize\ttfamily bool RGBLed\+Matrix\+Options\+::show\+\_\+refresh\+\_\+rate}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{include_2led-matrix-c_8h}{led-\/matrix-\/c.\+h}}\item 
+matrix/include/\mbox{\hyperlink{matrix_2include_2led-matrix-c_8h}{led-\/matrix-\/c.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,150 @@
+\doxysection{graphics.\+h}
+\hypertarget{matrix_2include_2graphics_8h_source}{}\label{matrix_2include_2graphics_8h_source}\index{matrix/include/graphics.h@{matrix/include/graphics.h}}
+\mbox{\hyperlink{matrix_2include_2graphics_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/*-\/\ mode:\ c++;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Very\ simple\ graphics\ library\ to\ do\ simple\ things.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Might\ be\ useful\ to\ consider\ using\ Cairo\ instead\ and\ just\ have\ an\ interface}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ between\ that\ and\ the\ Canvas.\ Well,\ this\ is\ a\ quick\ set\ of\ things\ to\ get}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ started\ (and\ nicely\ self-\/contained).}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ RPI\_GRAPHICS\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ RPI\_GRAPHICS\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_2include_2canvas_8h}{canvas.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structColor}{Color}}\ \{}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{structrgb__matrix_1_1Color_a5439523bf6e60e0691845faa5b1c4c83}{Color}}()\ :\ \mbox{\hyperlink{structrgb__matrix_1_1Color_aecbc1a4121c21990512e7c10544d6ece}{r}}(0),\ \mbox{\hyperlink{structrgb__matrix_1_1Color_a23331f00b02491a901873b5085461d99}{g}}(0),\ \mbox{\hyperlink{structrgb__matrix_1_1Color_a78ede410fb277ade36fbb157f0235d6f}{b}}(0)\ \{\}}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{structrgb__matrix_1_1Color_acff3420317871e44c25e2e44cfd046ae}{Color}}(uint8\_t\ rr,\ uint8\_t\ gg,\ uint8\_t\ bb)\ :\ \mbox{\hyperlink{structrgb__matrix_1_1Color_aecbc1a4121c21990512e7c10544d6ece}{r}}(rr),\ \mbox{\hyperlink{structrgb__matrix_1_1Color_a23331f00b02491a901873b5085461d99}{g}}(gg),\ \mbox{\hyperlink{structrgb__matrix_1_1Color_a78ede410fb277ade36fbb157f0235d6f}{b}}(bb)\ \{\}}
+\DoxyCodeLine{00021\ \ \ uint8\_t\ \mbox{\hyperlink{structrgb__matrix_1_1Color_aecbc1a4121c21990512e7c10544d6ece}{r}};}
+\DoxyCodeLine{00022\ \ \ uint8\_t\ \mbox{\hyperlink{structrgb__matrix_1_1Color_a23331f00b02491a901873b5085461d99}{g}};}
+\DoxyCodeLine{00023\ \ \ uint8\_t\ \mbox{\hyperlink{structrgb__matrix_1_1Color_a78ede410fb277ade36fbb157f0235d6f}{b}};}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Font\ loading\ bdf\ files.\ If\ this\ ever\ becomes\ more\ types,\ just\ make\ virtual}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ base\ class.}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }Font\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \textcolor{comment}{//\ Initialize\ font,\ but\ it\ is\ only\ usable\ after\ LoadFont()\ has\ been\ called.}}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Font_a483f8acc5ba96f2ca538e27708c47108}{Font}}();}
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Font_a58802d597e20fbb7987b0f0f98a8d490}{\string~Font}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1Font_ac242f325daaa4d7e05b2b464dfd2d82d}{LoadFont}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{PlayGIF_2Program_8cs_aa72e0c8a20e6bcc571d3a1c51846e627}{path}});}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ Return\ height\ of\ font\ in\ pixels.\ Returns\ -\/1\ if\ font\ has\ not\ been\ loaded.}}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1Font_a2a7b74cb2cbaa83d37b4a9a326703173}{height}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ font\_height\_;\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ Return\ baseline.\ Pixels\ from\ the\ topline\ to\ the\ baseline.}}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1Font_afc54dbbfdd36e3650a563a8819614d7e}{baseline}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ base\_line\_;\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Return\ width\ of\ given\ character,\ or\ -\/1\ if\ font\ is\ not\ loaded\ or\ character}}
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//\ does\ not\ exist.}}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1Font_abda67b7efbdbcae39b4d6d2a9d10b1f4}{CharacterWidth}}(uint32\_t\ unicode\_codepoint)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ Draws\ the\ unicode\ character\ at\ position\ "{}x"{},"{}y"{}}}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ with\ "{}color"{}\ on\ "{}background\_color"{}\ (background\_color\ can\ be\ NULL\ for}}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ transparency.}}
+\DoxyCodeLine{00049\ \ \ \textcolor{comment}{//\ The\ "{}y"{}\ position\ is\ the\ baseline\ of\ the\ font.}}
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ If\ we\ don't\ have\ it\ in\ the\ font,\ draws\ the\ replacement\ character\ "{}{\ucr}"{}\ if}}
+\DoxyCodeLine{00051\ \ \ \textcolor{comment}{//\ available.}}
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ Returns\ how\ much\ we\ advance\ on\ the\ screen,\ which\ is\ the\ width\ of\ the}}
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ character\ or\ 0\ if\ we\ didn't\ draw\ any\ chracter.}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1Font_aab242320a0864470782330146da47e45}{DrawGlyph}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *c,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ *background\_color,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ unicode\_codepoint)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ Same\ without\ background.\ Deprecated,\ use\ the\ one\ above\ instead.}}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1Font_ae29c26a14e485039dd873b4a04ee90dd}{DrawGlyph}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *c,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}},}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ unicode\_codepoint)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{comment}{//\ Create\ a\ new\ font\ derived\ from\ this\ font,\ which\ represents\ an\ outline}}
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ of\ the\ original\ font,\ essentially\ pixels\ tracing\ around\ the\ original}}
+\DoxyCodeLine{00064\ \ \ \textcolor{comment}{//\ letter.}}
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ This\ can\ be\ used\ in\ situations\ in\ which\ it\ is\ desirable\ to\ frame\ a\ letter}}
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ in\ a\ different\ color\ to\ increase\ contrast.}}
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ The\ ownership\ of\ the\ returned\ pointer\ is\ passed\ to\ the\ caller.}}
+\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}}\ *\mbox{\hyperlink{classrgb__matrix_1_1Font_a860ef3cdc2c3b44f4667e879bd79cdff}{CreateOutlineFont}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1Font_a483f8acc5ba96f2ca538e27708c47108}{Font}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}}\&\ x);\ \ \textcolor{comment}{//\ No\ copy\ constructor.\ Use\ references\ or\ pointer\ instead.}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrgb__matrix_1_1Font_1_1Glyph}{Glyph}};}
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{typedef}\ std::map<uint32\_t,\ Glyph*>\ CodepointGlyphMap;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Font_1_1Glyph}{Glyph}}\ *FindGlyph(uint32\_t\ codepoint)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{int}\ font\_height\_;}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{int}\ base\_line\_;}
+\DoxyCodeLine{00080\ \ \ CodepointGlyphMap\ glyphs\_;}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{//\ -\/-\/\ Some\ utility\ functions.}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ Utility\ function:\ set\ an\ image\ from\ the\ given\ buffer\ containting\ pixels.}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//}}
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ Draw\ image\ of\ size\ "{}image\_width"{}\ and\ "{}image\_height"{}\ from\ pixel\ at}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ canvas-\/offset\ "{}canvas\_offset\_x"{},\ "{}canvas\_offset\_y"{}.\ Image\ will\ be\ shown}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ cropped\ on\ the\ edges\ if\ needed.}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ The\ canvas\ offset\ can\ be\ negative,\ i.e.\ the\ image\ start\ can\ be\ shifted}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ outside\ the\ image\ frame\ on\ the\ left/top\ edge.}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ The\ buffer\ needs\ to\ be\ organized\ as\ rows\ with\ columns\ of\ three\ bytes}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ organized\ as\ rgb\ or\ bgr.\ Thus\ the\ size\ of\ the\ buffer\ needs\ to\ be\ exactly}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ (3\ *\ image\_width\ *\ image\_height)\ bytes.}}
+\DoxyCodeLine{00097\ \textcolor{comment}{//}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ The\ "{}image\_buffer"{}\ parameters\ contains\ the\ data,\ "{}buffer\_size\_bytes"{}\ the}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ size\ in\ bytes.}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ If\ "{}is\_bgr"{}\ is\ true,\ the\ buffer\ is\ treated\ as\ BGR\ pixel\ arrangement\ instead}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ of\ RGB.}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//\ Returns\ 'true'\ if\ image\ was\ shown\ within\ canvas.}}
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacergb__matrix_a84178f20c2857a6659f725e8c9e89d3c}{SetImage}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *c,\ \textcolor{keywordtype}{int}\ canvas\_offset\_x,\ \textcolor{keywordtype}{int}\ canvas\_offset\_y,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ *image\_buffer,\ \textcolor{keywordtype}{size\_t}\ buffer\_size\_bytes,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ image\_width,\ \textcolor{keywordtype}{int}\ image\_height,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_bgr);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ Draw\ text,\ a\ standard\ NUL\ terminated\ C-\/string\ encoded\ in\ UTF-\/8,}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ with\ given\ "{}font"{}\ at\ "{}x"{},"{}y"{}\ with\ "{}color"{}.}}
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ "{}color"{}\ always\ needs\ to\ be\ set\ (hence\ it\ is\ a\ reference),}}
+\DoxyCodeLine{00112\ \textcolor{comment}{//\ "{}background\_color"{}\ is\ a\ pointer\ to\ optionally\ be\ NULL\ for\ transparency.}}
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ "{}kerning\_offset"{}\ allows\ for\ additional\ spacing\ between\ characters\ (can\ be}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ negative)}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ Returns\ how\ many\ pixels\ we\ advanced\ on\ the\ screen.}}
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacergb__matrix_a7a0b23d8e628d97ce9499a2b51954679}{DrawText}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *c,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}}\ \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ *background\_color,}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *utf8\_text,\ \textcolor{keywordtype}{int}\ kerning\_offset\ =\ 0);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{//\ Same\ without\ background.\ Deprecated,\ use\ the\ one\ above\ instead.}}
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacergb__matrix_a7a0b23d8e628d97ce9499a2b51954679}{DrawText}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *c,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}}\ \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}},}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *utf8\_text);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ Draw\ text,\ a\ standard\ NUL\ terminated\ C-\/string\ encoded\ in\ UTF-\/8,}}
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ with\ given\ "{}font"{}\ at\ "{}x"{},"{}y"{}\ with\ "{}color"{}.}}
+\DoxyCodeLine{00126\ \textcolor{comment}{//\ Draw\ text\ as\ above,\ but\ vertically\ (top\ down).}}
+\DoxyCodeLine{00127\ \textcolor{comment}{//\ The\ text\ is\ a\ standard\ NUL\ terminated\ C-\/string\ encoded\ in\ UTF-\/8.}}
+\DoxyCodeLine{00128\ \textcolor{comment}{//\ "{}font,\ "{}x"{},\ "{}y"{},\ "{}color"{}\ and\ "{}background\_color"{}\ are\ same\ as\ DrawText().}}
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ "{}kerning\_offset"{}\ allows\ for\ additional\ spacing\ between\ characters\ (can\ be}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ negative).}}
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ Returns\ font\ height\ to\ advance\ up\ on\ the\ screen.}}
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacergb__matrix_a9312bde9364a573bc5eb8ec2d13809b0}{VerticalDrawText}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *c,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}}\ \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ *background\_color,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *utf8\_text,\ \textcolor{keywordtype}{int}\ kerning\_offset\ =\ 0);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{comment}{//\ Draw\ a\ circle\ centered\ at\ "{}x"{},\ "{}y"{},\ with\ a\ radius\ of\ "{}radius"{}\ and\ with\ "{}color"{}}}
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacergb__matrix_aade514105177fcac88c4757543cfc99f}{DrawCircle}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *c,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ radius,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}});}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ Draw\ a\ line\ from\ "{}x0"{},\ "{}y0"{}\ to\ "{}x1"{},\ "{}y1"{}\ and\ with\ "{}color"{}}}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacergb__matrix_a07c6eed910c0cff033bd550b92799e39}{DrawLine}}(\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ *c,\ \textcolor{keywordtype}{int}\ x0,\ \textcolor{keywordtype}{int}\ y0,\ \textcolor{keywordtype}{int}\ x1,\ \textcolor{keywordtype}{int}\ y1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}}\ \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}});}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \}\ \ \textcolor{comment}{//\ namespace\ rgb\_matrix}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ RPI\_GRAPHICS\_H}}
+
+\end{DoxyCode}

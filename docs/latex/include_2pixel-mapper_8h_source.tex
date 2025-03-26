@@ -1,0 +1,116 @@
+\doxysection{pixel-\/mapper.h}
+\hypertarget{include_2pixel-mapper_8h_source}{}\label{include_2pixel-mapper_8h_source}\index{include/pixel-\/mapper.h@{include/pixel-\/mapper.h}}
+\mbox{\hyperlink{include_2pixel-mapper_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/*-\/\ mode:\ c++;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (C)\ 2018\ Henner\ Zeller\ <h.zeller@acm.org>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ the\ Free\ Software\ Foundation\ version\ 2.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://gnu.org/licenses/gpl-\/2.0.txt>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ RGBMATRIX\_PIXEL\_MAPPER}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ RGBMATRIX\_PIXEL\_MAPPER}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}}\ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ A\ pixel\ mapper\ is\ a\ way\ for\ you\ to\ map\ pixels\ of\ LED\ matrixes\ to\ a\ different}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ layout.\ If\ you\ have\ an\ implementation\ of\ a\ PixelMapper,\ you\ can\ give\ it}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ to\ the\ RGBMatrix::ApplyPixelMapper(),\ which\ then\ presents\ you\ a\ canvas}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ that\ has\ the\ new\ "{}visible\_width"{},\ "{}visible\_height"{}.}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{PixelMapper}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper_ae172f2392a07806e2e21c3aed6860ba1}{\string~PixelMapper}}()\ \{\}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ Get\ the\ name\ of\ this\ PixelMapper.\ Each\ PixelMapper\ needs\ to\ have\ a\ name}}
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ so\ that\ it\ can\ be\ referred\ to\ with\ command\ line\ flags.}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classrgb__matrix_1_1PixelMapper_a4895e858b76e4d28389544bc4c9c3514}{GetName}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Pixel\ mappers\ receive\ the\ chain\ and\ parallel\ information\ and}}
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ might\ receive\ optional\ user-\/parameters,\ e.g.\ from\ command\ line\ flags.}}
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ This\ is\ a\ single\ string\ containing\ the\ parameters.}}
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ You\ can\ be\ used\ from\ simple\ scalar\ parameters,\ such\ as\ the\ angle\ for}}
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ the\ rotate\ transformer,\ or\ more\ complex\ parameters\ that\ describe\ a\ mapping}}
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ of\ panels\ for\ instance.}}
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Keep\ it\ concise\ (as\ people\ will\ give\ parameters\ on\ the\ command\ line)\ and}}
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//\ don't\ use\ semicolons\ in\ your\ string\ (as\ they\ are}}
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ used\ to\ separate\ pixel\ mappers\ on\ the\ command\ line).}}
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ For\ instance,\ the\ rotate\ transformer\ is\ invoked\ like\ this}}
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ \ -\/-\/led-\/pixel-\/mapper=rotate:90}}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ And\ the\ parameter\ that\ is\ passed\ to\ SetParameter()\ is\ "{}90"{}.}}
+\DoxyCodeLine{00049\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ Returns\ 'true'\ if\ parameter\ was\ parsed\ successfully.}}
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper_a0443cbdaa6eeb6532a5636a3e1f4bdde}{SetParameters}}(\textcolor{keywordtype}{int}\ chain,\ \textcolor{keywordtype}{int}\ parallel,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *parameter\_string)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00054\ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{comment}{//\ Given\ a\ underlying\ matrix\ (width,\ height),\ returns\ the}}
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ visible\ (width,\ height)\ after\ the\ mapping.}}
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ E.g.\ a\ 90\ degree\ rotation\ might\ map\ matrix=(64,\ 32)\ -\/>\ visible=(32,\ 64)}}
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ Some\ multiplexing\ matrices\ will\ double\ the\ height\ and\ half\ the\ width.}}
+\DoxyCodeLine{00060\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00061\ \ \ \textcolor{comment}{//\ While\ not\ technically\ necessary,\ one\ would\ expect\ that\ the\ number\ of}}
+\DoxyCodeLine{00062\ \ \ \textcolor{comment}{//\ pixels\ stay\ the\ same,\ so}}
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ matrix\_width\ *\ matrix\_height\ ==\ (*visible\_width)\ *\ (*visible\_height);}}
+\DoxyCodeLine{00064\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ Returns\ boolean\ "{}true"{}\ if\ the\ mapping\ can\ be\ successfully\ done\ with\ this}}
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ mapper.}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper_aa28de4baefef705135540c4caa473aa1}{GetSizeMapping}}(\textcolor{keywordtype}{int}\ matrix\_width,\ \textcolor{keywordtype}{int}\ matrix\_height,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *visible\_width,\ \textcolor{keywordtype}{int}\ *visible\_height)}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{comment}{//\ Map\ where\ a\ visible\ pixel\ (x,y)\ is\ mapped\ to\ the\ underlying\ matrix\ (x,y).}}
+\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ To\ be\ convienently\ stateless,\ the\ first\ parameters\ are\ the\ full}}
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ matrix\ width\ and\ height.}}
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ So\ for\ many\ multiplexing\ methods\ this\ means\ to\ map\ a\ panel\ to\ a\ double}}
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ length\ and\ half\ height\ panel\ (32x16\ -\/>\ 64x8).}}
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ The\ logic\_x,\ logic\_y\ are\ output\ parameters\ and\ guaranteed\ not\ to\ be}}
+\DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\ nullptr.}}
+\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper_afee8e46ee2501e4527b8e15e99000d72}{MapVisibleToMatrix}}(\textcolor{keywordtype}{int}\ matrix\_width,\ \textcolor{keywordtype}{int}\ matrix\_height,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ visible\_x,\ \textcolor{keywordtype}{int}\ visible\_y,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *matrix\_x,\ \textcolor{keywordtype}{int}\ *matrix\_y)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ This\ is\ a\ place\ to\ register\ PixelMappers\ globally.\ If\ you\ register\ your}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ PixelMapper\ before\ calling\ RGBMatrix::CreateFromFlags(),\ the\ named}}
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ PixelMapper\ is\ available\ in\ the\ -\/-\/led-\/pixel-\/mapper\ options.}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ Note,\ you\ don't\ \_have\_\ to\ register\ your\ mapper,\ you\ can\ always\ call}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ RGBMatrix::ApplyPixelMapper()\ directly.\ Registering\ is\ for\ convenience\ and}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ commandline-\/flag\ support.}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ There\ are\ a\ few\ standard\ mappers\ registered\ by\ default.}}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacergb__matrix_a1116b61fad066887482a1e85b104bdd8}{RegisterPixelMapper}}(\mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{PixelMapper}}\ *mapper);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ Get\ a\ list\ of\ the\ names\ of\ available\ pixel\ mappers.}}
+\DoxyCodeLine{00097\ std::vector<std::string>\ \mbox{\hyperlink{namespacergb__matrix_a83867b879b75c884231f3d1c24ad85c3}{GetAvailablePixelMappers}}();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ Given\ a\ name\ (e.g.\ "{}rotate"{})\ and\ a\ parameter\ (e.g.\ "{}90"{}),\ return\ the}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ parametrized\ PixelMapper\ with\ that\ name.\ Returns\ NULL\ if\ mapper}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ can\ not\ be\ found\ or\ parameter\ is\ invalid.}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ Ownership\ of\ the\ returned\ object\ is\ \_NOT\_\ transferred\ to\ the\ caller.}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//\ Current\ available\ mappers\ are\ "{}U-\/mapper"{}\ and\ "{}Rotate"{}.\ The\ "{}Rotate"{}}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//\ gets\ a\ parameter\ denoting\ the\ angle.}}
+\DoxyCodeLine{00105\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrgb__matrix_1_1PixelMapper}{PixelMapper}}\ *\mbox{\hyperlink{namespacergb__matrix_a8b7b4ea110ce1f728a63448de8a433bb}{FindPixelMapper}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ chain,\ \textcolor{keywordtype}{int}\ parallel,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *parameter\ =\ NULL);}
+\DoxyCodeLine{00108\ \}\ \ \textcolor{comment}{//\ namespace\ rgb\_matrix}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ RGBMATRIX\_PIXEL\_MAPPER}}
+
+\end{DoxyCode}

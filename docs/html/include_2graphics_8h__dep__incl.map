@@ -1,0 +1,25 @@
+<map id="include/graphics.h" name="include/graphics.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="444,5,584,31"/>
+<area shape="rect" id="Node000002" href="$include_2led-matrix_8h.html" title=" " alt="" coords="437,79,591,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="517,44,517,79,511,79,511,44"/>
+<area shape="rect" id="Node000003" href="$demo__runner_8h.html" title=" " alt="" coords="333,152,503,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="489,114,435,154,432,150,486,110"/>
+<area shape="rect" id="Node000011" href="$portal__effect_8h.html" title=" " alt="" coords="528,152,695,177"/>
+<area shape="poly" id="edge12_Node000002_Node000011" title=" " alt="" coords="542,110,597,150,594,154,539,114"/>
+<area shape="rect" id="Node000004" href="$genetic__colors_8h.html" title=" " alt="" coords="191,225,370,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="385,186,304,227,302,223,383,181"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title="Main entry point for running LED matrix evolution demos." alt="" coords="365,306,471,331"/>
+<area shape="poly" id="edge11_Node000003_Node000006" title=" " alt="" coords="421,191,421,306,415,306,415,191"/>
+<area shape="rect" id="Node000008" href="$guided__evolution_8h.html" title=" " alt="" coords="471,225,669,251"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="456,181,546,223,544,228,453,185"/>
+<area shape="rect" id="Node000005" href="$genetic__colors_8cpp.html" title="Implements the GeneticColors class which evolves pixel colors on an LED matrix toward a target image." alt="" coords="5,306,172,331"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="241,258,118,308,116,304,239,253"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="314,255,399,303,396,308,311,260"/>
+<area shape="rect" id="Node000007" href="$genetic__colors__test_8cpp.html" title=" " alt="" coords="196,299,341,339"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="279,264,274,299,269,298,274,264"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="537,259,442,308,439,303,534,255"/>
+<area shape="rect" id="Node000009" href="$guided__evolution_8cpp.html" title="Implements GuidedColorEvolution, a class that smoothly transitions pixel colors to match a target ima..." alt="" coords="495,306,679,331"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="578,263,587,305,582,306,573,265"/>
+<area shape="rect" id="Node000010" href="$guided__evolution__test_8cpp.html" title=" " alt="" coords="703,299,866,339"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="615,253,734,296,732,301,613,258"/>
+</map>

@@ -1,0 +1,166 @@
+\doxysection{Genetic\+Colors Class Reference}
+\hypertarget{classGeneticColors}{}\label{classGeneticColors}\index{GeneticColors@{GeneticColors}}
+
+
+{\ttfamily \#include $<$genetic\+\_\+colors.\+h$>$}
+
+
+
+Inheritance diagram for Genetic\+Colors\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classGeneticColors__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Genetic\+Colors\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{classGeneticColors__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGeneticColors_a17f538eafed83dbc7f5166cf55fb2089}{Genetic\+Colors}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}}, int delay\+\_\+ms=200)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{classGeneticColors}{Genetic\+Colors} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGeneticColors_a0cc261c823f0a390c2f9af37ed12dbb9}{Run}} () override
+\begin{DoxyCompactList}\small\item\em Main animation loop. Evolves pixel colors toward the target image. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGeneticColors_a9b4b8cebf6285a68f2e096f31fce3733}{Genetic\+Colors}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}m, int delay\+\_\+ms=200)
+\item 
+\mbox{\hyperlink{classGeneticColors_aba241979fb743cb1a29538c9b4f45760}{\texorpdfstring{$\sim$}{\string~}\+Genetic\+Colors}} ()
+\item 
+void \mbox{\hyperlink{classGeneticColors_a0cc261c823f0a390c2f9af37ed12dbb9}{Run}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classDemoRunner}{Demo\+Runner}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classDemoRunner_a37c7e64aa2f655968ec360c0b0dd85e1}{\texorpdfstring{$\sim$}{\string~}\+Demo\+Runner}} ()=default
+\item 
+virtual \mbox{\hyperlink{classDemoRunner_af9510dbb8c3881d5ae18ecb5eb175af4}{\texorpdfstring{$\sim$}{\string~}\+Demo\+Runner}} ()
+\item 
+virtual \mbox{\hyperlink{classDemoRunner_af9510dbb8c3881d5ae18ecb5eb175af4}{\texorpdfstring{$\sim$}{\string~}\+Demo\+Runner}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classGeneticColors_a3622b6a25e395f1b732293c408de6e18}{calc\+Fitness}} (int value, int target)
+\begin{DoxyCompactList}\small\item\em Calculate fitness (similarity) between a color and the target color. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classGeneticColors_a51a78643eff2e73d012184770b5cb2eb}{rnd}} (int i)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classDemoRunner}{Demo\+Runner}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDemoRunner_ae82e0e4d4c9d0ece96c3b7fc6c20036f}{Demo\+Runner}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}} ()
+\item 
+\mbox{\hyperlink{classDemoRunner_ad06a34cdc2e5f35b67c8b9d37361ba32}{Demo\+Runner}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDemoRunner_a180b9c0dc464679d02e54f93074ca78d}{canvas}} ()
+\item 
+\mbox{\hyperlink{classDemoRunner_ad06a34cdc2e5f35b67c8b9d37361ba32}{Demo\+Runner}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDemoRunner_a180b9c0dc464679d02e54f93074ca78d}{canvas}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Genetic Colors A genetic algorithm to evolve colors by bbhsu2 + anonymous 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGeneticColors_a17f538eafed83dbc7f5166cf55fb2089}\label{classGeneticColors_a17f538eafed83dbc7f5166cf55fb2089} 
+\index{GeneticColors@{GeneticColors}!GeneticColors@{GeneticColors}}
+\index{GeneticColors@{GeneticColors}!GeneticColors@{GeneticColors}}
+\doxysubsubsection{\texorpdfstring{GeneticColors()}{GeneticColors()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Genetic\+Colors\+::\+Genetic\+Colors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas,  }\item[{int}]{delay\+\_\+ms = {\ttfamily 200} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{classGeneticColors}{Genetic\+Colors} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em canvas} & Pointer to the RGB matrix canvas. \\
+\hline
+{\em delay\+\_\+ms} & Delay in milliseconds between each frame. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGeneticColors_a9b4b8cebf6285a68f2e096f31fce3733}\label{classGeneticColors_a9b4b8cebf6285a68f2e096f31fce3733} 
+\index{GeneticColors@{GeneticColors}!GeneticColors@{GeneticColors}}
+\index{GeneticColors@{GeneticColors}!GeneticColors@{GeneticColors}}
+\doxysubsubsection{\texorpdfstring{GeneticColors()}{GeneticColors()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Genetic\+Colors\+::\+Genetic\+Colors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{m,  }\item[{int}]{delay\+\_\+ms = {\ttfamily 200} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGeneticColors_aba241979fb743cb1a29538c9b4f45760}\label{classGeneticColors_aba241979fb743cb1a29538c9b4f45760} 
+\index{GeneticColors@{GeneticColors}!````~GeneticColors@{\texorpdfstring{$\sim$}{\string~}GeneticColors}}
+\index{````~GeneticColors@{\texorpdfstring{$\sim$}{\string~}GeneticColors}!GeneticColors@{GeneticColors}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GeneticColors()}{\string~GeneticColors()}}
+{\footnotesize\ttfamily Genetic\+Colors\+::\texorpdfstring{$\sim$}{\string~}\+Genetic\+Colors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGeneticColors_a3622b6a25e395f1b732293c408de6e18}\label{classGeneticColors_a3622b6a25e395f1b732293c408de6e18} 
+\index{GeneticColors@{GeneticColors}!calcFitness@{calcFitness}}
+\index{calcFitness@{calcFitness}!GeneticColors@{GeneticColors}}
+\doxysubsubsection{\texorpdfstring{calcFitness()}{calcFitness()}}
+{\footnotesize\ttfamily int Genetic\+Colors\+::calc\+Fitness (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate fitness (similarity) between a color and the target color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The current color. \\
+\hline
+{\em target} & The target color. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sum of squared differences in RGB channels. 
+\end{DoxyReturn}
+\Hypertarget{classGeneticColors_a51a78643eff2e73d012184770b5cb2eb}\label{classGeneticColors_a51a78643eff2e73d012184770b5cb2eb} 
+\index{GeneticColors@{GeneticColors}!rnd@{rnd}}
+\index{rnd@{rnd}!GeneticColors@{GeneticColors}}
+\doxysubsubsection{\texorpdfstring{rnd()}{rnd()}}
+{\footnotesize\ttfamily static int Genetic\+Colors\+::rnd (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{classGeneticColors_a0cc261c823f0a390c2f9af37ed12dbb9}\label{classGeneticColors_a0cc261c823f0a390c2f9af37ed12dbb9} 
+\index{GeneticColors@{GeneticColors}!Run@{Run}}
+\index{Run@{Run}!GeneticColors@{GeneticColors}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Genetic\+Colors\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Main animation loop. Evolves pixel colors toward the target image. 
+
+
+
+Implements \mbox{\hyperlink{classDemoRunner_ae9aefbf0a6a7aa868007b4508e95c353}{Demo\+Runner}}.
+
+\Hypertarget{classGeneticColors_a0cc261c823f0a390c2f9af37ed12dbb9}\label{classGeneticColors_a0cc261c823f0a390c2f9af37ed12dbb9} 
+\index{GeneticColors@{GeneticColors}!Run@{Run}}
+\index{Run@{Run}!GeneticColors@{GeneticColors}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Genetic\+Colors\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classDemoRunner_ae9aefbf0a6a7aa868007b4508e95c353}{Demo\+Runner}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{genetic__colors_8h}{genetic\+\_\+colors.\+h}}\item 
+matrix/examples-\/api-\/use/\mbox{\hyperlink{demo-main_8cc}{demo-\/main.\+cc}}\item 
+src/\mbox{\hyperlink{genetic__colors_8cpp}{genetic\+\_\+colors.\+cpp}}\end{DoxyCompactItemize}

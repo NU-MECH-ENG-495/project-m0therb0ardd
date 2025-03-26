@@ -1,0 +1,99 @@
+\doxysection{rgb\+\_\+matrix\+::RGBMatrix\+::Impl\+::Update\+Thread Class Reference}
+\hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread}{}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread}\index{rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}}
+
+
+Inheritance diagram for rgb\+\_\+matrix\+::RGBMatrix\+::Impl\+::Update\+Thread\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for rgb\+\_\+matrix\+::RGBMatrix\+::Impl\+::Update\+Thread\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_a91a3eb64233d5862dde18a0a3b0d9f44}{Update\+Thread}} (\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}io, \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*}initial\+\_\+frame, int pwm\+\_\+dither\+\_\+bits, bool show\+\_\+refresh, int limit\+\_\+refresh\+\_\+hz, bool allow\+\_\+busy\+\_\+waiting)
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_a141c2fbf7b756b718e38d984d9b14b28}{Stop}} ()
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_ae66e78fe8fcf3258498be76cb1cd0d0c}{Run}} ()
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_abbc34cb91fb04349c8a780203439f195}{Swap\+On\+VSync}} (\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*}other, unsigned frame\+\_\+fraction)
+\item 
+\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_aa42d020cfc3aa9d0973950d25a1d4fd9}{Await\+Input\+Change}} (int timeout\+\_\+ms)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrgb__matrix_1_1Thread}{rgb\+\_\+matrix\+::\+Thread}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1Thread_a96312672c1d400438594e7ebcfd3d138}{Thread}} ()
+\item 
+virtual \mbox{\hyperlink{classrgb__matrix_1_1Thread_a60501b17444f4541ae3d71fcd6686dcb}{\texorpdfstring{$\sim$}{\string~}\+Thread}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1Thread_a8d3f40032e796151681675d33a94d17a}{Wait\+Stopped}} ()
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1Thread_af84c729c98a743a0f5eb8497b021bd36}{Start}} (int realtime\+\_\+priority=0, uint32\+\_\+t cpu\+\_\+affinity\+\_\+mask=0)
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1Thread_a96312672c1d400438594e7ebcfd3d138}{Thread}} ()
+\item 
+virtual \mbox{\hyperlink{classrgb__matrix_1_1Thread_ad0dbe8f790f4684b68d37d385dda38a7}{\texorpdfstring{$\sim$}{\string~}\+Thread}} ()
+\item 
+void \mbox{\hyperlink{classrgb__matrix_1_1Thread_a8d3f40032e796151681675d33a94d17a}{Wait\+Stopped}} ()
+\item 
+virtual void \mbox{\hyperlink{classrgb__matrix_1_1Thread_afd078ad5548630ee924768d42093e1f2}{Start}} (int realtime\+\_\+priority=0, uint32\+\_\+t cpu\+\_\+affinity\+\_\+mask=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_a91a3eb64233d5862dde18a0a3b0d9f44}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_a91a3eb64233d5862dde18a0a3b0d9f44} 
+\index{rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}!UpdateThread@{UpdateThread}}
+\index{UpdateThread@{UpdateThread}!rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}}
+\doxysubsubsection{\texorpdfstring{UpdateThread()}{UpdateThread()}}
+{\footnotesize\ttfamily rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Update\+Thread\+::\+Update\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}} \texorpdfstring{$\ast$}{*}}]{io,  }\item[{\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*}}]{initial\+\_\+frame,  }\item[{int}]{pwm\+\_\+dither\+\_\+bits,  }\item[{bool}]{show\+\_\+refresh,  }\item[{int}]{limit\+\_\+refresh\+\_\+hz,  }\item[{bool}]{allow\+\_\+busy\+\_\+waiting }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_aa42d020cfc3aa9d0973950d25a1d4fd9}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_aa42d020cfc3aa9d0973950d25a1d4fd9} 
+\index{rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}!AwaitInputChange@{AwaitInputChange}}
+\index{AwaitInputChange@{AwaitInputChange}!rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}}
+\doxysubsubsection{\texorpdfstring{AwaitInputChange()}{AwaitInputChange()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\+\_\+bits\+\_\+t}} rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Update\+Thread\+::\+Await\+Input\+Change (\begin{DoxyParamCaption}\item[{int}]{timeout\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_ae66e78fe8fcf3258498be76cb1cd0d0c}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_ae66e78fe8fcf3258498be76cb1cd0d0c} 
+\index{rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}!Run@{Run}}
+\index{Run@{Run}!rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily virtual void rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Update\+Thread\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrgb__matrix_1_1Thread_a7f65e725ed9c434c2e3feb9436e52e7c}{rgb\+\_\+matrix\+::\+Thread}}.
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_a141c2fbf7b756b718e38d984d9b14b28}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_a141c2fbf7b756b718e38d984d9b14b28} 
+\index{rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}!Stop@{Stop}}
+\index{Stop@{Stop}!rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily void rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Update\+Thread\+::\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_abbc34cb91fb04349c8a780203439f195}\label{classrgb__matrix_1_1RGBMatrix_1_1Impl_1_1UpdateThread_abbc34cb91fb04349c8a780203439f195} 
+\index{rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}!SwapOnVSync@{SwapOnVSync}}
+\index{SwapOnVSync@{SwapOnVSync}!rgb\_matrix::RGBMatrix::Impl::UpdateThread@{rgb\_matrix::RGBMatrix::Impl::UpdateThread}}
+\doxysubsubsection{\texorpdfstring{SwapOnVSync()}{SwapOnVSync()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*} rgb\+\_\+matrix\+::\+RGBMatrix\+::\+Impl\+::\+Update\+Thread\+::\+Swap\+On\+VSync (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1FrameCanvas}{Frame\+Canvas}} \texorpdfstring{$\ast$}{*}}]{other,  }\item[{unsigned}]{frame\+\_\+fraction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+matrix/lib/\mbox{\hyperlink{led-matrix_8cc}{led-\/matrix.\+cc}}\end{DoxyCompactItemize}

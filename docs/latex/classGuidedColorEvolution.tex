@@ -1,0 +1,103 @@
+\doxysection{Guided\+Color\+Evolution Class Reference}
+\hypertarget{classGuidedColorEvolution}{}\label{classGuidedColorEvolution}\index{GuidedColorEvolution@{GuidedColorEvolution}}
+
+
+{\ttfamily \#include $<$guided\+\_\+evolution.\+h$>$}
+
+
+
+Inheritance diagram for Guided\+Color\+Evolution\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classGuidedColorEvolution__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Guided\+Color\+Evolution\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classGuidedColorEvolution__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGuidedColorEvolution_a76a525d0875d49ac6dcedc7fa1f7421f}{Guided\+Color\+Evolution}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}}, int delay\+\_\+ms=50)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classGuidedColorEvolution}{Guided\+Color\+Evolution} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGuidedColorEvolution_af1607bbdfa4aa3a9bbfaa102f7c37bcb}{Run}} () override
+\begin{DoxyCompactList}\small\item\em Starts the animation loop which gradually changes pixel colors to match the target image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classDemoRunner}{Demo\+Runner}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classDemoRunner_a37c7e64aa2f655968ec360c0b0dd85e1}{\texorpdfstring{$\sim$}{\string~}\+Demo\+Runner}} ()=default
+\item 
+virtual \mbox{\hyperlink{classDemoRunner_af9510dbb8c3881d5ae18ecb5eb175af4}{\texorpdfstring{$\sim$}{\string~}\+Demo\+Runner}} ()
+\item 
+virtual \mbox{\hyperlink{classDemoRunner_af9510dbb8c3881d5ae18ecb5eb175af4}{\texorpdfstring{$\sim$}{\string~}\+Demo\+Runner}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classDemoRunner}{Demo\+Runner}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDemoRunner_ae82e0e4d4c9d0ece96c3b7fc6c20036f}{Demo\+Runner}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}} ()
+\item 
+\mbox{\hyperlink{classDemoRunner_ad06a34cdc2e5f35b67c8b9d37361ba32}{Demo\+Runner}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDemoRunner_a180b9c0dc464679d02e54f93074ca78d}{canvas}} ()
+\item 
+\mbox{\hyperlink{classDemoRunner_ad06a34cdc2e5f35b67c8b9d37361ba32}{Demo\+Runner}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classDemoRunner_a887f17287eda2d8d01fb25ae4100a622}{canvas}})
+\item 
+\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDemoRunner_a180b9c0dc464679d02e54f93074ca78d}{canvas}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGuidedColorEvolution_a76a525d0875d49ac6dcedc7fa1f7421f}\label{classGuidedColorEvolution_a76a525d0875d49ac6dcedc7fa1f7421f} 
+\index{GuidedColorEvolution@{GuidedColorEvolution}!GuidedColorEvolution@{GuidedColorEvolution}}
+\index{GuidedColorEvolution@{GuidedColorEvolution}!GuidedColorEvolution@{GuidedColorEvolution}}
+\doxysubsubsection{\texorpdfstring{GuidedColorEvolution()}{GuidedColorEvolution()}}
+{\footnotesize\ttfamily Guided\+Color\+Evolution\+::\+Guided\+Color\+Evolution (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{rgb\+\_\+matrix\+::\+Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas,  }\item[{int}]{delay\+\_\+ms = {\ttfamily 50} }\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{classGuidedColorEvolution}{Guided\+Color\+Evolution} object. 
+
+Initializes the canvas and fills the pixel array with random 24-\/bit RGB colors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em canvas} & Pointer to the LED matrix canvas. \\
+\hline
+{\em delay\+\_\+ms} & Delay in milliseconds between frames. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGuidedColorEvolution_af1607bbdfa4aa3a9bbfaa102f7c37bcb}\label{classGuidedColorEvolution_af1607bbdfa4aa3a9bbfaa102f7c37bcb} 
+\index{GuidedColorEvolution@{GuidedColorEvolution}!Run@{Run}}
+\index{Run@{Run}!GuidedColorEvolution@{GuidedColorEvolution}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Guided\+Color\+Evolution\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Starts the animation loop which gradually changes pixel colors to match the target image. 
+
+The animation stops when all pixels match their respective target values. 
+
+Implements \mbox{\hyperlink{classDemoRunner_ae9aefbf0a6a7aa868007b4508e95c353}{Demo\+Runner}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{guided__evolution_8h}{guided\+\_\+evolution.\+h}}\item 
+src/\mbox{\hyperlink{guided__evolution_8cpp}{guided\+\_\+evolution.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,56 @@
+\doxysection{matrix/lib/options-\/initialize.cc File Reference}
+\hypertarget{options-initialize_8cc}{}\label{options-initialize_8cc}\index{matrix/lib/options-\/initialize.cc@{matrix/lib/options-\/initialize.cc}}
+{\ttfamily \#include "{}led-\/matrix.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$grp.\+h$>$}\newline
+{\ttfamily \#include $<$pwd.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}multiplex-\/mappers-\/internal.\+h"{}}\newline
+{\ttfamily \#include "{}framebuffer-\/internal.\+h"{}}\newline
+{\ttfamily \#include "{}gpio.\+h"{}}\newline
+Include dependency graph for options-\/initialize.cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{options-initialize_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacergb__matrix}{rgb\+\_\+matrix}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{options-initialize_8cc_a74c3a8f65276d31079809e6a3fa891ac}{OPTION\+\_\+\+PREFIX}}~"{}-\/-\/led-\/"{}
+\item 
+\#define \mbox{\hyperlink{options-initialize_8cc_aca04274f31006de07163ce5f9838f2fe}{OPTION\+\_\+\+PREFIX\+\_\+\+LEN}}~strlen(\mbox{\hyperlink{options-initialize_8cc_a74c3a8f65276d31079809e6a3fa891ac}{OPTION\+\_\+\+PREFIX}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacergb__matrix_a06ec270dc0cf66ad8e253826deb5d92a}{rgb\+\_\+matrix\+::\+Parse\+Options\+From\+Flags}} (int \texorpdfstring{$\ast$}{*}argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv, \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \texorpdfstring{$\ast$}{*}default\+\_\+options, \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \texorpdfstring{$\ast$}{*}rt\+\_\+options, bool remove\+\_\+consumed\+\_\+flags=true)
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_a4289cc81716699d2080dae776d4580c0}{rgb\+\_\+matrix\+::\+Print\+Matrix\+Flags}} (FILE \texorpdfstring{$\ast$}{*}out, const \mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}} \&defaults=\mbox{\hyperlink{structrgb__matrix_1_1RGBMatrix_1_1Options}{RGBMatrix\+::\+Options}}(), const \mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}} \&rt\+\_\+opt=\mbox{\hyperlink{structrgb__matrix_1_1RuntimeOptions}{Runtime\+Options}}())
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{options-initialize_8cc_a74c3a8f65276d31079809e6a3fa891ac}\label{options-initialize_8cc_a74c3a8f65276d31079809e6a3fa891ac} 
+\index{options-\/initialize.cc@{options-\/initialize.cc}!OPTION\_PREFIX@{OPTION\_PREFIX}}
+\index{OPTION\_PREFIX@{OPTION\_PREFIX}!options-\/initialize.cc@{options-\/initialize.cc}}
+\doxysubsubsection{\texorpdfstring{OPTION\_PREFIX}{OPTION\_PREFIX}}
+{\footnotesize\ttfamily \#define OPTION\+\_\+\+PREFIX~"{}-\/-\/led-\/"{}}
+
+\Hypertarget{options-initialize_8cc_aca04274f31006de07163ce5f9838f2fe}\label{options-initialize_8cc_aca04274f31006de07163ce5f9838f2fe} 
+\index{options-\/initialize.cc@{options-\/initialize.cc}!OPTION\_PREFIX\_LEN@{OPTION\_PREFIX\_LEN}}
+\index{OPTION\_PREFIX\_LEN@{OPTION\_PREFIX\_LEN}!options-\/initialize.cc@{options-\/initialize.cc}}
+\doxysubsubsection{\texorpdfstring{OPTION\_PREFIX\_LEN}{OPTION\_PREFIX\_LEN}}
+{\footnotesize\ttfamily \#define OPTION\+\_\+\+PREFIX\+\_\+\+LEN~strlen(\mbox{\hyperlink{options-initialize_8cc_a74c3a8f65276d31079809e6a3fa891ac}{OPTION\+\_\+\+PREFIX}})}
+

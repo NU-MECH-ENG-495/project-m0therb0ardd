@@ -1,0 +1,125 @@
+\doxysection{matrix/bindings/c\#/examples/\+Font\+Example/\+Program.cs File Reference}
+\hypertarget{FontExample_2Program_8cs}{}\label{FontExample_2Program_8cs}\index{matrix/bindings/c\#/examples/FontExample/Program.cs@{matrix/bindings/c\#/examples/FontExample/Program.cs}}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}} = new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(32, 2, 1)
+\item 
+using \mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}} = new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedFont}{RGBLed\+Font}}(args\mbox{[}0\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FontExample_2Program_8cs_ae8424db81acd1f36592f97fdacddcfca}{if}} (args.\+Length$<$ 1)
+\item 
+\mbox{\hyperlink{FontExample_2Program_8cs_a839be40faca7f46c0fa3b5732e5a1444}{if}} (args.\+Length $>$ 1) \mbox{\hyperlink{FontExample_2Program_8cs_a739bd7e413e61c963681e085a990979a}{text}}
+\item 
+canvas. \mbox{\hyperlink{FontExample_2Program_8cs_aad8bb8927448f48a435be3ea189fc057}{Draw\+Text}} (\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, 1, 6, new \mbox{\hyperlink{structColor}{Color}}(0, 255, 0), \mbox{\hyperlink{FontExample_2Program_8cs_a739bd7e413e61c963681e085a990979a}{text}})
+\item 
+matrix. \mbox{\hyperlink{FontExample_2Program_8cs_a51e3f55e421a58cc7d76363e8f84ad34}{Swap\+On\+Vsync}} (\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}})
+\item 
+\mbox{\hyperlink{FontExample_2Program_8cs_a5f2b5a7d52a6de7edee74b173210fde6}{while}} (\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}) Thread.\+Yield()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{FontExample_2Program_8cs_a739bd7e413e61c963681e085a990979a}{text}} = "{}Hello World!"{}
+\item 
+var \mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}} = matrix.\+Create\+Offscreen\+Canvas()
+\item 
+var \mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}} = true
+\item 
+Console. \mbox{\hyperlink{FontExample_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}{Cancel\+Key\+Press}}
+\item 
+\mbox{\hyperlink{FontExample_2Program_8cs_a9717e7bbecb906637e86cef6da3d83c2}{return}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}\label{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e} 
+\index{Program.cs@{Program.cs}!font@{font}}
+\index{font@{font}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}} =  new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedFont}{RGBLed\+Font}}(args\mbox{[}0\mbox{]})}
+
+\Hypertarget{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}\label{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f} 
+\index{Program.cs@{Program.cs}!matrix@{matrix}}
+\index{matrix@{matrix}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}} =  new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(32, 2, 1)}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{FontExample_2Program_8cs_aad8bb8927448f48a435be3ea189fc057}\label{FontExample_2Program_8cs_aad8bb8927448f48a435be3ea189fc057} 
+\index{Program.cs@{Program.cs}!DrawText@{DrawText}}
+\index{DrawText@{DrawText}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{DrawText()}{DrawText()}}
+{\footnotesize\ttfamily canvas. Draw\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}}]{,  }\item[{1}]{,  }\item[{6}]{,  }\item[{new }]{Color0, 255, 0,  }\item[{\mbox{\hyperlink{FontExample_2Program_8cs_a739bd7e413e61c963681e085a990979a}{text}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FontExample_2Program_8cs_a839be40faca7f46c0fa3b5732e5a1444}\label{FontExample_2Program_8cs_a839be40faca7f46c0fa3b5732e5a1444} 
+\index{Program.cs@{Program.cs}!if@{if}}
+\index{if@{if}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{args.}]{Length,  }\item[{1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FontExample_2Program_8cs_ae8424db81acd1f36592f97fdacddcfca}\label{FontExample_2Program_8cs_ae8424db81acd1f36592f97fdacddcfca} 
+\index{Program.cs@{Program.cs}!if@{if}}
+\index{if@{if}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FontExample_2Program_8cs_a51e3f55e421a58cc7d76363e8f84ad34}\label{FontExample_2Program_8cs_a51e3f55e421a58cc7d76363e8f84ad34} 
+\index{Program.cs@{Program.cs}!SwapOnVsync@{SwapOnVsync}}
+\index{SwapOnVsync@{SwapOnVsync}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{SwapOnVsync()}{SwapOnVsync()}}
+{\footnotesize\ttfamily matrix. Swap\+On\+Vsync (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FontExample_2Program_8cs_a5f2b5a7d52a6de7edee74b173210fde6}\label{FontExample_2Program_8cs_a5f2b5a7d52a6de7edee74b173210fde6} 
+\index{Program.cs@{Program.cs}!while@{while}}
+\index{while@{while}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{while()}{while()}}
+{\footnotesize\ttfamily while (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{FontExample_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}\label{FontExample_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343} 
+\index{Program.cs@{Program.cs}!CancelKeyPress@{CancelKeyPress}}
+\index{CancelKeyPress@{CancelKeyPress}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{CancelKeyPress}{CancelKeyPress}}
+{\footnotesize\ttfamily Console. Cancel\+Key\+Press}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ (\_,\ e)\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ e.Cancel\ =\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}\label{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73} 
+\index{Program.cs@{Program.cs}!canvas@{canvas}}
+\index{canvas@{canvas}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{canvas}{canvas}}
+{\footnotesize\ttfamily var canvas = matrix.\+Create\+Offscreen\+Canvas()}
+
+\Hypertarget{FontExample_2Program_8cs_a9717e7bbecb906637e86cef6da3d83c2}\label{FontExample_2Program_8cs_a9717e7bbecb906637e86cef6da3d83c2} 
+\index{Program.cs@{Program.cs}!return@{return}}
+\index{return@{return}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{return}{return}}
+{\footnotesize\ttfamily return}
+
+\Hypertarget{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}\label{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e} 
+\index{Program.cs@{Program.cs}!running@{running}}
+\index{running@{running}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily var running = true}
+
+\Hypertarget{FontExample_2Program_8cs_a739bd7e413e61c963681e085a990979a}\label{FontExample_2Program_8cs_a739bd7e413e61c963681e085a990979a} 
+\index{Program.cs@{Program.cs}!text@{text}}
+\index{text@{text}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{text}{text}}
+{\footnotesize\ttfamily string text = "{}Hello World!"{}}
+

@@ -1,0 +1,58 @@
+\doxysection{canvas.\+h}
+\hypertarget{include_2canvas_8h_source}{}\label{include_2canvas_8h_source}\index{include/canvas.h@{include/canvas.h}}
+\mbox{\hyperlink{include_2canvas_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/*-\/\ mode:\ c++;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (C)\ 2014\ Henner\ Zeller\ <h.zeller@acm.org>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ the\ Free\ Software\ Foundation\ version\ 2.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://gnu.org/licenses/gpl-\/2.0.txt>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ RPI\_CANVAS\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ RPI\_CANVAS\_H}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ An\ interface\ for\ things\ a\ Canvas\ can\ do.\ The\ RGBMatrix\ implements\ this}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ interface,\ so\ you\ can\ use\ it\ directly\ wherever\ a\ canvas\ is\ needed.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ This\ abstraction\ also\ allows\ you\ to\ e.g.\ create\ delegating}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ implementations\ that\ do\ a\ particular\ transformation,\ e.g.\ re-\/map}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ pixels\ (as\ you\ might\ lay\ out\ the\ physical\ RGB\ matrix\ in\ a\ different\ way),}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ compose\ images\ (OR,\ XOR,\ transparecy),\ scale,\ rotate,\ anti-\/alias\ or}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ translate\ coordinates\ in\ a\ funky\ way.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ It\ is\ a\ good\ idea\ to\ have\ your\ applications\ use\ the\ concept\ of}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ a\ Canvas\ to\ write\ the\ content\ to\ instead\ of\ directly\ using\ the\ RGBMatrix.}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrgb__matrix_1_1Canvas_affcc5a0e1b739a90b0c836f05a0cca1a}{\string~Canvas}}()\ \{\}}
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a58f0d92b6672e44aca4450e24b766a44}{width}}()\ \textcolor{keyword}{const}\ =\ 0;\ \ \textcolor{comment}{//\ Pixels\ available\ in\ x\ direction.}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a1960babc4eba48b5128e4e5ceecd7a7f}{height}}()\ \textcolor{keyword}{const}\ =\ 0;\ \textcolor{comment}{//\ Pixels\ available\ in\ y\ direction.}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Set\ pixel\ at\ coordinate\ (x,y)\ with\ given\ color.\ Pixel\ (0,0)\ is\ the}}
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ top\ left\ corner.}}
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ Each\ color\ is\ 8\ bit\ (24bpp),\ 0\ black,\ 255\ brightest.}}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1Canvas_af5d09df2cd99c41aca2aff8e38707d9c}{SetPixel}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue)\ =\ 0;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ Clear\ screen\ to\ be\ all\ black.}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1Canvas_aa2ffcf9d80ae29491efdb64742a0687d}{Clear}}()\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ Fill\ screen\ with\ given\ 24bpp\ color.}}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1Canvas_a0744ba9acc44b12796fdf3138d7796e9}{Fill}}(uint8\_t\ red,\ uint8\_t\ green,\ uint8\_t\ blue)\ =\ 0;}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \}\ \ \textcolor{comment}{//\ namespace\ rgb\_matrix}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ RPI\_CANVAS\_H}}
+
+\end{DoxyCode}

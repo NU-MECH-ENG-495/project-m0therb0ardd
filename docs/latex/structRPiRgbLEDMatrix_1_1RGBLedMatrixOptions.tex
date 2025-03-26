@@ -1,0 +1,271 @@
+\doxysection{RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options Struct Reference}
+\hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions}{}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions}\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+
+
+Represents the matrix settings.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a0fc368ff3579c6fa9c4b98a69c8eed23}{RGBLed\+Matrix\+Options}} ()
+\begin{DoxyCompactList}\small\item\em Creates default matrix settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string? \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a00dce71af048d230a3f6b7bf96d59bc4}{Hardware\+Mapping}} = null
+\begin{DoxyCompactList}\small\item\em Name of the hardware mapping used. If passed {\ttfamily null} here, the default is used. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a38ea68dae159d8132fb963a94d116482}{Rows}} = 32
+\begin{DoxyCompactList}\small\item\em The "{}rows"{} are the number of rows supported by the display, so 32 or 16. Default\+: 32. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_aaa226493dae6ea476ca7b4c3d59e83a3}{Cols}} = 32
+\begin{DoxyCompactList}\small\item\em The "{}cols"{} are the number of columns per panel. Typically something like 32, but also 64 is possible. Sometimes even 40. {\ttfamily cols \texorpdfstring{$\ast$}{*} chain\+\_\+length} is the total length of the display, so you can represent a 64 wide display as cols=32, chain=2 or cols=64, chain=1; same thing, but more convenient to think of. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a99686edfbb6067c6a8c9290b842849a0}{Chain\+Length}} = 1
+\begin{DoxyCompactList}\small\item\em The chain\+\_\+length is the number of displays daisy-\/chained together (output of one connected to input of next). Default\+: 1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a46f57b1a0ba135a712ed47b490848752}{Parallel}} = 1
+\begin{DoxyCompactList}\small\item\em The number of parallel chains connected to the Pi; in old Pis with 26 GPIO pins, that is 1, in newer Pis with 40 interfaces pins, that can also be 2 or 3. The effective number of pixels in vertical direction is then thus {\ttfamily rows \texorpdfstring{$\ast$}{*} parallel}. Default\+: 1. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a5173343c4c17e5f911b0b006b0c36c79}{Pwm\+Bits}} = 11
+\begin{DoxyCompactList}\small\item\em Set PWM bits used for output. Default is 11, but if you only deal with limited comic-\/colors, 1 might be sufficient. Lower require less CPU and increases refresh-\/rate. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a71f8659c693f27756f2579b5d0f64a71}{Pwm\+Lsb\+Nanoseconds}} = 130
+\begin{DoxyCompactList}\small\item\em Change the base time-\/unit for the on-\/time in the lowest significant bit in nanoseconds. Higher numbers provide better quality (more accurate color, less ghosting), but have a negative impact on the frame rate. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a7c03d4ee5e33e83f096d0d4b3411204a}{Pwm\+Dither\+Bits}} = 0
+\begin{DoxyCompactList}\small\item\em The lower bits can be time-\/dithered for higher refresh rate. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_abd9fce3c05b6c25f901c6a494c8d145c}{Brightness}} = 100
+\begin{DoxyCompactList}\small\item\em The initial brightness of the panel in percent. Valid range is 1..100. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39a}{Scan\+Modes}} \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_add3473d966ebe32c63517f560fd6f1b5}{Scan\+Mode}} = \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39aa9712e73e86ea0fe944ca2ce3f9f7dd87}{Scan\+Modes.\+Progressive}}
+\begin{DoxyCompactList}\small\item\em Scan mode. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_aa89bbc8ae30e774d7db5bfeabc22d9e4}{Row\+Address\+Type}} = 0
+\begin{DoxyCompactList}\small\item\em Default row address type is 0, corresponding to direct setting of the row, while row address type 1 is used for panels that only have A/B, typically some 64x64 panels. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecc}{Multiplexing}} \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ab27e3db617141f125ff66a70aa97bbfa}{Multiplexing}} = \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5eccafd1dd0c603be8170f9eae0be9f2f6afb}{Multiplexing.\+Direct}}
+\begin{DoxyCompactList}\small\item\em Type of multiplexing. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a4d2c7f1b8e8f4f584b191077513db77c}{Led\+Rgb\+Sequence}} = null
+\begin{DoxyCompactList}\small\item\em In case the internal sequence of mapping is not {\ttfamily "{}\+RGB"{}}, this contains the real mapping. Some panels mix up these colors. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ace2bcca9634e3f39dffc43ed8810eadd}{Pixel\+Mapper\+Config}} = null
+\begin{DoxyCompactList}\small\item\em A string describing a sequence of pixel mappers that should be applied to this matrix. A semicolon-\/separated list of pixel-\/mappers with optional parameter. \end{DoxyCompactList}\item 
+string? \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a7f813064e211d5e121c56ea495a9cdc5}{Panel\+Type}} = null
+\begin{DoxyCompactList}\small\item\em Panel type. Typically just empty, but certain panels (FM6126) requie an initialization sequence. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a679760089908192d60fc190737a9f226}{Disable\+Hardware\+Pulsing}} = false
+\begin{DoxyCompactList}\small\item\em Allow to use the hardware subsystem to create pulses. This won\textquotesingle{}t do anything if output enable is not connected to GPIO 18. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_af0a4c9322e8c05093e6f5871b00bed67}{Show\+Refresh\+Rate}} = false
+\item 
+bool \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ac5699c0adfc514e62a8fca9500d2a0e2}{Inverse\+Colors}} = false
+\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_af0cd9fb827d8ef7ead27114db8f48d97}{Limit\+Refresh\+Rate\+Hz}} = 0
+\begin{DoxyCompactList}\small\item\em Limit refresh rate of LED panel. This will help on a loaded system to keep a constant refresh rate. \texorpdfstring{$<$}{<}= 0 for no limit. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a2bdf9bc0359c39de7581b164da8f847e}{Gpio\+Slowdown}} = 1
+\begin{DoxyCompactList}\small\item\em Slowdown GPIO. Needed for faster Pis/slower panels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the matrix settings. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a0fc368ff3579c6fa9c4b98a69c8eed23}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a0fc368ff3579c6fa9c4b98a69c8eed23} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!RGBLedMatrixOptions@{RGBLedMatrixOptions}}
+\index{RGBLedMatrixOptions@{RGBLedMatrixOptions}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{RGBLedMatrixOptions()}{RGBLedMatrixOptions()}}
+{\footnotesize\ttfamily RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+RGBLed\+Matrix\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates default matrix settings. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_abd9fce3c05b6c25f901c6a494c8d145c}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_abd9fce3c05b6c25f901c6a494c8d145c} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!Brightness@{Brightness}}
+\index{Brightness@{Brightness}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{Brightness}{Brightness}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Brightness = 100}
+
+
+
+The initial brightness of the panel in percent. Valid range is 1..100. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a99686edfbb6067c6a8c9290b842849a0}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a99686edfbb6067c6a8c9290b842849a0} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!ChainLength@{ChainLength}}
+\index{ChainLength@{ChainLength}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{ChainLength}{ChainLength}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Chain\+Length = 1}
+
+
+
+The chain\+\_\+length is the number of displays daisy-\/chained together (output of one connected to input of next). Default\+: 1. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_aaa226493dae6ea476ca7b4c3d59e83a3}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_aaa226493dae6ea476ca7b4c3d59e83a3} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!Cols@{Cols}}
+\index{Cols@{Cols}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{Cols}{Cols}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Cols = 32}
+
+
+
+The "{}cols"{} are the number of columns per panel. Typically something like 32, but also 64 is possible. Sometimes even 40. {\ttfamily cols \texorpdfstring{$\ast$}{*} chain\+\_\+length} is the total length of the display, so you can represent a 64 wide display as cols=32, chain=2 or cols=64, chain=1; same thing, but more convenient to think of. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a679760089908192d60fc190737a9f226}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a679760089908192d60fc190737a9f226} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!DisableHardwarePulsing@{DisableHardwarePulsing}}
+\index{DisableHardwarePulsing@{DisableHardwarePulsing}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{DisableHardwarePulsing}{DisableHardwarePulsing}}
+{\footnotesize\ttfamily bool RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Disable\+Hardware\+Pulsing = false}
+
+
+
+Allow to use the hardware subsystem to create pulses. This won\textquotesingle{}t do anything if output enable is not connected to GPIO 18. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a2bdf9bc0359c39de7581b164da8f847e}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a2bdf9bc0359c39de7581b164da8f847e} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!GpioSlowdown@{GpioSlowdown}}
+\index{GpioSlowdown@{GpioSlowdown}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{GpioSlowdown}{GpioSlowdown}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Gpio\+Slowdown = 1}
+
+
+
+Slowdown GPIO. Needed for faster Pis/slower panels. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a00dce71af048d230a3f6b7bf96d59bc4}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a00dce71af048d230a3f6b7bf96d59bc4} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!HardwareMapping@{HardwareMapping}}
+\index{HardwareMapping@{HardwareMapping}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{HardwareMapping}{HardwareMapping}}
+{\footnotesize\ttfamily string? RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Hardware\+Mapping = null}
+
+
+
+Name of the hardware mapping used. If passed {\ttfamily null} here, the default is used. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ac5699c0adfc514e62a8fca9500d2a0e2}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ac5699c0adfc514e62a8fca9500d2a0e2} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!InverseColors@{InverseColors}}
+\index{InverseColors@{InverseColors}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{InverseColors}{InverseColors}}
+{\footnotesize\ttfamily bool RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Inverse\+Colors = false}
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a4d2c7f1b8e8f4f584b191077513db77c}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a4d2c7f1b8e8f4f584b191077513db77c} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!LedRgbSequence@{LedRgbSequence}}
+\index{LedRgbSequence@{LedRgbSequence}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{LedRgbSequence}{LedRgbSequence}}
+{\footnotesize\ttfamily string? RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Led\+Rgb\+Sequence = null}
+
+
+
+In case the internal sequence of mapping is not {\ttfamily "{}\+RGB"{}}, this contains the real mapping. Some panels mix up these colors. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_af0cd9fb827d8ef7ead27114db8f48d97}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_af0cd9fb827d8ef7ead27114db8f48d97} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!LimitRefreshRateHz@{LimitRefreshRateHz}}
+\index{LimitRefreshRateHz@{LimitRefreshRateHz}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{LimitRefreshRateHz}{LimitRefreshRateHz}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Limit\+Refresh\+Rate\+Hz = 0}
+
+
+
+Limit refresh rate of LED panel. This will help on a loaded system to keep a constant refresh rate. \texorpdfstring{$<$}{<}= 0 for no limit. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ab27e3db617141f125ff66a70aa97bbfa}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ab27e3db617141f125ff66a70aa97bbfa} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!Multiplexing@{Multiplexing}}
+\index{Multiplexing@{Multiplexing}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{Multiplexing}{Multiplexing}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5ecc}{Multiplexing}} RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Multiplexing = \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_afacc1009f5d753a1f507a48aef3e5eccafd1dd0c603be8170f9eae0be9f2f6afb}{Multiplexing.\+Direct}}}
+
+
+
+Type of multiplexing. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a7f813064e211d5e121c56ea495a9cdc5}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a7f813064e211d5e121c56ea495a9cdc5} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!PanelType@{PanelType}}
+\index{PanelType@{PanelType}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{PanelType}{PanelType}}
+{\footnotesize\ttfamily string? RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Panel\+Type = null}
+
+
+
+Panel type. Typically just empty, but certain panels (FM6126) requie an initialization sequence. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a46f57b1a0ba135a712ed47b490848752}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a46f57b1a0ba135a712ed47b490848752} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!Parallel@{Parallel}}
+\index{Parallel@{Parallel}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{Parallel}{Parallel}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Parallel = 1}
+
+
+
+The number of parallel chains connected to the Pi; in old Pis with 26 GPIO pins, that is 1, in newer Pis with 40 interfaces pins, that can also be 2 or 3. The effective number of pixels in vertical direction is then thus {\ttfamily rows \texorpdfstring{$\ast$}{*} parallel}. Default\+: 1. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ace2bcca9634e3f39dffc43ed8810eadd}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_ace2bcca9634e3f39dffc43ed8810eadd} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!PixelMapperConfig@{PixelMapperConfig}}
+\index{PixelMapperConfig@{PixelMapperConfig}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{PixelMapperConfig}{PixelMapperConfig}}
+{\footnotesize\ttfamily string? RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Pixel\+Mapper\+Config = null}
+
+
+
+A string describing a sequence of pixel mappers that should be applied to this matrix. A semicolon-\/separated list of pixel-\/mappers with optional parameter. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a5173343c4c17e5f911b0b006b0c36c79}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a5173343c4c17e5f911b0b006b0c36c79} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!PwmBits@{PwmBits}}
+\index{PwmBits@{PwmBits}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{PwmBits}{PwmBits}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Pwm\+Bits = 11}
+
+
+
+Set PWM bits used for output. Default is 11, but if you only deal with limited comic-\/colors, 1 might be sufficient. Lower require less CPU and increases refresh-\/rate. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a7c03d4ee5e33e83f096d0d4b3411204a}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a7c03d4ee5e33e83f096d0d4b3411204a} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!PwmDitherBits@{PwmDitherBits}}
+\index{PwmDitherBits@{PwmDitherBits}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{PwmDitherBits}{PwmDitherBits}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Pwm\+Dither\+Bits = 0}
+
+
+
+The lower bits can be time-\/dithered for higher refresh rate. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a71f8659c693f27756f2579b5d0f64a71}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a71f8659c693f27756f2579b5d0f64a71} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!PwmLsbNanoseconds@{PwmLsbNanoseconds}}
+\index{PwmLsbNanoseconds@{PwmLsbNanoseconds}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{PwmLsbNanoseconds}{PwmLsbNanoseconds}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Pwm\+Lsb\+Nanoseconds = 130}
+
+
+
+Change the base time-\/unit for the on-\/time in the lowest significant bit in nanoseconds. Higher numbers provide better quality (more accurate color, less ghosting), but have a negative impact on the frame rate. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_aa89bbc8ae30e774d7db5bfeabc22d9e4}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_aa89bbc8ae30e774d7db5bfeabc22d9e4} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!RowAddressType@{RowAddressType}}
+\index{RowAddressType@{RowAddressType}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{RowAddressType}{RowAddressType}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Row\+Address\+Type = 0}
+
+
+
+Default row address type is 0, corresponding to direct setting of the row, while row address type 1 is used for panels that only have A/B, typically some 64x64 panels. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a38ea68dae159d8132fb963a94d116482}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_a38ea68dae159d8132fb963a94d116482} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!Rows@{Rows}}
+\index{Rows@{Rows}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{Rows}{Rows}}
+{\footnotesize\ttfamily int RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Rows = 32}
+
+
+
+The "{}rows"{} are the number of rows supported by the display, so 32 or 16. Default\+: 32. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_add3473d966ebe32c63517f560fd6f1b5}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_add3473d966ebe32c63517f560fd6f1b5} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!ScanMode@{ScanMode}}
+\index{ScanMode@{ScanMode}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{ScanMode}{ScanMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39a}{Scan\+Modes}} RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Scan\+Mode = \mbox{\hyperlink{namespaceRPiRgbLEDMatrix_a918af77bc9a2c30888259d48310ee39aa9712e73e86ea0fe944ca2ce3f9f7dd87}{Scan\+Modes.\+Progressive}}}
+
+
+
+Scan mode. 
+
+\Hypertarget{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_af0a4c9322e8c05093e6f5871b00bed67}\label{structRPiRgbLEDMatrix_1_1RGBLedMatrixOptions_af0a4c9322e8c05093e6f5871b00bed67} 
+\index{RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}!ShowRefreshRate@{ShowRefreshRate}}
+\index{ShowRefreshRate@{ShowRefreshRate}!RPiRgbLEDMatrix.RGBLedMatrixOptions@{RPiRgbLEDMatrix.RGBLedMatrixOptions}}
+\doxysubsubsection{\texorpdfstring{ShowRefreshRate}{ShowRefreshRate}}
+{\footnotesize\ttfamily bool RPi\+Rgb\+LEDMatrix.\+RGBLed\+Matrix\+Options.\+Show\+Refresh\+Rate = false}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+matrix/bindings/c\#/\mbox{\hyperlink{RGBLedMatrixOptions_8cs}{RGBLed\+Matrix\+Options.\+cs}}\end{DoxyCompactItemize}

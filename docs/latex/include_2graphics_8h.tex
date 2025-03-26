@@ -1,0 +1,49 @@
+\doxysection{include/graphics.h File Reference}
+\hypertarget{include_2graphics_8h}{}\label{include_2graphics_8h}\index{include/graphics.h@{include/graphics.h}}
+{\ttfamily \#include "{}canvas.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+Include dependency graph for graphics.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{include_2graphics_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2graphics_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structrgb__matrix_1_1Color}{rgb\+\_\+matrix\+::\+Color}}
+\item 
+class \mbox{\hyperlink{classrgb__matrix_1_1Font}{rgb\+\_\+matrix\+::\+Font}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacergb__matrix}{rgb\+\_\+matrix}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacergb__matrix_a84178f20c2857a6659f725e8c9e89d3c}{rgb\+\_\+matrix\+::\+Set\+Image}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, int canvas\+\_\+offset\+\_\+x, int canvas\+\_\+offset\+\_\+y, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}image\+\_\+buffer, size\+\_\+t buffer\+\_\+size\+\_\+bytes, int image\+\_\+width, int image\+\_\+height, bool is\+\_\+bgr)
+\item 
+int \mbox{\hyperlink{namespacergb__matrix_a7a0b23d8e628d97ce9499a2b51954679}{rgb\+\_\+matrix\+::\+Draw\+Text}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}}, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}background\+\_\+color, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text, int kerning\+\_\+offset=0)
+\item 
+int \mbox{\hyperlink{namespacergb__matrix_a09b811ae4138c07cab26c7664ff5c97e}{rgb\+\_\+matrix\+::\+Draw\+Text}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}}, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text)
+\item 
+int \mbox{\hyperlink{namespacergb__matrix_a9312bde9364a573bc5eb8ec2d13809b0}{rgb\+\_\+matrix\+::\+Vertical\+Draw\+Text}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, const \mbox{\hyperlink{classrgb__matrix_1_1Font}{Font}} \&\mbox{\hyperlink{FontExample_2Program_8cs_add5be7f8bc7869aa9e933b3879678d9e}{font}}, int x, int y, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}}, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \texorpdfstring{$\ast$}{*}background\+\_\+color, const char \texorpdfstring{$\ast$}{*}utf8\+\_\+text, int kerning\+\_\+offset=0)
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_aade514105177fcac88c4757543cfc99f}{rgb\+\_\+matrix\+::\+Draw\+Circle}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, int x, int y, int radius, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}})
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_a07c6eed910c0cff033bd550b92799e39}{rgb\+\_\+matrix\+::\+Draw\+Line}} (\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}c, int x0, int y0, int x1, int y1, const \mbox{\hyperlink{structrgb__matrix_1_1Color}{Color}} \&\mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}})
+\end{DoxyCompactItemize}

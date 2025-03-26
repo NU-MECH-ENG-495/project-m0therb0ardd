@@ -1,0 +1,86 @@
+\chapter{LED Color Evolution}
+\hypertarget{md_README}{}\label{md_README}\index{LED Color Evolution@{LED Color Evolution}}
+\label{md_README_autotoc_md89}%
+\Hypertarget{md_README_autotoc_md89}%
+ {\bfseries{LED \doxylink{structColor}{Color} Evolution}} is an interactive light-\/based project that runs on a 64×64 RGB LED matrix cube. It uses evolutionary algorithms to gradually morph the matrix display into a target image—pixel by pixel—creating a mesmerizing visual narrative of convergence, mutation, and transformation.
+
+This project is based on and extends functionality from the \href{https://github.com/hzeller/rpi-rgb-led-matrix}{\texttt{ rpi-\/rgb-\/led-\/matrix}} library, which was cloned as a base to drive the hardware display. From there, I developed custom animation demos using both {\bfseries{genetic algorithms}} and {\bfseries{guided mutation}} strategies.
+
+
+
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md91}{}\doxysection{\texorpdfstring{Features}{Features}}\label{md_README_autotoc_md91}
+
+\begin{DoxyItemize}
+\item Evolves pixel colors toward a target image
+\item Two custom demos\+: Genetic\+Color\+Evolution and \doxylink{classGuidedColorEvolution}{Guided\+Color\+Evolution}
+\item Loads and scales images using {\bfseries{Graphics\+Magick++}}
+\item Compatible with Raspberry Pi + LED matrix hardware
+\item Includes {\bfseries{Google\+Test}} unit tests for core functions
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md93}{}\doxysubsection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{md_README_autotoc_md93}
+
+\begin{DoxyItemize}
+\item C++17 compiler (e.\+g. {\ttfamily g++-\/11+})
+\item CMake ≥ 3.\+10
+\item \href{https://www.graphicsmagick.org/}{\texttt{ Graphics\+Magick++}}
+\item Raspberry Pi-\/compatible RGB LED matrix
+\item (Optional) Google\+Test for unit testing
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md94}{}\doxysubsection{\texorpdfstring{Hardware Setup}{Hardware Setup}}\label{md_README_autotoc_md94}
+Power\+: Ensure both the DC power jack and USB-\/C are connected.
+
+Raspberry Pi hostname\+: m0therb0ardd@raspberrypi\hypertarget{md_README_autotoc_md95}{}\doxysubsection{\texorpdfstring{Clone \& Build}{Clone \& Build}}\label{md_README_autotoc_md95}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/m0therb0ardd/my-\/led-\/evolution.git}
+\DoxyCodeLine{cd\ my-\/led-\/evolution}
+\DoxyCodeLine{mkdir\ build\ \&\&\ cd\ build}
+\DoxyCodeLine{cmake\ ..}
+\DoxyCodeLine{cmake\ -\/-\/build\ .}
+
+\end{DoxyCode}
+ \hypertarget{md_README_autotoc_md96}{}\doxysubsection{\texorpdfstring{Software and Compilation}{Software and Compilation}}\label{md_README_autotoc_md96}
+When using make, you must specify the hardware description to match your LED HAT. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ image-\/example\ HARDWARE\_DESC=adafruit-\/hat-\/pwm}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md97}{}\doxysubsection{\texorpdfstring{Transferring Files from Local to RPi}{Transferring Files from Local to RPi}}\label{md_README_autotoc_md97}
+Use scp to copy image files from your local computer to your Raspberry Pi\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{scp\ grid.png\ m0therb0ardd@raspberrypi:/home/m0therb0ardd/rpi-\/rgb-\/led-\/matrix/examples-\/api-\/use/}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md98}{}\doxysubsection{\texorpdfstring{Image COnversion PNG -\/$>$ PPM}{Image COnversion PNG -> PPM}}\label{md_README_autotoc_md98}
+Use convert (from Image\+Magick or Graphics\+Magick) to resize and convert your image\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{convert\ grid.png\ -\/resize\ 64x64!\ -\/depth\ 8\ -\/colorspace\ RGB\ grid.ppm}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md99}{}\doxysubsection{\texorpdfstring{Run Custom Color Evolution Demo}{Run Custom Color Evolution Demo}}\label{md_README_autotoc_md99}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ ./demo\ -\/-\/led-\/rows=64\ -\/-\/led-\/cols=64\ -\/-\/led-\/chain=1\ -\/-\/led-\/parallel=1\ -\/D\ 10\ grid.ppm}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ -\/D\ 10\ =\ GuidedColorEvolution}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ -\/D\ 11\ =\ GeneticColorEvolution}
+
+\end{DoxyCode}
+ Make sure grid.\+ppm is your target image and that its dimensions match your matrix layout (64x64 in this case).\hypertarget{md_README_autotoc_md100}{}\doxysubsection{\texorpdfstring{Running Tests}{Running Tests}}\label{md_README_autotoc_md100}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/-\/build\ .\ -\/-\/target\ run\_tests}
+\DoxyCodeLine{ctest\ -\/-\/output-\/on-\/failure}
+
+\end{DoxyCode}
+ You can also run all tests directly with\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./run\_tests}
+
+\end{DoxyCode}
+ 

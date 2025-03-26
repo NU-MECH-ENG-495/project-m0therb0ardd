@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['odd_5fvblock_5foffset_5f_0',['odd_vblock_offset_',['../classrgb__matrix_1_1internal_1_1P10Outdoor1R1G1BMultiplexBase.html#af930e299fc3e33c9cec10e1c1ee6fccb',1,'rgb_matrix::internal::P10Outdoor1R1G1BMultiplexBase::odd_vblock_offset_'],['../classrgb__matrix_1_1internal_1_1P8Outdoor1R1G1BMultiplexBase.html#ade2b20006dca9bce1556d9db1f8a06e1',1,'rgb_matrix::internal::P8Outdoor1R1G1BMultiplexBase::odd_vblock_offset_']]],
+  ['of_20displays_1',['Types of Displays',['../md_matrix_2README.html#autotoc_md42',1,'']]],
+  ['of_20panel_20doesn_20t_20show_20green_2',['I have a Pi1 Revision1 and top part of Panel doesn&apos;t show green',['../md_matrix_2README.html#autotoc_md58',1,'']]],
+  ['offscreen_5fcanvas_3',['offscreen_canvas',['../classpulsing-colors_1_1PulsingColors.html#ad0fd501fbe5964963e7cecb501775f03',1,'pulsing-colors::PulsingColors']]],
+  ['offset_4',['offset',['../namespacekicad-fab.html#a54a7f8ea201e6e494a32d7b8f718109d',1,'kicad-fab']]],
+  ['old_20adafruit_20hat_20bonnet_20without_5',['Old Adafruit HAT/Bonnet (without)',['../md_matrix_2README.html#autotoc_md65',1,'']]],
+  ['on_20adafruit_20hat_20bonnet_6',['64x64 with E-line on Adafruit HAT/Bonnet',['../md_matrix_2README.html#autotoc_md63',1,'']]],
+  ['on_20the_20internet_20and_20it_20doesn_20t_20work_7',['I have followed some tutorial on the Internet and it doesn&apos;t work',['../md_matrix_2README.html#autotoc_md57',1,'']]],
+  ['opt_5fcopy_5fif_5fset_8',['OPT_COPY_IF_SET',['../led-matrix-c_8cc.html#a3393c4895cefcacd79c94e467f96e9b1',1,'led-matrix-c.cc']]],
+  ['option_5fprefix_9',['OPTION_PREFIX',['../options-initialize_8cc.html#a74c3a8f65276d31079809e6a3fa891ac',1,'options-initialize.cc']]],
+  ['option_5fprefix_5flen_10',['OPTION_PREFIX_LEN',['../options-initialize_8cc.html#aca04274f31006de07163ce5f9838f2fe',1,'options-initialize.cc']]],
+  ['optional_11',['Optional',['../md_matrix_2adapter_2active-3_2README.html#autotoc_md4',1,'']]],
+  ['options_12',['options',['../md_matrix_2README.html#autotoc_md53',1,'Misc Options'],['../namespaceimage-viewer.html#aad0c692fe11f63037f8d9412a47e92a0',1,'image-viewer.options'],['../structrgb__matrix_1_1RGBMatrix_1_1Options.html',1,'rgb_matrix::RGBMatrix::Options'],['../namespacegif-viewer.html#ae4b6bc7dad8c3cb970d35ac4835a2ea7',1,'gif-viewer.options'],['../namespaceimage-draw.html#a2594a0d1af853e20ebfe60998ef957df',1,'image-draw.options'],['../structrgb__matrix_1_1RGBMatrix_1_1Options.html#a9c10c62e21a5a6a824a1e13bffcee7ac',1,'rgb_matrix::RGBMatrix::Options::Options()'],['../structrgb__matrix_1_1RGBMatrix_1_1Options.html#a9c10c62e21a5a6a824a1e13bffcee7ac',1,'rgb_matrix::RGBMatrix::Options::Options()']]],
+  ['options_2dinitialize_2ecc_13',['options-initialize.cc',['../options-initialize_8cc.html',1,'']]],
+  ['or_20bonnet_14',['If you have an Adafruit HAT or Bonnet',['../md_matrix_2README.html#autotoc_md60',1,'']]],
+  ['otf2bdf_15',['otf2bdf',['../md_matrix_2fonts_2README.html#autotoc_md34',1,'Compiling otf2bdf'],['../md_matrix_2fonts_2README.html#autotoc_md33',1,'Getting otf2bdf']]],
+  ['other_20examples_16',['Other Examples',['../md_matrix_2examples-api-use_2README.html#autotoc_md17',1,'']]],
+  ['out_5fgpio_17',['OUT_GPIO',['../gpio_8cc.html#af56d889c9e5a11d4973c3ee3765046ee',1,'gpio.cc']]],
+  ['outline_18',['outline',['../namespaceimage-draw.html#a39bdbd43335de54a06184e5b247fecdf',1,'image-draw']]],
+  ['output_5fenable_19',['output_enable',['../structHardwareMapping.html#a619fe72c82e8c0e863d7821815ef243f',1,'HardwareMapping']]],
+  ['outputgpio_20',['outputgpio',['../classrgb__matrix_1_1RGBMatrix.html#a3da4990443e75e9043e945ce04ea58bb',1,'rgb_matrix::RGBMatrix::OutputGPIO(uint64_t output_bits)'],['../classrgb__matrix_1_1RGBMatrix.html#a3da4990443e75e9043e945ce04ea58bb',1,'rgb_matrix::RGBMatrix::OutputGPIO(uint64_t output_bits)'],['../classrgb__matrix_1_1RGBMatrix_1_1Impl.html#aa55463ab197fece83faff77b005a29b3',1,'rgb_matrix::RGBMatrix::Impl::OutputGPIO()']]],
+  ['overview_21',['Overview',['../md_matrix_2README.html#autotoc_md40',1,'']]],
+  ['own_22',['Create your own',['../md_matrix_2fonts_2README.html#autotoc_md32',1,'']]],
+  ['own_20application_23',['Integrating in your own application',['../md_matrix_2examples-api-use_2README.html#autotoc_md20',1,'']]],
+  ['own_20mappers_24',['Writing your own mappers',['../md_matrix_2examples-api-use_2README.html#autotoc_md29',1,'']]]
+];

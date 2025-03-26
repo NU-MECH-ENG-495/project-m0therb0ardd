@@ -1,0 +1,149 @@
+\doxysection{matrix/bindings/c\#/examples/\+Rotating3\+DCube/\+Program.cs File Reference}
+\hypertarget{Rotating3DCube_2Program_8cs}{}\label{Rotating3DCube_2Program_8cs}\index{matrix/bindings/c\#/examples/Rotating3DCube/Program.cs@{matrix/bindings/c\#/examples/Rotating3DCube/Program.cs}}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a48416e60f15b86b3ea6e1b48b3592c2e}{leds}} = new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(32, 1, 1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Rotating3DCube_2Program_8cs_afeab488b57a3d3f2e76a8dc58add1f1c}{var}} (\mbox{\hyperlink{MinimalExample_2Program_8cs_adf7baff05eb51fee6cba1e0303061d71}{centerX}}, \mbox{\hyperlink{MinimalExample_2Program_8cs_a22a4a7a09d12d54e4ccb0616646a5325}{centerY}})
+\item 
+\mbox{\hyperlink{Rotating3DCube_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a}{while}} (\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}})
+\item 
+void \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a71f8bff11505c983d997be5016aa1d85}{Draw\+Line}} (Vector4 a, Vector4 b)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}} = leds.\+Create\+Offscreen\+Canvas()
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be}{rnd}} = new Random()
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_ac5be6442b2f544d6b6aab13a2a472024}{angle\+Speed}} = new Vector3()
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_ae5b3f897bb6bc9cefd3d1c9755382fca}{next\+Angle\+Speed}} = new Vector3()
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}} = -\/1
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_aee094420560684bc28158e473de302b1}{rotate\+Matrix}} = Matrix4x4.\+Identity
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_ab57832d366072eb30ac7faca09eb9903}{scale\+Matrix}} = Matrix4x4.\+Create\+Scale(Scale)
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a104711e858dd39f319c384309af509f2}{project\+Matrix}} = Matrix4x4.\+Create\+Perspective\+Field\+Of\+View(FOV / 180 \texorpdfstring{$\ast$}{*} Math\+F.\+PI, 1, 0.\+1f, 100f)
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a0f3811a1ad0d462a1179c926f6926e8a}{camera\+Matrix}} = Matrix4x4.\+Create\+Look\+At(new(0, 0, 4), new(0, 0, 0), new(0, 1, 0))
+\item 
+var \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}} = true
+\item 
+Console. \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}{Cancel\+Key\+Press}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{Rotating3DCube_2Program_8cs_a48416e60f15b86b3ea6e1b48b3592c2e}\label{Rotating3DCube_2Program_8cs_a48416e60f15b86b3ea6e1b48b3592c2e} 
+\index{Program.cs@{Program.cs}!leds@{leds}}
+\index{leds@{leds}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{leds}{leds}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a48416e60f15b86b3ea6e1b48b3592c2e}{leds}} =  new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(32, 1, 1)}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Rotating3DCube_2Program_8cs_a71f8bff11505c983d997be5016aa1d85}\label{Rotating3DCube_2Program_8cs_a71f8bff11505c983d997be5016aa1d85} 
+\index{Program.cs@{Program.cs}!DrawLine@{DrawLine}}
+\index{DrawLine@{DrawLine}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{DrawLine()}{DrawLine()}}
+{\footnotesize\ttfamily void Draw\+Line (\begin{DoxyParamCaption}\item[{Vector4}]{a,  }\item[{Vector4}]{b }\end{DoxyParamCaption})}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_afeab488b57a3d3f2e76a8dc58add1f1c}\label{Rotating3DCube_2Program_8cs_afeab488b57a3d3f2e76a8dc58add1f1c} 
+\index{Program.cs@{Program.cs}!var@{var}}
+\index{var@{var}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{var()}{var()}}
+{\footnotesize\ttfamily var (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{MinimalExample_2Program_8cs_adf7baff05eb51fee6cba1e0303061d71}{centerX}}}]{,  }\item[{\mbox{\hyperlink{MinimalExample_2Program_8cs_a22a4a7a09d12d54e4ccb0616646a5325}{centerY}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a}\label{Rotating3DCube_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a} 
+\index{Program.cs@{Program.cs}!while@{while}}
+\index{while@{while}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{while()}{while()}}
+{\footnotesize\ttfamily while (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{Rotating3DCube_2Program_8cs_ac5be6442b2f544d6b6aab13a2a472024}\label{Rotating3DCube_2Program_8cs_ac5be6442b2f544d6b6aab13a2a472024} 
+\index{Program.cs@{Program.cs}!angleSpeed@{angleSpeed}}
+\index{angleSpeed@{angleSpeed}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{angleSpeed}{angleSpeed}}
+{\footnotesize\ttfamily var angle\+Speed = new Vector3()}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_a0f3811a1ad0d462a1179c926f6926e8a}\label{Rotating3DCube_2Program_8cs_a0f3811a1ad0d462a1179c926f6926e8a} 
+\index{Program.cs@{Program.cs}!cameraMatrix@{cameraMatrix}}
+\index{cameraMatrix@{cameraMatrix}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{cameraMatrix}{cameraMatrix}}
+{\footnotesize\ttfamily var camera\+Matrix = Matrix4x4.\+Create\+Look\+At(new(0, 0, 4), new(0, 0, 0), new(0, 1, 0))}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}\label{Rotating3DCube_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343} 
+\index{Program.cs@{Program.cs}!CancelKeyPress@{CancelKeyPress}}
+\index{CancelKeyPress@{CancelKeyPress}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{CancelKeyPress}{CancelKeyPress}}
+{\footnotesize\ttfamily Console. Cancel\+Key\+Press}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ (\_,\ e)\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{Rotating3DCube_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ e.Cancel\ =\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{Rotating3DCube_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}\label{Rotating3DCube_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73} 
+\index{Program.cs@{Program.cs}!canvas@{canvas}}
+\index{canvas@{canvas}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{canvas}{canvas}}
+{\footnotesize\ttfamily var canvas = leds.\+Create\+Offscreen\+Canvas()}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}\label{Rotating3DCube_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b} 
+\index{Program.cs@{Program.cs}!frame@{frame}}
+\index{frame@{frame}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily var frame = -\/1}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_ae5b3f897bb6bc9cefd3d1c9755382fca}\label{Rotating3DCube_2Program_8cs_ae5b3f897bb6bc9cefd3d1c9755382fca} 
+\index{Program.cs@{Program.cs}!nextAngleSpeed@{nextAngleSpeed}}
+\index{nextAngleSpeed@{nextAngleSpeed}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{nextAngleSpeed}{nextAngleSpeed}}
+{\footnotesize\ttfamily var next\+Angle\+Speed = new Vector3()}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_a104711e858dd39f319c384309af509f2}\label{Rotating3DCube_2Program_8cs_a104711e858dd39f319c384309af509f2} 
+\index{Program.cs@{Program.cs}!projectMatrix@{projectMatrix}}
+\index{projectMatrix@{projectMatrix}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{projectMatrix}{projectMatrix}}
+{\footnotesize\ttfamily var project\+Matrix = Matrix4x4.\+Create\+Perspective\+Field\+Of\+View(FOV / 180 \texorpdfstring{$\ast$}{*} Math\+F.\+PI, 1, 0.\+1f, 100f)}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be}\label{Rotating3DCube_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be} 
+\index{Program.cs@{Program.cs}!rnd@{rnd}}
+\index{rnd@{rnd}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{rnd}{rnd}}
+{\footnotesize\ttfamily var rnd = new Random()}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_aee094420560684bc28158e473de302b1}\label{Rotating3DCube_2Program_8cs_aee094420560684bc28158e473de302b1} 
+\index{Program.cs@{Program.cs}!rotateMatrix@{rotateMatrix}}
+\index{rotateMatrix@{rotateMatrix}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{rotateMatrix}{rotateMatrix}}
+{\footnotesize\ttfamily var rotate\+Matrix = Matrix4x4.\+Identity}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}\label{Rotating3DCube_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e} 
+\index{Program.cs@{Program.cs}!running@{running}}
+\index{running@{running}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily var running = true}
+
+\Hypertarget{Rotating3DCube_2Program_8cs_ab57832d366072eb30ac7faca09eb9903}\label{Rotating3DCube_2Program_8cs_ab57832d366072eb30ac7faca09eb9903} 
+\index{Program.cs@{Program.cs}!scaleMatrix@{scaleMatrix}}
+\index{scaleMatrix@{scaleMatrix}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{scaleMatrix}{scaleMatrix}}
+{\footnotesize\ttfamily var scale\+Matrix = Matrix4x4.\+Create\+Scale(Scale)}
+

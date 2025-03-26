@@ -1,0 +1,84 @@
+\doxysection{matrix/examples-\/api-\/use/image-\/example.cc File Reference}
+\hypertarget{image-example_8cc}{}\label{image-example_8cc}\index{matrix/examples-\/api-\/use/image-\/example.cc@{matrix/examples-\/api-\/use/image-\/example.cc}}
+{\ttfamily \#include "{}led-\/matrix.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$Magick++.\+h$>$}\newline
+{\ttfamily \#include $<$magick/image.\+h$>$}\newline
+Include dependency graph for image-\/example.cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{image-example_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{image-example_8cc_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} = std\+::vector$<$ Magick\+::\+Image $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{image-example_8cc_a467c7e5df50400f8edcd153007f24dbb}{Copy\+Image\+To\+Canvas}} (const Magick\+::\+Image \&\mbox{\hyperlink{PlayGIF_2Program_8cs_ad78a6dd8245e2a9cfb43756f82e80c7e}{image}}, \mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}})
+\item 
+void \mbox{\hyperlink{image-example_8cc_a913eca0466bfe9d4f594e9ca1e7ce55f}{Show\+Animated\+Image}} (const \mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} \&images, \mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}})
+\item 
+int \mbox{\hyperlink{image-example_8cc_a39c3a9ec6e5e8485c111aa2ff74c12fd}{usage}} (const char \texorpdfstring{$\ast$}{*}progname)
+\item 
+int \mbox{\hyperlink{image-example_8cc_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile bool \mbox{\hyperlink{image-example_8cc_a160bb4f9851e63fa18e20d070d98b8ca}{interrupt\+\_\+received}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{image-example_8cc_a54e62bcde672b135a1c05fc77fafa52d}\label{image-example_8cc_a54e62bcde672b135a1c05fc77fafa52d} 
+\index{image-\/example.cc@{image-\/example.cc}!ImageVector@{ImageVector}}
+\index{ImageVector@{ImageVector}!image-\/example.cc@{image-\/example.cc}}
+\doxysubsubsection{\texorpdfstring{ImageVector}{ImageVector}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} =  std\+::vector$<$Magick\+::\+Image$>$}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{image-example_8cc_a467c7e5df50400f8edcd153007f24dbb}\label{image-example_8cc_a467c7e5df50400f8edcd153007f24dbb} 
+\index{image-\/example.cc@{image-\/example.cc}!CopyImageToCanvas@{CopyImageToCanvas}}
+\index{CopyImageToCanvas@{CopyImageToCanvas}!image-\/example.cc@{image-\/example.cc}}
+\doxysubsubsection{\texorpdfstring{CopyImageToCanvas()}{CopyImageToCanvas()}}
+{\footnotesize\ttfamily void Copy\+Image\+To\+Canvas (\begin{DoxyParamCaption}\item[{const Magick\+::\+Image \&}]{image,  }\item[{\mbox{\hyperlink{classrgb__matrix_1_1Canvas}{Canvas}} \texorpdfstring{$\ast$}{*}}]{canvas }\end{DoxyParamCaption})}
+
+\Hypertarget{image-example_8cc_a0ddf1224851353fc92bfbff6f499fa97}\label{image-example_8cc_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{image-\/example.cc@{image-\/example.cc}!main@{main}}
+\index{main@{main}!image-\/example.cc@{image-\/example.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{image-example_8cc_a913eca0466bfe9d4f594e9ca1e7ce55f}\label{image-example_8cc_a913eca0466bfe9d4f594e9ca1e7ce55f} 
+\index{image-\/example.cc@{image-\/example.cc}!ShowAnimatedImage@{ShowAnimatedImage}}
+\index{ShowAnimatedImage@{ShowAnimatedImage}!image-\/example.cc@{image-\/example.cc}}
+\doxysubsubsection{\texorpdfstring{ShowAnimatedImage()}{ShowAnimatedImage()}}
+{\footnotesize\ttfamily void Show\+Animated\+Image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{shared_8h_a54e62bcde672b135a1c05fc77fafa52d}{Image\+Vector}} \&}]{images,  }\item[{\mbox{\hyperlink{classrgb__matrix_1_1RGBMatrix}{RGBMatrix}} \texorpdfstring{$\ast$}{*}}]{matrix }\end{DoxyParamCaption})}
+
+\Hypertarget{image-example_8cc_a39c3a9ec6e5e8485c111aa2ff74c12fd}\label{image-example_8cc_a39c3a9ec6e5e8485c111aa2ff74c12fd} 
+\index{image-\/example.cc@{image-\/example.cc}!usage@{usage}}
+\index{usage@{usage}!image-\/example.cc@{image-\/example.cc}}
+\doxysubsubsection{\texorpdfstring{usage()}{usage()}}
+{\footnotesize\ttfamily int usage (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{progname }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{image-example_8cc_a160bb4f9851e63fa18e20d070d98b8ca}\label{image-example_8cc_a160bb4f9851e63fa18e20d070d98b8ca} 
+\index{image-\/example.cc@{image-\/example.cc}!interrupt\_received@{interrupt\_received}}
+\index{interrupt\_received@{interrupt\_received}!image-\/example.cc@{image-\/example.cc}}
+\doxysubsubsection{\texorpdfstring{interrupt\_received}{interrupt\_received}}
+{\footnotesize\ttfamily volatile bool interrupt\+\_\+received = false}
+

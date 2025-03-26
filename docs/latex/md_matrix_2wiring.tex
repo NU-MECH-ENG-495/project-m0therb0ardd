@@ -1,0 +1,170 @@
+\chapter{Connection}
+\hypertarget{md_matrix_2wiring}{}\label{md_matrix_2wiring}\index{Connection@{Connection}}
+You need a separate power supply for the panel. There is a connector for that separate from the logic connector, typically a big one in the center of the board. The board requires 5V (double check the polarity\+: what is printed on the board is correct -\/ I once got boards with supplied cables that had red (suggesting {\ttfamily +}) and black (suggesting {\ttfamily GND}) reversed!). This power supply is used to light the LEDs; plan for \texorpdfstring{$\sim$}{\string~}3.5 Ampere per 32x32 panel.
+
+The connector on the RGB panels is called a Hub75 interface. Each panel typically has two ports, one is the input and the other is the output to chain additional panels. Usually an arrow shows which of the connectors is the input.
+
+Here you see a Hub75 connector to be seen at the bottom of the RGB panel board including the arrow indicating the input direction\+: 
+
+Other boards are very similar, but instead of zero-\/indexed color bits {\ttfamily R0}, {\ttfamily G0}, {\ttfamily B0}, {\ttfamily R1}, {\ttfamily G1}, {\ttfamily B1}, they start the index with one and name these {\ttfamily R1}, {\ttfamily G1}, {\ttfamily B1}, {\ttfamily R2}, {\ttfamily G2}, {\ttfamily B2}; the functionality is identical. 
+
+Throughout this document, we will use the one-\/index base, so we will call these signals {\ttfamily R1}, {\ttfamily G1}, {\ttfamily B1}, {\ttfamily R2}, {\ttfamily G2}, {\ttfamily B2} below.
+
+The {\ttfamily strobe} signals is sometimes also called {\ttfamily latch} or {\ttfamily lat}. We\textquotesingle{}ll call it {\ttfamily strobe} here.
+
+If you plug an IDC-\/cable into your RGB panel to the input connector, this is how the signal positions are on the other end of the cable (imagine the LED panels somewhere outside the picture on the left); note the notch on the right side of the connector\+: 
+
+The RPi only has 3.\+3V logic output level, but many displays operated at 5V interprets these logic levels fine, just make sure to run a short cable to the board. If you do run into glitches or erratic pixels, consider some line-\/buffering, e.\+g. using the \href{./adapter/}{\texttt{ active adapter PCB}}. Since we only need output pins on the RPi, we don\textquotesingle{}t need to worry about level conversion back.
+
+For a single chain of LED-\/panels, we need 13 IO lines, which fit all in the header of the old Raspberry Pis. Newer Raspberry Pis with 40 pins have more GPIO lines which allows us to connect three parallel chains of RGB panels.
+
+For reference, this is how the numbering on the Raspberry Pi looks like\+: \href{img/raspberry-gpio.jpg}{\texttt{ }}
+
+This is the same representation used in the table below, which helps for visual inspection.\hypertarget{md_matrix_2wiring_autotoc_md83}{}\doxysubsection{\texorpdfstring{Chains}{Chains}}\label{md_matrix_2wiring_autotoc_md83}
+You connect the Pi to the input of the first in the chain of panels. Each panel has an output connector, that you then can connect to the next panel in that chain.
+
+The IO and library supports to run up to three chains in parallel.
+
+Thus you can create a larger panel. Here a schematic view, below in the \textquotesingle{}Power\textquotesingle{} section, you can see a real-\/live panel with three chains of 5 panels each seen from the back.
+
+\hypertarget{md_matrix_2wiring_autotoc_md84}{}\doxysubsection{\texorpdfstring{Wiring diagram}{Wiring diagram}}\label{md_matrix_2wiring_autotoc_md84}
+You find the positions of the pins on the Raspberry Pi and the corresponding logical connections in the table below (there are more GND pins on the Raspberry Pi, but they are left out for simplicity).\hypertarget{md_matrix_2wiring_autotoc_md85}{}\doxysubsubsection{\texorpdfstring{Shared connections}{Shared connections}}\label{md_matrix_2wiring_autotoc_md85}
+For each of the up to three chains, you have to connect {\ttfamily GND}, {\ttfamily strobe}, {\ttfamily clock}, {\ttfamily OE-\/}, {\ttfamily A}, {\ttfamily B}, {\ttfamily C}, {\ttfamily D} to {\bfseries{all}} of these (the {\ttfamily D} line is needed for 32x32 displays; 32x16 displays don\textquotesingle{}t need it).
+
+If you have a 64x64 display, these have an additional {\ttfamily E} line which is typically on Pin 4 or 8 on the matrix connector.
+
+For these pins, all chains receive the same data line, e.\+g. if you have three chains, you have to wire the {\ttfamily A} output on the Pi with three wires to the three chain inputs of the {\ttfamily A} input.\hypertarget{md_matrix_2wiring_autotoc_md86}{}\doxysubsubsection{\texorpdfstring{Connections per chain}{Connections per chain}}\label{md_matrix_2wiring_autotoc_md86}
+Then for each first panel of a chain there is a set of (R1, G1, B1, R2, G2, B2) that you have to connect to the corresponding pins. They are marked {\ttfamily \mbox{[}1\mbox{]}}, {\ttfamily \mbox{[}2\mbox{]}} and {\ttfamily \mbox{[}3\mbox{]}} for chain 1, 2, and 3 below.
+
+If you only connect one panel or have one chain, connect it to {\ttfamily \mbox{[}1\mbox{]}} (\+:smile\+:); if you use parallel chains, add the other {\ttfamily \mbox{[}2\mbox{]}} and {\ttfamily \mbox{[}3\mbox{]}}.
+
+To make things quicker to navigate visually, each chain is marked with a separate icon\+:
+
+{\ttfamily \mbox{[}1\mbox{]}}=\+:smile\+:, {\ttfamily \mbox{[}2\mbox{]}}=\+:boom\+: and {\ttfamily \mbox{[}3\mbox{]}}=\+:droplet\+: ; signals that go to all chains have all icons.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Connection   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Pin   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Pin   }&\cellcolor{\tableheadbgcolor}\textbf{ Connection    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\raggedleft \cellcolor{\tableheadbgcolor}\textbf{ Connection   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Pin   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Pin   }&\cellcolor{\tableheadbgcolor}\textbf{ Connection    }\\\cline{1-4}
+\endhead
+\PBS\raggedleft -\/   &\PBS\centering 1   &\PBS\centering 2   &-\/    \\\cline{1-4}
+\PBS\raggedleft \+:droplet\+: {\bfseries{\mbox{[}3\mbox{]} G1}}   &\PBS\centering 3   &\PBS\centering 4   &-\/    \\\cline{1-4}
+\PBS\raggedleft \+:droplet\+: {\bfseries{\mbox{[}3\mbox{]} B1}}   &\PBS\centering 5   &\PBS\centering 6   &{\bfseries{GND}} \+:smile\+::boom\+::droplet\+:    \\\cline{1-4}
+\PBS\raggedleft \+:smile\+::boom\+::droplet\+: {\bfseries{strobe}}   &\PBS\centering 7   &\PBS\centering 8   &{\bfseries{\mbox{[}3\mbox{]} R1}} \+:droplet\+:    \\\cline{1-4}
+\PBS\raggedleft -\/   &\PBS\centering 9   &\PBS\centering 10   &{\bfseries{E}} \+:smile\+::boom\+::droplet\+: (for 64 row matrix, 1\+:32)    \\\cline{1-4}
+\PBS\raggedleft \+:smile\+::boom\+::droplet\+: {\bfseries{clock}}   &\PBS\centering 11   &\PBS\centering 12   &{\bfseries{OE-\/}} \+:smile\+::boom\+::droplet\+:    \\\cline{1-4}
+\PBS\raggedleft \+:smile\+: {\bfseries{\mbox{[}1\mbox{]} G1}}   &\PBS\centering 13   &\PBS\centering 14   &-\/    \\\cline{1-4}
+\PBS\raggedleft \+:smile\+::boom\+::droplet\+: {\bfseries{A}}   &\PBS\centering 15   &\PBS\centering 16   &{\bfseries{B}} \+:smile\+::boom\+::droplet\+:    \\\cline{1-4}
+\PBS\raggedleft -\/   &\PBS\centering 17   &\PBS\centering 18   &{\bfseries{C}} \+:smile\+::boom\+::droplet\+:    \\\cline{1-4}
+\PBS\raggedleft \+:smile\+: {\bfseries{\mbox{[}1\mbox{]} B2}}   &\PBS\centering 19   &\PBS\centering 20   &-\/    \\\cline{1-4}
+\PBS\raggedleft \+:smile\+: {\bfseries{\mbox{[}1\mbox{]} G2}}   &\PBS\centering 21   &\PBS\centering 22   &{\bfseries{D}} \+:smile\+::boom\+::droplet\+: (for 32 row matrix, 1\+:16)    \\\cline{1-4}
+\PBS\raggedleft \+:smile\+: {\bfseries{\mbox{[}1\mbox{]} R1}}   &\PBS\centering 23   &\PBS\centering 24   &{\bfseries{\mbox{[}1\mbox{]} R2}} \+:smile\+:    \\\cline{1-4}
+\PBS\raggedleft -\/   &\PBS\centering 25   &\PBS\centering 26   &{\bfseries{\mbox{[}1\mbox{]} B1}} \+:smile\+:    \\\cline{1-4}
+\PBS\raggedleft -\/   &\PBS\centering 27   &\PBS\centering 28   &-\/    \\\cline{1-4}
+\PBS\raggedleft \+:boom\+: {\bfseries{\mbox{[}2\mbox{]} G1}}   &\PBS\centering 29   &\PBS\centering 30   &-\/    \\\cline{1-4}
+\PBS\raggedleft \+:boom\+: {\bfseries{\mbox{[}2\mbox{]} B1}}   &\PBS\centering 31   &\PBS\centering 32   &{\bfseries{\mbox{[}2\mbox{]} R1}} \+:boom\+:    \\\cline{1-4}
+\PBS\raggedleft \+:boom\+: {\bfseries{\mbox{[}2\mbox{]} G2}}   &\PBS\centering 33   &\PBS\centering 34   &-\/    \\\cline{1-4}
+\PBS\raggedleft \+:boom\+: {\bfseries{\mbox{[}2\mbox{]} R2}}   &\PBS\centering 35   &\PBS\centering 36   &{\bfseries{\mbox{[}3\mbox{]} G2}} \+:droplet\+:    \\\cline{1-4}
+\PBS\raggedleft \+:droplet\+:{\bfseries{\mbox{[}3\mbox{]} R2}}   &\PBS\centering 37   &\PBS\centering 38   &{\bfseries{\mbox{[}2\mbox{]} B2}} \+:boom\+:    \\\cline{1-4}
+\PBS\raggedleft -\/   &\PBS\centering 39   &\PBS\centering 40   &{\bfseries{\mbox{[}3\mbox{]} B2}} \+:droplet\+:   \\\cline{1-4}
+\end{longtabu}
+
+
+In the \href{./adapter}{\texttt{ adapter/}} directory, there are some boards that make the wiring task simpler.
+
+\href{adapter/}{\texttt{ }}\hypertarget{md_matrix_2wiring_autotoc_md87}{}\doxysubsection{\texorpdfstring{Alternative Hardware Mappings}{Alternative Hardware Mappings}}\label{md_matrix_2wiring_autotoc_md87}
+The hardware mapping described above is the \textquotesingle{}regular\textquotesingle{} hardware mapping, which is the default for this library. However, there are alternative hardware mappings to choose from, e.\+g. Adafruit sells a board where they choose a different mapping. You can choose with the {\ttfamily -\/-\/led-\/gpio-\/mapping} flag.
+
+If you got an adapter board that is from some unknown source and you don\textquotesingle{}t get any output\+: double check the GPIO mappings they use.
+
+You have relative freedom to assign any pins to the output of your choosing, just add a new mapping in \href{lib/hardware-mapping.c}{\texttt{ lib/hardware-\/mapping.\+c}}, recompile and it will be provided as a new option in {\ttfamily -\/-\/led-\/gpio-\/mapping}.
+
+
+
+{\bfseries{Table\+: GPIO-\/pins for each hardware mapping}}\begin{adjustwidth}{1em}{0em}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{8}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ regular   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ adafruit-\/hat   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ adafruit-\/hat-\/pwm   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ regular-\/pi1   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ classic   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ classic-\/pi1   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ compute-\/module    }\\\cline{1-8}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ regular   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ adafruit-\/hat   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ adafruit-\/hat-\/pwm   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ regular-\/pi1   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ classic   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ classic-\/pi1   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ compute-\/module    }\\\cline{1-8}
+\endhead
+Parallel chains   &3   &1   &1   &1   &3   &1   &6    \\\cline{1-8}
+\texorpdfstring{$\sim$}{\string~}\+OE   &GPIO 18   &GPIO 4   &GPIO 18   &GPIO 18   &GPIO 27   &GPIO 0   &GPIO 18    \\\cline{1-8}
+Clock   &GPIO 17   &GPIO 17   &GPIO 17   &GPIO 17   &GPIO 11   &GPIO 1   &GPIO 16    \\\cline{1-8}
+Strobe   &GPIO 4   &GPIO 21   &GPIO 21   &GPIO 4   &GPIO 4   &GPIO 4   &GPIO 17    \\\cline{1-8}
+A   &GPIO 22   &GPIO 22   &GPIO 22   &GPIO 22   &GPIO 7   &GPIO 7   &GPIO 2    \\\cline{1-8}
+B   &GPIO 23   &GPIO 26   &GPIO 26   &GPIO 23   &GPIO 8   &GPIO 8   &GPIO 3    \\\cline{1-8}
+C   &GPIO 24   &GPIO 27   &GPIO 27   &GPIO 24   &GPIO 9   &GPIO 9   &GPIO 4    \\\cline{1-8}
+D   &GPIO 25   &GPIO 20   &GPIO 20   &GPIO 25   &GPIO 10   &GPIO 10   &GPIO 5    \\\cline{1-8}
+E   &GPIO 15   &GPIO 24   &GPIO 24   &GPIO 15   &-\/   &-\/   &GPIO 6    \\\cline{1-8}
+Chain 1/\+R1   &GPIO 11   &GPIO 5   &GPIO 5   &GPIO 11   &GPIO 17   &GPIO 17   &GPIO 7    \\\cline{1-8}
+Chain 1/\+G1   &GPIO 27   &GPIO 13   &GPIO 13   &GPIO 21   &GPIO 18   &GPIO 18   &GPIO 8    \\\cline{1-8}
+Chain 1/\+B1   &GPIO 7   &GPIO 6   &GPIO 6   &GPIO 7   &GPIO 22   &GPIO 22   &GPIO 9    \\\cline{1-8}
+Chain 1/\+R2   &GPIO 8   &GPIO 12   &GPIO 12   &GPIO 8   &GPIO 23   &GPIO 23   &GPIO 10    \\\cline{1-8}
+Chain 1/\+G2   &GPIO 9   &GPIO 16   &GPIO 16   &GPIO 9   &GPIO 24   &GPIO 24   &GPIO 11    \\\cline{1-8}
+Chain 1/\+B2   &GPIO 10   &GPIO 23   &GPIO 23   &GPIO 10   &GPIO 25   &GPIO 25   &GPIO 12    \\\cline{1-8}
+Chain 2/\+R1   &GPIO 12   &-\/   &-\/   &-\/   &GPIO 12   &-\/   &GPIO 13    \\\cline{1-8}
+Chain 2/\+G1   &GPIO 5   &-\/   &-\/   &-\/   &GPIO 5   &-\/   &GPIO 14    \\\cline{1-8}
+Chain 2/\+B1   &GPIO 6   &-\/   &-\/   &-\/   &GPIO 6   &-\/   &GPIO 15    \\\cline{1-8}
+Chain 2/\+R2   &GPIO 19   &-\/   &-\/   &-\/   &GPIO 19   &-\/   &GPIO 19    \\\cline{1-8}
+Chain 2/\+G2   &GPIO 13   &-\/   &-\/   &-\/   &GPIO 13   &-\/   &GPIO 20    \\\cline{1-8}
+Chain 2/\+B2   &GPIO 20   &-\/   &-\/   &-\/   &GPIO 20   &-\/   &GPIO 21    \\\cline{1-8}
+Chain 3/\+R1   &GPIO 14   &-\/   &-\/   &-\/   &GPIO 14   &-\/   &GPIO 22    \\\cline{1-8}
+Chain 3/\+G1   &GPIO 2   &-\/   &-\/   &-\/   &GPIO 2   &-\/   &GPIO 23    \\\cline{1-8}
+Chain 3/\+B1   &GPIO 3   &-\/   &-\/   &-\/   &GPIO 3   &-\/   &GPIO 24    \\\cline{1-8}
+Chain 3/\+R2   &GPIO 26   &-\/   &-\/   &-\/   &GPIO 15   &-\/   &GPIO 25    \\\cline{1-8}
+Chain 3/\+G2   &GPIO 16   &-\/   &-\/   &-\/   &GPIO 26   &-\/   &GPIO 26    \\\cline{1-8}
+Chain 3/\+B2   &GPIO 21   &-\/   &-\/   &-\/   &GPIO 21   &-\/   &GPIO 27    \\\cline{1-8}
+Chain 4/\+R1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 28    \\\cline{1-8}
+Chain 4/\+G1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 29    \\\cline{1-8}
+Chain 4/\+B1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 30    \\\cline{1-8}
+Chain 4/\+R2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 31    \\\cline{1-8}
+Chain 4/\+G2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 32    \\\cline{1-8}
+Chain 4/\+B2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 33    \\\cline{1-8}
+Chain 5/\+R1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 34    \\\cline{1-8}
+Chain 5/\+G1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 35    \\\cline{1-8}
+Chain 5/\+B1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 36    \\\cline{1-8}
+Chain 5/\+R2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 37    \\\cline{1-8}
+Chain 5/\+G2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 38    \\\cline{1-8}
+Chain 5/\+B2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 39    \\\cline{1-8}
+Chain 6/\+R1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 40    \\\cline{1-8}
+Chain 6/\+G1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 41    \\\cline{1-8}
+Chain 6/\+B1   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 42    \\\cline{1-8}
+Chain 6/\+R2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 43    \\\cline{1-8}
+Chain 6/\+G2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 44    \\\cline{1-8}
+Chain 6/\+B2   &-\/   &-\/   &-\/   &-\/   &-\/   &-\/   &GPIO 45   \\\cline{1-8}
+\end{longtabu}
+
+
+\end{adjustwidth}
+\hypertarget{md_matrix_2wiring_autotoc_md88}{}\doxysection{\texorpdfstring{A word about power}{A word about power}}\label{md_matrix_2wiring_autotoc_md88}
+These displays suck a lot of current. At 5V, when all LEDs are on (full white), my 32x32 LED panel draws about 3.\+4A. For an outdoor panel that is very bright, that can be twice as much. That means, you need a beefy power supply to drive these panels; a 2A USB charger or similar is not enough for a 32x32 panel; it might be for a 16x32.
+
+If you connect multiple boards together, you needs a power supply that can keep up with 3.\+5A / panel. Good are old PC power supplies that often provide \texorpdfstring{$>$}{>} 20A on the 5V rail. Or you can get a dedicated 5V high current switching power supply for these kind of applications (check e\+Bay).
+
+The current draw is pretty spiky. Due to the PWM of the LEDs, there are very short peaks of a couple of 100ns to about 1ms of full current draw. Often, the power cable can\textquotesingle{}t support these very short spikes due to inherent inductance. This can result in \textquotesingle{}noisy\textquotesingle{} outputs, with random pixels not behaving as they should. A low ESR capacitor close to the input is good in these cases.
+
+On some displays, the quality of the output quickly gets erratic when voltage drops below 4.\+5V. Some even need a little bit higher voltage around 5.\+5V to work reliably. Also, tweak with the {\ttfamily -\/-\/led-\/slowdown-\/gpio} flag.
+
+When you connect these boards to a power source, the following are good guidelines\+:
+\begin{DoxyItemize}
+\item Have fairly thick cables connecting the power to the board. Plan not to loose more than 50mV from the source to the LED matrix. So that would be 50mV / 3.\+5A = 14 mΩ. For both supply wires, so 7mΩ each trace. A 1mm² copper cable has about 17.\+5mΩ/meter, so you\textquotesingle{}d need a {\bfseries{2.\+5mm² copper cable per meter and panel}}. Multiply by meter and number of panels to get the needed cross-\/section. (For Americans\+: that would be \texorpdfstring{$\sim$}{\string~}13 gauge wire for 3 ft and one panel)
+\item While a star configuration for the cabeling would be optimal (each panel gets an individual wire from the power supply), it is typically sufficient using aluminum mounting brackets or bars as part of your power solution. With aluminum of 1mm² specific resistivity of about 28mΩ/meter, you\textquotesingle{}d need a cross sectional area of about 4mm² per panel and meter.
+
+In the following example you see the structural aluminum bars in the middle (covered in colored vinyl) dualing as power bars. The 60A/5V power supply is connected to the center bolts (display uses about 42A all LEDs on)\+: 
+\item Often these boards come with cables that have connectors crimped on. Some cheap cables are typically too thin; you might want to clip them close to the connector solder your proper, thick cable to it.
+\item It is good to buffer the current spikes directly at the panel. The most spikes happen while PWM-\/ing a single line. So let\textquotesingle{}s say we want to buffer the energy to power a single line without dropping more than 50mV. We use 3.\+5A which is 3.\+5\+Joule/second. We do about 140Hz refresh rate and divide that in 16 lines, so we need 3.\+5 Joule/140/16 = \texorpdfstring{$\sim$}{\string~}1.6m\+Joule in the time period to display one line. We want to get the energy out of the voltage drop of 50mV; so with W = 1/2\texorpdfstring{$\ast$}{*}\+C\texorpdfstring{$\ast$}{*}\+U², we can calculate the capacitance needed\+: C = 2 \texorpdfstring{$\ast$}{*} 1.\+6m\+Joule / ((5V)² -\/ (5V -\/ 50mV)²) = \texorpdfstring{$\sim$}{\string~}6400µF. So, 2 x 3300µF low-\/\+ESR capacitors in parallel directly at the board are a good choice (two, because lower parallel ESR; also fits easier under board). (In reality, we need of course less, as the highest ripple comes with 50\% duty cyle thus half the current; also the input is recharching all the time. But\+: as engineer plan for maximum and then some; in the picture above I am using 1x3300uF per panel and it works fine).
+\end{DoxyItemize}
+
+Now welcome your over-\/engineered power solution \+:) 

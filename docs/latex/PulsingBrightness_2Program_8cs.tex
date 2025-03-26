@@ -1,0 +1,93 @@
+\doxysection{matrix/bindings/c\#/examples/\+Pulsing\+Brightness/\+Program.cs File Reference}
+\hypertarget{PulsingBrightness_2Program_8cs}{}\label{PulsingBrightness_2Program_8cs}\index{matrix/bindings/c\#/examples/PulsingBrightness/Program.cs@{matrix/bindings/c\#/examples/PulsingBrightness/Program.cs}}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{PulsingBrightness_2Program_8cs_a0181723396eec699812d277af97c30d1}{matrix}} = new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(new \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \{ Rows=32, Cols=64 \})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{PulsingBrightness_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a}{while}} (\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+var \mbox{\hyperlink{PulsingBrightness_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}} = matrix.\+Create\+Offscreen\+Canvas()
+\item 
+var \mbox{\hyperlink{PulsingBrightness_2Program_8cs_abc45ec53d540646075d8550c853bacc1}{max\+Brightness}} = matrix.\+Brightness
+\item 
+var \mbox{\hyperlink{PulsingBrightness_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be}{rnd}} = new Random()
+\item 
+var \mbox{\hyperlink{PulsingBrightness_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}} = true
+\item 
+Console. \mbox{\hyperlink{PulsingBrightness_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}{Cancel\+Key\+Press}}
+\item 
+var \mbox{\hyperlink{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}{color}} = new \mbox{\hyperlink{structColor}{Color}}(rnd.\+Next(0, 256), rnd.\+Next(0, 256), rnd.\+Next(0, 256))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{PulsingBrightness_2Program_8cs_a0181723396eec699812d277af97c30d1}\label{PulsingBrightness_2Program_8cs_a0181723396eec699812d277af97c30d1} 
+\index{Program.cs@{Program.cs}!matrix@{matrix}}
+\index{matrix@{matrix}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}} =  new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(new \mbox{\hyperlink{structRGBLedMatrixOptions}{RGBLed\+Matrix\+Options}} \{ Rows = 32, Cols = 64 \})}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{PulsingBrightness_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a}\label{PulsingBrightness_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a} 
+\index{Program.cs@{Program.cs}!while@{while}}
+\index{while@{while}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{while()}{while()}}
+{\footnotesize\ttfamily while (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{PulsingBrightness_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}\label{PulsingBrightness_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343} 
+\index{Program.cs@{Program.cs}!CancelKeyPress@{CancelKeyPress}}
+\index{CancelKeyPress@{CancelKeyPress}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{CancelKeyPress}{CancelKeyPress}}
+{\footnotesize\ttfamily Console. Cancel\+Key\+Press}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ (\_,\ e)\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{PulsingBrightness_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ e.Cancel\ =\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{PulsingBrightness_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}\label{PulsingBrightness_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73} 
+\index{Program.cs@{Program.cs}!canvas@{canvas}}
+\index{canvas@{canvas}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{canvas}{canvas}}
+{\footnotesize\ttfamily var canvas = matrix.\+Create\+Offscreen\+Canvas()}
+
+\Hypertarget{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe}\label{PulsingBrightness_2Program_8cs_af7d5324db5d60558c1083bc06389fefe} 
+\index{Program.cs@{Program.cs}!color@{color}}
+\index{color@{color}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily var color = new \mbox{\hyperlink{structColor}{Color}}(rnd.\+Next(0, 256), rnd.\+Next(0, 256), rnd.\+Next(0, 256))}
+
+\Hypertarget{PulsingBrightness_2Program_8cs_abc45ec53d540646075d8550c853bacc1}\label{PulsingBrightness_2Program_8cs_abc45ec53d540646075d8550c853bacc1} 
+\index{Program.cs@{Program.cs}!maxBrightness@{maxBrightness}}
+\index{maxBrightness@{maxBrightness}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{maxBrightness}{maxBrightness}}
+{\footnotesize\ttfamily var max\+Brightness = matrix.\+Brightness}
+
+\Hypertarget{PulsingBrightness_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be}\label{PulsingBrightness_2Program_8cs_abad58355cfa73fc52fe74d0c89d828be} 
+\index{Program.cs@{Program.cs}!rnd@{rnd}}
+\index{rnd@{rnd}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{rnd}{rnd}}
+{\footnotesize\ttfamily var rnd = new Random()}
+
+\Hypertarget{PulsingBrightness_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}\label{PulsingBrightness_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e} 
+\index{Program.cs@{Program.cs}!running@{running}}
+\index{running@{running}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily var running = true}
+

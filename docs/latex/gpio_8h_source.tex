@@ -1,0 +1,172 @@
+\doxysection{gpio.\+h}
+\hypertarget{gpio_8h_source}{}\label{gpio_8h_source}\index{matrix/lib/gpio.h@{matrix/lib/gpio.h}}
+\mbox{\hyperlink{gpio_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/*-\/\ mode:\ c++;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (C)\ 2013\ Henner\ Zeller\ <h.zeller@acm.org>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ the\ Free\ Software\ Foundation\ version\ 2.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://gnu.org/licenses/gpl-\/2.0.txt>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ RPI\_GPIO\_INTERNAL\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ RPI\_GPIO\_INTERNAL\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio-bits_8h}{gpio-\/bits.h}}"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#if\ \_\_ARM\_ARCH\ >=\ 7}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LED\_MATRIX\_ALLOW\_BARRIER\_DELAY\ 1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LED\_MATRIX\_ALLOW\_BARRIER\_DELAY\ 0}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Putting\ this\ in\ our\ namespace\ to\ not\ collide\ with\ other\ things\ called\ like}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ this.}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacergb__matrix}{rgb\_matrix}}\ \{}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ For\ now,\ everything\ is\ initialized\ as\ output.}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}}\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a51a429e5e3e8de24a67c2d24992e6d53}{GPIO}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{//\ Initialize\ before\ use.\ Returns\ 'true'\ if\ successful,\ 'false'\ otherwise}}
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ (e.g.\ due\ to\ a\ permission\ problem).}}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_aac5fecf324e5a1c09b50da4db246c385}{Init}}(\textcolor{keywordtype}{int}\ slowdown);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ Initialize\ outputs.}}
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Returns\ the\ bits\ that\ were\ available\ and\ could\ be\ set\ for\ output.}}
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//\ (never\ use\ the\ optional\ adafruit\_hack\_needed\ parameter,\ it\ is\ used}}
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ internally\ to\ this\ library).}}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a297d25c48236007d685561f6546ded7f}{InitOutputs}}(\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ outputs,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ adafruit\_hack\_needed\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ Request\ given\ bitmap\ of\ GPIO\ inputs.}}
+\DoxyCodeLine{00049\ \ \ \textcolor{comment}{//\ Returns\ the\ bits\ that\ were\ available\ and\ could\ be\ reserved.}}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_af054d625cc4e9f17df6151dd8efc1fd6}{RequestInputs}}(\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ inputs);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ Set\ the\ bits\ that\ are\ '1'\ in\ the\ output.\ Leave\ the\ rest\ untouched.}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a7193bbccda94f2da4db6f3f8fda26507}{SetBits}}(\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ value)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (!value)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00055\ \ \ \ \ WriteSetBits(value);}
+\DoxyCodeLine{00056\ \ \ \ \ delay();}
+\DoxyCodeLine{00057\ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ Clear\ the\ bits\ that\ are\ '1'\ in\ the\ output.\ Leave\ the\ rest\ untouched.}}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a068ac44244dd56133148550305294266}{ClearBits}}(\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ value)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (!value)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00062\ \ \ \ \ WriteClrBits(value);}
+\DoxyCodeLine{00063\ \ \ \ \ delay();}
+\DoxyCodeLine{00064\ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Write\ all\ the\ bits\ of\ "{}value"{}\ mentioned\ in\ "{}mask"{}.\ Leave\ the\ rest\ untouched.}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a546ba4326bfdb9ac50af37774becb2ef}{WriteMaskedBits}}(\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ value,\ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ mask)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Writing\ a\ word\ is\ two\ operations.\ The\ IO\ is\ actually\ pretty\ slow,\ so}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ this\ should\ probably\ \ be\ unnoticable.}}
+\DoxyCodeLine{00070\ \ \ \ \ WriteClrBits(\string~value\ \&\ mask);}
+\DoxyCodeLine{00071\ \ \ \ \ WriteSetBits(value\ \&\ mask);}
+\DoxyCodeLine{00072\ \ \ \ \ delay();}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_ae716de4aba8aa4eca3efc0d6230d33e4}{Read}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ ReadRegisters()\ \&\ input\_bits\_;\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ Return\ if\ this\ is\ appears\ to\ be\ a\ Pi4}}
+\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrgb__matrix_1_1GPIO_a9633b383fe692a8c7f0e2ce40648e0f4}{IsPi4}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ delay()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#if\ LED\_MATRIX\_ALLOW\_BARRIER\_DELAY}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (slowdown\_\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{asm}\ \textcolor{keyword}{volatile}(\textcolor{stringliteral}{"{}dsb\(\backslash\)tst"{}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ slowdown\_;\ n++)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ *gpio\_clr\_bits\_low\_\ =\ 0;}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ ReadRegisters()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\textcolor{keyword}{>}(*gpio\_read\_bits\_low\_)}
+\DoxyCodeLine{00095\ \#ifdef\ ENABLE\_WIDE\_GPIO\_COMPUTE\_MODULE}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ |\ (\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\textcolor{keyword}{>}(*gpio\_read\_bits\_low\_)\ <<\ 32)}
+\DoxyCodeLine{00097\ \#endif}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ WriteSetBits(\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ value)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ *gpio\_set\_bits\_low\_\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ \&\ 0xFFFFFFFF);}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#ifdef\ ENABLE\_WIDE\_GPIO\_COMPUTE\_MODULE}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{if}\ (uses\_64\_bit\_)}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ *gpio\_set\_bits\_high\_\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ >>\ 32);}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00107\ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ WriteClrBits(\mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ value)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ *gpio\_clr\_bits\_low\_\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ \&\ 0xFFFFFFFF);}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#ifdef\ ENABLE\_WIDE\_GPIO\_COMPUTE\_MODULE}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (uses\_64\_bit\_)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ *gpio\_clr\_bits\_high\_\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ >>\ 32);}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00115\ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00118\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ output\_bits\_;}
+\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ input\_bits\_;}
+\DoxyCodeLine{00120\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ reserved\_bits\_;}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{int}\ slowdown\_;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *gpio\_set\_bits\_low\_;}
+\DoxyCodeLine{00124\ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *gpio\_clr\_bits\_low\_;}
+\DoxyCodeLine{00125\ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *gpio\_read\_bits\_low\_;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#ifdef\ ENABLE\_WIDE\_GPIO\_COMPUTE\_MODULE}}
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{bool}\ uses\_64\_bit\_;}
+\DoxyCodeLine{00129\ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *gpio\_set\_bits\_high\_;}
+\DoxyCodeLine{00130\ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *gpio\_clr\_bits\_high\_;}
+\DoxyCodeLine{00131\ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *gpio\_read\_bits\_high\_;}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00133\ \};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{comment}{//\ A\ PinPulser\ is\ a\ utility\ class\ that\ pulses\ a\ GPIO\ pin.\ There\ can\ be\ various}}
+\DoxyCodeLine{00136\ \textcolor{comment}{//\ implementations.}}
+\DoxyCodeLine{00137\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrgb__matrix_1_1PinPulser}{PinPulser}}\ \{}
+\DoxyCodeLine{00138\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00139\ \ \ \textcolor{comment}{//\ Factory\ for\ a\ PinPulser.\ Chooses\ the\ right\ implementation\ depending}}
+\DoxyCodeLine{00140\ \ \ \textcolor{comment}{//\ on\ the\ context\ (CPU\ and\ which\ pins\ are\ affected).}}
+\DoxyCodeLine{00141\ \ \ \textcolor{comment}{//\ "{}gpio\_mask"{}\ is\ the\ mask\ that\ should\ be\ output\ (since\ we\ only}}
+\DoxyCodeLine{00142\ \ \ \textcolor{comment}{//\ \ \ need\ negative\ pulses,\ this\ is\ what\ it\ does)}}
+\DoxyCodeLine{00143\ \ \ \textcolor{comment}{//\ "{}nano\_wait\_spec"{}\ contains\ a\ list\ of\ time\ periods\ we'd\ like}}
+\DoxyCodeLine{00144\ \ \ \textcolor{comment}{//\ \ \ invoke\ later.\ This\ can\ be\ used\ to\ pre-\/process\ timings\ if\ needed.}}
+\DoxyCodeLine{00145\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classrgb__matrix_1_1PinPulser}{PinPulser}}\ *\mbox{\hyperlink{classrgb__matrix_1_1PinPulser_a75b2bca1629348e4b1d01189b48dfa65}{Create}}(\mbox{\hyperlink{classrgb__matrix_1_1GPIO}{GPIO}}\ *io,\ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ gpio\_mask,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ allow\_hardware\_pulsing,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\ \&nano\_wait\_spec);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrgb__matrix_1_1PinPulser_a89163ace2e29f52d85f779376f462df2}{\string~PinPulser}}()\ \{\}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \textcolor{comment}{//\ Send\ a\ pulse\ with\ a\ given\ length\ (index\ into\ nano\_wait\_spec\ array).}}
+\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1PinPulser_aa591252034c9db890de585e1cda80f17}{SendPulse}}(\textcolor{keywordtype}{int}\ time\_spec\_number)\ =\ 0;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \textcolor{comment}{//\ If\ SendPulse()\ is\ asynchronously\ implemented,\ wait\ for\ pulse\ to\ finish.}}
+\DoxyCodeLine{00155\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrgb__matrix_1_1PinPulser_ae2f37263b3e334eec3598e91a3c3eef6}{WaitPulseFinished}}()\ \{\}}
+\DoxyCodeLine{00156\ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{comment}{//\ Get\ rolling\ over\ microsecond\ counter.\ We\ get\ this\ from\ a\ hardware\ register}}
+\DoxyCodeLine{00159\ \textcolor{comment}{//\ if\ possible\ and\ a\ terrible\ slow\ fallback\ otherwise.}}
+\DoxyCodeLine{00160\ uint32\_t\ \mbox{\hyperlink{namespacergb__matrix_a11bdf9bdffe27cc5b94028744bb758be}{GetMicrosecondCounter}}();}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacergb__matrix_ae2650ad120ab84a01ee62c3367424fa7}{SleepMicroseconds}}(\textcolor{keywordtype}{long});}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \}\ \ \textcolor{comment}{//\ end\ namespace\ rgb\_matrix}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ RPI\_GPIO\_INGERNALH}}
+
+\end{DoxyCode}

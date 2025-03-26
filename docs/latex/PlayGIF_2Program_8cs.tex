@@ -1,0 +1,142 @@
+\doxysection{matrix/bindings/c\#/examples/\+Play\+GIF/\+Program.cs File Reference}
+\hypertarget{PlayGIF_2Program_8cs}{}\label{PlayGIF_2Program_8cs}\index{matrix/bindings/c\#/examples/PlayGIF/Program.cs@{matrix/bindings/c\#/examples/PlayGIF/Program.cs}}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{PlayGIF_2Program_8cs_a94433c61c817feb9f130bff5740d5d27}{Color}} = \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{RPi\+Rgb\+LEDMatrix.\+Color}}
+\item 
+using \mbox{\hyperlink{PlayGIF_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}} = new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(32, 2, 1)
+\item 
+using \mbox{\hyperlink{PlayGIF_2Program_8cs_ad78a6dd8245e2a9cfb43756f82e80c7e}{image}} = Image.\+Load$<$ Rgb24 $>$(\mbox{\hyperlink{PlayGIF_2Program_8cs_aa72e0c8a20e6bcc571d3a1c51846e627}{path}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Console. \mbox{\hyperlink{PlayGIF_2Program_8cs_a2f5e26d1f6581d4c1744fae90f70666b}{Write}} ("{}GIF path\+: "{})
+\item 
+image. \mbox{\hyperlink{PlayGIF_2Program_8cs_a3623f01214b7e58d819483b03baeb57e}{Mutate}} (o=$>$ o.\+Resize(canvas.\+Width, canvas.\+Height))
+\item 
+\mbox{\hyperlink{PlayGIF_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a}{while}} (\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+var \mbox{\hyperlink{PlayGIF_2Program_8cs_aa72e0c8a20e6bcc571d3a1c51846e627}{path}} = Console.\+Read\+Line()!
+\item 
+var \mbox{\hyperlink{PlayGIF_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}{canvas}} = matrix.\+Create\+Offscreen\+Canvas()
+\item 
+Configuration.\+Default. \mbox{\hyperlink{PlayGIF_2Program_8cs_a46448189cf4168f26f085af52293f79e}{Prefer\+Contiguous\+Image\+Buffers}} = true
+\item 
+var \mbox{\hyperlink{PlayGIF_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}} = true
+\item 
+Console. \mbox{\hyperlink{PlayGIF_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}{Cancel\+Key\+Press}}
+\item 
+var \mbox{\hyperlink{PlayGIF_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}{frame}} = -\/1
+\item 
+var \mbox{\hyperlink{PlayGIF_2Program_8cs_aa4b20d1ccb4713cd1de75d236b5e9211}{frames}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{PlayGIF_2Program_8cs_a94433c61c817feb9f130bff5740d5d27}\label{PlayGIF_2Program_8cs_a94433c61c817feb9f130bff5740d5d27} 
+\index{Program.cs@{Program.cs}!Color@{Color}}
+\index{Color@{Color}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structColor}{Color}} =  \mbox{\hyperlink{structRPiRgbLEDMatrix_1_1Color}{RPi\+Rgb\+LEDMatrix.\+Color}}}
+
+\Hypertarget{PlayGIF_2Program_8cs_ad78a6dd8245e2a9cfb43756f82e80c7e}\label{PlayGIF_2Program_8cs_ad78a6dd8245e2a9cfb43756f82e80c7e} 
+\index{Program.cs@{Program.cs}!image@{image}}
+\index{image@{image}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{image}{image}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{PlayGIF_2Program_8cs_ad78a6dd8245e2a9cfb43756f82e80c7e}{image}} =  Image.\+Load$<$Rgb24$>$(\mbox{\hyperlink{PlayGIF_2Program_8cs_aa72e0c8a20e6bcc571d3a1c51846e627}{path}})}
+
+\Hypertarget{PlayGIF_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}\label{PlayGIF_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f} 
+\index{Program.cs@{Program.cs}!matrix@{matrix}}
+\index{matrix@{matrix}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{FontExample_2Program_8cs_a86b6ef243f8ca1c9454d39cb4ca9154f}{matrix}} =  new \mbox{\hyperlink{classRPiRgbLEDMatrix_1_1RGBLedMatrix}{RGBLed\+Matrix}}(32, 2, 1)}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{PlayGIF_2Program_8cs_a3623f01214b7e58d819483b03baeb57e}\label{PlayGIF_2Program_8cs_a3623f01214b7e58d819483b03baeb57e} 
+\index{Program.cs@{Program.cs}!Mutate@{Mutate}}
+\index{Mutate@{Mutate}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{Mutate()}{Mutate()}}
+{\footnotesize\ttfamily image. Mutate (\begin{DoxyParamCaption}\item[{o}]{,  }\item[{o.}]{Resizecanvas.\+Width, canvas.\+Height }\end{DoxyParamCaption})}
+
+\Hypertarget{PlayGIF_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a}\label{PlayGIF_2Program_8cs_ad05546bf14ef585c9b776f51bd4cfb1a} 
+\index{Program.cs@{Program.cs}!while@{while}}
+\index{while@{while}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{while()}{while()}}
+{\footnotesize\ttfamily while (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FontExample_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{PlayGIF_2Program_8cs_a2f5e26d1f6581d4c1744fae90f70666b}\label{PlayGIF_2Program_8cs_a2f5e26d1f6581d4c1744fae90f70666b} 
+\index{Program.cs@{Program.cs}!Write@{Write}}
+\index{Write@{Write}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily Console. Write (\begin{DoxyParamCaption}\item[{"{}GIF path\+: "{}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{PlayGIF_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343}\label{PlayGIF_2Program_8cs_a9c0ca0a41addf25a640f039b3f5b1343} 
+\index{Program.cs@{Program.cs}!CancelKeyPress@{CancelKeyPress}}
+\index{CancelKeyPress@{CancelKeyPress}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{CancelKeyPress}{CancelKeyPress}}
+{\footnotesize\ttfamily Console. Cancel\+Key\+Press}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ (s,\ e)\ =>}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{PlayGIF_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}{running}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ e.Cancel\ =\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{PlayGIF_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73}\label{PlayGIF_2Program_8cs_a1c82fafbefefac03f47e6f1a3cad5b73} 
+\index{Program.cs@{Program.cs}!canvas@{canvas}}
+\index{canvas@{canvas}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{canvas}{canvas}}
+{\footnotesize\ttfamily var canvas = matrix.\+Create\+Offscreen\+Canvas()}
+
+\Hypertarget{PlayGIF_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b}\label{PlayGIF_2Program_8cs_a94e011a39c19820bf962b007fc5ac00b} 
+\index{Program.cs@{Program.cs}!frame@{frame}}
+\index{frame@{frame}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily var frame = -\/1}
+
+\Hypertarget{PlayGIF_2Program_8cs_aa4b20d1ccb4713cd1de75d236b5e9211}\label{PlayGIF_2Program_8cs_aa4b20d1ccb4713cd1de75d236b5e9211} 
+\index{Program.cs@{Program.cs}!frames@{frames}}
+\index{frames@{frames}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{frames}{frames}}
+{\footnotesize\ttfamily var frames}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ image.Frames}
+\DoxyCodeLine{\ \ \ \ .Select(f\ =>\ (}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Pixels:\ f.DangerousTryGetSinglePixelMemory(out\ \mbox{\hyperlink{Rotating3DCube_2Program_8cs_afeab488b57a3d3f2e76a8dc58add1f1c}{var}}\ memory)\ ?\ memory\ :\ throw\ new(\textcolor{stringliteral}{"{}Could\ not\ get\ pixel\ buffer"{}}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Delay:\ f.Metadata.GetGifMetadata().FrameDelay\ *\ 10}
+\DoxyCodeLine{\ \ \ \ )).ToArray()}
+
+\end{DoxyCode}
+\Hypertarget{PlayGIF_2Program_8cs_aa72e0c8a20e6bcc571d3a1c51846e627}\label{PlayGIF_2Program_8cs_aa72e0c8a20e6bcc571d3a1c51846e627} 
+\index{Program.cs@{Program.cs}!path@{path}}
+\index{path@{path}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily var path = Console.\+Read\+Line()!}
+
+\Hypertarget{PlayGIF_2Program_8cs_a46448189cf4168f26f085af52293f79e}\label{PlayGIF_2Program_8cs_a46448189cf4168f26f085af52293f79e} 
+\index{Program.cs@{Program.cs}!PreferContiguousImageBuffers@{PreferContiguousImageBuffers}}
+\index{PreferContiguousImageBuffers@{PreferContiguousImageBuffers}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{PreferContiguousImageBuffers}{PreferContiguousImageBuffers}}
+{\footnotesize\ttfamily Configuration.\+Default. Prefer\+Contiguous\+Image\+Buffers = true}
+
+\Hypertarget{PlayGIF_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e}\label{PlayGIF_2Program_8cs_a08a95dece9b7b422eeaa5f226581e51e} 
+\index{Program.cs@{Program.cs}!running@{running}}
+\index{running@{running}!Program.cs@{Program.cs}}
+\doxysubsubsection{\texorpdfstring{running}{running}}
+{\footnotesize\ttfamily var running = true}
+

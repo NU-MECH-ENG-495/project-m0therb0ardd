@@ -1,0 +1,383 @@
+\doxysection{matrix/lib/gpio.cc File Reference}
+\hypertarget{gpio_8cc}{}\label{gpio_8cc}\index{matrix/lib/gpio.cc@{matrix/lib/gpio.cc}}
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include "{}gpio.\+h"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for gpio.\+cc\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gpio_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacergb__matrix}{rgb\+\_\+matrix}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_aacbb9e1f38be71e22df1584a37c56693}{\+\_\+\+\_\+\+STDC\+\_\+\+FORMAT\+\_\+\+MACROS}}
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_af37650662cfa1589ad3d67bf25914a52}{EMPIRICAL\+\_\+\+NANOSLEEP\+\_\+\+OVERHEAD\+\_\+\+US}}~12
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_af6f936b7be2d9983346e2e5d6b279323}{MINIMUM\+\_\+\+NANOSLEEP\+\_\+\+TIME\+\_\+\+US}}~5
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_ab207dc75bce16ef2a5998a40b3a1789a}{DEBUG\+\_\+\+SLEEP\+\_\+\+JITTER}}~0
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a11b27df3f0aad9252ceeeb93e6262a83}{BCM2708\+\_\+\+PERI\+\_\+\+BASE}}~0x20000000
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_ac49f4380a2539594ad2d0567a396e090}{BCM2709\+\_\+\+PERI\+\_\+\+BASE}}~0x3\+F000000
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a6e7626590ee55ead3401cf7e15bbba4f}{BCM2711\+\_\+\+PERI\+\_\+\+BASE}}~0x\+FE000000
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_ac8e28897516f4b32988af3227f2c9436}{GPIO\+\_\+\+REGISTER\+\_\+\+OFFSET}}~0x200000
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_aab9d6a345fad0ad573bd6c8eaec85de2}{COUNTER\+\_\+1\+Mhz\+\_\+\+REGISTER\+\_\+\+OFFSET}}~0x3000
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a379c3d9e5132cddd9bfc76f7b0ca5467}{GPIO\+\_\+\+PWM\+\_\+\+BASE\+\_\+\+OFFSET}}~(\mbox{\hyperlink{gpio_8cc_ac8e28897516f4b32988af3227f2c9436}{GPIO\+\_\+\+REGISTER\+\_\+\+OFFSET}} + 0x\+C000)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a4134b29963f85c3fafa2d028bee1b0b2}{GPIO\+\_\+\+CLK\+\_\+\+BASE\+\_\+\+OFFSET}}~0x101000
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a689cfca30116d7c0e38f560ecb8d3b9b}{REGISTER\+\_\+\+BLOCK\+\_\+\+SIZE}}~(4\texorpdfstring{$\ast$}{*}1024)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a45ee979ffbffe3a4691dc0a843c31d59}{PWM\+\_\+\+CTL}}~(0x00 / 4)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_af6976dd822efacbf457d7348067b0a5f}{PWM\+\_\+\+STA}}~(0x04 / 4)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a8d8bac47edfaac69e400fe4422ec275c}{PWM\+\_\+\+RNG1}}~(0x10 / 4)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_aee953007367b39b911a6a6bea714d4b6}{PWM\+\_\+\+FIFO}}~(0x18 / 4)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a09c4bf1662b2854be577a4aaa9210bf8}{PWM\+\_\+\+CTL\+\_\+\+CLRF1}}~(1$<$$<$6)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a1a8954a074a7507ab4671fc5a7ded725}{PWM\+\_\+\+CTL\+\_\+\+USEF1}}~(1$<$$<$5)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_aff23f3c83213e91d47147a33cfac2f76}{PWM\+\_\+\+CTL\+\_\+\+POLA1}}~(1$<$$<$4)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a2cfe9151f1bc7397208ee0cf39dac509}{PWM\+\_\+\+CTL\+\_\+\+SBIT1}}~(1$<$$<$3)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a7f142736e3bda7dd851c13f5cc6e1471}{PWM\+\_\+\+CTL\+\_\+\+MODE1}}~(1$<$$<$1)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_aae710a5f58d07215527117bb60cd9874}{PWM\+\_\+\+CTL\+\_\+\+PWEN1}}~(1$<$$<$0)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a40edb7233146f2b3bd99753e95494042}{PWM\+\_\+\+STA\+\_\+\+EMPT1}}~(1$<$$<$1)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_ac8be53c4db9800e8d6d2714b3167e177}{PWM\+\_\+\+STA\+\_\+\+FULL1}}~(1$<$$<$0)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a8c297b3c23daa56cc4e6fcdb17ca1d42}{CLK\+\_\+\+PASSWD}}~(0x5A$<$$<$24)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a51a92b5d471c3857676c2fae218b35c1}{CLK\+\_\+\+CTL\+\_\+\+MASH}}(x)~((x)$<$$<$9)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a2e2f805447dc44ec0a5a9df798958ad7}{CLK\+\_\+\+CTL\+\_\+\+BUSY}}~(1 $<$$<$7)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_aa8483d5ae33ea78e0d8e7a137f63ad04}{CLK\+\_\+\+CTL\+\_\+\+KILL}}~(1 $<$$<$5)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a309e0ff518d0b3ad73b191a6366f77d8}{CLK\+\_\+\+CTL\+\_\+\+ENAB}}~(1 $<$$<$4)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a827a542f0b5309745a264c3b275d83e5}{CLK\+\_\+\+CTL\+\_\+\+SRC}}(x)~((x)$<$$<$0)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a337543496d193ea44862edd7df27121d}{CLK\+\_\+\+CTL\+\_\+\+SRC\+\_\+\+PLLD}}~6  /\texorpdfstring{$\ast$}{*} 500.\+0 MHz \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_ab3deba3c1e23e680a88dde6648496e96}{CLK\+\_\+\+DIV\+\_\+\+DIVI}}(x)~((x)$<$$<$12)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a040d99e68f81e058c70e4ef0aa88c2b2}{CLK\+\_\+\+DIV\+\_\+\+DIVF}}(x)~((x)$<$$<$ 0)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a7b48e3b923286e75e89a95c519c96ad8}{CLK\+\_\+\+PWMCTL}}~40
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a89f2d58ae5b7d028db2c5d28e52d6a5b}{CLK\+\_\+\+PWMDIV}}~41
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_ac0cdeae6013e5dfb644e5afbc354be30}{MAX\+\_\+\+PWM\+\_\+\+BIT\+\_\+\+USE}}~224
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a0a2436f77dbf2dfc80b0f9940422eacf}{PWM\+\_\+\+BASE\+\_\+\+TIME\+\_\+\+NS}}~2
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a03886f219aed83bfc164616c20270990}{INP\+\_\+\+GPIO}}(g)~\texorpdfstring{$\ast$}{*}(s\+\_\+\+GPIO\+\_\+registers+((g)/10)) \&= \texorpdfstring{$\sim$}{\string~}(7ull$<$$<$(((g)\%10)\texorpdfstring{$\ast$}{*}3))
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_af56d889c9e5a11d4973c3ee3765046ee}{OUT\+\_\+\+GPIO}}(g)~\texorpdfstring{$\ast$}{*}(s\+\_\+\+GPIO\+\_\+registers+((g)/10)) \texorpdfstring{$\vert$}{|}=  (1ull$<$$<$(((g)\%10)\texorpdfstring{$\ast$}{*}3))
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_aee1a56baeb6b8457fb722fd36dad5bbf}{GPIO\+\_\+\+SET}}~\texorpdfstring{$\ast$}{*}(gpio+7)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_a41e1490709d11632c6584a5baef75d29}{GPIO\+\_\+\+CLR}}~\texorpdfstring{$\ast$}{*}(gpio+10)
+\item 
+\#define \mbox{\hyperlink{gpio_8cc_adedf0b514647a951c868a8578d04c246}{GPIO\+\_\+\+BIT}}(x)~(1ull $<$$<$ x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772}{rgb\+\_\+matrix\+::\+Raspberry\+Pi\+Model}} \{ \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a3644613d40dad60d222f1dec51d9e770}{rgb\+\_\+matrix\+::\+PI\+\_\+\+MODEL\+\_\+1}}
+, \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a807a5b31e82e71ace17cd61ca526b4df}{rgb\+\_\+matrix\+::\+PI\+\_\+\+MODEL\+\_\+2}}
+, \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772af1afb3ad84638c380382b8c413e393ab}{rgb\+\_\+matrix\+::\+PI\+\_\+\+MODEL\+\_\+3}}
+, \mbox{\hyperlink{namespacergb__matrix_a7d57aae1b59ea57ca7776594f1a74772a8e21f3587e427f168e5ef755f2ea3b59}{rgb\+\_\+matrix\+::\+PI\+\_\+\+MODEL\+\_\+4}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespacergb__matrix_a11bdf9bdffe27cc5b94028744bb758be}{rgb\+\_\+matrix\+::\+Get\+Microsecond\+Counter}} ()
+\item 
+void \mbox{\hyperlink{namespacergb__matrix_ae2650ad120ab84a01ee62c3367424fa7}{rgb\+\_\+matrix\+::\+Sleep\+Microseconds}} (long t)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{gpio_8cc_aacbb9e1f38be71e22df1584a37c56693}\label{gpio_8cc_aacbb9e1f38be71e22df1584a37c56693} 
+\index{gpio.cc@{gpio.cc}!\_\_STDC\_FORMAT\_MACROS@{\_\_STDC\_FORMAT\_MACROS}}
+\index{\_\_STDC\_FORMAT\_MACROS@{\_\_STDC\_FORMAT\_MACROS}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{\_\_STDC\_FORMAT\_MACROS}{\_\_STDC\_FORMAT\_MACROS}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+STDC\+\_\+\+FORMAT\+\_\+\+MACROS}
+
+\Hypertarget{gpio_8cc_a11b27df3f0aad9252ceeeb93e6262a83}\label{gpio_8cc_a11b27df3f0aad9252ceeeb93e6262a83} 
+\index{gpio.cc@{gpio.cc}!BCM2708\_PERI\_BASE@{BCM2708\_PERI\_BASE}}
+\index{BCM2708\_PERI\_BASE@{BCM2708\_PERI\_BASE}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{BCM2708\_PERI\_BASE}{BCM2708\_PERI\_BASE}}
+{\footnotesize\ttfamily \#define BCM2708\+\_\+\+PERI\+\_\+\+BASE~0x20000000}
+
+\Hypertarget{gpio_8cc_ac49f4380a2539594ad2d0567a396e090}\label{gpio_8cc_ac49f4380a2539594ad2d0567a396e090} 
+\index{gpio.cc@{gpio.cc}!BCM2709\_PERI\_BASE@{BCM2709\_PERI\_BASE}}
+\index{BCM2709\_PERI\_BASE@{BCM2709\_PERI\_BASE}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{BCM2709\_PERI\_BASE}{BCM2709\_PERI\_BASE}}
+{\footnotesize\ttfamily \#define BCM2709\+\_\+\+PERI\+\_\+\+BASE~0x3\+F000000}
+
+\Hypertarget{gpio_8cc_a6e7626590ee55ead3401cf7e15bbba4f}\label{gpio_8cc_a6e7626590ee55ead3401cf7e15bbba4f} 
+\index{gpio.cc@{gpio.cc}!BCM2711\_PERI\_BASE@{BCM2711\_PERI\_BASE}}
+\index{BCM2711\_PERI\_BASE@{BCM2711\_PERI\_BASE}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{BCM2711\_PERI\_BASE}{BCM2711\_PERI\_BASE}}
+{\footnotesize\ttfamily \#define BCM2711\+\_\+\+PERI\+\_\+\+BASE~0x\+FE000000}
+
+\Hypertarget{gpio_8cc_a2e2f805447dc44ec0a5a9df798958ad7}\label{gpio_8cc_a2e2f805447dc44ec0a5a9df798958ad7} 
+\index{gpio.cc@{gpio.cc}!CLK\_CTL\_BUSY@{CLK\_CTL\_BUSY}}
+\index{CLK\_CTL\_BUSY@{CLK\_CTL\_BUSY}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_CTL\_BUSY}{CLK\_CTL\_BUSY}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+CTL\+\_\+\+BUSY~(1 $<$$<$7)}
+
+\Hypertarget{gpio_8cc_a309e0ff518d0b3ad73b191a6366f77d8}\label{gpio_8cc_a309e0ff518d0b3ad73b191a6366f77d8} 
+\index{gpio.cc@{gpio.cc}!CLK\_CTL\_ENAB@{CLK\_CTL\_ENAB}}
+\index{CLK\_CTL\_ENAB@{CLK\_CTL\_ENAB}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_CTL\_ENAB}{CLK\_CTL\_ENAB}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+CTL\+\_\+\+ENAB~(1 $<$$<$4)}
+
+\Hypertarget{gpio_8cc_aa8483d5ae33ea78e0d8e7a137f63ad04}\label{gpio_8cc_aa8483d5ae33ea78e0d8e7a137f63ad04} 
+\index{gpio.cc@{gpio.cc}!CLK\_CTL\_KILL@{CLK\_CTL\_KILL}}
+\index{CLK\_CTL\_KILL@{CLK\_CTL\_KILL}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_CTL\_KILL}{CLK\_CTL\_KILL}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+CTL\+\_\+\+KILL~(1 $<$$<$5)}
+
+\Hypertarget{gpio_8cc_a51a92b5d471c3857676c2fae218b35c1}\label{gpio_8cc_a51a92b5d471c3857676c2fae218b35c1} 
+\index{gpio.cc@{gpio.cc}!CLK\_CTL\_MASH@{CLK\_CTL\_MASH}}
+\index{CLK\_CTL\_MASH@{CLK\_CTL\_MASH}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_CTL\_MASH}{CLK\_CTL\_MASH}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+CTL\+\_\+\+MASH(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x)$<$$<$9)}
+
+\Hypertarget{gpio_8cc_a827a542f0b5309745a264c3b275d83e5}\label{gpio_8cc_a827a542f0b5309745a264c3b275d83e5} 
+\index{gpio.cc@{gpio.cc}!CLK\_CTL\_SRC@{CLK\_CTL\_SRC}}
+\index{CLK\_CTL\_SRC@{CLK\_CTL\_SRC}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_CTL\_SRC}{CLK\_CTL\_SRC}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+CTL\+\_\+\+SRC(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x)$<$$<$0)}
+
+\Hypertarget{gpio_8cc_a337543496d193ea44862edd7df27121d}\label{gpio_8cc_a337543496d193ea44862edd7df27121d} 
+\index{gpio.cc@{gpio.cc}!CLK\_CTL\_SRC\_PLLD@{CLK\_CTL\_SRC\_PLLD}}
+\index{CLK\_CTL\_SRC\_PLLD@{CLK\_CTL\_SRC\_PLLD}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_CTL\_SRC\_PLLD}{CLK\_CTL\_SRC\_PLLD}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+CTL\+\_\+\+SRC\+\_\+\+PLLD~6  /\texorpdfstring{$\ast$}{*} 500.\+0 MHz \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{gpio_8cc_a040d99e68f81e058c70e4ef0aa88c2b2}\label{gpio_8cc_a040d99e68f81e058c70e4ef0aa88c2b2} 
+\index{gpio.cc@{gpio.cc}!CLK\_DIV\_DIVF@{CLK\_DIV\_DIVF}}
+\index{CLK\_DIV\_DIVF@{CLK\_DIV\_DIVF}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_DIV\_DIVF}{CLK\_DIV\_DIVF}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+DIV\+\_\+\+DIVF(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x)$<$$<$ 0)}
+
+\Hypertarget{gpio_8cc_ab3deba3c1e23e680a88dde6648496e96}\label{gpio_8cc_ab3deba3c1e23e680a88dde6648496e96} 
+\index{gpio.cc@{gpio.cc}!CLK\_DIV\_DIVI@{CLK\_DIV\_DIVI}}
+\index{CLK\_DIV\_DIVI@{CLK\_DIV\_DIVI}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_DIV\_DIVI}{CLK\_DIV\_DIVI}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+DIV\+\_\+\+DIVI(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x)$<$$<$12)}
+
+\Hypertarget{gpio_8cc_a8c297b3c23daa56cc4e6fcdb17ca1d42}\label{gpio_8cc_a8c297b3c23daa56cc4e6fcdb17ca1d42} 
+\index{gpio.cc@{gpio.cc}!CLK\_PASSWD@{CLK\_PASSWD}}
+\index{CLK\_PASSWD@{CLK\_PASSWD}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_PASSWD}{CLK\_PASSWD}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+PASSWD~(0x5A$<$$<$24)}
+
+\Hypertarget{gpio_8cc_a7b48e3b923286e75e89a95c519c96ad8}\label{gpio_8cc_a7b48e3b923286e75e89a95c519c96ad8} 
+\index{gpio.cc@{gpio.cc}!CLK\_PWMCTL@{CLK\_PWMCTL}}
+\index{CLK\_PWMCTL@{CLK\_PWMCTL}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_PWMCTL}{CLK\_PWMCTL}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+PWMCTL~40}
+
+\Hypertarget{gpio_8cc_a89f2d58ae5b7d028db2c5d28e52d6a5b}\label{gpio_8cc_a89f2d58ae5b7d028db2c5d28e52d6a5b} 
+\index{gpio.cc@{gpio.cc}!CLK\_PWMDIV@{CLK\_PWMDIV}}
+\index{CLK\_PWMDIV@{CLK\_PWMDIV}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{CLK\_PWMDIV}{CLK\_PWMDIV}}
+{\footnotesize\ttfamily \#define CLK\+\_\+\+PWMDIV~41}
+
+\Hypertarget{gpio_8cc_aab9d6a345fad0ad573bd6c8eaec85de2}\label{gpio_8cc_aab9d6a345fad0ad573bd6c8eaec85de2} 
+\index{gpio.cc@{gpio.cc}!COUNTER\_1Mhz\_REGISTER\_OFFSET@{COUNTER\_1Mhz\_REGISTER\_OFFSET}}
+\index{COUNTER\_1Mhz\_REGISTER\_OFFSET@{COUNTER\_1Mhz\_REGISTER\_OFFSET}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{COUNTER\_1Mhz\_REGISTER\_OFFSET}{COUNTER\_1Mhz\_REGISTER\_OFFSET}}
+{\footnotesize\ttfamily \#define COUNTER\+\_\+1\+Mhz\+\_\+\+REGISTER\+\_\+\+OFFSET~0x3000}
+
+\Hypertarget{gpio_8cc_ab207dc75bce16ef2a5998a40b3a1789a}\label{gpio_8cc_ab207dc75bce16ef2a5998a40b3a1789a} 
+\index{gpio.cc@{gpio.cc}!DEBUG\_SLEEP\_JITTER@{DEBUG\_SLEEP\_JITTER}}
+\index{DEBUG\_SLEEP\_JITTER@{DEBUG\_SLEEP\_JITTER}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_SLEEP\_JITTER}{DEBUG\_SLEEP\_JITTER}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+SLEEP\+\_\+\+JITTER~0}
+
+\Hypertarget{gpio_8cc_af37650662cfa1589ad3d67bf25914a52}\label{gpio_8cc_af37650662cfa1589ad3d67bf25914a52} 
+\index{gpio.cc@{gpio.cc}!EMPIRICAL\_NANOSLEEP\_OVERHEAD\_US@{EMPIRICAL\_NANOSLEEP\_OVERHEAD\_US}}
+\index{EMPIRICAL\_NANOSLEEP\_OVERHEAD\_US@{EMPIRICAL\_NANOSLEEP\_OVERHEAD\_US}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{EMPIRICAL\_NANOSLEEP\_OVERHEAD\_US}{EMPIRICAL\_NANOSLEEP\_OVERHEAD\_US}}
+{\footnotesize\ttfamily \#define EMPIRICAL\+\_\+\+NANOSLEEP\+\_\+\+OVERHEAD\+\_\+\+US~12}
+
+\Hypertarget{gpio_8cc_adedf0b514647a951c868a8578d04c246}\label{gpio_8cc_adedf0b514647a951c868a8578d04c246} 
+\index{gpio.cc@{gpio.cc}!GPIO\_BIT@{GPIO\_BIT}}
+\index{GPIO\_BIT@{GPIO\_BIT}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{GPIO\_BIT}{GPIO\_BIT}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(1ull $<$$<$ x)}
+
+\Hypertarget{gpio_8cc_a4134b29963f85c3fafa2d028bee1b0b2}\label{gpio_8cc_a4134b29963f85c3fafa2d028bee1b0b2} 
+\index{gpio.cc@{gpio.cc}!GPIO\_CLK\_BASE\_OFFSET@{GPIO\_CLK\_BASE\_OFFSET}}
+\index{GPIO\_CLK\_BASE\_OFFSET@{GPIO\_CLK\_BASE\_OFFSET}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{GPIO\_CLK\_BASE\_OFFSET}{GPIO\_CLK\_BASE\_OFFSET}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+CLK\+\_\+\+BASE\+\_\+\+OFFSET~0x101000}
+
+\Hypertarget{gpio_8cc_a41e1490709d11632c6584a5baef75d29}\label{gpio_8cc_a41e1490709d11632c6584a5baef75d29} 
+\index{gpio.cc@{gpio.cc}!GPIO\_CLR@{GPIO\_CLR}}
+\index{GPIO\_CLR@{GPIO\_CLR}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{GPIO\_CLR}{GPIO\_CLR}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+CLR~\texorpdfstring{$\ast$}{*}(gpio+10)}
+
+\Hypertarget{gpio_8cc_a379c3d9e5132cddd9bfc76f7b0ca5467}\label{gpio_8cc_a379c3d9e5132cddd9bfc76f7b0ca5467} 
+\index{gpio.cc@{gpio.cc}!GPIO\_PWM\_BASE\_OFFSET@{GPIO\_PWM\_BASE\_OFFSET}}
+\index{GPIO\_PWM\_BASE\_OFFSET@{GPIO\_PWM\_BASE\_OFFSET}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{GPIO\_PWM\_BASE\_OFFSET}{GPIO\_PWM\_BASE\_OFFSET}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+PWM\+\_\+\+BASE\+\_\+\+OFFSET~(\mbox{\hyperlink{gpio_8cc_ac8e28897516f4b32988af3227f2c9436}{GPIO\+\_\+\+REGISTER\+\_\+\+OFFSET}} + 0x\+C000)}
+
+\Hypertarget{gpio_8cc_ac8e28897516f4b32988af3227f2c9436}\label{gpio_8cc_ac8e28897516f4b32988af3227f2c9436} 
+\index{gpio.cc@{gpio.cc}!GPIO\_REGISTER\_OFFSET@{GPIO\_REGISTER\_OFFSET}}
+\index{GPIO\_REGISTER\_OFFSET@{GPIO\_REGISTER\_OFFSET}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{GPIO\_REGISTER\_OFFSET}{GPIO\_REGISTER\_OFFSET}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+REGISTER\+\_\+\+OFFSET~0x200000}
+
+\Hypertarget{gpio_8cc_aee1a56baeb6b8457fb722fd36dad5bbf}\label{gpio_8cc_aee1a56baeb6b8457fb722fd36dad5bbf} 
+\index{gpio.cc@{gpio.cc}!GPIO\_SET@{GPIO\_SET}}
+\index{GPIO\_SET@{GPIO\_SET}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{GPIO\_SET}{GPIO\_SET}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+SET~\texorpdfstring{$\ast$}{*}(gpio+7)}
+
+\Hypertarget{gpio_8cc_a03886f219aed83bfc164616c20270990}\label{gpio_8cc_a03886f219aed83bfc164616c20270990} 
+\index{gpio.cc@{gpio.cc}!INP\_GPIO@{INP\_GPIO}}
+\index{INP\_GPIO@{INP\_GPIO}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{INP\_GPIO}{INP\_GPIO}}
+{\footnotesize\ttfamily \#define INP\+\_\+\+GPIO(\begin{DoxyParamCaption}\item[{}]{g }\end{DoxyParamCaption})~\texorpdfstring{$\ast$}{*}(s\+\_\+\+GPIO\+\_\+registers+((g)/10)) \&= \texorpdfstring{$\sim$}{\string~}(7ull$<$$<$(((g)\%10)\texorpdfstring{$\ast$}{*}3))}
+
+\Hypertarget{gpio_8cc_ac0cdeae6013e5dfb644e5afbc354be30}\label{gpio_8cc_ac0cdeae6013e5dfb644e5afbc354be30} 
+\index{gpio.cc@{gpio.cc}!MAX\_PWM\_BIT\_USE@{MAX\_PWM\_BIT\_USE}}
+\index{MAX\_PWM\_BIT\_USE@{MAX\_PWM\_BIT\_USE}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{MAX\_PWM\_BIT\_USE}{MAX\_PWM\_BIT\_USE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PWM\+\_\+\+BIT\+\_\+\+USE~224}
+
+\Hypertarget{gpio_8cc_af6f936b7be2d9983346e2e5d6b279323}\label{gpio_8cc_af6f936b7be2d9983346e2e5d6b279323} 
+\index{gpio.cc@{gpio.cc}!MINIMUM\_NANOSLEEP\_TIME\_US@{MINIMUM\_NANOSLEEP\_TIME\_US}}
+\index{MINIMUM\_NANOSLEEP\_TIME\_US@{MINIMUM\_NANOSLEEP\_TIME\_US}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{MINIMUM\_NANOSLEEP\_TIME\_US}{MINIMUM\_NANOSLEEP\_TIME\_US}}
+{\footnotesize\ttfamily \#define MINIMUM\+\_\+\+NANOSLEEP\+\_\+\+TIME\+\_\+\+US~5}
+
+\Hypertarget{gpio_8cc_af56d889c9e5a11d4973c3ee3765046ee}\label{gpio_8cc_af56d889c9e5a11d4973c3ee3765046ee} 
+\index{gpio.cc@{gpio.cc}!OUT\_GPIO@{OUT\_GPIO}}
+\index{OUT\_GPIO@{OUT\_GPIO}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{OUT\_GPIO}{OUT\_GPIO}}
+{\footnotesize\ttfamily \#define OUT\+\_\+\+GPIO(\begin{DoxyParamCaption}\item[{}]{g }\end{DoxyParamCaption})~\texorpdfstring{$\ast$}{*}(s\+\_\+\+GPIO\+\_\+registers+((g)/10)) \texorpdfstring{$\vert$}{|}=  (1ull$<$$<$(((g)\%10)\texorpdfstring{$\ast$}{*}3))}
+
+\Hypertarget{gpio_8cc_a0a2436f77dbf2dfc80b0f9940422eacf}\label{gpio_8cc_a0a2436f77dbf2dfc80b0f9940422eacf} 
+\index{gpio.cc@{gpio.cc}!PWM\_BASE\_TIME\_NS@{PWM\_BASE\_TIME\_NS}}
+\index{PWM\_BASE\_TIME\_NS@{PWM\_BASE\_TIME\_NS}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_BASE\_TIME\_NS}{PWM\_BASE\_TIME\_NS}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+BASE\+\_\+\+TIME\+\_\+\+NS~2}
+
+\Hypertarget{gpio_8cc_a45ee979ffbffe3a4691dc0a843c31d59}\label{gpio_8cc_a45ee979ffbffe3a4691dc0a843c31d59} 
+\index{gpio.cc@{gpio.cc}!PWM\_CTL@{PWM\_CTL}}
+\index{PWM\_CTL@{PWM\_CTL}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_CTL}{PWM\_CTL}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+CTL~(0x00 / 4)}
+
+\Hypertarget{gpio_8cc_a09c4bf1662b2854be577a4aaa9210bf8}\label{gpio_8cc_a09c4bf1662b2854be577a4aaa9210bf8} 
+\index{gpio.cc@{gpio.cc}!PWM\_CTL\_CLRF1@{PWM\_CTL\_CLRF1}}
+\index{PWM\_CTL\_CLRF1@{PWM\_CTL\_CLRF1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_CTL\_CLRF1}{PWM\_CTL\_CLRF1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+CTL\+\_\+\+CLRF1~(1$<$$<$6)}
+
+\Hypertarget{gpio_8cc_a7f142736e3bda7dd851c13f5cc6e1471}\label{gpio_8cc_a7f142736e3bda7dd851c13f5cc6e1471} 
+\index{gpio.cc@{gpio.cc}!PWM\_CTL\_MODE1@{PWM\_CTL\_MODE1}}
+\index{PWM\_CTL\_MODE1@{PWM\_CTL\_MODE1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_CTL\_MODE1}{PWM\_CTL\_MODE1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+CTL\+\_\+\+MODE1~(1$<$$<$1)}
+
+\Hypertarget{gpio_8cc_aff23f3c83213e91d47147a33cfac2f76}\label{gpio_8cc_aff23f3c83213e91d47147a33cfac2f76} 
+\index{gpio.cc@{gpio.cc}!PWM\_CTL\_POLA1@{PWM\_CTL\_POLA1}}
+\index{PWM\_CTL\_POLA1@{PWM\_CTL\_POLA1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_CTL\_POLA1}{PWM\_CTL\_POLA1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+CTL\+\_\+\+POLA1~(1$<$$<$4)}
+
+\Hypertarget{gpio_8cc_aae710a5f58d07215527117bb60cd9874}\label{gpio_8cc_aae710a5f58d07215527117bb60cd9874} 
+\index{gpio.cc@{gpio.cc}!PWM\_CTL\_PWEN1@{PWM\_CTL\_PWEN1}}
+\index{PWM\_CTL\_PWEN1@{PWM\_CTL\_PWEN1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_CTL\_PWEN1}{PWM\_CTL\_PWEN1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+CTL\+\_\+\+PWEN1~(1$<$$<$0)}
+
+\Hypertarget{gpio_8cc_a2cfe9151f1bc7397208ee0cf39dac509}\label{gpio_8cc_a2cfe9151f1bc7397208ee0cf39dac509} 
+\index{gpio.cc@{gpio.cc}!PWM\_CTL\_SBIT1@{PWM\_CTL\_SBIT1}}
+\index{PWM\_CTL\_SBIT1@{PWM\_CTL\_SBIT1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_CTL\_SBIT1}{PWM\_CTL\_SBIT1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+CTL\+\_\+\+SBIT1~(1$<$$<$3)}
+
+\Hypertarget{gpio_8cc_a1a8954a074a7507ab4671fc5a7ded725}\label{gpio_8cc_a1a8954a074a7507ab4671fc5a7ded725} 
+\index{gpio.cc@{gpio.cc}!PWM\_CTL\_USEF1@{PWM\_CTL\_USEF1}}
+\index{PWM\_CTL\_USEF1@{PWM\_CTL\_USEF1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_CTL\_USEF1}{PWM\_CTL\_USEF1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+CTL\+\_\+\+USEF1~(1$<$$<$5)}
+
+\Hypertarget{gpio_8cc_aee953007367b39b911a6a6bea714d4b6}\label{gpio_8cc_aee953007367b39b911a6a6bea714d4b6} 
+\index{gpio.cc@{gpio.cc}!PWM\_FIFO@{PWM\_FIFO}}
+\index{PWM\_FIFO@{PWM\_FIFO}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_FIFO}{PWM\_FIFO}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+FIFO~(0x18 / 4)}
+
+\Hypertarget{gpio_8cc_a8d8bac47edfaac69e400fe4422ec275c}\label{gpio_8cc_a8d8bac47edfaac69e400fe4422ec275c} 
+\index{gpio.cc@{gpio.cc}!PWM\_RNG1@{PWM\_RNG1}}
+\index{PWM\_RNG1@{PWM\_RNG1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_RNG1}{PWM\_RNG1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+RNG1~(0x10 / 4)}
+
+\Hypertarget{gpio_8cc_af6976dd822efacbf457d7348067b0a5f}\label{gpio_8cc_af6976dd822efacbf457d7348067b0a5f} 
+\index{gpio.cc@{gpio.cc}!PWM\_STA@{PWM\_STA}}
+\index{PWM\_STA@{PWM\_STA}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_STA}{PWM\_STA}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+STA~(0x04 / 4)}
+
+\Hypertarget{gpio_8cc_a40edb7233146f2b3bd99753e95494042}\label{gpio_8cc_a40edb7233146f2b3bd99753e95494042} 
+\index{gpio.cc@{gpio.cc}!PWM\_STA\_EMPT1@{PWM\_STA\_EMPT1}}
+\index{PWM\_STA\_EMPT1@{PWM\_STA\_EMPT1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_STA\_EMPT1}{PWM\_STA\_EMPT1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+STA\+\_\+\+EMPT1~(1$<$$<$1)}
+
+\Hypertarget{gpio_8cc_ac8be53c4db9800e8d6d2714b3167e177}\label{gpio_8cc_ac8be53c4db9800e8d6d2714b3167e177} 
+\index{gpio.cc@{gpio.cc}!PWM\_STA\_FULL1@{PWM\_STA\_FULL1}}
+\index{PWM\_STA\_FULL1@{PWM\_STA\_FULL1}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{PWM\_STA\_FULL1}{PWM\_STA\_FULL1}}
+{\footnotesize\ttfamily \#define PWM\+\_\+\+STA\+\_\+\+FULL1~(1$<$$<$0)}
+
+\Hypertarget{gpio_8cc_a689cfca30116d7c0e38f560ecb8d3b9b}\label{gpio_8cc_a689cfca30116d7c0e38f560ecb8d3b9b} 
+\index{gpio.cc@{gpio.cc}!REGISTER\_BLOCK\_SIZE@{REGISTER\_BLOCK\_SIZE}}
+\index{REGISTER\_BLOCK\_SIZE@{REGISTER\_BLOCK\_SIZE}!gpio.cc@{gpio.cc}}
+\doxysubsubsection{\texorpdfstring{REGISTER\_BLOCK\_SIZE}{REGISTER\_BLOCK\_SIZE}}
+{\footnotesize\ttfamily \#define REGISTER\+\_\+\+BLOCK\+\_\+\+SIZE~(4\texorpdfstring{$\ast$}{*}1024)}
+

@@ -1,0 +1,128 @@
+\doxysection{gif-\/viewer Namespace Reference}
+\hypertarget{namespacegif-viewer}{}\label{namespacegif-viewer}\index{gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacegif-viewer_a0834ed7628c04d65cf01274c701238b9}{image\+\_\+file}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+\mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}} = Image.\+open(\mbox{\hyperlink{namespacegif-viewer_a0834ed7628c04d65cf01274c701238b9}{image\+\_\+file}})
+\item 
+\mbox{\hyperlink{namespacegif-viewer_abfb2d31632f899019a0d5b975dbb027f}{num\+\_\+frames}} = gif.\+n\+\_\+frames
+\item 
+\mbox{\hyperlink{namespacegif-viewer_ae4b6bc7dad8c3cb970d35ac4835a2ea7}{options}} = RGBMatrix\+Options()
+\item 
+\mbox{\hyperlink{namespacegif-viewer_a6d247d4a6b2f6ccff7e03c2c883bf27c}{rows}}
+\item 
+\mbox{\hyperlink{namespacegif-viewer_ac0834a332ce68fcc8d278a64be7ffb57}{cols}}
+\item 
+\mbox{\hyperlink{namespacegif-viewer_a8ef1b29c719e6d8e7b495ea9b83d9663}{chain\+\_\+length}}
+\item 
+\mbox{\hyperlink{namespacegif-viewer_ae4938fd126b261bcfc099a45a4b251fa}{parallel}}
+\item 
+\mbox{\hyperlink{namespacegif-viewer_a45e37c4e023e1b50582a53c958e755ae}{hardware\+\_\+mapping}}
+\item 
+\mbox{\hyperlink{namespacegif-viewer_a1c9b4ac371590ec4a5253f394779e1bf}{matrix}} = RGBMatrix(\mbox{\hyperlink{namespacegif-viewer_ae4b6bc7dad8c3cb970d35ac4835a2ea7}{options}} = \mbox{\hyperlink{namespacegif-viewer_ae4b6bc7dad8c3cb970d35ac4835a2ea7}{options}})
+\item 
+list \mbox{\hyperlink{namespacegif-viewer_a9ff122a0be5da07a2324104126f6396b}{canvases}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespacegif-viewer_a5b53703ee0cc756e79c3dafd42b69a01}{frame}} = gif.\+copy()
+\item 
+\mbox{\hyperlink{namespacegif-viewer_a363cdef3503ccf02d7495037614f52ee}{canvas}} = matrix.\+Create\+Frame\+Canvas()
+\item 
+int \mbox{\hyperlink{namespacegif-viewer_a671ff27520a50dcdbd3980b0dd21da94}{cur\+\_\+frame}} = 0
+\item 
+\mbox{\hyperlink{namespacegif-viewer_a130de62239e1f776ead505bd62ba0f53}{framerate\+\_\+fraction}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacegif-viewer_a363cdef3503ccf02d7495037614f52ee}\label{namespacegif-viewer_a363cdef3503ccf02d7495037614f52ee} 
+\index{gif-\/viewer@{gif-\/viewer}!canvas@{canvas}}
+\index{canvas@{canvas}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{canvas}{canvas}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+canvas = matrix.\+Create\+Frame\+Canvas()}
+
+\Hypertarget{namespacegif-viewer_a9ff122a0be5da07a2324104126f6396b}\label{namespacegif-viewer_a9ff122a0be5da07a2324104126f6396b} 
+\index{gif-\/viewer@{gif-\/viewer}!canvases@{canvases}}
+\index{canvases@{canvases}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{canvases}{canvases}}
+{\footnotesize\ttfamily list \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+canvases = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespacegif-viewer_a8ef1b29c719e6d8e7b495ea9b83d9663}\label{namespacegif-viewer_a8ef1b29c719e6d8e7b495ea9b83d9663} 
+\index{gif-\/viewer@{gif-\/viewer}!chain\_length@{chain\_length}}
+\index{chain\_length@{chain\_length}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{chain\_length}{chain\_length}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+chain\+\_\+length}
+
+\Hypertarget{namespacegif-viewer_ac0834a332ce68fcc8d278a64be7ffb57}\label{namespacegif-viewer_ac0834a332ce68fcc8d278a64be7ffb57} 
+\index{gif-\/viewer@{gif-\/viewer}!cols@{cols}}
+\index{cols@{cols}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{cols}{cols}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+cols}
+
+\Hypertarget{namespacegif-viewer_a671ff27520a50dcdbd3980b0dd21da94}\label{namespacegif-viewer_a671ff27520a50dcdbd3980b0dd21da94} 
+\index{gif-\/viewer@{gif-\/viewer}!cur\_frame@{cur\_frame}}
+\index{cur\_frame@{cur\_frame}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{cur\_frame}{cur\_frame}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+cur\+\_\+frame = 0}
+
+\Hypertarget{namespacegif-viewer_a5b53703ee0cc756e79c3dafd42b69a01}\label{namespacegif-viewer_a5b53703ee0cc756e79c3dafd42b69a01} 
+\index{gif-\/viewer@{gif-\/viewer}!frame@{frame}}
+\index{frame@{frame}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+frame = gif.\+copy()}
+
+\Hypertarget{namespacegif-viewer_a130de62239e1f776ead505bd62ba0f53}\label{namespacegif-viewer_a130de62239e1f776ead505bd62ba0f53} 
+\index{gif-\/viewer@{gif-\/viewer}!framerate\_fraction@{framerate\_fraction}}
+\index{framerate\_fraction@{framerate\_fraction}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{framerate\_fraction}{framerate\_fraction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+framerate\+\_\+fraction}
+
+\Hypertarget{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}\label{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe} 
+\index{gif-\/viewer@{gif-\/viewer}!gif@{gif}}
+\index{gif@{gif}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{gif}{gif}}
+{\footnotesize\ttfamily gif-\/viewer.\+gif = Image.\+open(\mbox{\hyperlink{namespacegif-viewer_a0834ed7628c04d65cf01274c701238b9}{image\+\_\+file}})}
+
+\Hypertarget{namespacegif-viewer_a45e37c4e023e1b50582a53c958e755ae}\label{namespacegif-viewer_a45e37c4e023e1b50582a53c958e755ae} 
+\index{gif-\/viewer@{gif-\/viewer}!hardware\_mapping@{hardware\_mapping}}
+\index{hardware\_mapping@{hardware\_mapping}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{hardware\_mapping}{hardware\_mapping}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+hardware\+\_\+mapping}
+
+\Hypertarget{namespacegif-viewer_a0834ed7628c04d65cf01274c701238b9}\label{namespacegif-viewer_a0834ed7628c04d65cf01274c701238b9} 
+\index{gif-\/viewer@{gif-\/viewer}!image\_file@{image\_file}}
+\index{image\_file@{image\_file}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{image\_file}{image\_file}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+image\+\_\+file = sys.\+argv\mbox{[}1\mbox{]}}
+
+\Hypertarget{namespacegif-viewer_a1c9b4ac371590ec4a5253f394779e1bf}\label{namespacegif-viewer_a1c9b4ac371590ec4a5253f394779e1bf} 
+\index{gif-\/viewer@{gif-\/viewer}!matrix@{matrix}}
+\index{matrix@{matrix}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+matrix = RGBMatrix(\mbox{\hyperlink{namespacegif-viewer_ae4b6bc7dad8c3cb970d35ac4835a2ea7}{options}} = \mbox{\hyperlink{namespacegif-viewer_ae4b6bc7dad8c3cb970d35ac4835a2ea7}{options}})}
+
+\Hypertarget{namespacegif-viewer_abfb2d31632f899019a0d5b975dbb027f}\label{namespacegif-viewer_abfb2d31632f899019a0d5b975dbb027f} 
+\index{gif-\/viewer@{gif-\/viewer}!num\_frames@{num\_frames}}
+\index{num\_frames@{num\_frames}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{num\_frames}{num\_frames}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+num\+\_\+frames = gif.\+n\+\_\+frames}
+
+\Hypertarget{namespacegif-viewer_ae4b6bc7dad8c3cb970d35ac4835a2ea7}\label{namespacegif-viewer_ae4b6bc7dad8c3cb970d35ac4835a2ea7} 
+\index{gif-\/viewer@{gif-\/viewer}!options@{options}}
+\index{options@{options}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{options}{options}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+options = RGBMatrix\+Options()}
+
+\Hypertarget{namespacegif-viewer_ae4938fd126b261bcfc099a45a4b251fa}\label{namespacegif-viewer_ae4938fd126b261bcfc099a45a4b251fa} 
+\index{gif-\/viewer@{gif-\/viewer}!parallel@{parallel}}
+\index{parallel@{parallel}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{parallel}{parallel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+parallel}
+
+\Hypertarget{namespacegif-viewer_a6d247d4a6b2f6ccff7e03c2c883bf27c}\label{namespacegif-viewer_a6d247d4a6b2f6ccff7e03c2c883bf27c} 
+\index{gif-\/viewer@{gif-\/viewer}!rows@{rows}}
+\index{rows@{rows}!gif-\/viewer@{gif-\/viewer}}
+\doxysubsubsection{\texorpdfstring{rows}{rows}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacegif-viewer_ac48b59d51b4e2758077eec8e1aa463fe}{gif}}-\/viewer.\+rows}
+

@@ -1,3 +1,8 @@
+/**
+ * @file guided_evolution.cpp
+ * @brief Implements GuidedColorEvolution, a class that smoothly transitions pixel colors to match a target image.
+ */
+
 #include "guided_evolution.h"
 #include "shared.h"
 #include <cstdlib>
@@ -6,7 +11,14 @@
 #include <chrono>
 #include <algorithm>
 
-
+/**
+ * @brief Constructs a GuidedColorEvolution object.
+ * 
+ * Initializes the canvas and fills the pixel array with random 24-bit RGB colors.
+ * 
+ * @param canvas Pointer to the LED matrix canvas.
+ * @param delay_ms Delay in milliseconds between frames.
+ */
 GuidedColorEvolution::GuidedColorEvolution(rgb_matrix::Canvas* canvas, int delay_ms)
     : DemoRunner(canvas), delay_ms_(delay_ms) {
     width_ = canvas->width();
@@ -20,6 +32,11 @@ GuidedColorEvolution::GuidedColorEvolution(rgb_matrix::Canvas* canvas, int delay
     }
 }
 
+/**
+ * @brief Starts the animation loop which gradually changes pixel colors to match the target image.
+ * 
+ * The animation stops when all pixels match their respective target values.
+ */
 void GuidedColorEvolution::Run() {
     while (!interrupt_received) {
         bool allMatch = true;
@@ -46,6 +63,16 @@ void GuidedColorEvolution::Run() {
     }
 }
 
+/**
+ * @brief Gradually mutates a color toward the target color by adjusting RGB channels.
+ * 
+ * Each color channel is incremented or decremented by a fixed step size
+ * until it matches the corresponding target channel.
+ * 
+ * @param color Reference to the color to be mutated.
+ * @param target The target color to evolve toward.
+ * @param step The maximum amount each channel can change per frame.
+ */
 void GuidedColorEvolution::guidedMutate(uint32_t& color, uint32_t target, int step) {
     int r = (color >> 16) & 0xFF;
     int g = (color >> 8) & 0xFF;

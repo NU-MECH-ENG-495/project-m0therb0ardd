@@ -1,0 +1,17 @@
+\chapter{Adapter PCB to support up to 3 panel chains}
+\hypertarget{md_matrix_2adapter_2passive-3_2README}{}\label{md_matrix_2adapter_2passive-3_2README}\index{Adapter PCB to support up to 3 panel chains@{Adapter PCB to support up to 3 panel chains}}
+
+\begin{DoxyItemize}
+\item This is a passive board. It is simple, but the logic level will be out of spec for the LED matrix (3.\+3V vs. 5V) which might or might not work. Driving long cables with the GPIO pins is also not a good idea.
+\item You typically want to consider using the \href{../active-3}{\texttt{ active board}}.
+\item Works for Matrix up to 1\+:16 multiplexing (32 rows). For 1\+:32 multiplexing, you want to use the \href{../active-3}{\texttt{ active board}}. You can of also hack this board as \href{https://github.com/hzeller/rpi-rgb-led-matrix/issues/360\#issuecomment-321104348}{\texttt{ suggested in this bugtracker entry}} to make it work with 64x64 boards.
+\item Only really advisable, if the LED panels have 74HCT245 (as opposed to just 74HC245) in their input stage, because then they can deal properly with the 3.\+3V logic levels coming from the Pi.
+\item Supports up to three panel chains for newer plus models and Raspberry Pi 2/3 that have 40 GPIO pins.
+\item Open source Ki\+CAD PCB EDA format.
+\item (not very pretty layout, was just lazy and let the auto-\/router do it).
+\item The FAB files are provided as \href{./passive3-rpi-hub75-adapter-fab.zip}{\texttt{ passive3-\/rpi-\/hub75-\/adapter-\/fab.\+zip}}
+\end{DoxyItemize}
+
+This board is \href{https://oshpark.com/shared_projects/FNAtZUsP}{\texttt{ shared on OSH Park}} (not affiliated).
+
+ 

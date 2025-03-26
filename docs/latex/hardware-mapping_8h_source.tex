@@ -1,0 +1,66 @@
+\doxysection{hardware-\/mapping.h}
+\hypertarget{hardware-mapping_8h_source}{}\label{hardware-mapping_8h_source}\index{matrix/lib/hardware-\/mapping.h@{matrix/lib/hardware-\/mapping.h}}
+\mbox{\hyperlink{hardware-mapping_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ -\/*-\/\ mode:\ c;\ c-\/basic-\/offset:\ 2;\ indent-\/tabs-\/mode:\ nil;\ -\/*-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Copyright\ (C)\ 2013\ Henner\ Zeller\ <h.zeller@acm.org>}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ This\ program\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ the\ Free\ Software\ Foundation\ version\ 2.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http:\ *gnu.org/licenses/gpl-\/2.0.txt>}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ RPI\_HARDWARE\_MAPPING\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ RPI\_HARDWARE\_MAPPING\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gpio-bits_8h}{gpio-\/bits.h}}"{}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structHardwareMapping}{HardwareMapping}}\ \{}
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{structHardwareMapping_af496444d376e98eb6fe4fdb50d7f39d6}{name}};}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structHardwareMapping_a68e7cb5270bbb2962c1f32003d4dcd6a}{max\_parallel\_chains}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a619fe72c82e8c0e863d7821815ef243f}{output\_enable}};}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a9663f78ab4d8b4f7d10b7ac814da7321}{clock}};}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_aa52f8bffe20f592febcf37f16407a641}{strobe}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a33053a77dee89d1563984601a00e7a6d}{a}},\ \mbox{\hyperlink{structHardwareMapping_a63f3d513e88fc949022deb040039fc98}{b}},\ \mbox{\hyperlink{structHardwareMapping_af86a346bd170fc90f4fb282820ad2045}{c}},\ \mbox{\hyperlink{structHardwareMapping_af07201d2787d24c3cebec172b08ce196}{d}},\ \mbox{\hyperlink{structHardwareMapping_ad163d2c5d2bf26225998d742543b7c3f}{e}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_afe79dba3e0b6c26585fe84fc84b427ea}{p0\_r1}},\ \mbox{\hyperlink{structHardwareMapping_ad915065c2a1d3bd764d82c18463e7003}{p0\_g1}},\ \mbox{\hyperlink{structHardwareMapping_a00a84b4d91082808a23a5d948e5b0d0e}{p0\_b1}};}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_ac79d299b791cb16048a0703cb234ceb1}{p0\_r2}},\ \mbox{\hyperlink{structHardwareMapping_a6d5f89af594ec0abd178f2455165d2b8}{p0\_g2}},\ \mbox{\hyperlink{structHardwareMapping_afe12dac6fb35273253c57e7a65101272}{p0\_b2}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a90908b77c2edf464ef4c53c042541782}{p1\_r1}},\ \mbox{\hyperlink{structHardwareMapping_ac32270076e0f243a8c231099ac3c3d8b}{p1\_g1}},\ \mbox{\hyperlink{structHardwareMapping_ad86d943d14ac6ff11c7be71bd3c4a697}{p1\_b1}};}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a7d704c8ac4c633b003a94c8a043aac55}{p1\_r2}},\ \mbox{\hyperlink{structHardwareMapping_a7f6f814c5bb30461230f6861f3e42d00}{p1\_g2}},\ \mbox{\hyperlink{structHardwareMapping_a3778a8529f89cd7d68df03fa537bbb47}{p1\_b2}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_ab725014072f3db5186cf044ab68b8b28}{p2\_r1}},\ \mbox{\hyperlink{structHardwareMapping_aa79aa9bcb78c4ef47ef6b816b32a7b0e}{p2\_g1}},\ \mbox{\hyperlink{structHardwareMapping_a36cc43a5951290248d194c67cf82b513}{p2\_b1}};}
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_ad118da6b1f55db984044c8b18606bb24}{p2\_r2}},\ \mbox{\hyperlink{structHardwareMapping_aaf6658a5fdc02c194894afc0f1547caf}{p2\_g2}},\ \mbox{\hyperlink{structHardwareMapping_aaaa74a891a4bc3a221877e49a411d523}{p2\_b2}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a5c0a80afd2075a13860d1eff1e3c34a4}{p3\_r1}},\ \mbox{\hyperlink{structHardwareMapping_afa55d7092d611b1fc7fca0c32db66cdd}{p3\_g1}},\ \mbox{\hyperlink{structHardwareMapping_a4f184b4c5ee19f7f4531d395075015ca}{p3\_b1}};}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a0cf7c70f0f0652b71da4fc6b3b3c91a5}{p3\_r2}},\ \mbox{\hyperlink{structHardwareMapping_af696d613e8b43198b00053b6f5a725f0}{p3\_g2}},\ \mbox{\hyperlink{structHardwareMapping_a900a39159e64cd0e3b245d690000884d}{p3\_b2}};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a11e457364defdfc2e77a3da4369958ce}{p4\_r1}},\ \mbox{\hyperlink{structHardwareMapping_aedffe5e4dcfb4fd686c31716f43447b5}{p4\_g1}},\ \mbox{\hyperlink{structHardwareMapping_add96e95ff343e468e3f938df956e91ba}{p4\_b1}};}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_ab11233ca8d2e34b6226f187d73b47112}{p4\_r2}},\ \mbox{\hyperlink{structHardwareMapping_af0387a1f7a223c55575eca563536bd33}{p4\_g2}},\ \mbox{\hyperlink{structHardwareMapping_ad214b596fc1443ffe9363b7ddb8f6f03}{p4\_b2}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_a265d3fec8567188b7c06ca23d13edbd1}{p5\_r1}},\ \mbox{\hyperlink{structHardwareMapping_a7edcabbf0d9e77cd8685999ca7c316f1}{p5\_g1}},\ \mbox{\hyperlink{structHardwareMapping_ae140e44717da5adab5089010cf9deb2c}{p5\_b1}};}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{gpio-bits_8h_ada304a1a789177842c31231d303855a9}{gpio\_bits\_t}}\ \mbox{\hyperlink{structHardwareMapping_aaacc07e31813c9bdece7876e0e6a00ac}{p5\_r2}},\ \mbox{\hyperlink{structHardwareMapping_af01d30b849ac05b41f896213e3fc858c}{p5\_g2}},\ \mbox{\hyperlink{structHardwareMapping_a8ca0a6ad94ef6a5756a8e3059d6f47c5}{p5\_b2}};}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structHardwareMapping}{HardwareMapping}}\ \mbox{\hyperlink{hardware-mapping_8h_a1a05d86f69c0ca52ae992e4dd92b9f0b}{matrix\_hardware\_mappings}}[];}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#ifdef\ \ \_\_cplusplus}}
+\DoxyCodeLine{00057\ \}\ \ \textcolor{comment}{//\ extern\ C}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
