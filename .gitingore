@@ -1,0 +1,25 @@
+# Build files
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Binaries
+*.o
+*.a
+*.so
+main_exec
+demo
+
+# Editor/OS junk
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode/
+
+# Submodule build files (optional if you’re using rpi-rgb-led-matrix)
+matrix/lib/CMakeFiles/
+matrix/lib/CMakeCache.txt
+matrix/lib/Makefile
